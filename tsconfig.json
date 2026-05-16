@@ -46,7 +46,9 @@
     "/tmp/.next_build8/types/**/*.ts",
     "/tmp/.next_build8/dev/types/**/*.ts",
     "/tmp/.next_build9/types/**/*.ts",
-    "/tmp/.next_build9/dev/types/**/*.ts"
+    "/tmp/.next_build9/dev/types/**/*.ts",
+    "/tmp/.next_build10/types/**/*.ts",
+    "/tmp/.next_build10/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
