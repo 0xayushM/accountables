@@ -1,26 +1,578 @@
 @import "tailwindcss";
 
+/* ============================================
+   ACCOUNTABLES — APPLE-MINIMAL DESIGN TOKENS
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --background: #fbfbfd;
+  --surface: #ffffff;
+  --surface-soft: #f5f5f7;
+  --surface-elevated: #ffffff;
+
+  /* Text */
+  --foreground: #0a0e1a;
+  --text-primary: #0a0e1a;
+  --text-secondary: #4b5160;
+  --text-muted: #86868b;
+
+  /* Brand */
+  --brand-navy: #0b1e3f;
+  --brand-navy-soft: #14305f;
+  --brand-blue: #1d4ed8;
+  --brand-accent: #0a84ff;
+
+  /* Football jersey stripes (subtle) */
+  --stripe-a: #f4f5f9;
+  --stripe-b: #ffffff;
+
+  /* Lines */
+  --border: rgba(10, 14, 26, 0.08);
+  --border-strong: rgba(10, 14, 26, 0.14);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+/* Display headings — tight, Apple-style */
+.display {
+  font-family: var(--font-display), var(--font-sans), -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+/* Serif italic accent — used on a single word inside a display heading
+   to add warmth and rhythm against the tight sans-serif. */
+.accent {
+  font-family: var(--font-serif), "Playfair Display", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  /* Slight optical adjustments so the serif sits well alongside Manrope */
+  font-size: 1.04em;
+  padding-right: 0.04em;
+}
+
+/* Mono — used for eyebrows, indices, technical micro-copy. */
+.mono {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+
+/* Eyebrow with dot indicator — borrowed from the Anthropic design,
+   translated into the Apple-minimal light palette. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+}
+
+/* Bordered tabular strip — like a data grid header */
+.strip {
+  display: grid;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.strip > .cell {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border);
+}
+.strip > .cell:last-child { border-right: 0; }
+@media (max-width: 800px) {
+  .strip > .cell { border-bottom: 1px solid var(--border); }
+  .strip > .cell:nth-last-child(-n+1) { border-bottom: 0; }
+}
+
+/* Two-column comparison split (before / after) */
+.psplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.psplit > div { padding: 32px; }
+.psplit .pleft { background: rgba(255, 226, 226, 0.18); border-right: 1px solid var(--border); }
+.psplit .pright { background: rgba(29, 78, 216, 0.04); }
+@media (max-width: 760px) {
+  .psplit { grid-template-columns: 1fr; }
+  .psplit .pleft { border-right: 0; border-bottom: 1px solid var(--border); }
+}
+
+/* ============================================
+   FOOTBALL JERSEY STRIPES — HERO BACKGROUND
+   Subtle vertical stripes with a soft fade.
+   ============================================ */
+.jersey-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--stripe-a) 0px,
+    var(--stripe-a) 64px,
+    var(--stripe-b) 64px,
+    var(--stripe-b) 128px
+  );
+}
+
+@media (min-width: 768px) {
+  .jersey-stripes {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--stripe-a) 0px,
+      var(--stripe-a) 96px,
+      var(--stripe-b) 96px,
+      var(--stripe-b) 192px
+    );
+  }
+}
+
+.jersey-fade {
+  background:
+    radial-gradient(120% 80% at 50% 20%, rgba(255, 255, 255, 0) 0%, rgba(251, 251, 253, 0.6) 60%, rgba(251, 251, 253, 1) 100%),
+    radial-gradient(60% 60% at 100% 0%, rgba(29, 78, 216, 0.06) 0%, rgba(29, 78, 216, 0) 60%),
+    radial-gradient(50% 50% at 0% 100%, rgba(10, 132, 255, 0.05) 0%, rgba(10, 132, 255, 0) 60%);
+}
+
+/* ============================================
+   DARK / INVERTED VARIANT — for /waitlist
+   The stripes "revert" — dark on dark with a
+   smooth horizontal slide-in entrance.
+   ============================================ */
+:root {
+  --stripe-dark-a: #0a1124;
+  --stripe-dark-b: #0e1830;
+}
+
+.jersey-stripes-dark {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--stripe-dark-a) 0px,
+    var(--stripe-dark-a) 64px,
+    var(--stripe-dark-b) 64px,
+    var(--stripe-dark-b) 128px
+  );
+}
+@media (min-width: 768px) {
+  .jersey-stripes-dark {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--stripe-dark-a) 0px,
+      var(--stripe-dark-a) 96px,
+      var(--stripe-dark-b) 96px,
+      var(--stripe-dark-b) 192px
+    );
+  }
+}
+
+.jersey-fade-dark {
+  background:
+    radial-gradient(120% 80% at 50% 20%, rgba(11, 18, 38, 0) 0%, rgba(7, 11, 26, 0.55) 60%, rgba(5, 8, 20, 1) 100%),
+    radial-gradient(60% 60% at 100% 0%, rgba(29, 78, 216, 0.22) 0%, rgba(29, 78, 216, 0) 60%),
+    radial-gradient(50% 50% at 0% 100%, rgba(10, 132, 255, 0.18) 0%, rgba(10, 132, 255, 0) 60%);
+}
+
+/* Sliding transition — stripes glide horizontally
+   into place on mount, and keep gliding slowly. */
+@keyframes stripeSlide {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes stripeDrift {
+  from { background-position: 0 0; }
+  to { background-position: 384px 0; }
+}
+
+.stripe-slide-in {
+  /* Slight overshoot so the seam never shows */
+  width: 130%;
+  left: -15%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  animation:
+    stripeSlide 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    stripeDrift 28s linear 1.4s infinite;
+  will-change: transform, background-position;
+}
+
+/* Fade overlay should ease-in too */
+.fade-in-soft {
+  animation: fadeInSoft 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes fadeInSoft {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Page-level dark theme: scoped to .theme-dark so it
+   only affects the waitlist route, not the whole site. */
+.theme-dark {
+  --background: #050814;
+  --surface: #0c1430;
+  --surface-soft: #0a1124;
+  --foreground: #f4f6fb;
+  --text-primary: #f4f6fb;
+  --text-secondary: #b6bdd0;
+  --text-muted: #7a849c;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.theme-dark .pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.theme-dark .card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.theme-dark .card:hover {
+  box-shadow: 0 18px 60px -20px rgba(10, 132, 255, 0.35);
+  border-color: var(--border-strong);
+}
+
+.theme-dark .btn-ghost {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.theme-dark .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--text-primary);
+}
+
+/* Navbar in dark theme — translucent dark backdrop, white logo */
+.theme-dark header.site-nav.unscrolled {
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+.theme-dark header.site-nav.scrolled {
+  background: rgba(5, 8, 20, 0.72) !important;
+  backdrop-filter: blur(18px);
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+.theme-dark header.site-nav a,
+.theme-dark header.site-nav span,
+.theme-dark header.site-nav button {
+  color: rgba(255, 255, 255, 0.85);
+}
+.theme-dark header.site-nav .nav-logo {
+  filter: brightness(0) invert(1);
+}
+.theme-dark header.site-nav .btn-primary {
+  background: #fff;
+  color: var(--brand-navy);
+}
+.theme-dark header.site-nav .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px -10px rgba(10, 132, 255, 0.5);
+}
+
+/* Mobile drawer in dark theme — dark backdrop so white text is legible */
+.theme-dark header.site-nav .nav-mobile-drawer {
+  background: rgba(5, 8, 20, 0.95) !important;
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+.theme-dark header.site-nav .nav-mobile-drawer a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer in dark theme — keep contrast clean */
+.theme-dark footer {
+  background: #05080f !important;
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+.theme-dark footer .nav-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -20px rgba(10, 14, 26, 0.18);
+  border-color: var(--border-strong);
+}
+
+/* Pill */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--surface-soft);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  background: var(--brand-navy);
+  color: #fff;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover {
+  background: #050d22;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -12px rgba(11, 30, 63, 0.45);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-ghost:hover {
+  background: var(--surface-soft);
+  border-color: var(--text-primary);
+}
+
+/* Subtle reveal */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.2s; }
+.rise-4 { animation-delay: 0.28s; }
+.rise-5 { animation-delay: 0.36s; }
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ============================================
+   GLOW / SHINE — for the waitlist highlight
+   ============================================ */
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(10, 132, 255, 0.45),
+                0 12px 32px -10px rgba(10, 132, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(10, 132, 255, 0),
+                0 18px 40px -10px rgba(10, 132, 255, 0.7);
+  }
+}
+@keyframes ringPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+.waitlist-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px 9px 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #fff;
+  /* Palindromic gradient — start = end, so the slide loop has no visible seam */
+  background: linear-gradient(
+      90deg,
+      #0b1e3f 0%,
+      #14305f 18%,
+      #1d4ed8 36%,
+      #0a84ff 50%,
+      #1d4ed8 64%,
+      #14305f 82%,
+      #0b1e3f 100%
+    );
+  background-size: 200% 100%;
+  animation: shine 8s linear infinite, glowPulse 3.2s ease-in-out infinite;
+  transition: transform 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  letter-spacing: -0.005em;
+  overflow: hidden;
+}
+.waitlist-chip:hover {
+  transform: translateY(-1px);
+}
+.waitlist-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.dot-pulse {
+  position: relative;
+  display: inline-flex;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  background: #34d399;
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.3);
+}
+.dot-pulse::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: #34d399;
+  animation: ringPulse 1.8s ease-out infinite;
+}
+
+/* Announcement bar */
+.announce-bar {
+  position: relative;
+  overflow: hidden;
+  /* Palindromic gradient — start = end so the loop has no visible seam */
+  background: linear-gradient(
+    90deg,
+    #0b1e3f 0%,
+    #14305f 18%,
+    #1d4ed8 36%,
+    #0a84ff 50%,
+    #1d4ed8 64%,
+    #14305f 82%,
+    #0b1e3f 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 16s linear infinite;
+  color: #fff;
+}
+.announce-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 80px,
+    transparent 80px,
+    transparent 160px
+  );
+  pointer-events: none;
+}
+
+/* Sparkle icon */
+.sparkle {
+  display: inline-flex;
+  height: 18px;
+  width: 18px;
+  align-items: center;
+  justify-content: center;
+}
+.sparkle svg {
+  animation: spinSlow 6s linear infinite;
 }
