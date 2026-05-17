@@ -1,5 +1,7 @@
 "use client";
 
+import { RevealBlock } from "./RevealBlock";
+
 export function CTA() {
   return (
     <section id="contact" className="py-20 md:py-28">
@@ -30,13 +32,17 @@ export function CTA() {
           />
 
           <div className="relative max-w-2xl">
-            <h2 className="display text-[36px] sm:text-[48px] md:text-[64px] font-semibold text-white">
-              Talk to us <span className="accent">today</span>.
-            </h2>
-            <p className="mt-5 text-[16px] md:text-[18px] leading-[1.55] text-white/70 max-w-lg">
-              We&apos;ll get back to you within 24 hours. No long contracts —
-              just clarity over your numbers.
-            </p>
+            <RevealBlock delay={0}>
+              <h2 className="display text-[36px] sm:text-[48px] md:text-[64px] font-semibold text-white">
+                Talk to us <span className="accent">today</span>.
+              </h2>
+            </RevealBlock>
+            <RevealBlock delay={80}>
+              <p className="mt-5 text-[16px] md:text-[18px] leading-[1.55] text-white/70 max-w-lg">
+                We&apos;ll get back to you within 24 hours. No long contracts —
+                just clarity over your numbers.
+              </p>
+            </RevealBlock>
 
             <form
               onSubmit={(e) => e.preventDefault()}

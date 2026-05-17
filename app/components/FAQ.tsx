@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { RevealBlock } from "./RevealBlock";
 
 const faqs = [
   {
@@ -31,10 +32,14 @@ export function FAQ() {
     <section className="py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="pill">FAQs</span>
-          <h2 className="display mt-5 text-[36px] sm:text-[44px] md:text-[52px] font-semibold text-[var(--text-primary)]">
-            Questions, <span className="accent">answered</span>.
-          </h2>
+          <RevealBlock delay={0}>
+            <span className="pill">FAQs</span>
+          </RevealBlock>
+          <RevealBlock delay={80}>
+            <h2 className="display mt-5 text-[36px] sm:text-[44px] md:text-[52px] font-semibold text-[var(--text-primary)]">
+              Questions, <span className="accent">answered</span>.
+            </h2>
+          </RevealBlock>
         </div>
 
         <div className="mt-12 md:mt-16 divide-y divide-[var(--border)]">

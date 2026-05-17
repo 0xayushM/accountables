@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CASES } from "../data/cases";
+import { RevealBlock } from "./RevealBlock";
 
 export function CaseStudiesPreview() {
   const featured = CASES.slice(0, 3);
@@ -10,34 +11,42 @@ export function CaseStudiesPreview() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 md:mb-16">
           <div className="max-w-xl">
-            <span className="pill">Customer case studies</span>
-            <h2 className="display mt-5 text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)]">
-              Real numbers from{" "}
-              <span className="accent">real teams</span>.
-            </h2>
-            <p className="mt-4 text-[16px] leading-[1.6] text-[var(--text-secondary)]">
-              Every case study is published with the client&apos;s permission. Numbers are real, names are real.
-            </p>
+            <RevealBlock delay={0}>
+              <span className="pill">Customer case studies</span>
+            </RevealBlock>
+            <RevealBlock delay={80}>
+              <h2 className="display mt-5 text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)]">
+                Real numbers from{" "}
+                <span className="accent">real teams</span>.
+              </h2>
+            </RevealBlock>
+            <RevealBlock delay={160}>
+              <p className="mt-4 text-[16px] leading-[1.6] text-[var(--text-secondary)]">
+                Every case study is published with the client&apos;s permission. Numbers are real, names are real.
+              </p>
+            </RevealBlock>
           </div>
-          <Link
-            href="/customers"
-            className="self-start md:self-end inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--brand-blue)] hover:underline underline-offset-4 flex-shrink-0"
-          >
-            All case studies
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+          <RevealBlock delay={160}>
+            <Link
+              href="/customers"
+              className="self-start md:self-end inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--brand-blue)] hover:underline underline-offset-4 flex-shrink-0"
+            >
+              All case studies
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2"
+                  strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </RevealBlock>
         </div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-3 gap-5 md:gap-6">
           {featured.map((c, i) => (
+            <RevealBlock key={c.slug} delay={i * 80}>
             <Link
-              key={c.slug}
               href={`/customers/${c.slug}`}
-              className={`card p-8 md:p-9 flex flex-col gap-5 group hover:-translate-y-0.5 transition-transform duration-200 ${
+              className={`card p-8 md:p-9 flex flex-col gap-5 group hover:-translate-y-0.5 transition-transform duration-200 h-full ${
                 i === 0 ? "md:col-span-1" : ""
               }`}
             >
@@ -73,10 +82,12 @@ export function CaseStudiesPreview() {
                 <span className="group-hover:translate-x-0.5 transition-transform">→</span>
               </div>
             </Link>
+            </RevealBlock>
           ))}
         </div>
 
         {/* Pull quote */}
+        <RevealBlock delay={0}>
         <div className="mt-12 md:mt-16 relative overflow-hidden rounded-2xl md:rounded-3xl p-8 md:p-12"
           style={{ background: "linear-gradient(135deg, var(--brand-navy) 0%, #14305f 60%, #1d4ed8 100%)" }}
         >
@@ -108,6 +119,7 @@ export function CaseStudiesPreview() {
             </div>
           </div>
         </div>
+        </RevealBlock>
       </div>
     </section>
   );

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { RevealBlock } from "./RevealBlock";
+import ScrollRevealText from "./ScrollRevealText";
 
 // ─── Finance Operations Environment dashboard mockup ─────────────────────────
 // Layout mirrors the screenshot; colours use the site's brand tokens.
@@ -208,35 +210,44 @@ export function FinanceOrganized() {
           <div className="flex flex-col gap-8 lg:sticky lg:top-24">
 
             {/* Eyebrow */}
-            <span className="pill w-fit">Powered by Accountables One</span>
+            <RevealBlock delay={0}>
+              <span className="pill w-fit">Powered by Accountables One</span>
+            </RevealBlock>
 
             {/* Headline */}
             <div>
-              <h2 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-                Finance,{" "}
-                <span className="accent">Organised</span>.
-              </h2>
-              <p className="mt-5 text-[16px] md:text-[17px] leading-[1.7] text-[var(--text-secondary)] max-w-[440px]">
-                A more structured approach to accounting, reporting and finance coordination — designed to bring clarity and consistency to day-to-day finance operations.
-              </p>
+              <RevealBlock delay={80}>
+                <h2 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
+                  Finance,{" "}
+                  <span className="accent">Organised</span>.
+                </h2>
+              </RevealBlock>
+              <RevealBlock delay={160} className="mt-5 max-w-[440px]">
+                <ScrollRevealText
+                  text="A more structured approach to accounting, reporting and finance coordination — designed to bring clarity and consistency to day-to-day finance operations."
+                  className="text-[16px] md:text-[17px] leading-[1.7]"
+                />
+              </RevealBlock>
             </div>
 
             {/* Feature rows */}
             <div className="flex flex-col divide-y divide-[var(--border)]">
               {features.map((f, i) => (
-                <div key={f.title} className={`flex flex-col gap-3 ${i === 0 ? "pb-7" : "py-7"}`}>
-                  <h3 className="text-[16px] md:text-[17px] font-semibold text-[var(--text-primary)]">
-                    {f.title}
-                  </h3>
-                  <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">{f.body}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-0.5">
-                    {f.tags.map((tag) => (
-                      <span key={tag} className="pill text-[11px] !py-1 !px-2.5">
-                        {tag}
-                      </span>
-                    ))}
+                <RevealBlock key={f.title} delay={240 + i * 80}>
+                  <div className={`flex flex-col gap-3 ${i === 0 ? "pb-7" : "py-7"}`}>
+                    <h3 className="text-[16px] md:text-[17px] font-semibold text-[var(--text-primary)]">
+                      {f.title}
+                    </h3>
+                    <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">{f.body}</p>
+                    <div className="flex flex-wrap gap-1.5 mt-0.5">
+                      {f.tags.map((tag) => (
+                        <span key={tag} className="pill text-[11px] !py-1 !px-2.5">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </RevealBlock>
               ))}
             </div>
 
