@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function Navbar() {
@@ -33,11 +34,12 @@ export function Navbar() {
         <div className="flex h-16 md:h-18 items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center" aria-label="Accountables home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/logo.png"
               alt="Accountables"
               className="nav-logo h-7 md:h-8 w-auto"
+              width={320}
+              height={320}
             />
           </a>
 

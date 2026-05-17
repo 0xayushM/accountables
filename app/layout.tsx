@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     "Real-time bookkeeping, tax, and CFO services for ambitious businesses. A dedicated finance team without the overhead.",
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
     ],
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 

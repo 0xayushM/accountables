@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Footer() {
   const cols = [
     {
@@ -47,8 +49,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2 md:col-span-2">
             <a href="/" className="inline-flex items-center" aria-label="Accountables home">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="Accountables" className="nav-logo h-7 w-auto" />
+              <Image src="/icon.svg" alt="Accountables" className="nav-logo h-24 w-24" width={96} height={96} />
             </a>
             <p className="mt-4 text-[14px] leading-[1.55] text-[var(--text-secondary)] max-w-xs">
               Your virtual finance department. Bookkeeping, tax, and CFO

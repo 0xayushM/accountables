@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-12 md:pt-20 pb-20 md:pb-28">
+    <section className="min-h-screen flex items-center relative overflow-hidden pt-12 md:pt-20 pb-20 md:pb-28">
       {/* Football jersey stripe background */}
       <div
         aria-hidden
@@ -96,7 +96,7 @@ export function Hero() {
                 "radial-gradient(60% 60% at 50% 50%, rgba(29, 78, 216, 0.18) 0%, rgba(255,255,255,0) 70%)",
             }}
           />
-          <div className="card overflow-hidden">
+          {/* <div className="card overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-4">
               {[
                 { k: "Live", v: "Books, in real time" },
@@ -121,7 +121,7 @@ export function Hero() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

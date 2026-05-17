@@ -24,7 +24,7 @@ export default function Home() {
         <ProblemSolution />
         <AiTeaser />
         <ServicesPreview />
-        <Differentiators />
+        {/* <Differentiators /> */}
         <Testimonials />
         <FAQ />
         <CTA />
