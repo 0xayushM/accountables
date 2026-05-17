@@ -30,6 +30,14 @@
   --border: rgba(10, 14, 26, 0.08);
   --border-strong: rgba(10, 14, 26, 0.14);
 
+  /* Navbar CTAs */
+  --nav-cta-bg: var(--brand-navy);
+  --nav-cta-text: #ffffff;
+  --nav-cta-bg-hover: var(--brand-navy-soft);
+  --nav-ghost-text: var(--text-primary);
+  --nav-ghost-border: var(--border-strong);
+  --nav-ghost-hover-bg: var(--surface-soft);
+
   /* Radius */
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -262,6 +270,13 @@ body {
   --text-muted: #7a849c;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.18);
+  /* Invert navbar CTAs so they pop against the dark hero */
+  --nav-cta-bg: #ffffff;
+  --nav-cta-text: var(--brand-navy);
+  --nav-cta-bg-hover: rgba(255, 255, 255, 0.92);
+  --nav-ghost-text: #f4f6fb;
+  --nav-ghost-border: rgba(255, 255, 255, 0.28);
+  --nav-ghost-hover-bg: rgba(255, 255, 255, 0.08);
   color: var(--foreground);
   background: var(--background);
 }
@@ -300,13 +315,32 @@ body {
   backdrop-filter: blur(18px);
   border-bottom-color: rgba(255, 255, 255, 0.06) !important;
 }
-.theme-dark header.site-nav a,
-.theme-dark header.site-nav span,
-.theme-dark header.site-nav button {
+.theme-dark header.site-nav:not(.nav-drop-open) nav a,
+.theme-dark header.site-nav:not(.nav-drop-open) nav button {
   color: rgba(255, 255, 255, 0.85);
 }
-.theme-dark header.site-nav .nav-logo {
+.theme-dark header.site-nav:not(.nav-drop-open) .nav-logo {
   filter: brightness(0) invert(1);
+}
+
+/* nav-drop-open: dropdown or mobile is open on a dark page → white bg, restore light-theme CTAs */
+.theme-dark header.site-nav.nav-drop-open {
+  --nav-cta-bg: var(--brand-navy);
+  --nav-cta-text: #ffffff;
+  --nav-cta-bg-hover: var(--brand-navy-soft);
+  --nav-ghost-text: #0a0e1a;
+  --nav-ghost-border: rgba(10, 14, 26, 0.14);
+  --nav-ghost-hover-bg: #f5f5f7;
+  --text-secondary: #4b5160;
+  --text-primary: #0a0e1a;
+}
+.theme-dark header.site-nav.nav-drop-open nav a,
+.theme-dark header.site-nav.nav-drop-open nav button {
+  color: #4b5160 !important;
+}
+.theme-dark header.site-nav.nav-drop-open nav a:hover,
+.theme-dark header.site-nav.nav-drop-open nav button:hover {
+  color: #0a0e1a !important;
 }
 .theme-dark header.site-nav .btn-primary {
   background: #fff;

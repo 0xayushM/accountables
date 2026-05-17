@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "../../components/PageShell";
 import { InnerCTA } from "../../components/InnerCTA";
-import { CASES, getCase } from "../../data/cases";
+import { CASES, getCase, type ScopeItem } from "../../data/cases";
 
 export function generateStaticParams() {
   return CASES.map((c) => ({ slug: c.slug }));
@@ -89,15 +89,101 @@ export default async function CaseDetail({
             </div>
           </div>
 
-          {/* Story */}
+          {/* Story / Context */}
           <div className="mt-16 md:mt-20 grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
             <div className="mono uppercase text-[var(--text-muted)]">
-              The story
+              {c.context ? "Context" : "The story"}
             </div>
             <p className="text-[17px] md:text-[19px] leading-[1.6] text-[var(--text-secondary)] max-w-2xl">
-              {c.body}
+              {c.context ?? c.body}
             </p>
           </div>
+
+          {/* Role */}
+          {c.role && (
+            <div className="mt-12 md:mt-16 grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="mono uppercase text-[var(--text-muted)]">
+                Our role
+              </div>
+              <p className="text-[17px] md:text-[19px] leading-[1.6] text-[var(--text-secondary)] max-w-2xl">
+                {c.role}
+              </p>
+            </div>
+          )}
+
+          {/* Scope */}
+          {c.scopeItems && c.scopeItems.length > 0 && (
+            <div className="mt-12 md:mt-16 grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="mono uppercase text-[var(--text-muted)]">
+                Scope of work
+              </div>
+              <div className="max-w-2xl space-y-8">
+                {c.scopeItems.map((item: ScopeItem, i: number) => (
+                  <div key={item.title} className="flex gap-5">
+                    <span className="mono text-[var(--text-muted)] shrink-0 pt-0.5">
+                      0{i + 1}
+                    </span>
+                    <div>
+                      <div className="text-[16px] md:text-[17px] font-semibold text-[var(--text-primary)] mb-1">
+                        {item.title}
+                      </div>
+                      {item.body && (
+                        <p className="text-[15px] md:text-[16px] leading-[1.6] text-[var(--text-secondary)]">
+                          {item.body}
+                        </p>
+                      )}
+                      {item.bullets && item.bullets.length > 0 && (
+                        <ul className="mt-2 space-y-1.5">
+                          {item.bullets.map((b) => (
+                            <li
+                              key={b}
+                              className="flex gap-2.5 text-[14px] md:text-[15px] leading-[1.6] text-[var(--text-secondary)]"
+                            >
+                              <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">
+                                —
+                              </span>
+                              {b}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Results */}
+          {c.resultBullets && c.resultBullets.length > 0 && (
+            <div className="mt-12 md:mt-16 grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="mono uppercase text-[var(--text-muted)]">
+                Results
+              </div>
+              <ul className="max-w-2xl space-y-4">
+                {c.resultBullets.map((b) => {
+                  const colon = b.indexOf(":");
+                  const title = colon > -1 ? b.slice(0, colon) : null;
+                  const body = colon > -1 ? b.slice(colon + 1).trim() : b;
+                  return (
+                    <li key={b} className="flex gap-3">
+                      <span className="text-[var(--brand-blue)] shrink-0 mt-1 text-[16px]">
+                        ✓
+                      </span>
+                      <span className="text-[15px] md:text-[16px] leading-[1.6] text-[var(--text-secondary)]">
+                        {title && (
+                          <span className="font-semibold text-[var(--text-primary)]">
+                            {title}:{" "}
+                          </span>
+                        )}
+                        {body}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 
