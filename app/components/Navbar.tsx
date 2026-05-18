@@ -26,6 +26,7 @@ const ABOUT_ITEMS: DropItem[] = [
   { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },
   { label: "Press", desc: "Latest news and updates", href: "/press" },
   { label: "Partner Marketplace", desc: "Businesses we work with to help you scale", href: "/partners" },
+  { label: "Careers", desc: "Join our team of finance professionals", href: "/careers" },
 ];
 
 const SERVICE_ITEMS: DropItem[] = [
