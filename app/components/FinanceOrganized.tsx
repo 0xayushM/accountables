@@ -173,6 +173,37 @@ function DashboardMockup() {
             </div>
           ))}
         </div>
+
+        {/* Row 4: Recent Activity */}
+        <div className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-2xl p-4">
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-[9px] tracking-[0.18em] uppercase font-semibold text-white/40">
+              Recent Activity
+            </p>
+            <span className="text-[9px] text-white/30">Finance Team</span>
+          </div>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { initials: "AC", msg: "Month-end reporting pack shared for review.", time: "2h ago", color: "from-[var(--brand-navy)] to-[var(--brand-blue)]" },
+              { initials: "JH", msg: "VAT submission confirmed — Q1 filing complete.", time: "5h ago", color: "from-[var(--brand-blue)] to-[var(--brand-accent)]" },
+              { initials: "AC", msg: "Payroll coordination underway for April cycle.", time: "1d ago", color: "from-[var(--brand-navy)] to-[var(--brand-blue)]" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <div
+                  className="h-6 w-6 rounded-full flex-shrink-0 flex items-center justify-center text-[8px] font-bold text-white mt-0.5"
+                  style={{ background: `linear-gradient(135deg, var(--brand-navy), var(--brand-blue))` }}
+                >
+                  {item.initials}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] leading-[1.45] text-white/65">{item.msg}</p>
+                  <p className="text-[9px] text-white/30 mt-0.5">{item.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
@@ -189,12 +220,12 @@ const features = [
   {
     title: "Coordinated Execution",
     body: "Accounting, compliance and reporting workflows managed within one connected operating environment.",
-    tags: ["Task tracking", "Compliance timelines", "Workflow status"],
+    tags: ["Task tracking", "Compliance timelines", "Workflow status visibility"],
   },
   {
     title: "Ongoing Finance Support",
-    body: "Communicate, coordinate and manage ongoing finance activities with the Accountables team through a centralised operational environment.",
-    tags: ["Team communication", "Approvals", "Ongoing coordination"],
+    body: "Communicate, coordinate and manage ongoing finance activities with the Accountables team through a centralized operational environment.",
+    tags: ["Team communication", "Approvals", "Queries and ongoing coordination"],
   },
 ];
 
@@ -207,33 +238,42 @@ export function FinanceOrganized() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
           {/* ── Left: text ── */}
-          <div className="flex flex-col gap-8 lg:sticky lg:top-24">
-
-            {/* Eyebrow */}
-            <RevealBlock delay={0}>
-              <span className="pill w-fit">Powered by Accountables One</span>
-            </RevealBlock>
+          <div className="flex flex-col gap-8">
 
             {/* Headline */}
             <div>
-              <RevealBlock delay={80}>
+              <RevealBlock delay={0}>
                 <h2 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
                   Finance,{" "}
-                  <span className="accent">Organised</span>.
+                  <span className="accent">Organized</span>.
                 </h2>
               </RevealBlock>
-              <RevealBlock delay={160} className="mt-5 max-w-[440px]">
+              <RevealBlock delay={80} className="mt-5 max-w-[440px]">
                 <ScrollRevealText
                   text="A more structured approach to accounting, reporting and finance coordination — designed to bring clarity and consistency to day-to-day finance operations."
                   className="text-[16px] md:text-[17px] leading-[1.7]"
                 />
+              </RevealBlock>
+              <RevealBlock delay={140}>
+                <p className="mt-3 text-[12.5px] text-[var(--text-muted)]">
+                  Powered by{" "}
+                  <a
+                    href="https://one.accountables.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2"
+                  >
+                    Accountables One
+                  </a>
+                  .
+                </p>
               </RevealBlock>
             </div>
 
             {/* Feature rows */}
             <div className="flex flex-col divide-y divide-[var(--border)]">
               {features.map((f, i) => (
-                <RevealBlock key={f.title} delay={240 + i * 80}>
+                <RevealBlock key={f.title} delay={200 + i * 80}>
                   <div className={`flex flex-col gap-3 ${i === 0 ? "pb-7" : "py-7"}`}>
                     <h3 className="text-[16px] md:text-[17px] font-semibold text-[var(--text-primary)]">
                       {f.title}
@@ -267,7 +307,7 @@ export function FinanceOrganized() {
           </div>
 
           {/* ── Right: dashboard ── */}
-          <div className="lg:pt-10">
+          <div className="lg:pt-4 lg:sticky lg:top-24 self-start">
             <DashboardMockup />
           </div>
 

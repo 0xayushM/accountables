@@ -8,28 +8,28 @@ const pillars = [
     icon: "∑",
     title: "Operational Accounting",
     body: "Bookkeeping, reconciliations, accounts payable and receivable management, reporting workflows and month-end close.",
-    href: "/services/bookkeeping",
+    href: "/services",
   },
   {
     number: "02",
     icon: "⊞",
     title: "Compliance & Reporting",
     body: "Payroll, tax coordination, year-end support, management reporting and regulatory compliance workflows.",
-    href: "/services/accounting-tax",
+    href: "/services",
   },
   {
     number: "03",
     icon: "╱",
     title: "Planning & Finance Support",
     body: "Forecasting, cash flow visibility, KPI reporting and strategic finance support.",
-    href: "/services/financial-analysis",
+    href: "/services",
   },
   {
     number: "04",
     icon: "◇",
     title: "Fractional Finance Leadership",
     body: "Structured finance oversight designed to evolve alongside growing businesses.",
-    href: "/services/cfo-advisory",
+    href: "/services",
   },
 ];
 
@@ -41,24 +41,18 @@ export function VirtualFinanceDept() {
         {/* Header */}
         <div className="grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 mb-14 md:mb-16 items-end">
           <div>
-            {/* Pill */}
-            <RevealBlock delay={0}>
-              <span className="pill mb-5 block w-fit">Your virtual finance department</span>
-            </RevealBlock>
-
             {/* Heading — RevealBlock preserves accent styling */}
-            <RevealBlock delay={80}>
+            <RevealBlock delay={0}>
               <h2 className="display text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[var(--text-primary)] leading-[1.04]">
-                Finance that <span className="accent">scales</span>
-                <br />with you.
+                Your Virtual <span className="accent">Finance</span> Department.
               </h2>
             </RevealBlock>
           </div>
 
           {/* Description — ScrollRevealText color sweep */}
-          <RevealBlock delay={160} className="md:pb-1">
+          <RevealBlock delay={80} className="md:pb-1">
             <ScrollRevealText
-              text="Accountables combines operational accounting, reporting, compliance and finance coordination within a connected operating environment — designed for growing businesses."
+              text="Accountables combines operational accounting, reporting, compliance and finance coordination within a connected operating environment designed for growing businesses."
               className="text-[16px] md:text-[17px] leading-[1.7]"
             />
           </RevealBlock>

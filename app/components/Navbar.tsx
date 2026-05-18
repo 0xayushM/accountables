@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { SERVICES } from "../data/services";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -29,12 +28,32 @@ const ABOUT_ITEMS: DropItem[] = [
   { label: "Partner Marketplace", desc: "Businesses we work with to help you scale", href: "/partners" },
 ];
 
-const SERVICE_ITEMS: DropItem[] = SERVICES.slice(0, 8).map((s) => ({
-  label: s.name,
-  desc: s.summary.slice(0, 52) + (s.summary.length > 52 ? "…" : ""),
-  href: s.externalHref ?? `/services/${s.slug}`,
-  icon: s.icon,
-}));
+const SERVICE_ITEMS: DropItem[] = [
+  {
+    label: "Operational Accounting",
+    desc: "Bookkeeping, reconciliations, AP/AR and month-end close",
+    href: "/services",
+    icon: "∑",
+  },
+  {
+    label: "Compliance & Reporting",
+    desc: "Payroll, tax coordination, year-end and regulatory workflows",
+    href: "/services",
+    icon: "⊞",
+  },
+  {
+    label: "Planning & Finance Support",
+    desc: "Forecasting, cash flow visibility and KPI reporting",
+    href: "/services",
+    icon: "╱",
+  },
+  {
+    label: "Fractional Finance Leadership",
+    desc: "Structured finance oversight for growing businesses",
+    href: "/services",
+    icon: "◇",
+  },
+];
 
 // ─── Chevron ────────────────────────────────────────────────────────────────
 
@@ -59,9 +78,9 @@ function ServicesPanel({ close }: { close: () => void }) {
     <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[280px]">
       {/* Left */}
       <div className="p-6 flex flex-col gap-2">
-        <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Accounting Services</p>
+        <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Your Virtual Finance Department</p>
         <p className="text-[12.5px] leading-[1.55] text-[var(--text-secondary)]">
-          Expert bookkeeping, tax and CFO services for ambitious businesses — backed by AI.
+          Accounting, reporting, compliance and finance coordination within one connected operating environment.
         </p>
         <Link href="/services" onClick={close} className="mt-auto text-[12.5px] text-[var(--brand-blue)] font-medium hover:underline">
           All services →
@@ -90,16 +109,16 @@ function ServicesPanel({ close }: { close: () => void }) {
 
       {/* Right: CTA */}
       <div className="p-6 bg-[#f5f5f7] flex flex-col">
-        <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2">Talk to an expert</div>
+        <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2">Book a consultation</div>
         <p className="text-[12.5px] leading-[1.55] text-[var(--text-secondary)]">
-          Not sure where to start or which service fits your needs? Our team is ready to guide you.
+          Structured finance support designed around visibility, coordination and scalable growth.
         </p>
         <Link
           href="/#contact"
           onClick={close}
           className="mt-auto inline-flex items-center justify-center h-9 px-5 rounded-full bg-[var(--brand-navy)] text-white text-[12px] font-semibold hover:bg-[var(--brand-navy-soft)] transition-colors"
         >
-          Book a demo →
+          Book a Consultation →
         </Link>
       </div>
     </div>
