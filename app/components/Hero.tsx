@@ -117,13 +117,8 @@ function DashboardMockup() {
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
 export function Hero() {
-  const bullets = [
-    "1M+ months of completed books",
-    "£200M+ in savings with tax credits",
-  ];
-
   return (
-    <section className="relative overflow-hidden pt-14 md:pt-20 pb-24 md:pb-32">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden">
       {/* Background */}
       <div aria-hidden className="absolute inset-0 jersey-stripes opacity-[0.85]" />
       <div aria-hidden className="absolute inset-0 jersey-fade" />
@@ -153,59 +148,39 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="rise rise-2 display text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-              Confidence in your{" "}
-              <span className="accent">numbers</span>
+              Modern{" "}
+              <span className="accent">Finance</span>
               <br />
-              without doing{" "}
-              <span
-                style={{
-                  background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 60%, var(--brand-accent) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                the work.
-              </span>
+              Function.
             </h1>
 
             {/* Sub-copy */}
             <p className="rise rise-3 mt-6 text-[16px] md:text-[18px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
-              Get a dedicated bookkeeper in your corner who really knows your business, backed by software that keeps everything organised and visible.
+              Designed around connected finance operations.
             </p>
 
-            {/* Bullet metrics */}
-            <ul className="rise rise-4 mt-6 flex flex-col gap-2">
-              {bullets.map((b) => (
-                <li key={b} className="flex items-center gap-2.5 text-[14px] text-[var(--text-secondary)]">
-                  <span
-                    className="text-[11px] font-bold"
-                    style={{ color: "var(--brand-accent)" }}
-                  >
-                    ✦
-                  </span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs */}
-            <div className="rise rise-5 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            {/* CTA */}
+            <div className="rise rise-4 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <Link
                 href="/#contact"
                 className="btn-primary !px-7 !py-3 !text-[14.5px]"
               >
-                Schedule a Call
-              </Link>
-              <Link
-                href="/ai"
-                className="text-[14px] font-semibold text-[var(--text-primary)] underline underline-offset-4 decoration-black/20 hover:decoration-black/50 transition-all"
-              >
-                Free Trial
+                Book a Consultation
               </Link>
             </div>
 
+            {/* Powered by */}
             <p className="rise rise-5 mt-5 text-[12.5px] text-[var(--text-muted)]">
-              No long contracts · Trusted by 100+ businesses
+              Powered by{" "}
+              <a
+                href="https://one.accountables.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2"
+              >
+                Accountables One
+              </a>
+              .
             </p>
           </div>
 
