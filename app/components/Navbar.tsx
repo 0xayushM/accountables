@@ -26,7 +26,6 @@ const ABOUT_ITEMS: DropItem[] = [
   { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },
   { label: "Press", desc: "Latest news and updates", href: "/press" },
   { label: "Partner Marketplace", desc: "Businesses we work with to help you scale", href: "/partners" },
-  { label: "Careers", desc: "Join our team of finance professionals", href: "/careers" },
 ];
 
 const SERVICE_ITEMS: DropItem[] = [
@@ -308,6 +307,13 @@ export function Navbar() {
             >
               Pricing
             </Link>
+            <Link
+              href="/careers"
+              className={`${linkBase} ${linkColor}`}
+              onMouseEnter={() => { clearHide(); setActiveDrop(null); }}
+            >
+              Careers
+            </Link>
             <button className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("about")}>
               About <Chevron open={activeDrop === "about"} />
             </button>
@@ -409,6 +415,11 @@ export function Navbar() {
           <Link href="/pricing" onClick={closeAll}
             className="py-3 text-[15px] text-[var(--text-primary)] font-medium">
             Pricing
+          </Link>
+
+          <Link href="/careers" onClick={closeAll}
+            className="py-3 text-[15px] text-[var(--text-primary)] font-medium">
+            Careers
           </Link>
 
           {/* About */}
