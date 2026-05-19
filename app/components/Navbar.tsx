@@ -30,27 +30,33 @@ const ABOUT_ITEMS: DropItem[] = [
 
 const SERVICE_ITEMS: DropItem[] = [
   {
-    label: "Operational Accounting",
-    desc: "Bookkeeping, reconciliations, AP/AR and month-end close",
-    href: "/services",
+    label: "Bookkeeping & Reporting",
+    desc: "Bookkeeping, reconciliations, ledger maintenance and month-end close",
+    href: "/services/bookkeeping",
     icon: "∑",
   },
   {
-    label: "Compliance & Reporting",
+    label: "Accounts Payable & Receivable",
+    desc: "Vendor payments, receivables tracking and cash flow visibility",
+    href: "/services/accounts-payable-receivable",
+    icon: "⊟",
+  },
+  {
+    label: "Payroll & Compliance",
     desc: "Payroll, tax coordination, year-end and regulatory workflows",
-    href: "/services",
+    href: "/services/accounting-tax",
     icon: "⊞",
   },
   {
     label: "Planning & Finance Support",
-    desc: "Forecasting, cash flow visibility and KPI reporting",
-    href: "/services",
+    desc: "Forecasting, KPI reporting and cash flow visibility",
+    href: "/services/financial-analysis",
     icon: "╱",
   },
   {
-    label: "Fractional Finance Leadership",
-    desc: "Structured finance oversight for growing businesses",
-    href: "/services",
+    label: "Fractional CFO Support",
+    desc: "Strategic finance oversight for growing businesses",
+    href: "/services/cfo-advisory",
     icon: "◇",
   },
 ];
@@ -75,7 +81,7 @@ function Chevron({ open }: { open: boolean }) {
 
 function ServicesPanel({ close }: { close: () => void }) {
   return (
-    <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[280px]">
+    <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[320px]">
       {/* Left */}
       <div className="p-6 flex flex-col gap-2">
         <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Your Virtual Finance Department</p>

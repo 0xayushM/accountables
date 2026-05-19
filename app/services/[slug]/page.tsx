@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { PageShell } from "../../components/PageShell";
 import { InnerCTA } from "../../components/InnerCTA";
 import { SERVICES, getService } from "../../data/services";
+import { SERVICE_ILLUSTRATIONS } from "../ServiceIllustrations";
 
 export function generateStaticParams() {
   return SERVICES.filter((s) => !s.externalHref).map((s) => ({ slug: s.slug }));
@@ -34,7 +35,8 @@ export default async function ServiceDetail({
   if (s.externalHref) redirect(s.externalHref);
 
   const idx = SERVICES.findIndex((x) => x.slug === slug);
-  const next = SERVICES[(idx + 1) % SERVICES.length];
+  const next = SERVICES.filter((x) => !x.externalHref)[(SERVICES.filter((x) => !x.externalHref).findIndex((x) => x.slug === slug) + 1) % SERVICES.filter((x) => !x.externalHref).length];
+  const Illustration = SERVICE_ILLUSTRATIONS[s.slug] ?? null;
 
   return (
     <PageShell>
@@ -93,7 +95,7 @@ export default async function ServiceDetail({
               </div>
             </div>
 
-            {/* Side card — icon glyph + tag */}
+            {/* Side card — illustration + tag */}
             <div className="card p-8 md:p-10 relative overflow-hidden">
               <div
                 aria-hidden
@@ -104,7 +106,7 @@ export default async function ServiceDetail({
                 }}
               />
               <div className="relative">
-                <div className="flex items-baseline justify-between">
+                <div className="flex items-baseline justify-between mb-6">
                   <span className="mono uppercase text-[var(--text-muted)]">
                     / 0{idx + 1}
                   </span>
@@ -112,13 +114,22 @@ export default async function ServiceDetail({
                     {s.tag}
                   </span>
                 </div>
-                <div
-                  className="display font-semibold mt-8 text-[var(--brand-blue)] leading-none"
-                  style={{ fontSize: "clamp(96px, 14vw, 160px)" }}
-                >
-                  {s.icon}
-                </div>
-                <h3 className="display mt-8 text-[24px] md:text-[28px] font-semibold text-[var(--text-primary)]">
+                {Illustration ? (
+                  <div
+                    className="rounded-xl overflow-hidden mb-6"
+                    style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)" }}
+                  >
+                    <Illustration />
+                  </div>
+                ) : (
+                  <div
+                    className="display font-semibold mb-6 text-[var(--brand-blue)] leading-none"
+                    style={{ fontSize: "clamp(96px, 14vw, 160px)" }}
+                  >
+                    {s.icon}
+                  </div>
+                )}
+                <h3 className="display text-[24px] md:text-[28px] font-semibold text-[var(--text-primary)]">
                   {s.name}
                 </h3>
                 <p className="mt-2 text-[14.5px] leading-[1.55] text-[var(--text-secondary)]">
