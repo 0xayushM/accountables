@@ -6,59 +6,103 @@ import { InnerCTA } from "../components/InnerCTA";
 export const metadata: Metadata = {
   title: "Pricing — Accountables",
   description:
-    "Simple, transparent pricing. From £20/hour. Fixed monthly plans for every stage of growth.",
+    "Transparent, structured pricing for every stage of business growth. From £100/month.",
 };
+
+const Check = () => (
+  <svg className="mt-0.5 flex-shrink-0 text-[var(--brand-blue)]" width="15" height="15" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 const tiers = [
   {
-    name: "Starter",
-    tagline: "For early-stage businesses just getting set up.",
-    price: "£20",
-    unit: "/hour",
-    cta: "Contact us",
-    href: "/#contact",
+    name: "Foundation",
+    price: "£100",
+    tagline: "Structured bookkeeping and reporting support for early-stage businesses building their finance operations.",
     featured: false,
+    cta: "Get Started",
+    href: "/#contact",
+    includesLabel: "Includes",
     bullets: [
-      "Up to 100 transactions / month",
       "Monthly bookkeeping",
-      "Bank reconciliation",
-      "VAT returns",
+      "Bank reconciliations",
+      "Year-end accounts",
+      "CT600 filing",
+      "1 payroll included",
       "Email support",
     ],
+    scope: [
+      "Up to 100 monthly transactions",
+      "Up to £200k annual turnover",
+    ],
+    addon: "Quarterly VAT filings available as an add-on.",
+    suitedFor: null,
   },
   {
-    name: "Growth",
-    tagline: "For scaling businesses with growing complexity.",
-    price: "£800",
-    unit: "/month",
-    cta: "Contact us",
-    href: "/#contact",
+    name: "Operations",
+    price: "£300",
+    tagline: "Ongoing finance operations support designed for growing businesses requiring more active coordination and reporting visibility.",
     featured: true,
+    cta: "Book a Consultation",
+    href: "/#contact",
+    includesLabel: "Everything in Foundation, plus",
     bullets: [
-      "Up to 1,000 transactions / month",
-      "Real-time bookkeeping",
-      "Monthly management reports",
-      "VAT, PAYE & corporation tax",
-      "Year-end accounts included",
-      "Priority support (Slack channel)",
+      "Accounts payable & receivable support",
+      "VAT filings included",
+      "Payroll support",
+      "Management accounting",
+      "Enhanced reporting visibility",
+      "Access to Accountables One",
     ],
+    scope: [
+      "Up to 300 monthly transactions",
+      "Up to £500k annual turnover",
+    ],
+    addon: null,
+    suitedFor: null,
   },
   {
-    name: "Enterprise",
-    tagline: "For teams that need a dedicated finance function.",
-    price: "Custom",
-    unit: "",
-    cta: "Contact sales",
-    href: "/#contact",
+    name: "Finance Partner",
+    price: "£600",
+    tagline: "A more integrated finance support environment designed for businesses with increasing operational and reporting complexity.",
     featured: false,
+    cta: "Speak With Our Team",
+    href: "/#contact",
+    includesLabel: "Everything in Operations, plus",
     bullets: [
-      "Unlimited transactions",
-      "Dedicated finance manager",
-      "Custom integrations",
-      "Audit support & investor reporting",
-      "FP&A and forecasting",
-      "Advanced access controls (SSO)",
+      "Financial planning & analysis",
+      "Budgeting & forecasting",
+      "Advanced management reporting",
+      "Cash flow visibility",
+      "Ongoing finance coordination",
+      "Senior finance oversight",
     ],
+    scope: [
+      "Designed for businesses above £1m annual turnover.",
+    ],
+    addon: null,
+    suitedFor: null,
+  },
+  {
+    name: "Strategic Support",
+    price: "Custom",
+    tagline: "Designed for businesses requiring dedicated finance leadership, strategic finance involvement and higher operational complexity.",
+    featured: false,
+    cta: "Contact Us",
+    href: "/#contact",
+    includesLabel: "Includes",
+    bullets: [
+      "Fractional CFO support",
+      "Strategic finance oversight",
+      "Investor & board reporting",
+      "Business performance reviews",
+      "Cross-border finance coordination",
+      "Dedicated operational support",
+    ],
+    scope: [],
+    addon: null,
+    suitedFor: "Businesses above £2m annual turnover or requiring a more embedded finance function.",
   },
 ];
 
@@ -72,12 +116,16 @@ const faqs = [
     a: "Yes — up or down, any time, no penalty. We'll re-baseline the work and update your next invoice.",
   },
   {
-    q: "What if my volume changes mid-month?",
+    q: "What if my transaction volume changes mid-month?",
     a: "Plans are sized on average monthly volume. Occasional spikes are fine. If volume sustainably outgrows your plan, we'll flag it and recommend the next tier.",
   },
   {
     q: "Is VAT included in the price?",
     a: "Prices shown are exclusive of VAT. UK customers will be invoiced inclusive of VAT at the prevailing rate.",
+  },
+  {
+    q: "What is Accountables One?",
+    a: "Accountables One is our AI-powered finance layer — giving you real-time visibility into your numbers, automated reconciliations, and instant reporting. Included from the Operations plan upwards.",
   },
 ];
 
@@ -86,16 +134,16 @@ export default function PricingPage() {
     <PageShell>
       <PageHero
         eyebrow="Pricing"
-        title="A plan for every"
+        title="Priced for every"
         highlight="stage of growth."
-        description="Start free, scale as you grow. No hidden fees or surprise charges. Cancel any time."
+        description="Transparent, structured plans with no hidden fees. Start where you are, scale as you need."
         serif={{ inHighlight: "stage" }}
       />
 
-      {/* Tiers */}
+      {/* Tiers — 2×2 grid */}
       <section className="pb-24 md:pb-28">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {tiers.map((t) => (
               <article
                 key={t.name}
@@ -104,37 +152,40 @@ export default function PricingPage() {
                 }`}
                 style={
                   t.featured
-                    ? {
-                        background:
-                          "linear-gradient(180deg, #fff 0%, #f1f5ff 100%)",
-                      }
+                    ? { background: "linear-gradient(160deg, #fff 0%, #f0f5ff 100%)" }
                     : undefined
                 }
               >
                 {t.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[var(--brand-blue)] text-white text-[11px] tracking-[0.14em] uppercase font-semibold">
+                  <div className="absolute -top-3 left-8 px-3 py-1 rounded-full bg-[var(--brand-blue)] text-white text-[11px] tracking-[0.14em] uppercase font-semibold">
                     Most popular
                   </div>
                 )}
-                <div>
-                  <h3 className="display text-[24px] md:text-[28px] font-semibold text-[var(--text-primary)]">
-                    {t.name}
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-[1.5] text-[var(--text-secondary)]">
-                    {t.tagline}
-                  </p>
+
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div className="flex-1">
+                    <p className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--brand-blue)] mb-2">
+                      {t.name}
+                    </p>
+                    <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)] max-w-sm">
+                      {t.tagline}
+                    </p>
+                  </div>
+                  <div className="flex items-baseline gap-1 flex-shrink-0">
+                    <span className="display text-[36px] md:text-[42px] font-semibold text-[var(--text-primary)] leading-none">
+                      {t.price}
+                    </span>
+                    {t.price !== "Custom" && (
+                      <span className="text-[13px] text-[var(--text-muted)]">/month</span>
+                    )}
+                  </div>
                 </div>
-                <div className="mt-6 flex items-baseline gap-1">
-                  <span className="display text-[44px] md:text-[52px] font-semibold text-[var(--text-primary)] leading-none">
-                    {t.price}
-                  </span>
-                  <span className="text-[14px] text-[var(--text-muted)]">
-                    {t.unit}
-                  </span>
-                </div>
+
+                {/* CTA */}
                 <a
                   href={t.href}
-                  className={`mt-6 inline-flex h-11 items-center justify-center px-5 rounded-full text-[13.5px] font-semibold transition-colors ${
+                  className={`mt-6 inline-flex h-11 w-full items-center justify-center px-5 rounded-full text-[13.5px] font-semibold transition-colors ${
                     t.featured
                       ? "bg-[var(--brand-navy)] text-white hover:bg-[#050d22]"
                       : "border border-[var(--border-strong)] text-[var(--text-primary)] hover:bg-[var(--surface-soft)]"
@@ -143,101 +194,70 @@ export default function PricingPage() {
                   {t.cta}
                 </a>
 
-                <ul className="mt-8 space-y-3 pt-6 border-t border-[var(--border)]">
-                  {t.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-2.5 text-[14px] text-[var(--text-primary)]"
-                    >
-                      <svg
-                        className="mt-0.5 flex-shrink-0 text-[var(--brand-blue)]"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5 12l4 4L19 6"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                {/* Includes */}
+                <div className="mt-7 pt-6 border-t border-[var(--border)]">
+                  <p className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-4">
+                    {t.includesLabel}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {t.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-[13.5px] text-[var(--text-primary)]">
+                        <Check />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Scope */}
+                {(t.scope.length > 0 || t.addon || t.suitedFor) && (
+                  <div className="mt-6 pt-5 border-t border-[var(--border)]">
+                    <p className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-3">
+                      {t.suitedFor ? "Best suited for" : "Operational scope"}
+                    </p>
+                    {t.suitedFor ? (
+                      <p className="text-[13px] leading-[1.6] text-[var(--text-secondary)]">{t.suitedFor}</p>
+                    ) : (
+                      <>
+                        <ul className="space-y-1.5">
+                          {t.scope.map((s) => (
+                            <li key={s} className="text-[13px] text-[var(--text-secondary)] flex items-start gap-2">
+                              <span className="mt-[5px] flex-shrink-0 h-1.5 w-1.5 rounded-full bg-[var(--text-muted)]" />
+                              {s}
+                            </li>
+                          ))}
+                        </ul>
+                        {t.addon && (
+                          <p className="mt-3 text-[12px] italic text-[var(--text-muted)]">{t.addon}</p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
               </article>
             ))}
           </div>
 
           <p className="mt-10 text-center text-[13px] text-[var(--text-muted)]">
-            Prices in GBP, exclusive of VAT. No long-term contracts — pay monthly.
+            All prices in GBP, exclusive of VAT. No long-term contracts — billed monthly.
           </p>
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="py-24 md:py-28 bg-[var(--surface-soft)]">
-        <div className="mx-auto max-w-5xl px-6 md:px-10">
-          <div className="max-w-3xl">
-            <span className="pill">What's included</span>
-            <h2 className="display mt-5 text-[32px] sm:text-[44px] md:text-[52px] font-semibold text-[var(--text-primary)]">
-              Every plan <span className="accent">includes</span>.
-            </h2>
-          </div>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-            {[
-              "Real-time bookkeeping",
-              "Cloud-based, secure",
-              "Xero / QuickBooks / Sage",
-              "UK-based team",
-              "Quarterly reviews",
-              "Tax reminders",
-            ].map((f) => (
-              <div
-                key={f}
-                className="card p-5 flex items-center gap-3"
-              >
-                <span className="h-7 w-7 rounded-full flex items-center justify-center bg-[var(--brand-blue)]/10 text-[var(--brand-blue)] flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 12l4 4L19 6"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                <span className="text-[14.5px] font-medium text-[var(--text-primary)]">
-                  {f}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="py-24 md:py-28">
+      <section className="py-24 md:py-28 border-t border-[var(--border)]">
         <div className="mx-auto max-w-3xl px-6 md:px-10">
-          <div className="text-center">
+          <div className="text-center mb-12">
             <span className="pill">Pricing FAQs</span>
             <h2 className="display mt-5 text-[32px] sm:text-[44px] md:text-[52px] font-semibold text-[var(--text-primary)]">
               The fine print, in <span className="accent">plain English</span>.
             </h2>
           </div>
-          <div className="mt-12 divide-y divide-[var(--border)]">
+          <div className="divide-y divide-[var(--border)]">
             {faqs.map((f) => (
               <div key={f.q} className="py-6">
-                <h3 className="text-[16.5px] font-medium text-[var(--text-primary)]">
-                  {f.q}
-                </h3>
-                <p className="mt-2 text-[15px] leading-[1.6] text-[var(--text-secondary)]">
-                  {f.a}
-                </p>
+                <h3 className="text-[16px] font-semibold text-[var(--text-primary)]">{f.q}</h3>
+                <p className="mt-2 text-[14.5px] leading-[1.65] text-[var(--text-secondary)]">{f.a}</p>
               </div>
             ))}
           </div>
@@ -246,8 +266,8 @@ export default function PricingPage() {
 
       <InnerCTA
         eyebrow="Not sure where to start?"
-        title="We'll quote you in 24 hours."
-        body="Tell us your volume, tools, and where it hurts. We'll come back with a plan and a price."
+        title="We'll recommend the right plan."
+        body="Tell us about your business, your volume, and where it hurts. We'll come back within 24 hours with a plan and a price."
       />
     </PageShell>
   );
