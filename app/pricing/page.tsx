@@ -162,7 +162,6 @@ export default function PricingPage() {
                   </div>
                 )}
 
-                {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
                     <p className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--brand-blue)] mb-2">
