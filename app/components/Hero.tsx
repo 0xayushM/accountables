@@ -1,110 +1,181 @@
+import Image from "next/image";
 import Link from "next/link";
+
+// ─── Person avatar (SVG silhouette) ──────────────────────────────────────────
+
+function Avatar({ bg, src, size = 36 }: { bg: string; src?: string; size?: number }) {
+  return (
+    <div
+      className="rounded-full flex-shrink-0 overflow-hidden"
+      style={{ width: size, height: size, background: bg }}
+    >
+      {src ? (
+        <Image src={src} alt="" width={size} height={size} className="object-cover w-full h-full" />
+      ) : (
+        <svg viewBox="0 0 36 36" width={size} height={size} fill="none">
+          <circle cx="18" cy="14" r="7" fill="rgba(255,255,255,0.90)" />
+          <ellipse cx="18" cy="32" rx="13" ry="9" fill="rgba(255,255,255,0.90)" />
+        </svg>
+      )}
+    </div>
+  );
+}
 
 // ─── Dashboard Mockup ────────────────────────────────────────────────────────
 
 function DashboardMockup() {
   const expenses = [
-    { label: "Rent Expense", pct: 30, color: "#1d4ed8" },
-    { label: "Cost of Goods Sold", pct: 25, color: "#2563eb" },
-    { label: "Marketing Expense", pct: 20, color: "#3b82f6" },
-    { label: "Shipping Expense", pct: 12, color: "#60a5fa" },
-    { label: "Payroll Expense", pct: 8, color: "#93c5fd" },
+    { label: "Rent Expense",       pct: 30 },
+    { label: "Cost of Goods Sold", pct: 25 },
+    { label: "Marketing Expense",  pct: 20 },
+    { label: "Shipping Expense",   pct: 12 },
+    { label: "Payroll Expense",    pct: 8  },
   ];
+
+  // Bar heights (%) for 7 months — last two are highlighted
+  const months = [
+    { label: "OCT", h: 42 },
+    { label: "NOV", h: 60 },
+    { label: "DEC", h: 52 },
+    { label: "JAN", h: 78 },
+    { label: "FEB", h: 68 },
+    { label: "MAR", h: 90, hi: true },
+    { label: "APR", h: 80, hi: true },
+  ];
+
+  // Polyline points for trend line (SVG space: 196 × 80)
+  const svgW = 196;
+  const svgH = 80;
+  const bw = svgW / months.length;
+  const pts = months
+    .map((m, i) => `${i * bw + bw / 2},${svgH - (m.h / 100) * svgH}`)
+    .join(" ");
 
   return (
     <div className="relative select-none" aria-hidden>
-      {/* Chat bubble — bookkeeper (top left) */}
-      <div className="absolute -top-10 -left-4 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[260px]">
+
+      {/* ── Chat bubble — Jess (top-left) ── */}
+      <div className="absolute -top-12 -left-4 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[260px]">
         <div className="flex items-start gap-3">
-          <div
-            className="h-9 w-9 rounded-full flex-shrink-0 flex items-center justify-center text-white text-[11px] font-bold"
-            style={{ background: "linear-gradient(135deg, #1d4ed8, #0a84ff)" }}
-          >
-            JH
-          </div>
+          <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
           <div>
-            <p className="text-[12.5px] leading-[1.5] text-gray-800">
-              Hey! Jess here. Your books are up-to-date — ready to unlock tax credits too?
+            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Jess · Accountables</p>
+            <p className="text-[12px] leading-[1.55] text-gray-800">
+              Hey! Your books are up-to-date — ready to unlock tax credits too?
             </p>
           </div>
         </div>
       </div>
 
-      {/* Main dashboard card */}
-      <div className="relative mt-8 bg-white rounded-2xl shadow-2xl border border-black/[0.06] overflow-hidden">
-        {/* Mini chart header */}
-        <div className="px-5 pt-4 pb-3 border-b border-gray-100">
-          <div className="flex items-center justify-between mb-1">
-            <span className="text-[11px] font-semibold tracking-wide text-gray-400 uppercase">Top Expenses</span>
-            <div className="flex gap-1.5">
-              <span className="h-5 w-5 rounded bg-gray-100 flex items-center justify-center text-[10px] text-gray-400 font-medium">≡</span>
-              <span className="h-5 w-5 rounded bg-gray-100 flex items-center justify-center text-[10px] text-gray-400 font-medium">⋯</span>
-            </div>
+      {/* ── Main dashboard card ── */}
+      <div className="relative mt-10 bg-white rounded-2xl shadow-2xl border border-black/[0.06] overflow-hidden">
+        {/* Card header */}
+        <div className="px-5 pt-4 pb-3 border-b border-gray-100 flex items-center justify-between">
+          <div>
+            <p className="text-[9px] font-semibold tracking-[0.16em] uppercase text-gray-400">Finance Overview</p>
+            <p className="text-[13px] font-semibold text-gray-800 leading-none mt-0.5">Apr 2026</p>
+          </div>
+          <div className="flex gap-1.5">
+            <span className="h-6 w-6 rounded-lg bg-gray-100 flex items-center justify-center text-[10px] text-gray-400">≡</span>
+            <span className="h-6 w-6 rounded-lg bg-gray-100 flex items-center justify-center text-[10px] text-gray-400">⋯</span>
           </div>
         </div>
 
-        {/* Bar chart */}
-        <div className="px-5 py-4 space-y-2.5">
-          {expenses.map((item) => (
-            <div key={item.label} className="flex items-center gap-3">
-              <span className="text-[11px] text-gray-500 w-36 text-right leading-tight truncate flex-shrink-0">
-                {item.label}
-              </span>
-              <div className="flex-1 bg-gray-100 rounded-full h-[7px] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all"
-                  style={{ width: `${item.pct * 3}%`, background: item.color }}
-                />
-              </div>
-              <span
-                className="text-[11px] font-semibold w-7 text-right"
-                style={{ color: item.color }}
-              >
-                {item.pct}%
-              </span>
-            </div>
-          ))}
-        </div>
+        {/* Body: bar chart + expenses side by side */}
+        <div className="grid grid-cols-[1.15fr_1fr] divide-x divide-gray-100">
 
-        {/* Mini bar chart visual */}
-        <div className="px-5 pb-4 pt-2 flex items-end gap-2 h-24 border-t border-gray-50">
-          {[40, 65, 55, 80, 70, 95, 82].map((h, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-1">
-              <div
-                className="w-full rounded-t-md transition-all"
-                style={{
-                  height: `${h}%`,
-                  background: i === 6
-                    ? "linear-gradient(180deg, #1d4ed8, #60a5fa)"
-                    : i === 5
-                    ? "linear-gradient(180deg, #2563eb, #93c5fd)"
-                    : "#e2e8f0",
-                }}
-              />
+          {/* Left: vertical bar chart with trend line */}
+          <div className="px-4 pt-4 pb-3">
+            <p className="text-[9px] font-semibold tracking-[0.14em] uppercase text-gray-400 mb-3">Revenue · 7mo</p>
+            <div className="relative">
+              {/* SVG bars */}
+              <div className="flex items-end gap-[5px] h-[82px]">
+                {months.map((m) => (
+                  <div
+                    key={m.label}
+                    className="flex-1 rounded-t-[4px]"
+                    style={{
+                      height: `${m.h}%`,
+                      background: m.hi
+                        ? "linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%)"
+                        : "#e2e8f0",
+                    }}
+                  />
+                ))}
+              </div>
+              {/* Trend line overlay */}
+              <svg
+                viewBox={`0 0 ${svgW} ${svgH}`}
+                width="100%"
+                height="82"
+                className="absolute inset-0 pointer-events-none"
+                preserveAspectRatio="none"
+              >
+                <polyline
+                  points={pts}
+                  fill="none"
+                  stroke="#0a84ff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="4 2"
+                />
+                {/* Dot on last bar */}
+                <circle
+                  cx={`${6 * bw + bw / 2}`}
+                  cy={`${svgH - (80 / 100) * svgH}`}
+                  r="3.5"
+                  fill="#0a84ff"
+                  stroke="white"
+                  strokeWidth="1.5"
+                />
+              </svg>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-between px-5 pb-3 text-[10px] text-gray-400">
-          <span>OCT</span><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span>MAR</span><span className="text-[var(--brand-blue)] font-medium">APR</span>
+            {/* Month labels */}
+            <div className="flex justify-between mt-2">
+              {months.map((m) => (
+                <span
+                  key={m.label}
+                  className="flex-1 text-center text-[8px]"
+                  style={{ color: m.hi ? "#1d4ed8" : "#9ca3af" }}
+                >
+                  {m.label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: top expenses with navy badges */}
+          <div className="px-4 pt-4 pb-3">
+            <p className="text-[9px] font-semibold tracking-[0.14em] uppercase text-gray-400 mb-3">Top Expenses</p>
+            <div className="flex flex-col gap-[9px]">
+              {expenses.map((e) => (
+                <div key={e.label} className="flex items-center justify-between gap-2">
+                  <span className="text-[10.5px] text-gray-600 leading-tight truncate">{e.label}</span>
+                  <span
+                    className="flex-shrink-0 text-[10px] font-bold text-white rounded-md px-2 py-0.5"
+                    style={{ background: "var(--brand-navy)" }}
+                  >
+                    {e.pct}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Chat bubble — client response (bottom right) */}
-      <div className="absolute -bottom-10 -right-2 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border border-black/[0.06] p-4 max-w-[220px]">
-        <p className="text-[12.5px] leading-[1.5] text-gray-800">
+      {/* ── Chat bubble — client (bottom-right) ── */}
+      <div className="absolute -bottom-12 -right-12 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
+        <p className="text-[12px] leading-[1.55] text-gray-800">
           Absolutely! Unlocking tax credits would be a game-changer!
         </p>
-        <div className="flex items-center justify-end gap-2 mt-2">
-          <div
-            className="h-7 w-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold"
-            style={{ background: "linear-gradient(135deg, #0b1e3f, #1d4ed8)" }}
-          >
-            AM
-          </div>
+        <div className="flex items-center justify-end gap-2 mt-2.5">
+          <Avatar bg="linear-gradient(150deg, #14305f 0%, #1d4ed8 100%)" src="/avatar2.png" size={80} />
         </div>
       </div>
 
-      {/* Metrics pill floating bottom-left */}
+      {/* ── Floating pill — bottom-left ── */}
       <div className="absolute -bottom-6 left-4 z-20 bg-white rounded-full shadow-lg border border-black/[0.06] px-4 py-2 flex items-center gap-2">
         <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px]">✓</span>
         <span className="text-[11.5px] font-semibold text-gray-700">Books up-to-date</span>
@@ -138,7 +209,7 @@ export function Hero() {
                 <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">New</span>
               </span>
               <span className="hidden sm:inline text-white/30">·</span>
-              <span>Accountables AI · <span className="font-semibold">Join the waitlist</span></span>
+              <span>Accountables One · <span className="font-semibold">Join the waitlist</span></span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
                 className="transition-transform duration-300 group-hover:translate-x-0.5">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"

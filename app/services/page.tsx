@@ -106,6 +106,320 @@ function HeroDashboard() {
   );
 }
 
+// ─── Finance Support Scene Illustrations ─────────────────────────────────────
+
+function SceneTimeOps() {
+  const minorDegs = [30,60,120,150,210,240,300,330];
+  return (
+    <svg viewBox="0 0 300 160" width="100%" height="160" fill="none">
+      <circle cx="104" cy="80" r="60" fill="#dbeafe" opacity="0.3"/>
+      <circle cx="104" cy="80" r="50" fill="#f0f7ff" stroke="#1d4ed8" strokeWidth="1.5"/>
+      {/* Major ticks */}
+      <line x1="104" y1="32" x2="104" y2="38" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="154" y1="80" x2="148" y2="80" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="104" y1="128" x2="104" y2="122" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="54" y1="80" x2="60" y2="80" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round"/>
+      {/* Minor ticks */}
+      {minorDegs.map((deg) => {
+        const rad = (deg - 90) * Math.PI / 180;
+        return <line key={deg} x1={104 + 43*Math.cos(rad)} y1={80 + 43*Math.sin(rad)} x2={104 + 48*Math.cos(rad)} y2={80 + 48*Math.sin(rad)} stroke="#1d4ed8" strokeWidth="1" strokeLinecap="round" opacity="0.3"/>;
+      })}
+      {/* Hour hand ~10, minute ~2 */}
+      <line x1="104" y1="80" x2="80" y2="58" stroke="#0b1e3f" strokeWidth="3.5" strokeLinecap="round"/>
+      <line x1="104" y1="80" x2="125" y2="50" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round"/>
+      <line x1="104" y1="80" x2="104" y2="46" stroke="#ef4444" strokeWidth="1" strokeLinecap="round" opacity="0.55"/>
+      <circle cx="104" cy="80" r="4.5" fill="#1d4ed8"/><circle cx="104" cy="80" r="2.5" fill="white"/>
+      {/* Task panel */}
+      <rect x="178" y="18" width="106" height="130" rx="12" fill="white" stroke="#bfdbfe" strokeWidth="1.5"/>
+      <rect x="178" y="18" width="106" height="26" rx="12" fill="#eff6ff"/>
+      <rect x="178" y="32" width="106" height="12" fill="#eff6ff"/>
+      <text x="194" y="34" fontSize="7.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1.5" fontFamily="system-ui,sans-serif">YOUR TASKS</text>
+      {[{y:58,done:true,label:"Monthly close"},{y:77,done:true,label:"VAT filing"},{y:96,done:true,label:"Reconciliation"},{y:115,done:false,label:"Payroll review"},{y:133,done:false,label:"Forecast"}].map((t) => (
+        <g key={t.y}>
+          <circle cx="194" cy={t.y} r="5.5" fill={t.done?"#1d4ed8":"white"} stroke={t.done?"#1d4ed8":"#bfdbfe"} strokeWidth="1.3"/>
+          {t.done && <path d={`M${191} ${t.y}l2.5 2.5 4.5-4.5`} stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>}
+          <text x="206" y={t.y+3.5} fontSize="9" fill={t.done?"#9ca3af":"#374151"} fontFamily="system-ui,sans-serif">{t.label}</text>
+        </g>
+      ))}
+      {/* Bottom pill */}
+      <rect x="44" y="143" width="120" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="104" y="153.5" textAnchor="middle" fontSize="8" fontWeight="600" fill="white" fontFamily="system-ui,sans-serif">Focus on strategy</text>
+      <circle cx="28" cy="34" r="4" fill="#bfdbfe" opacity="0.6"/>
+      <circle cx="16" cy="54" r="2.5" fill="#93c5fd" opacity="0.5"/>
+    </svg>
+  );
+}
+
+function SceneVisibility() {
+  return (
+    <svg viewBox="0 0 300 160" width="100%" height="160" fill="none">
+      <rect x="12" y="10" width="276" height="140" rx="14" fill="white" stroke="#bfdbfe" strokeWidth="1.5"/>
+      <rect x="12" y="10" width="276" height="28" rx="14" fill="#eff6ff"/>
+      <rect x="12" y="26" width="276" height="12" fill="#eff6ff"/>
+      <text x="28" y="29" fontSize="8" fontWeight="700" fill="#1d4ed8" letterSpacing="1.2" fontFamily="system-ui,sans-serif">FINANCE OVERVIEW</text>
+      <rect x="242" y="17" width="34" height="13" rx="6.5" fill="#dcfce7"/>
+      <circle cx="250" cy="23.5" r="3" fill="#22c55e"/>
+      <text x="257" y="27.5" fontSize="7.5" fontWeight="600" fill="#16a34a" fontFamily="system-ui,sans-serif">Live</text>
+      {[{x:22,label:"Revenue",val:"$142K"},{x:110,label:"Expenses",val:"$89K"},{x:198,label:"Net Cash",val:"$53K"}].map((k) => (
+        <g key={k.label}>
+          <rect x={k.x} y="46" width="80" height="36" rx="8" fill="#f8faff" stroke="#e0eaff" strokeWidth="1"/>
+          <text x={k.x+8} y="59" fontSize="7" fill="#6b7280" fontFamily="system-ui,sans-serif">{k.label}</text>
+          <text x={k.x+8} y="74" fontSize="13" fontWeight="700" fill="#0b1e3f" fontFamily="system-ui,sans-serif">{k.val}</text>
+        </g>
+      ))}
+      <rect x="22" y="90" width="256" height="50" rx="8" fill="#f8faff"/>
+      <line x1="22" y1="108" x2="278" y2="108" stroke="#e0eaff" strokeWidth="0.7"/>
+      <line x1="22" y1="124" x2="278" y2="124" stroke="#e0eaff" strokeWidth="0.7"/>
+      {[{x:30,h:18},{x:62,h:28},{x:94,h:22},{x:126,h:36},{x:158,h:28},{x:190,h:40,hi:true},{x:222,h:32,hi:true}].map((b,i) => (
+        <rect key={i} x={b.x} y={136-b.h} width="20" height={b.h} rx="3" fill={b.hi?"#1d4ed8":"#bfdbfe"}/>
+      ))}
+      <polyline points="40,118 72,108 104,114 136,102 168,108 200,98 232,104" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <circle cx="232" cy="104" r="3.5" fill="#0a84ff" stroke="white" strokeWidth="1.5"/>
+    </svg>
+  );
+}
+
+function SceneEmbedded() {
+  return (
+    <svg viewBox="0 0 300 160" width="100%" height="160" fill="none">
+      <line x1="90" y1="80" x2="210" y2="80" stroke="#bfdbfe" strokeWidth="2" strokeDasharray="5 3"/>
+      <circle cx="62" cy="62" r="28" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <circle cx="62" cy="56" r="12" fill="rgba(255,255,255,0.92)"/>
+      <ellipse cx="62" cy="76" rx="18" ry="10" fill="rgba(255,255,255,0.92)"/>
+      <circle cx="238" cy="62" r="28" fill="#eff6ff" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <circle cx="238" cy="56" r="12" fill="rgba(255,255,255,0.92)"/>
+      <ellipse cx="238" cy="76" rx="18" ry="10" fill="rgba(255,255,255,0.92)"/>
+      <rect x="246" y="44" width="18" height="14" rx="3" fill="#1d4ed8"/>
+      <text x="255" y="54" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="white" fontFamily="system-ui,sans-serif">A</text>
+      {/* Center doc */}
+      <rect x="120" y="38" width="60" height="78" rx="8" fill="white" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <rect x="128" y="50" width="44" height="5" rx="2.5" fill="#bfdbfe"/>
+      <rect x="128" y="60" width="36" height="4" rx="2" fill="#bfdbfe" opacity="0.6"/>
+      <rect x="128" y="69" width="40" height="4" rx="2" fill="#bfdbfe" opacity="0.4"/>
+      <rect x="128" y="80" width="8" height="10" rx="1.5" fill="#1d4ed8" opacity="0.25"/>
+      <rect x="139" y="76" width="8" height="14" rx="1.5" fill="#1d4ed8" opacity="0.5"/>
+      <rect x="150" y="72" width="8" height="18" rx="1.5" fill="#1d4ed8" opacity="0.85"/>
+      <rect x="161" y="78" width="8" height="12" rx="1.5" fill="#1d4ed8" opacity="0.4"/>
+      {/* Chat bubble */}
+      <rect x="166" y="8" width="100" height="22" rx="10" fill="white" stroke="#bfdbfe" strokeWidth="1.3"/>
+      <text x="216" y="22.5" textAnchor="middle" fontSize="9" fill="#374151" fontFamily="system-ui,sans-serif">Books updated ✓</text>
+      <path d="M 190 30 L 188 30 L 191 36 Z" fill="white" stroke="#bfdbfe" strokeWidth="1.2"/>
+      {/* Labels */}
+      <rect x="32" y="98" width="60" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="62" y="108.5" textAnchor="middle" fontSize="8" fontWeight="600" fill="white" fontFamily="system-ui,sans-serif">Your Business</text>
+      <rect x="208" y="98" width="60" height="14" rx="7" fill="#eff6ff" stroke="#1d4ed8" strokeWidth="1"/>
+      <text x="238" y="108.5" textAnchor="middle" fontSize="8" fontWeight="600" fill="#1d4ed8" fontFamily="system-ui,sans-serif">Accountables</text>
+      <circle cx="150" cy="130" r="10" fill="#1d4ed8"/>
+      <path d="M 146 130 l 3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function SceneExecution() {
+  return (
+    <svg viewBox="0 0 300 160" width="100%" height="160" fill="none">
+      <rect x="16" y="10" width="268" height="140" rx="14" fill="white" stroke="#bfdbfe" strokeWidth="1.5"/>
+      <rect x="16" y="10" width="268" height="28" rx="14" fill="#eff6ff"/>
+      <rect x="16" y="26" width="268" height="12" fill="#eff6ff"/>
+      <text x="32" y="29" fontSize="7.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1.2" fontFamily="system-ui,sans-serif">EXECUTION PLAN</text>
+      <rect x="228" y="17" width="48" height="14" rx="7" fill="#dcfce7"/>
+      <text x="252" y="27.5" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="#16a34a" fontFamily="system-ui,sans-serif">On Track</text>
+      {[
+        {y:52,done:true,pct:100,label:"Onboarding & Setup",tag:"Complete"},
+        {y:78,done:true,pct:100,label:"Bookkeeping & Reconciliation",tag:"Complete"},
+        {y:104,done:false,pct:72,label:"Compliance Filing",tag:"In Progress",active:true},
+        {y:130,done:false,pct:0,label:"Management Reporting",tag:"Scheduled"},
+      ].map((t) => (
+        <g key={t.y}>
+          <circle cx="36" cy={t.y} r="8" fill={t.done?"#1d4ed8":t.active?"#eff6ff":"white"} stroke={t.done?"#1d4ed8":t.active?"#0a84ff":"#bfdbfe"} strokeWidth={t.active?2:1.5}/>
+          {t.done && <path d={`M${32} ${t.y}l3 3 6-6`} stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>}
+          {t.active && <circle cx="36" cy={t.y} r="4" fill="#0a84ff" opacity="0.7"/>}
+          <text x="52" y={t.y-3} fontSize="9.5" fontWeight={t.active?"700":"600"} fill={t.done?"#9ca3af":t.active?"#0b1e3f":"#d1d5db"} fontFamily="system-ui,sans-serif">{t.label}</text>
+          <rect x="52" y={t.y+5} width="168" height="5" rx="2.5" fill="#f1f5f9"/>
+          <rect x="52" y={t.y+5} width={168*t.pct/100} height="5" rx="2.5" fill={t.done?"#1d4ed8":t.active?"#0a84ff":"#e5e7eb"}/>
+          <rect x="228" y={t.y-7} width="46" height="13" rx="6.5" fill={t.done?"#eff6ff":t.active?"#eff6ff":"#f9fafb"}/>
+          <text x="251" y={t.y+2.5} textAnchor="middle" fontSize="7.5" fontWeight="600" fill={t.done?"#1d4ed8":t.active?"#0a84ff":"#9ca3af"} fontFamily="system-ui,sans-serif">{t.tag}</text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+// ─── Finance Operations Scene Illustrations ───────────────────────────────────
+
+function SceneSvcBookkeeping() {
+  return (
+    <svg viewBox="0 0 220 160" width="100%" height="160" fill="none">
+      <rect x="12" y="20" width="88" height="120" rx="4" fill="white" stroke="#1d4ed8" strokeWidth="1.3"/>
+      <rect x="100" y="20" width="88" height="120" rx="4" fill="white" stroke="#1d4ed8" strokeWidth="1.3"/>
+      <rect x="96" y="16" width="8" height="128" rx="3" fill="#1d4ed8"/>
+      <text x="18" y="37" fontSize="6.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1" fontFamily="system-ui,sans-serif">DATE / DESC</text>
+      <line x1="14" y1="41" x2="92" y2="41" stroke="#bfdbfe" strokeWidth="0.8"/>
+      {[{y:54,label:"Rent Exp.",done:true},{y:68,label:"Payroll",done:true},{y:82,label:"COGS",done:true},{y:96,label:"Marketing",done:false},{y:110,label:"Utilities",done:false}].map((e) => (
+        <g key={e.y}>
+          <line x1="14" y1={e.y+8} x2="92" y2={e.y+8} stroke="#e0eaff" strokeWidth="0.7" opacity="0.8"/>
+          <circle cx="22" cy={e.y} r="5.5" fill={e.done?"#1d4ed8":"white"} stroke={e.done?"#1d4ed8":"#bfdbfe"} strokeWidth="1.2"/>
+          {e.done && <path d={`M${19} ${e.y}l2.5 2.5 4.5-4.5`} stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>}
+          <text x="33" y={e.y+3.5} fontSize="8.5" fill={e.done?"#6b7280":"#374151"} fontFamily="system-ui,sans-serif">{e.label}</text>
+        </g>
+      ))}
+      <text x="106" y="37" fontSize="6.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1" fontFamily="system-ui,sans-serif">AMOUNT / BAL.</text>
+      <line x1="102" y1="41" x2="180" y2="41" stroke="#bfdbfe" strokeWidth="0.8"/>
+      {[{y:54,a:"$4,200",b:"$142K"},{y:68,a:"$18,400",b:"$124K"},{y:82,a:"$32,100",b:"$92K"},{y:96,a:"$6,800",b:"$85K"},{y:110,a:"$1,200",b:"$83K"}].map((e) => (
+        <g key={e.y}>
+          <line x1="102" y1={e.y+8} x2="180" y2={e.y+8} stroke="#e0eaff" strokeWidth="0.7" opacity="0.8"/>
+          <text x="106" y={e.y+3.5} fontSize="8.5" fill="#374151" fontFamily="system-ui,sans-serif">{e.a}</text>
+          <text x="150" y={e.y+3.5} fontSize="8.5" fontWeight="600" fill="#0b1e3f" fontFamily="system-ui,sans-serif">{e.b}</text>
+        </g>
+      ))}
+      <rect x="104" y="126" width="70" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="139" y="135.5" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="white" fontFamily="system-ui,sans-serif">Month End ✓</text>
+    </svg>
+  );
+}
+
+function SceneSvcAPAR() {
+  return (
+    <svg viewBox="0 0 220 160" width="100%" height="160" fill="none">
+      <rect x="8" y="24" width="66" height="88" rx="8" fill="white" stroke="#1d4ed8" strokeWidth="1.3"/>
+      <text x="18" y="38" fontSize="7" fontWeight="700" fill="#1d4ed8" fontFamily="system-ui,sans-serif">INVOICE</text>
+      <rect x="16" y="42" width="50" height="6" rx="3" fill="#bfdbfe"/>
+      <line x1="16" y1="54" x2="68" y2="54" stroke="#e0eaff" strokeWidth="5" strokeLinecap="round" opacity="0.5"/>
+      <line x1="16" y1="64" x2="60" y2="64" stroke="#e0eaff" strokeWidth="5" strokeLinecap="round" opacity="0.5"/>
+      <line x1="16" y1="74" x2="64" y2="74" stroke="#e0eaff" strokeWidth="5" strokeLinecap="round" opacity="0.5"/>
+      <rect x="16" y="86" width="50" height="14" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="0.8"/>
+      <text x="22" y="96" fontSize="7.5" fill="#1d4ed8" fontFamily="system-ui,sans-serif">Total: $4,200</text>
+      {/* Arrow → coin */}
+      <path d="M 76 68 L 100 68" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M 96 63 L 102 68 L 96 73" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      {/* Coin */}
+      <circle cx="124" cy="68" r="18" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <circle cx="124" cy="68" r="12" fill="white"/>
+      <text x="124" y="72.5" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1d4ed8" fontFamily="system-ui,sans-serif">$</text>
+      {/* Arrow → check */}
+      <path d="M 144 68 L 164 68" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M 160 63 L 166 68 L 160 73" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      {/* Confirmation */}
+      <rect x="168" y="44" width="44" height="48" rx="10" fill="#dcfce7" stroke="#22c55e" strokeWidth="1.3"/>
+      <circle cx="190" cy="62" r="10" fill="#22c55e"/>
+      <path d="M 186 62 l 3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <text x="190" y="84" textAnchor="middle" fontSize="8" fontWeight="700" fill="#16a34a" fontFamily="system-ui,sans-serif">PAID</text>
+      {/* Labels */}
+      <text x="41" y="122" textAnchor="middle" fontSize="8" fill="#6b7280" fontFamily="system-ui,sans-serif">Invoice</text>
+      <text x="124" y="94" textAnchor="middle" fontSize="8" fill="#6b7280" fontFamily="system-ui,sans-serif">Payment</text>
+      <text x="190" y="100" textAnchor="middle" fontSize="8" fill="#16a34a" fontFamily="system-ui,sans-serif">Confirmed</text>
+      <rect x="50" y="136" width="120" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="110" y="146.5" textAnchor="middle" fontSize="8" fontWeight="600" fill="white" fontFamily="system-ui,sans-serif">AP / AR Tracking</text>
+    </svg>
+  );
+}
+
+function SceneSvcPayroll() {
+  const weeks = [
+    [null,null,1,2,3,4,5],
+    [6,7,8,9,10,11,12],
+    [13,14,15,16,17,18,19],
+    [20,21,22,23,24,25,26],
+    [27,28,29,30,null,null,null],
+  ];
+  return (
+    <svg viewBox="0 0 220 160" width="100%" height="160" fill="none">
+      <rect x="8" y="12" width="132" height="122" rx="10" fill="white" stroke="#1d4ed8" strokeWidth="1.3"/>
+      <rect x="8" y="12" width="132" height="28" rx="10" fill="#1d4ed8"/>
+      <rect x="8" y="26" width="132" height="14" fill="#1d4ed8"/>
+      <text x="74" y="30" textAnchor="middle" fontSize="9" fontWeight="700" fill="white" fontFamily="system-ui,sans-serif">APRIL 2026</text>
+      {["M","T","W","T","F","S","S"].map((d,i) => (
+        <text key={i} x={24+i*16} y="50" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="#9ca3af" fontFamily="system-ui,sans-serif">{d}</text>
+      ))}
+      {weeks.map((row, ri) => row.map((day, di) => {
+        if (!day) return null;
+        const cx = 24+di*16, cy = 62+ri*14;
+        const isDeadline = day===14||day===30, isPayroll = day===25;
+        return (
+          <g key={`${ri}-${di}`}>
+            {isDeadline && <circle cx={cx} cy={cy} r="7" fill="#fef3c7" stroke="#f59e0b" strokeWidth="1"/>}
+            {isPayroll && <circle cx={cx} cy={cy} r="7" fill="#1d4ed8"/>}
+            <text x={cx} y={cy+3.5} textAnchor="middle" fontSize="7.5" fill={isPayroll?"white":isDeadline?"#92400e":"#374151"} fontWeight={isDeadline||isPayroll?"700":"400"} fontFamily="system-ui,sans-serif">{day}</text>
+          </g>
+        );
+      }))}
+      {/* Shield */}
+      <path d="M 172 22 L 152 30 L 152 52 C 152 70 162 82 172 88 C 182 82 192 70 192 52 L 192 30 Z" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <path d="M 165 54 l 5 5 10-10" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect x="154" y="96" width="36" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="172" y="105.5" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="white" fontFamily="system-ui,sans-serif">FILED</text>
+      {/* Legend */}
+      <circle cx="16" cy="144" r="5" fill="#fef3c7" stroke="#f59e0b" strokeWidth="0.8"/>
+      <text x="25" y="147.5" fontSize="7.5" fill="#6b7280" fontFamily="system-ui,sans-serif">Tax deadline</text>
+      <circle cx="88" cy="144" r="5" fill="#1d4ed8"/>
+      <text x="97" y="147.5" fontSize="7.5" fill="#6b7280" fontFamily="system-ui,sans-serif">Payroll</text>
+    </svg>
+  );
+}
+
+function SceneSvcPlanning() {
+  return (
+    <svg viewBox="0 0 220 160" width="100%" height="160" fill="none">
+      <rect x="8" y="8" width="204" height="144" rx="12" fill="white" stroke="#bfdbfe" strokeWidth="1.3"/>
+      <rect x="8" y="8" width="204" height="26" rx="12" fill="#eff6ff"/>
+      <rect x="8" y="22" width="204" height="12" fill="#eff6ff"/>
+      <text x="22" y="25" fontSize="7.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1" fontFamily="system-ui,sans-serif">FINANCIAL PLANNING</text>
+      {[{x:16,label:"Revenue",val:"$142K"},{x:80,label:"Cash",val:"$53K"},{x:144,label:"Runway",val:"14mo"}].map((k) => (
+        <g key={k.label}>
+          <rect x={k.x} y="42" width="56" height="30" rx="7" fill="#f8faff" stroke="#e0eaff" strokeWidth="1"/>
+          <text x={k.x+6} y="54" fontSize="6.5" fill="#6b7280" fontFamily="system-ui,sans-serif">{k.label}</text>
+          <text x={k.x+6} y="66" fontSize="11" fontWeight="700" fill="#0b1e3f" fontFamily="system-ui,sans-serif">{k.val}</text>
+        </g>
+      ))}
+      <rect x="16" y="80" width="188" height="58" rx="6" fill="#f8faff"/>
+      <line x1="24" y1="132" x2="196" y2="132" stroke="#bfdbfe" strokeWidth="0.8"/>
+      {[{x:28,h:22},{x:52,h:32},{x:76,h:26},{x:100,h:40},{x:124,h:34}].map((b,i) => (
+        <rect key={i} x={b.x} y={132-b.h} width="18" height={b.h} rx="2.5" fill="#1d4ed8" opacity="0.65"/>
+      ))}
+      {[{x:148,h:44},{x:172,h:50}].map((b,i) => (
+        <rect key={i} x={b.x} y={132-b.h} width="18" height={b.h} rx="2.5" fill="#dbeafe" stroke="#0a84ff" strokeWidth="1" strokeDasharray="3 2"/>
+      ))}
+      <polyline points="37,110 61,100 85,106 109,92 133,98 157,88 181,82" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      <polyline points="133,98 157,88 181,82" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" fill="none" strokeDasharray="4 2"/>
+      <circle cx="181" cy="82" r="3.5" fill="#0a84ff" stroke="white" strokeWidth="1.5"/>
+      <rect x="158" y="68" width="44" height="12" rx="6" fill="#eff6ff" stroke="#0a84ff" strokeWidth="1"/>
+      <text x="180" y="77.5" textAnchor="middle" fontSize="7" fontWeight="600" fill="#0a84ff" fontFamily="system-ui,sans-serif">Forecast →</text>
+    </svg>
+  );
+}
+
+function SceneSvcCFO() {
+  return (
+    <svg viewBox="0 0 220 160" width="100%" height="160" fill="none">
+      <rect x="8" y="116" width="204" height="6" rx="3" fill="#e0eaff" opacity="0.6"/>
+      {/* Person */}
+      <circle cx="66" cy="60" r="28" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5"/>
+      <circle cx="66" cy="54" r="13" fill="rgba(255,255,255,0.92)"/>
+      <ellipse cx="66" cy="74" rx="19" ry="11" fill="rgba(255,255,255,0.92)"/>
+      <rect x="50" y="40" width="32" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="66" y="50" textAnchor="middle" fontSize="8.5" fontWeight="700" fill="white" fontFamily="system-ui,sans-serif">CFO</text>
+      {/* Chart panel */}
+      <rect x="110" y="18" width="100" height="92" rx="8" fill="white" stroke="#1d4ed8" strokeWidth="1.3"/>
+      <rect x="116" y="26" width="88" height="54" rx="4" fill="#f8faff"/>
+      {[{x:120,h:16},{x:134,h:26},{x:148,h:20},{x:162,h:34},{x:176,h:42}].map((b,i) => (
+        <rect key={i} x={b.x} y={78-b.h} width="10" height={b.h} rx="2" fill="#1d4ed8" opacity={0.35+i*0.12}/>
+      ))}
+      <polyline points="125,62 139,52 153,58 167,44 181,36" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      <circle cx="181" cy="36" r="3.5" fill="#0a84ff" stroke="white" strokeWidth="1.5"/>
+      <text x="160" y="94" textAnchor="middle" fontSize="8" fontWeight="600" fill="#1d4ed8" fontFamily="system-ui,sans-serif">Business Growth</text>
+      {/* Org nodes */}
+      <line x1="140" y1="104" x2="128" y2="114" stroke="#bfdbfe" strokeWidth="1.3"/>
+      <line x1="140" y1="104" x2="152" y2="114" stroke="#bfdbfe" strokeWidth="1.3"/>
+      <line x1="168" y1="104" x2="180" y2="114" stroke="#bfdbfe" strokeWidth="1.3"/>
+      <rect x="124" y="114" width="16" height="8" rx="3" fill="#1d4ed8" opacity="0.6"/>
+      <rect x="144" y="114" width="16" height="8" rx="3" fill="#1d4ed8" opacity="0.6"/>
+      <rect x="172" y="114" width="16" height="8" rx="3" fill="#1d4ed8" opacity="0.4"/>
+      <rect x="18" y="98" width="72" height="14" rx="7" fill="#1d4ed8"/>
+      <text x="54" y="107.5" textAnchor="middle" fontSize="8" fontWeight="600" fill="white" fontFamily="system-ui,sans-serif">Strategic Finance</text>
+    </svg>
+  );
+}
+
 // ─── Region Toggle ─────────────────────────────────────────────────────────────
 
 const regions = {
@@ -266,51 +580,35 @@ export default function ServicesPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {[
                 {
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                    </svg>
-                  ),
+                  Scene: SceneTimeOps,
                   title: "More Time for Operations",
                   body: "Reduce time spent coordinating accounting, reporting, compliance and finance follow-ups internally.",
                 },
                 {
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 20h20M5 20V10l7-7 7 7v10" /><path d="M9 20v-5h6v5" />
-                    </svg>
-                  ),
+                  Scene: SceneVisibility,
                   title: "Ongoing Financial Visibility",
                   body: "Structured reporting environments designed around business visibility and informed decision-making.",
                 },
                 {
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  ),
+                  Scene: SceneEmbedded,
                   title: "Embedded Finance Support",
                   body: "Work with a finance team designed to operate alongside your business and internal workflows.",
                 },
                 {
-                  icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                    </svg>
-                  ),
+                  Scene: SceneExecution,
                   title: "Organized Execution",
                   body: "Defined processes, coordinated timelines and ongoing operational support designed around consistency and clarity.",
                 },
               ].map((item, idx) => (
                 <RevealBlock key={item.title} delay={idx * 70}>
-                  <div className="card p-7 md:p-8 flex flex-col gap-5 h-full">
+                  <div className="group flex flex-col h-full rounded-2xl overflow-hidden border border-[var(--border)] bg-white hover:shadow-[0_8px_32px_rgba(11,30,63,0.09)] transition-shadow duration-300">
                     <div
-                      className="h-10 w-10 rounded-xl flex items-center justify-center text-white"
-                      style={{ background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue))" }}
+                      className="relative flex-shrink-0 overflow-hidden"
+                      style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", height: 160 }}
                     >
-                      {item.icon}
+                      <item.Scene />
                     </div>
-                    <div className="flex flex-col gap-2 flex-1">
+                    <div className="flex flex-col gap-2 flex-1 p-6">
                       <h3 className="text-[15px] font-semibold text-[var(--text-primary)] leading-snug">
                         {item.title}
                       </h3>
@@ -347,11 +645,12 @@ export default function ServicesPage() {
               </RevealBlock>
             </div>
 
-            {/* Service rows */}
-            <div className="flex flex-col divide-y divide-[var(--border)]">
+            {/* Service cards */}
+            <div className="flex flex-col gap-5">
               {[
                 {
                   number: "01",
+                  Scene: SceneSvcBookkeeping,
                   title: "Bookkeeping & Reporting",
                   body: "Monthly bookkeeping, reconciliations, reporting workflows and structured month-end close designed to maintain organized and up-to-date financial records.",
                   tags: ["Bookkeeping", "Reconciliations", "Ledger maintenance", "Reporting workflows", "Month-end close"],
@@ -359,6 +658,7 @@ export default function ServicesPage() {
                 },
                 {
                   number: "02",
+                  Scene: SceneSvcAPAR,
                   title: "Accounts Payable & Receivable",
                   body: "Vendor payments, receivables tracking, invoicing coordination and ongoing visibility into incoming and outgoing cash movement.",
                   tags: ["AP management", "AR tracking", "Invoicing", "Collections coordination", "Payment workflows"],
@@ -366,6 +666,7 @@ export default function ServicesPage() {
                 },
                 {
                   number: "03",
+                  Scene: SceneSvcPayroll,
                   title: "Payroll & Compliance",
                   body: "Payroll processing, tax coordination, year-end support and ongoing compliance workflows across operating regions.",
                   tags: ["Payroll processing", "VAT / Sales Tax / GST", "Compliance workflows", "Year-end coordination", "Tax support"],
@@ -373,6 +674,7 @@ export default function ServicesPage() {
                 },
                 {
                   number: "04",
+                  Scene: SceneSvcPlanning,
                   title: "Planning & Finance Support",
                   body: "Cash flow visibility, KPI reporting, forecasting support and finance coordination designed around business decision-making.",
                   tags: ["Forecasting", "KPI visibility", "Management reporting", "Financial planning support", "Operational finance coordination"],
@@ -380,6 +682,7 @@ export default function ServicesPage() {
                 },
                 {
                   number: "05",
+                  Scene: SceneSvcCFO,
                   title: "Fractional CFO Support",
                   body: "Strategic finance oversight and structured financial leadership for growing businesses requiring ongoing finance support without a full in-house CFO structure.",
                   tags: ["Financial oversight", "Founder support", "Reporting reviews", "Strategic finance discussions", "Business performance visibility"],
@@ -387,41 +690,52 @@ export default function ServicesPage() {
                 },
               ].map((s, idx) => (
                 <RevealBlock key={s.number} delay={idx * 50}>
-                  <div className="py-8 md:py-10 grid md:grid-cols-[120px_1fr_1fr] gap-6 md:gap-10 items-start group">
-                    {/* Number */}
-                    <span
-                      className="text-[11px] tracking-[0.18em] font-semibold pt-0.5"
-                      style={{ fontFamily: "var(--font-mono), ui-monospace, monospace", color: "var(--text-muted)" }}
-                    >
-                      / {s.number}
-                    </span>
-
-                    {/* Title + body */}
-                    <div>
-                      <h3 className="text-[18px] md:text-[20px] font-semibold text-[var(--text-primary)] leading-snug">
-                        {s.title}
-                      </h3>
-                      <p className="mt-2.5 text-[14px] leading-[1.65] text-[var(--text-secondary)] max-w-md">
-                        {s.body}
-                      </p>
-                    </div>
-
-                    {/* Tags + link */}
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-wrap gap-1.5">
-                        {s.tags.map((tag) => (
-                          <span key={tag} className="pill text-[11px] !py-1 !px-2.5">{tag}</span>
-                        ))}
-                      </div>
-                      <Link
-                        href={s.href}
-                        className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-[var(--brand-blue)] hover:underline underline-offset-4 w-fit"
+                  <div className="group rounded-2xl overflow-hidden border border-[var(--border)] bg-white hover:shadow-[0_8px_32px_rgba(11,30,63,0.09)] transition-shadow duration-300">
+                    <div className="flex flex-col md:flex-row">
+                      {/* Illustration panel */}
+                      <div
+                        className="relative flex-shrink-0 md:w-[240px] overflow-hidden"
+                        style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", minHeight: 160 }}
                       >
-                        Learn more
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                          <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </Link>
+                        <s.Scene />
+                        <span
+                          className="absolute bottom-3 left-4 text-[10px] tracking-[0.18em] font-semibold"
+                          style={{ fontFamily: "var(--font-mono), ui-monospace, monospace", color: "rgba(29,78,216,0.55)" }}
+                        >
+                          / {s.number}
+                        </span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex flex-col md:flex-row md:flex-1 gap-6 md:gap-10 p-6 md:p-8 items-start">
+                        {/* Title + body */}
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-[18px] md:text-[20px] font-semibold text-[var(--text-primary)] leading-snug">
+                            {s.title}
+                          </h3>
+                          <p className="mt-2.5 text-[14px] leading-[1.65] text-[var(--text-secondary)] max-w-md">
+                            {s.body}
+                          </p>
+                        </div>
+
+                        {/* Tags + link */}
+                        <div className="flex flex-col gap-4 md:w-64 flex-shrink-0">
+                          <div className="flex flex-wrap gap-1.5">
+                            {s.tags.map((tag) => (
+                              <span key={tag} className="pill text-[11px] !py-1 !px-2.5">{tag}</span>
+                            ))}
+                          </div>
+                          <Link
+                            href={s.href}
+                            className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-[var(--brand-blue)] hover:underline underline-offset-4 w-fit"
+                          >
+                            Learn more
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </RevealBlock>
