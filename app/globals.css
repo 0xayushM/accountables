@@ -465,7 +465,14 @@ body {
   to { transform: translateX(-50%); }
 }
 .marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 240s linear infinite;
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.marquee-reverse {
+  animation: marquee-reverse 240s linear infinite;
 }
 
 /* Focus */
