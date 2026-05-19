@@ -17,7 +17,7 @@ import Image from "next/image";
 
 const JOB = {
   title: "Financial Reporting",
-  level: "Senior Associate",
+  level: "Senior",
   department: "Finance & Accounting · RouteOne",
   location: "New Delhi, India",
   type: "Full-time",
@@ -356,7 +356,13 @@ function CurrentOpenings({ onApply }: { onApply: () => void }) {
             style={{ backgroundImage: "repeating-linear-gradient(90deg,rgba(255,255,255,1) 0px,rgba(255,255,255,1) 60px,transparent 60px,transparent 120px)" }} />
           <div className="relative">
             <p className="text-[16px] font-semibold text-white mb-1">Ready to join Accountables?</p>
-            <p className="text-[13px] text-white/65">We're hiring immediately. Submit your application and our team will reach out within 3 business days.</p>
+            <p className="text-[13px] text-white/65">We're hiring immediately. Our team will reach out within 3 business days.</p>
+            <a
+              href="mailto:support@accountables.com"
+              className="inline-block mt-2 text-[12.5px] text-white/50 hover:text-white/80 transition-colors"
+            >
+              support@accountables.com
+            </a>
           </div>
           <button onClick={onApply}
             className="relative flex-shrink-0 inline-flex items-center gap-2 h-10 px-5 rounded-full border border-white/40 text-white text-[13px] font-medium hover:bg-white/10 transition-colors whitespace-nowrap">
@@ -816,7 +822,7 @@ export default function CareersPage() {
   return (
     <>
       <Navbar />
-      {showModal && <ApplyModal role="Financial Reporting — Senior" onClose={() => setShowModal(false)} />}
+      {showModal && <ApplyModal role={`${JOB.title} — ${JOB.level}`} onClose={() => setShowModal(false)} />}
 
       <main>
         {/* Page header */}
