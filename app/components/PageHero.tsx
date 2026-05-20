@@ -36,8 +36,10 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden pt-16 md:pt-24 pb-12 md:pb-20">
-      <div aria-hidden className="absolute inset-0 jersey-stripes opacity-[0.7]" />
-      <div aria-hidden className="absolute inset-0 jersey-fade" />
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
+        <div className="jersey-stripes stripe-slide-in opacity-[0.7]" />
+      </div>
+      <div aria-hidden className="absolute inset-0 jersey-fade fade-in-soft" />
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <div className="max-w-3xl">
           <span className="pill">{eyebrow}</span>

@@ -121,8 +121,10 @@ export function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center overflow-hidden">
       {/* Background */}
-      <div aria-hidden className="absolute inset-0 jersey-stripes opacity-[0.85]" />
-      <div aria-hidden className="absolute inset-0 jersey-fade" />
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
+        <div className="jersey-stripes stripe-slide-in opacity-[0.85]" />
+      </div>
+      <div aria-hidden className="absolute inset-0 jersey-fade fade-in-soft" />
       <div
         aria-hidden
         className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 bg-gradient-to-r from-transparent via-black/10 to-transparent"

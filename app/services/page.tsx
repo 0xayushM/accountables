@@ -331,8 +331,10 @@ export default function ServicesPage() {
         ════════════════════════════════════════════════ */}
         <section className="relative overflow-hidden pt-32 md:pt-40 pb-24 md:pb-32 bg-[var(--background)]">
           {/* Background stripes */}
-          <div aria-hidden className="absolute inset-0 jersey-stripes opacity-[0.6]" />
-          <div aria-hidden className="absolute inset-0 jersey-fade" />
+          <div aria-hidden className="absolute inset-0 overflow-hidden">
+            <div className="jersey-stripes stripe-slide-in opacity-[0.6]" />
+          </div>
+          <div aria-hidden className="absolute inset-0 jersey-fade fade-in-soft" />
 
           <div className="relative mx-auto max-w-7xl px-6 md:px-10">
             <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">

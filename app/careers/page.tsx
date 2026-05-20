@@ -245,8 +245,10 @@ export default function CareersPage() {
       <main>
         {/* Page header */}
         <div className="relative overflow-hidden pt-32 md:pt-36 pb-10 border-b border-[var(--border)] bg-[var(--background)]">
-          <div aria-hidden className="absolute inset-0 jersey-stripes opacity-50" />
-          <div aria-hidden className="absolute inset-0 jersey-fade" />
+          <div aria-hidden className="absolute inset-0 overflow-hidden">
+            <div className="jersey-stripes stripe-slide-in opacity-50" />
+          </div>
+          <div aria-hidden className="absolute inset-0 jersey-fade fade-in-soft" />
           <div className="relative mx-auto max-w-7xl px-6 md:px-10">
             <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[var(--brand-blue)] mb-3">Join Us</p>
             <h1 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
