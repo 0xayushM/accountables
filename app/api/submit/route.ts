@@ -6,7 +6,9 @@ export async function POST(req: NextRequest) {
     const contentType = req.headers.get("content-type") ?? "";
     let formName = "contact";
     let fields: Record<string, string> = {};
-    let resumeBuffer: Buffer | null = null;
+    // Keep the original File object so we can forward the raw bytes without
+    // any Buffer round-trip that could corrupt binary content.
+    let resumeFile: File | null = null;
     let resumeFilename = "resume.pdf";
     let resumeMime = "application/pdf";
 
@@ -16,7 +18,7 @@ export async function POST(req: NextRequest) {
       for (const [key, value] of fd.entries()) {
         if (key === "form_name") continue;
         if (key === "resume" && value instanceof File && value.size > 0) {
-          resumeBuffer = Buffer.from(await value.arrayBuffer());
+          resumeFile = value;
           resumeFilename = value.name;
           resumeMime = value.type || "application/pdf";
         } else if (typeof value === "string") {
@@ -30,16 +32,16 @@ export async function POST(req: NextRequest) {
     }
 
     // 1. Forward to brewmyagent dashboard
-    // Use multipart/form-data so file attachments (e.g. resume) are forwarded.
+    // Use multipart/form-data and forward the File directly — no Buffer conversion —
+    // so the raw PDF bytes reach the dashboard intact.
     const brewFd = new FormData();
     brewFd.append("api_key", process.env.NEXT_PUBLIC_BREW_API_KEY!);
     brewFd.append("form_name", formName);
     for (const [k, v] of Object.entries(fields)) {
       brewFd.append(k, v);
     }
-    if (resumeBuffer) {
-      const blob = new Blob([new Uint8Array(resumeBuffer)], { type: resumeMime });
-      brewFd.append("resume", blob, resumeFilename);
+    if (resumeFile) {
+      brewFd.append("resume", resumeFile, resumeFilename);
     }
     await fetch(process.env.NEXT_PUBLIC_BREW_ENDPOINT!, {
       method: "POST",
@@ -76,7 +78,7 @@ export async function POST(req: NextRequest) {
           <div style="border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;padding:8px 0">
             <table style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table>
           </div>
-          ${resumeBuffer ? `<p style="font-size:13px;color:#6b7280;margin-top:12px">Resume attached: <strong>${resumeFilename}</strong></p>` : ""}
+          ${resumeFile ? `<p style="font-size:13px;color:#6b7280;margin-top:12px">Resume attached: <strong>${resumeFilename}</strong></p>` : ""}
         </div>`;
 
       const mailOptions: nodemailer.SendMailOptions = {
@@ -86,7 +88,9 @@ export async function POST(req: NextRequest) {
         html,
       };
 
-      if (resumeBuffer) {
+      if (resumeFile) {
+        // Convert to Buffer here, only when needed for the email attachment.
+        const resumeBuffer = Buffer.from(await resumeFile.arrayBuffer());
         mailOptions.attachments = [
           {
             filename: resumeFilename,
