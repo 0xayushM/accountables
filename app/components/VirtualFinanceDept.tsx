@@ -4,246 +4,196 @@ import ScrollRevealText from "./ScrollRevealText";
 
 // ─── Scene Illustrations ──────────────────────────────────────────────────────
 
-/** Operational Accounting - open ledger with entries being reconciled */
+/** Operational Accounting — bank reconciliation transaction list */
 const SceneAccounting = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
-    {/* ── shadow book behind ── */}
-    <rect x="44" y="48" width="148" height="102" rx="6" fill="#bfdbfe" opacity="0.4" transform="rotate(4 118 99)"/>
-
-    {/* ── open book left page ── */}
-    <rect x="34" y="26" width="108" height="118" rx="5" fill="#eff6ff" stroke="#1d4ed8" strokeWidth="1.6"/>
-    {/* spine */}
-    <rect x="140" y="26" width="5" height="118" fill="#1d4ed8" opacity="0.18"/>
-    {/* right page */}
-    <rect x="143" y="26" width="108" height="118" rx="5" fill="white" stroke="#1d4ed8" strokeWidth="1.6"/>
-
-    {/* left page - header bar */}
-    <rect x="43" y="35" width="90" height="11" rx="2.5" fill="#dbeafe"/>
-    <text x="49" y="44" fontSize="7" fill="#1d4ed8" fontWeight="700" fontFamily="ui-monospace,monospace">DATE</text>
-    <text x="89" y="44" fontSize="7" fill="#1d4ed8" fontWeight="700" fontFamily="ui-monospace,monospace">DEBIT</text>
-
-    {/* left page - ledger rows */}
-    <line x1="43" y1="58"  x2="130" y2="58"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.35"/>
-    <line x1="43" y1="71"  x2="130" y2="71"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.28"/>
-    <line x1="43" y1="84"  x2="130" y2="84"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.22"/>
-    <line x1="43" y1="97"  x2="120" y2="97"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.17"/>
-    <line x1="43" y1="110" x2="125" y2="110" stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.13"/>
-    {/* small amount boxes */}
-    <rect x="102" y="52" width="22" height="8" rx="1.5" fill="#dbeafe"/>
-    <rect x="102" y="65" width="22" height="8" rx="1.5" fill="#dbeafe" opacity="0.7"/>
-    <rect x="102" y="78" width="22" height="8" rx="1.5" fill="#dbeafe" opacity="0.5"/>
-
-    {/* right page - entries */}
-    <line x1="152" y1="58"  x2="240" y2="58"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.35"/>
-    <line x1="152" y1="71"  x2="240" y2="71"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.28"/>
-    <line x1="152" y1="84"  x2="240" y2="84"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.22"/>
-    <line x1="152" y1="97"  x2="230" y2="97"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.17"/>
-    {/* check badges - matched entries */}
-    <circle cx="246" cy="58"  r="5.5" fill="#22c55e"/>
-    <path d="M243 58l2 2 4.5-4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="246" cy="71"  r="5.5" fill="#22c55e"/>
-    <path d="M243 71l2 2 4.5-4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="246" cy="84"  r="5.5" fill="#fbbf24" opacity="0.9"/>
-    <line x1="246" y1="81" x2="246" y2="87" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-    <circle cx="246" cy="97"  r="5.5" stroke="#1d4ed8" strokeWidth="1.2" fill="none" opacity="0.3"/>
-
-    {/* ── month-end close pill ── */}
-    <rect x="152" y="115" width="90" height="19" rx="9.5" fill="#1d4ed8"/>
-    <text x="197" y="128" textAnchor="middle" fontSize="8.5" fill="white" fontWeight="600">Month-End Close ✓</text>
-
-    {/* ── pencil top-right ── */}
-    <g transform="translate(262,24) rotate(30)">
-      <rect x="-4" y="0"  width="8" height="40" rx="2"   fill="#fbbf24" stroke="#d97706" strokeWidth="0.8"/>
-      <rect x="-4" y="0"  width="8" height="7"  rx="1.5" fill="#fca5a5" stroke="#f87171" strokeWidth="0.8"/>
-      <polygon points="-4,40 4,40 0,50"              fill="#1d4ed8"/>
-      <polygon points="-1.5,44 1.5,44 0,50"          fill="white"/>
-    </g>
+    {/* Card */}
+    <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
+    {/* Header */}
+    <rect x="12" y="8" width="276" height="26" rx="8" fill="#eff6ff"/>
+    <rect x="12" y="22" width="276" height="12" fill="#eff6ff"/>
+    <text x="20" y="25" fontSize="9" fill="#1d4ed8" fontWeight="700" fontFamily="system-ui,sans-serif">Bank Reconciliation · Apr 2026</text>
+    <rect x="226" y="12" width="56" height="14" rx="7" fill="#dbeafe"/>
+    <text x="254" y="22" textAnchor="middle" fontSize="7" fill="#1d4ed8" fontWeight="600" fontFamily="system-ui,sans-serif">1 unmatched</text>
+    <line x1="12" y1="36" x2="288" y2="36" stroke="#e2e8f0" strokeWidth="1"/>
+    {/* Col labels */}
+    <text x="20" y="48" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">DESCRIPTION</text>
+    <text x="280" y="48" textAnchor="end" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">AMOUNT</text>
+    <line x1="12" y1="52" x2="288" y2="52" stroke="#f1f5f9" strokeWidth="1"/>
+    {/* Row 1 — matched */}
+    <circle cx="24" cy="66" r="5" fill="#22c55e"/>
+    <path d="M21.2 66l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="34" y="63" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Stripe Payment</text>
+    <text x="34" y="73" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">INV-0142 · Client receipt · 15 Apr</text>
+    <text x="280" y="67" textAnchor="end" fontSize="9" fill="#16a34a" fontWeight="700" fontFamily="ui-monospace,monospace">+£2,400</text>
+    <line x1="16" y1="83" x2="284" y2="83" stroke="#f8fafc" strokeWidth="1"/>
+    {/* Row 2 — matched */}
+    <circle cx="24" cy="97" r="5" fill="#22c55e"/>
+    <path d="M21.2 97l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="34" y="94" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">HMRC VAT Q1</text>
+    <text x="34" y="104" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">Direct debit · 19 Apr 2026</text>
+    <text x="280" y="98" textAnchor="end" fontSize="9" fill="#dc2626" fontWeight="700" fontFamily="ui-monospace,monospace">−£3,800</text>
+    <line x1="16" y1="114" x2="284" y2="114" stroke="#f8fafc" strokeWidth="1"/>
+    {/* Row 3 — needs review */}
+    <circle cx="24" cy="128" r="5" fill="#f59e0b"/>
+    <text x="24" y="132" textAnchor="middle" fontSize="9" fill="white" fontWeight="800" fontFamily="system-ui,sans-serif">!</text>
+    <text x="34" y="125" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Supplier Invoice</text>
+    <text x="34" y="135" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">Unmatched · needs categorisation</text>
+    <text x="280" y="129" textAnchor="end" fontSize="9" fill="#64748b" fontWeight="700" fontFamily="ui-monospace,monospace">−£560</text>
+    <line x1="16" y1="145" x2="284" y2="145" stroke="#f1f5f9" strokeWidth="1"/>
+    {/* Row 4 — pending */}
+    <circle cx="24" cy="157" r="5" fill="#e2e8f0"/>
+    <text x="34" y="154" fontSize="8.5" fill="#94a3b8" fontFamily="system-ui,sans-serif">Office Expenses</text>
+    <text x="34" y="162" fontSize="7" fill="#cbd5e1" fontFamily="system-ui,sans-serif">Pending import</text>
+    <text x="280" y="157" textAnchor="end" fontSize="9" fill="#94a3b8" fontWeight="600" fontFamily="ui-monospace,monospace">−£245</text>
   </svg>
 );
 
-/** Compliance & Reporting - shield + calendar + documents */
+/** Compliance & Reporting — filing status tracker */
 const SceneCompliance = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
-    {/* ── calendar left ── */}
-    <rect x="18" y="28" width="88" height="96" rx="6" fill="white" stroke="#1d4ed8" strokeWidth="1.5"/>
-    {/* header bar */}
-    <rect x="18" y="28" width="88" height="24" rx="6" fill="#1d4ed8"/>
-    <rect x="18" y="40" width="88" height="12" fill="#1d4ed8"/>
-    <text x="62" y="45" textAnchor="middle" fontSize="9" fill="white" fontWeight="700">APRIL 2026</text>
-    {/* day grid */}
-    {["M","T","W","T","F","S","S"].map((d, i) => (
-      <text key={i} x={24 + i * 12} y="64" fontSize="6.5" fill="#1d4ed8" opacity="0.6" fontWeight="600" textAnchor="middle">{d}</text>
-    ))}
-    {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21].map((n, i) => {
-      const x = 24 + (i % 7) * 12;
-      const y = 76 + Math.floor(i / 7) * 12;
-      const isDeadline = n === 15 || n === 21;
-      const isPast = n <= 10;
-      return (
-        <g key={n}>
-          {isDeadline && <circle cx={x} cy={y - 3} r="6.5" fill="#1d4ed8" opacity="0.15"/>}
-          <text x={x} y={y} textAnchor="middle" fontSize="7.5"
-            fill={isDeadline ? "#1d4ed8" : isPast ? "#94a3b8" : "#334155"}
-            fontWeight={isDeadline ? "700" : "400"}>
-            {n}
-          </text>
-          {isPast && <line x1={x-3} y1={y-4} x2={x+3} y2={y-4} stroke="#22c55e" strokeWidth="1.2" strokeLinecap="round" opacity="0.7"/>}
-        </g>
-      );
-    })}
-    {/* deadline labels */}
-    <rect x="20" y="116" width="84" height="7" rx="3.5" fill="#fef3c7"/>
-    <text x="62" y="122" textAnchor="middle" fontSize="6.5" fill="#92400e" fontWeight="600">VAT Filing - Apr 15</text>
-
-    {/* ── central shield ── */}
-    <path d="M180 18 L148 30 v24 c0 26 16 44 32 52 16-8 32-26 32-52 V30 Z" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.6"/>
-    {/* shield inner glow */}
-    <path d="M180 26 L155 36 v20 c0 21 13 36 25 42 12-6 25-21 25-42 V36 Z" fill="#eff6ff" stroke="#1d4ed8" strokeWidth="0.8" opacity="0.7"/>
-    {/* checkmark on shield */}
-    <path d="M169 58 l8 8 16-16" stroke="#1d4ed8" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
-
-    {/* ── document stack right ── */}
-    <rect x="212" y="44" width="66" height="84" rx="4" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1.3" transform="rotate(6 245 86)"/>
-    <rect x="215" y="36" width="66" height="84" rx="4" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.3" transform="rotate(2 248 78)"/>
-    <rect x="218" y="28" width="66" height="84" rx="4" fill="white" stroke="#1d4ed8" strokeWidth="1.5"/>
-    {/* doc lines */}
-    <line x1="227" y1="42" x2="275" y2="42" stroke="#1d4ed8" strokeWidth="1.1" strokeLinecap="round" opacity="0.5"/>
-    <line x1="227" y1="52" x2="275" y2="52" stroke="#1d4ed8" strokeWidth="1.1" strokeLinecap="round" opacity="0.4"/>
-    <line x1="227" y1="62" x2="266" y2="62" stroke="#1d4ed8" strokeWidth="1.1" strokeLinecap="round" opacity="0.35"/>
-    <line x1="227" y1="72" x2="270" y2="72" stroke="#1d4ed8" strokeWidth="1.1" strokeLinecap="round" opacity="0.3"/>
-    <line x1="227" y1="82" x2="260" y2="82" stroke="#1d4ed8" strokeWidth="1.1" strokeLinecap="round" opacity="0.25"/>
-    {/* "FILED" stamp */}
-    <rect x="230" y="88" width="46" height="17" rx="3" stroke="#22c55e" strokeWidth="1.5" fill="none" transform="rotate(-8 253 96)"/>
-    <text x="253" y="100" textAnchor="middle" fontSize="9" fill="#16a34a" fontWeight="700" transform="rotate(-8 253 96)">FILED</text>
+    {/* Card */}
+    <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
+    {/* Header — dark blue */}
+    <rect x="12" y="8" width="276" height="26" rx="8" fill="#1d4ed8"/>
+    <rect x="12" y="22" width="276" height="12" fill="#1d4ed8"/>
+    <text x="20" y="25" fontSize="9" fill="white" fontWeight="700" fontFamily="system-ui,sans-serif">Compliance Tracker · FY 2026</text>
+    <text x="280" y="25" textAnchor="end" fontSize="8" fill="rgba(255,255,255,0.65)" fontFamily="system-ui,sans-serif">3 of 6 filed</text>
+    {/* Progress bar */}
+    <rect x="12" y="34" width="276" height="5" fill="rgba(29,78,216,0.25)"/>
+    <rect x="12" y="34" width="138" height="5" fill="#22c55e"/>
+    {/* Col headers */}
+    <text x="40" y="52" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">OBLIGATION</text>
+    <text x="200" y="52" textAnchor="middle" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">DUE DATE</text>
+    <text x="280" y="52" textAnchor="end" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">STATUS</text>
+    <line x1="12" y1="56" x2="288" y2="56" stroke="#e2e8f0" strokeWidth="1"/>
+    {/* Row 1 — Filed */}
+    <circle cx="24" cy="70" r="5" fill="#22c55e"/>
+    <path d="M21.2 70l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="34" y="67" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">VAT Return Q1</text>
+    <text x="34" y="77" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">HMRC · Quarterly</text>
+    <text x="200" y="71" textAnchor="middle" fontSize="7.5" fill="#64748b" fontFamily="system-ui,sans-serif">30 Apr 2026</text>
+    <rect x="242" y="63" width="40" height="14" rx="7" fill="#dcfce7"/>
+    <text x="262" y="73" textAnchor="middle" fontSize="7" fill="#16a34a" fontWeight="600" fontFamily="system-ui,sans-serif">Filed ✓</text>
+    <line x1="16" y1="88" x2="284" y2="88" stroke="#f1f5f9" strokeWidth="1"/>
+    {/* Row 2 — Filed */}
+    <circle cx="24" cy="102" r="5" fill="#22c55e"/>
+    <path d="M21.2 102l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="34" y="99" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Payroll RTI Submission</text>
+    <text x="34" y="109" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">HMRC · Monthly</text>
+    <text x="200" y="103" textAnchor="middle" fontSize="7.5" fill="#64748b" fontFamily="system-ui,sans-serif">19 Apr 2026</text>
+    <rect x="242" y="95" width="40" height="14" rx="7" fill="#dcfce7"/>
+    <text x="262" y="105" textAnchor="middle" fontSize="7" fill="#16a34a" fontWeight="600" fontFamily="system-ui,sans-serif">Filed ✓</text>
+    <line x1="16" y1="120" x2="284" y2="120" stroke="#f1f5f9" strokeWidth="1"/>
+    {/* Row 3 — Due Soon */}
+    <circle cx="24" cy="134" r="5" fill="#f59e0b"/>
+    <text x="24" y="138" textAnchor="middle" fontSize="9" fill="white" fontWeight="800" fontFamily="system-ui,sans-serif">!</text>
+    <text x="34" y="131" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Corporation Tax</text>
+    <text x="34" y="141" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">HMRC · Annual · 41 days</text>
+    <text x="200" y="135" textAnchor="middle" fontSize="7.5" fill="#64748b" fontFamily="system-ui,sans-serif">30 Jun 2026</text>
+    <rect x="232" y="127" width="50" height="14" rx="7" fill="#fef3c7"/>
+    <text x="257" y="137" textAnchor="middle" fontSize="7" fill="#92400e" fontWeight="600" fontFamily="system-ui,sans-serif">Due Soon</text>
+    <line x1="16" y1="152" x2="284" y2="152" stroke="#f1f5f9" strokeWidth="1"/>
+    {/* Footer note */}
+    <text x="20" y="161" fontSize="7" fill="#1d4ed8" fontWeight="600" fontFamily="system-ui,sans-serif">Next: Corporation Tax in 41 days</text>
+    <text x="280" y="161" textAnchor="end" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">3 more upcoming</text>
   </svg>
 );
 
-/** Planning & Finance Support - bar chart with forecast + KPI pills */
+/** Planning & Finance Support — financial dashboard with KPIs + trend chart */
 const ScenePlanning = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
-    {/* ── dashboard card ── */}
-    <rect x="18" y="20" width="264" height="120" rx="8" fill="white" stroke="#1d4ed8" strokeWidth="1.4" opacity="0.9"/>
-    {/* header */}
-    <rect x="18" y="20" width="264" height="22" rx="8" fill="#eff6ff"/>
-    <rect x="18" y="32" width="264" height="10" fill="#eff6ff"/>
-    <circle cx="30" cy="31" r="4" fill="#fca5a5"/>
-    <circle cx="42" cy="31" r="4" fill="#fbbf24"/>
-    <circle cx="54" cy="31" r="4" fill="#86efac"/>
-    <text x="140" y="35" textAnchor="middle" fontSize="8" fill="#1d4ed8" fontWeight="600" opacity="0.7">Finance Overview · Q1 2026</text>
-
-    {/* ── KPI row ── */}
-    <rect x="28"  y="48" width="58" height="28" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1"/>
-    <text x="57"  y="60" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Revenue</text>
-    <text x="57"  y="71" textAnchor="middle" fontSize="11" fill="#1d4ed8" fontWeight="700">£48k</text>
-
-    <rect x="92"  y="48" width="58" height="28" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1"/>
-    <text x="121" y="60" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Cash Flow</text>
-    <text x="121" y="71" textAnchor="middle" fontSize="11" fill="#22c55e" fontWeight="700">+12%</text>
-
-    <rect x="156" y="48" width="58" height="28" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1"/>
-    <text x="185" y="60" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Expenses</text>
-    <text x="185" y="71" textAnchor="middle" fontSize="11" fill="#1d4ed8" fontWeight="700">£31k</text>
-
-    <rect x="220" y="48" width="54" height="28" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1"/>
-    <text x="247" y="60" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Runway</text>
-    <text x="247" y="71" textAnchor="middle" fontSize="11" fill="#0a84ff" fontWeight="700">8 mo</text>
-
-    {/* ── bar chart ── */}
-    {/* y-axis */}
-    <line x1="38" y1="82" x2="38" y2="132" stroke="#1d4ed8" strokeWidth="1" opacity="0.25"/>
-    {/* x-axis */}
-    <line x1="38" y1="132" x2="278" y2="132" stroke="#1d4ed8" strokeWidth="1" opacity="0.25"/>
-
-    {/* bars (6 months) */}
-    {[
-      { x: 48,  h: 32, month: "OCT", hi: false },
-      { x: 88,  h: 44, month: "NOV", hi: false },
-      { x: 128, h: 38, month: "DEC", hi: false },
-      { x: 168, h: 52, month: "JAN", hi: false },
-      { x: 208, h: 46, month: "FEB", hi: false },
-      { x: 248, h: 60, month: "MAR", hi: true  },
-    ].map((b) => (
-      <g key={b.month}>
-        <rect
-          x={b.x - 14} y={132 - b.h} width="28" height={b.h} rx="3"
-          fill={b.hi ? "#1d4ed8" : "#bfdbfe"}
-        />
-        <text x={b.x} y="142" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.6">{b.month}</text>
-      </g>
+    {/* Card */}
+    <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
+    {/* Header */}
+    <rect x="12" y="8" width="276" height="26" rx="8" fill="#eff6ff"/>
+    <rect x="12" y="22" width="276" height="12" fill="#eff6ff"/>
+    <text x="20" y="25" fontSize="9" fill="#1d4ed8" fontWeight="700" fontFamily="system-ui,sans-serif">Financial Overview · Q1 2026</text>
+    <rect x="238" y="12" width="44" height="14" rx="7" fill="#dcfce7"/>
+    <circle cx="245" cy="19" r="2.5" fill="#22c55e"/>
+    <text x="268" y="22" textAnchor="middle" fontSize="7" fill="#16a34a" fontWeight="600" fontFamily="system-ui,sans-serif">On Track</text>
+    {/* KPI tiles */}
+    <rect x="14" y="36" width="60" height="28" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="44" y="48" textAnchor="middle" fontSize="6" fill="#64748b" fontFamily="system-ui,sans-serif">Revenue</text>
+    <text x="44" y="59" textAnchor="middle" fontSize="12" fill="#1d4ed8" fontWeight="700" fontFamily="system-ui,sans-serif">£48k</text>
+    <rect x="80" y="36" width="60" height="28" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="110" y="48" textAnchor="middle" fontSize="6" fill="#64748b" fontFamily="system-ui,sans-serif">Cash Flow</text>
+    <text x="110" y="59" textAnchor="middle" fontSize="12" fill="#22c55e" fontWeight="700" fontFamily="system-ui,sans-serif">+12%</text>
+    <rect x="146" y="36" width="60" height="28" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="176" y="48" textAnchor="middle" fontSize="6" fill="#64748b" fontFamily="system-ui,sans-serif">Expenses</text>
+    <text x="176" y="59" textAnchor="middle" fontSize="12" fill="#64748b" fontWeight="700" fontFamily="system-ui,sans-serif">£31k</text>
+    <rect x="212" y="36" width="66" height="28" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="245" y="48" textAnchor="middle" fontSize="6" fill="#64748b" fontFamily="system-ui,sans-serif">Runway</text>
+    <text x="245" y="59" textAnchor="middle" fontSize="12" fill="#0a84ff" fontWeight="700" fontFamily="system-ui,sans-serif">8 mo</text>
+    {/* Chart axes */}
+    <line x1="30" y1="72" x2="30" y2="140" stroke="#e2e8f0" strokeWidth="1"/>
+    <line x1="30" y1="140" x2="284" y2="140" stroke="#e2e8f0" strokeWidth="1"/>
+    <line x1="30" y1="95"  x2="284" y2="95"  stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3"/>
+    <line x1="30" y1="118" x2="284" y2="118" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3 3"/>
+    <text x="26" y="98"  textAnchor="end" fontSize="6" fill="#cbd5e1" fontFamily="system-ui,sans-serif">50k</text>
+    <text x="26" y="121" textAnchor="end" fontSize="6" fill="#cbd5e1" fontFamily="system-ui,sans-serif">25k</text>
+    {/* Revenue bars */}
+    {([
+      { x: 57,  h: 38 },
+      { x: 98,  h: 48 },
+      { x: 139, h: 42 },
+      { x: 180, h: 54 },
+      { x: 221, h: 48 },
+      { x: 262, h: 60, hi: true },
+    ] as Array<{ x: number; h: number; hi?: boolean }>).map((b, i) => (
+      <rect key={i} x={b.x - 14} y={140 - b.h} width="28" height={b.h} rx="3"
+        fill={b.hi ? "#1d4ed8" : "#bfdbfe"} />
     ))}
-
-    {/* trend line */}
-    <polyline
-      points="48,100 88,88 128,94 168,80 208,86 248,72"
-      stroke="#0a84ff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round"
-      strokeDasharray="5 3"
-    />
-    {/* dot on last point */}
-    <circle cx="248" cy="72" r="4" fill="#0a84ff" stroke="white" strokeWidth="1.5"/>
-
-    {/* forecast arrow */}
-    <path d="M262 68 L274 58 L274 78 Z" fill="#0a84ff" opacity="0.7"/>
+    {/* Month labels */}
+    {(["Oct","Nov","Dec","Jan","Feb","Mar"] as string[]).map((m, i) => (
+      <text key={m} x={57 + i * 41} y="152" textAnchor="middle" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">{m}</text>
+    ))}
+    {/* Trend line */}
+    <polyline points="57,102 98,90 139,96 180,82 221,88 262,76"
+      stroke="#0a84ff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5 3"/>
+    <circle cx="262" cy="76" r="3.5" fill="#0a84ff" stroke="white" strokeWidth="1.5"/>
+    <text x="260" y="72" textAnchor="end" fontSize="7" fill="#0a84ff" fontWeight="600" fontFamily="system-ui,sans-serif">↑ Trend</text>
   </svg>
 );
 
-/** Fractional Finance Leadership - person + org structure + growth */
+/** Fractional Finance Leadership — executive KPI dashboard + strategic roadmap */
 const SceneLeadership = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
-    {/* ── person at desk (left) ── */}
-    {/* desk */}
-    <rect x="14" y="114" width="110" height="10" rx="3" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1.3"/>
-    <rect x="24"  y="124" width="8" height="22" rx="2" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1"/>
-    <rect x="100" y="124" width="8" height="22" rx="2" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1"/>
-    {/* monitor */}
-    <rect x="34" y="80" width="70" height="46" rx="4" fill="white" stroke="#1d4ed8" strokeWidth="1.4"/>
-    <rect x="38" y="84" width="62" height="36" rx="2" fill="#eff6ff"/>
-    {/* mini chart on monitor */}
-    <polyline points="42,112 52,104 62,107 72,98 82,100 92,93" stroke="#0a84ff" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-    <line x1="38" y1="120" x2="100" y2="120" stroke="#1d4ed8" strokeWidth="0.8" opacity="0.3"/>
-    {/* monitor stand */}
-    <rect x="62" y="124" width="14" height="8" rx="2" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1"/>
-    {/* person body */}
-    <circle cx="69" cy="58" r="14" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5"/>
-    <path d="M47 84 q22-14 44 0" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.5" strokeLinecap="round"/>
-    {/* face detail */}
-    <circle cx="63" cy="56" r="1.5" fill="#1d4ed8"/>
-    <circle cx="75" cy="56" r="1.5" fill="#1d4ed8"/>
-    <path d="M64 63 q5 3 10 0" stroke="#1d4ed8" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-
-    {/* ── connecting line ── */}
-    <line x1="128" y1="84" x2="152" y2="84" stroke="#1d4ed8" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4"/>
-
-    {/* ── org chart / structure (right) ── */}
-    {/* top node */}
-    <rect x="152" y="24" width="64" height="30" rx="5" fill="#1d4ed8"/>
-    <text x="184" y="36" textAnchor="middle" fontSize="7.5" fill="white" fontWeight="700">Finance</text>
-    <text x="184" y="47" textAnchor="middle" fontSize="7.5" fill="white" opacity="0.8">Leadership</text>
-
-    {/* connector lines */}
-    <line x1="184" y1="54" x2="184" y2="66" stroke="#1d4ed8" strokeWidth="1.2" opacity="0.4"/>
-    <line x1="152" y1="66" x2="222" y2="66" stroke="#1d4ed8" strokeWidth="1.2" opacity="0.4"/>
-    <line x1="152" y1="66" x2="152" y2="76" stroke="#1d4ed8" strokeWidth="1.2" opacity="0.4"/>
-    <line x1="184" y1="66" x2="184" y2="76" stroke="#1d4ed8" strokeWidth="1.2" opacity="0.4"/>
-    <line x1="222" y1="66" x2="222" y2="76" stroke="#1d4ed8" strokeWidth="1.2" opacity="0.4"/>
-
-    {/* child nodes */}
-    <rect x="124" y="76" width="56" height="22" rx="4" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.2"/>
-    <text x="152" y="85" textAnchor="middle" fontSize="7" fill="#1d4ed8" fontWeight="600">Reporting</text>
-    <text x="152" y="93" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Monthly</text>
-
-    <rect x="158" y="76" width="56" height="22" rx="4" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.2"/>
-    <text x="186" y="85" textAnchor="middle" fontSize="7" fill="#1d4ed8" fontWeight="600">Compliance</text>
-    <text x="186" y="93" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Ongoing</text>
-
-    <rect x="196" y="76" width="52" height="22" rx="4" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.2"/>
-    <text x="222" y="85" textAnchor="middle" fontSize="7" fill="#1d4ed8" fontWeight="600">Planning</text>
-    <text x="222" y="93" textAnchor="middle" fontSize="7" fill="#1d4ed8" opacity="0.7">Strategic</text>
-
-    {/* ── growth arrow bottom right ── */}
-    <rect x="152" y="112" width="130" height="40" rx="5" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1"/>
-    <polyline points="162,144 180,132 200,136 222,124 245,126 268,114" stroke="#22c55e" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="268" cy="114" r="4" fill="#22c55e" stroke="white" strokeWidth="1.5"/>
-    <text x="162" y="152" fontSize="7.5" fill="#16a34a" fontWeight="600">↑ Business Growth</text>
+    {/* Card */}
+    <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
+    {/* Header — dark navy */}
+    <rect x="12" y="8" width="276" height="26" rx="8" fill="#0b1e3f"/>
+    <rect x="12" y="22" width="276" height="12" fill="#0b1e3f"/>
+    <text x="20" y="25" fontSize="9" fill="white" fontWeight="700" fontFamily="system-ui,sans-serif">Finance Leadership · FY 2026</text>
+    <circle cx="272" cy="19" r="3" fill="#22c55e"/>
+    <text x="267" y="23" textAnchor="end" fontSize="7" fill="rgba(255,255,255,0.55)" fontFamily="system-ui,sans-serif">Live</text>
+    {/* 3 KPI tiles */}
+    <rect x="14" y="38" width="82" height="36" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="55" y="51" textAnchor="middle" fontSize="6.5" fill="#64748b" fontFamily="system-ui,sans-serif">Month-on-Month</text>
+    <text x="55" y="65" textAnchor="middle" fontSize="15" fill="#22c55e" fontWeight="700" fontFamily="system-ui,sans-serif">+12%</text>
+    <rect x="102" y="38" width="84" height="36" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="144" y="51" textAnchor="middle" fontSize="6.5" fill="#64748b" fontFamily="system-ui,sans-serif">YTD Revenue</text>
+    <text x="144" y="65" textAnchor="middle" fontSize="15" fill="#1d4ed8" fontWeight="700" fontFamily="system-ui,sans-serif">£480k</text>
+    <rect x="192" y="38" width="84" height="36" rx="5" fill="#eff6ff" stroke="#dbeafe" strokeWidth="1"/>
+    <text x="234" y="51" textAnchor="middle" fontSize="6.5" fill="#64748b" fontFamily="system-ui,sans-serif">Gross Margin</text>
+    <text x="234" y="65" textAnchor="middle" fontSize="15" fill="#0a84ff" fontWeight="700" fontFamily="system-ui,sans-serif">34.5%</text>
+    {/* Section label */}
+    <text x="20" y="90" fontSize="7" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">STRATEGIC ROADMAP · Q2 2026</text>
+    {/* Milestone 1 — 100% */}
+    <text x="20" y="105" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Financial Model Review</text>
+    <text x="280" y="105" textAnchor="end" fontSize="7.5" fill="#22c55e" fontWeight="600" fontFamily="system-ui,sans-serif">Complete</text>
+    <rect x="20" y="109" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
+    <rect x="20" y="109" width="260" height="5" rx="2.5" fill="#22c55e"/>
+    {/* Milestone 2 — 75% */}
+    <text x="20" y="127" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Board Reporting Pack</text>
+    <text x="280" y="127" textAnchor="end" fontSize="7.5" fill="#1d4ed8" fontWeight="600" fontFamily="system-ui,sans-serif">In Progress</text>
+    <rect x="20" y="131" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
+    <rect x="20" y="131" width="195" height="5" rx="2.5" fill="#1d4ed8"/>
+    {/* Milestone 3 — 40% */}
+    <text x="20" y="149" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Cash Flow Forecast Model</text>
+    <text x="280" y="149" textAnchor="end" fontSize="7.5" fill="#f59e0b" fontWeight="600" fontFamily="system-ui,sans-serif">In Progress</text>
+    <rect x="20" y="153" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
+    <rect x="20" y="153" width="104" height="5" rx="2.5" fill="#f59e0b"/>
   </svg>
 );
 
