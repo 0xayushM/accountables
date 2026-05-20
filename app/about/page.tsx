@@ -183,7 +183,7 @@ export default function AboutPage() {
             </div>
 
             {/* ② Name + headline */}
-            <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
+            <div className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
               <div>
                 <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
                   Sidharth <span className="accent">Dugar</span>
@@ -195,28 +195,6 @@ export default function AboutPage() {
               <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
                 Building the future of modern finance operations for growing businesses.
               </p>
-            </div>
-
-            {/* ③ Credentials tile (navy) */}
-            <div
-              className="rounded-2xl p-6 flex flex-col justify-between gap-6"
-              style={{ background: "var(--brand-navy)" }}
-            >
-              <div>
-                <div className="display text-[36px] font-semibold text-white leading-none">CA</div>
-                <div className="display text-[36px] font-semibold leading-none" style={{ color: "rgba(255,255,255,0.3)" }}>MBA</div>
-              </div>
-              <div className="flex flex-col gap-2">
-                {["United Kingdom", "United States", "India"].map((region) => (
-                  <div key={region} className="flex items-center gap-2">
-                    <span
-                      className="h-1.5 w-1.5 rounded-full flex-shrink-0"
-                      style={{ background: "var(--brand-accent)" }}
-                    />
-                    <span className="text-[12.5px] text-white/60">{region}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* ④ Bio + tags */}
