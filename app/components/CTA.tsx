@@ -91,7 +91,7 @@ export function CTA() {
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-white/60">
               <a
-                href="mailto:contact@accountables.com"
+                href="mailto:support@accountables.com"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -110,7 +110,7 @@ export function CTA() {
                     strokeWidth="1.5"
                   />
                 </svg>
-                contact@accountables.com
+                support@accountables.com
               </a>
               <a
                 href="tel:+4447467348253"

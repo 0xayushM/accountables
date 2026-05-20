@@ -109,7 +109,7 @@ const CAREER_PATH: { Icon: IconType; title: string; exp: string }[] = [
 // ─── Apply Modal ──────────────────────────────────────────────────────────────
 
 function ApplyModal({ role, onClose }: { role: string; onClose: () => void }) {
-  const [fileName, setFileName] = useState<string | null>(null);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -117,11 +117,13 @@ function ApplyModal({ role, onClose }: { role: string; onClose: () => void }) {
     setStatus("submitting");
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(
-      Array.from(fd.entries()).map(([k, v]) => [k, String(v)])
+      Array.from(fd.entries())
+        .filter(([k]) => k !== "resume")
+        .map(([k, v]) => [k, String(v)])
     );
     data.role = role;
     try {
-      await submitForm("careers-apply", data);
+      await submitForm("careers-apply", data, resumeFile ?? undefined);
       setStatus("done");
     } catch {
       setStatus("idle");
@@ -167,9 +169,9 @@ function ApplyModal({ role, onClose }: { role: string; onClose: () => void }) {
               <label className="text-[12px] font-semibold text-[var(--text-primary)]">Resume / CV *</label>
               <label className="border-2 border-dashed border-[var(--border)] rounded-xl p-4 text-center cursor-pointer hover:border-[var(--brand-blue)] transition-colors">
                 <input type="file" accept=".pdf,.doc,.docx" className="hidden"
-                  onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)} />
-                {fileName
-                  ? <p className="text-[13px] text-[var(--brand-blue)] font-medium">✓ {fileName}</p>
+                  onChange={(e) => { const f = e.target.files?.[0]; if (f) setResumeFile(f); }} />
+                {resumeFile
+                  ? <p className="text-[13px] text-[var(--brand-blue)] font-medium">✓ {resumeFile.name}</p>
                   : <p className="text-[12.5px] text-[var(--text-muted)]"><span className="font-semibold text-[var(--brand-blue)]">Click to upload</span> or drag & drop<br />PDF or DOCX, max 5 MB</p>
                 }
               </label>
@@ -207,7 +209,7 @@ function FormField({ label, type, placeholder, name }: { label: string; type: st
 
 export default function CareersPage() {
   const [openRole, setOpenRole] = useState<string | null>(null);
-  const [expressFileName, setExpressFileName] = useState<string | null>(null);
+  const [expressResumeFile, setExpressResumeFile] = useState<File | null>(null);
   const [expressRole, setExpressRole] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [expressStatus, setExpressStatus] = useState<"idle" | "submitting" | "done">("idle");
@@ -217,11 +219,13 @@ export default function CareersPage() {
     setExpressStatus("submitting");
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(
-      Array.from(fd.entries()).map(([k, v]) => [k, String(v)])
+      Array.from(fd.entries())
+        .filter(([k]) => k !== "resume")
+        .map(([k, v]) => [k, String(v)])
     );
     data.role = expressRole;
     try {
-      await submitForm("careers-express", data);
+      await submitForm("careers-express", data, expressResumeFile ?? undefined);
       setExpressStatus("done");
     } catch {
       setExpressStatus("idle");
@@ -568,9 +572,9 @@ export default function CareersPage() {
                           <label className="text-[12px] font-semibold text-[var(--text-primary)]">Resume / CV *</label>
                           <label className="border-2 border-dashed border-[var(--border)] rounded-xl p-4 text-center cursor-pointer hover:border-[var(--brand-blue)] transition-colors">
                             <input type="file" accept=".pdf,.doc,.docx" className="hidden"
-                              onChange={(e) => setExpressFileName(e.target.files?.[0]?.name ?? null)} />
-                            {expressFileName
-                              ? <p className="text-[13px] text-[var(--brand-blue)] font-medium">✓ {expressFileName}</p>
+                              onChange={(e) => { const f = e.target.files?.[0]; if (f) setExpressResumeFile(f); }} />
+                            {expressResumeFile
+                              ? <p className="text-[13px] text-[var(--brand-blue)] font-medium">✓ {expressResumeFile.name}</p>
                               : <p className="text-[12.5px] text-[var(--text-muted)]"><span className="font-semibold text-[var(--brand-blue)]">Click to upload</span> or drag & drop<br />PDF or DOCX, max 5 MB</p>
                             }
                           </label>

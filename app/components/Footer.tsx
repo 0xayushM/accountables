@@ -58,8 +58,8 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-3 text-[13px] text-[var(--text-muted)]">
               <div>
-                <a href="mailto:contact@accountables.com" className="text-[var(--text-primary)] hover:underline underline-offset-2">
-                  contact@accountables.com
+                <a href="mailto:support@accountables.com" className="text-[var(--text-primary)] hover:underline underline-offset-2">
+                  support@accountables.com
                 </a>
               </div>
               <div className="text-[var(--text-secondary)]">
@@ -129,7 +129,7 @@ export function Footer() {
               LinkedIn
             </a>
             <a
-              href="mailto:contact@accountables.com"
+              href="mailto:support@accountables.com"
               className="hover:text-[var(--text-primary)] transition-colors"
             >
               Email
