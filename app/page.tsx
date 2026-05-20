@@ -1,3 +1,4 @@
+import { AnnouncementBar } from "./components/AnnouncementBar";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { VirtualFinanceDept } from "./components/VirtualFinanceDept";
@@ -11,6 +12,7 @@ import { Footer } from "./components/Footer";
 export default function Home() {
   return (
     <>
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1">
         <Hero />

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -80,9 +81,16 @@ function Chevron({ open }: { open: boolean }) {
 
 // ─── Dropdown panels ─────────────────────────────────────────────────────────
 
-function ServicesPanel({ close }: { close: () => void }) {
+function ServicesPanel({ close, dark }: { close: () => void; dark?: boolean }) {
+  const divider = dark ? "divide-white/[0.07]" : "divide-gray-100";
+  const itemHover = dark ? "hover:bg-white/[0.06]" : "hover:bg-gray-50";
+  const rightBg = dark ? "bg-white/[0.04]" : "bg-[#f5f5f7]";
+  const ctaBtn = dark
+    ? "bg-white text-[var(--brand-navy)] hover:bg-white/90"
+    : "bg-[var(--brand-navy)] text-white hover:bg-[var(--brand-navy-soft)]";
+
   return (
-    <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[320px]">
+    <div className={`grid grid-cols-[210px_1fr_270px] divide-x ${divider} min-h-[320px]`}>
       {/* Left */}
       <div className="p-6 flex flex-col gap-2">
         <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Your Virtual Finance Department</p>
@@ -101,7 +109,7 @@ function ServicesPanel({ close }: { close: () => void }) {
             key={item.label}
             href={item.href}
             onClick={close}
-            className="flex gap-2.5 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
+            className={`flex gap-2.5 p-3 rounded-xl ${itemHover} transition-colors group`}
           >
             <span className="text-[14px] text-[var(--text-muted)] mt-px leading-none flex-shrink-0 w-4 text-center">{item.icon}</span>
             <div className="min-w-0">
@@ -115,7 +123,7 @@ function ServicesPanel({ close }: { close: () => void }) {
       </div>
 
       {/* Right: CTA */}
-      <div className="p-6 bg-[#f5f5f7] flex flex-col">
+      <div className={`p-6 ${rightBg} flex flex-col`}>
         <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2">Book a consultation</div>
         <p className="text-[12.5px] leading-[1.55] text-[var(--text-secondary)]">
           Structured finance support designed around visibility, coordination and scalable growth.
@@ -123,7 +131,7 @@ function ServicesPanel({ close }: { close: () => void }) {
         <Link
           href="/#contact"
           onClick={close}
-          className="mt-auto inline-flex items-center justify-center h-9 px-5 rounded-full bg-[var(--brand-navy)] text-white text-[12px] font-semibold hover:bg-[var(--brand-navy-soft)] transition-colors"
+          className={`mt-auto inline-flex items-center justify-center h-9 px-5 rounded-full text-[12px] font-semibold transition-colors ${ctaBtn}`}
         >
           Book a Consultation →
         </Link>
@@ -132,9 +140,16 @@ function ServicesPanel({ close }: { close: () => void }) {
   );
 }
 
-function AiPanel({ close }: { close: () => void }) {
+function AiPanel({ close, dark }: { close: () => void; dark?: boolean }) {
+  const divider = dark ? "divide-white/[0.07]" : "divide-gray-100";
+  const itemHover = dark ? "hover:bg-white/[0.06]" : "hover:bg-gray-50";
+  const rightBg = dark ? "bg-white/[0.04]" : "bg-[#f5f5f7]";
+  const ctaBtn = dark
+    ? "bg-white text-[var(--brand-navy)] hover:bg-white/90"
+    : "bg-[var(--brand-navy)] text-white hover:bg-[var(--brand-navy-soft)]";
+
   return (
-    <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[280px]">
+    <div className={`grid grid-cols-[210px_1fr_270px] divide-x ${divider} min-h-[280px]`}>
       {/* Left */}
       <div className="p-6 flex flex-col gap-2">
         <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Easy-To-Use AI</p>
@@ -153,7 +168,7 @@ function AiPanel({ close }: { close: () => void }) {
             key={item.label}
             href={item.href}
             onClick={close}
-            className="flex gap-2.5 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
+            className={`flex gap-2.5 p-3 rounded-xl ${itemHover} transition-colors group`}
           >
             <span className="text-[14px] text-[var(--text-muted)] mt-px leading-none flex-shrink-0 w-4 text-center">{item.icon}</span>
             <div>
@@ -167,7 +182,7 @@ function AiPanel({ close }: { close: () => void }) {
       </div>
 
       {/* Right: CTA */}
-      <div className="p-6 bg-[#f5f5f7] flex flex-col">
+      <div className={`p-6 ${rightBg} flex flex-col`}>
         <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2">See AI Close in action</div>
         <p className="text-[12.5px] leading-[1.55] text-[var(--text-secondary)]">
           The magic happens when our intelligent software and real human support come together. Book a demo today to see what running your business is like with Accountables AI.
@@ -175,7 +190,7 @@ function AiPanel({ close }: { close: () => void }) {
         <Link
           href="/ai"
           onClick={close}
-          className="mt-auto inline-flex items-center justify-center h-9 px-5 rounded-full bg-[var(--brand-navy)] text-white text-[12px] font-semibold hover:bg-[var(--brand-navy-soft)] transition-colors"
+          className={`mt-auto inline-flex items-center justify-center h-9 px-5 rounded-full text-[12px] font-semibold transition-colors ${ctaBtn}`}
         >
           Join the waitlist →
         </Link>
@@ -184,9 +199,13 @@ function AiPanel({ close }: { close: () => void }) {
   );
 }
 
-function AboutPanel({ close }: { close: () => void }) {
+function AboutPanel({ close, dark }: { close: () => void; dark?: boolean }) {
+  const divider = dark ? "divide-white/[0.07]" : "divide-gray-100";
+  const itemHover = dark ? "hover:bg-white/[0.06]" : "hover:bg-gray-50";
+  const rightBg = dark ? "bg-white/[0.04]" : "bg-[#f5f5f7]";
+
   return (
-    <div className="grid grid-cols-[210px_1fr_270px] divide-x divide-gray-100 min-h-[240px]">
+    <div className={`grid grid-cols-[210px_1fr_270px] divide-x ${divider} min-h-[240px]`}>
       {/* Left */}
       <div className="p-6 flex flex-col gap-2">
         <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">About us</p>
@@ -202,7 +221,7 @@ function AboutPanel({ close }: { close: () => void }) {
             key={item.label}
             href={item.href}
             onClick={close}
-            className="flex flex-col gap-0.5 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
+            className={`flex flex-col gap-0.5 p-3 rounded-xl ${itemHover} transition-colors group`}
           >
             <div className="text-[13px] font-medium text-[var(--text-primary)] group-hover:text-[var(--brand-blue)] transition-colors leading-snug">
               {item.label}
@@ -213,7 +232,7 @@ function AboutPanel({ close }: { close: () => void }) {
       </div>
 
       {/* Right: featured story */}
-      <div className="p-6 bg-[#f5f5f7] flex flex-col">
+      <div className={`p-6 ${rightBg} flex flex-col`}>
         <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-3">Featured story</div>
         <div className="flex items-center gap-3 mb-3">
           <div
@@ -272,11 +291,16 @@ export function Navbar() {
   };
 
   const bgIsWhite = scrolled || !!activeDrop || mobileOpen;
+  const pathname = usePathname();
+  const pageDark = ["/ai"].some((r) => pathname.startsWith(r));
+  const logoSrc = pageDark ? "/dark_logo.png" : "/light_logo.png";
 
   const headerStateClass = scrolled
     ? "scrolled bg-white border-b border-black/[0.07] shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
     : activeDrop || mobileOpen
-    ? "nav-drop-open bg-white border-b border-black/[0.07] shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+    ? pageDark
+      ? "nav-drop-open border-b"
+      : "nav-drop-open bg-white border-b border-black/[0.07] shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
     : "unscrolled bg-transparent backdrop-blur-sm";
 
   const linkBase = `inline-flex items-center gap-1 text-[13.5px] font-medium transition-colors h-10 px-3.5 rounded-lg select-none`;
@@ -291,22 +315,23 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0" aria-label="Accountables home">
             <Image
-              src="/logo.svg"
+              src={logoSrc}
               alt="Accountables"
-              className="nav-logo h-7 md:h-8 w-auto"
+              className="nav-logo h-7 md:h-8 w-auto transition-opacity duration-200"
               width={320}
-              height={320}
+              height={80}
+              priority
             />
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-0.5" onMouseLeave={scheduleHide}>
-            <button className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("services")}>
+            <Link href="/services" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("services")}>
               Services <Chevron open={activeDrop === "services"} />
-            </button>
-            <button className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("ai")}>
+            </Link>
+            <Link href="/ai" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("ai")}>
               AI <Chevron open={activeDrop === "ai"} />
-            </button>
+            </Link>
             <Link
               href="/pricing"
               className={`${linkBase} ${linkColor}`}
@@ -321,9 +346,9 @@ export function Navbar() {
             >
               Careers
             </Link>
-            <button className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("about")}>
+            <Link href="/about" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("about")}>
               About <Chevron open={activeDrop === "about"} />
-            </button>
+            </Link>
           </nav>
 
           {/* CTA */}
@@ -362,14 +387,18 @@ export function Navbar() {
       {/* ── Dropdown overlay ── */}
       {activeDrop && (
         <div
-          className="absolute left-0 right-0 top-full z-50 bg-white border-b border-black/[0.07] shadow-lg"
+          className={`absolute left-0 right-0 top-full z-50 border-b ${
+            pageDark
+              ? "bg-[rgba(5,8,20,0.97)] border-white/[0.06] shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+              : "bg-white border-black/[0.07] shadow-lg"
+          }`}
           onMouseEnter={clearHide}
           onMouseLeave={scheduleHide}
         >
           <div className="mx-auto max-w-7xl px-5 md:px-10 py-3">
-            {activeDrop === "services" && <ServicesPanel close={closeAll} />}
-            {activeDrop === "ai" && <AiPanel close={closeAll} />}
-            {activeDrop === "about" && <AboutPanel close={closeAll} />}
+            {activeDrop === "services" && <ServicesPanel close={closeAll} dark={pageDark} />}
+            {activeDrop === "ai" && <AiPanel close={closeAll} dark={pageDark} />}
+            {activeDrop === "about" && <AboutPanel close={closeAll} dark={pageDark} />}
           </div>
         </div>
       )}
