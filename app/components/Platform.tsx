@@ -63,7 +63,7 @@ export function Platform() {
                   Stakeholder-ready financial reports
                 </h3>
                 <p className="mt-3 text-[15px] md:text-[16px] leading-[1.55] text-[var(--text-secondary)]">
-                  P&amp;L, balance sheet, cash flow — generated continuously,
+                  P&amp;L, balance sheet, cash flow - generated continuously,
                   not at month-end.
                 </p>
               </div>

@@ -1,7 +1,7 @@
 const items = [
   {
     title: "AI-native operations",
-    body: "We didn't bolt AI onto a 1990s practice. Every workflow — from invoice ingestion to anomaly review — was rebuilt around autonomous agents.",
+    body: "We didn't bolt AI onto a 1990s practice. Every workflow - from invoice ingestion to anomaly review - was rebuilt around autonomous agents.",
   },
   {
     title: "A senior partner on every account",
@@ -13,7 +13,7 @@ const items = [
   },
   {
     title: "Modern finance stack",
-    body: "Native integrations with QuickBooks, Xero, Stripe, Brex, Mercury — wherever your money lives, we read it.",
+    body: "Native integrations with QuickBooks, Xero, Stripe, Brex, Mercury - wherever your money lives, we read it.",
   },
   {
     title: "E-commerce expertise",
@@ -21,7 +21,7 @@ const items = [
   },
   {
     title: "Startup-friendly systems",
-    body: "EIS, SEIS, R&D credits, equity reporting, investor packs — set up right the first time, scaled with your raises.",
+    body: "EIS, SEIS, R&D credits, equity reporting, investor packs - set up right the first time, scaled with your raises.",
   },
 ];
 

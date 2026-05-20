@@ -1,7 +1,7 @@
 const testimonials = [
   {
     quote:
-      "Their experience and knowledge came in handy when I had to present to Shark Tank. I recommend — and would, without a doubt — Accountables.",
+      "Their experience and knowledge came in handy when I had to present to Shark Tank. I recommend - and would, without a doubt - Accountables.",
     name: "Juls Bindi",
     role: "Founder, ZicoPet",
   },

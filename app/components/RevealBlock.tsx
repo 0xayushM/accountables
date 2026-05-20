@@ -9,7 +9,7 @@ interface RevealBlockProps {
   delay?: number;
   /** How far the element travels upward before revealing (px) */
   distance?: number;
-  /** IntersectionObserver threshold — 0.08 is fine for tall blocks */
+  /** IntersectionObserver threshold - 0.08 is fine for tall blocks */
   threshold?: number;
 }
 

@@ -27,7 +27,7 @@ function DashboardMockup() {
   return (
     <div className="relative select-none" aria-hidden>
 
-      {/* ── Chat bubble — Jess (top-left) ── */}
+      {/* ── Chat bubble - Jess (top-left) ── */}
       <div className="absolute -top-24 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[350px]">
         <div className="flex items-center gap-3">
           <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
@@ -40,7 +40,7 @@ function DashboardMockup() {
         </div>
       </div>
 
-      {/* ── Main card — bank reconciliation ── */}
+      {/* ── Main card - bank reconciliation ── */}
       <div className="relative mt-10 bg-white rounded-2xl shadow-2xl border border-black/[0.06] px-6 pt-5 pb-6">
 
         {/* Header */}
@@ -92,7 +92,7 @@ function DashboardMockup() {
         </div>
       </div>
 
-      {/* ── Chat bubble — client (bottom-right) ── */}
+      {/* ── Chat bubble - client (bottom-right) ── */}
       <div className="absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
         <p className="text-[12px] leading-[1.55] text-gray-800">
           Yes please, go ahead and get it sorted!
@@ -102,7 +102,7 @@ function DashboardMockup() {
         </div>
       </div>
 
-      {/* ── Floating pill — bottom-left ── */}
+      {/* ── Floating pill - bottom-left ── */}
       <div className="absolute -bottom-6 left-4 z-20 bg-white rounded-full shadow-lg border border-black/[0.06] px-4 py-2 flex items-center gap-2">
         <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px]">✓</span>
         <span className="text-[11.5px] font-semibold text-gray-700">Books up-to-date</span>

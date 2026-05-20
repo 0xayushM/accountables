@@ -25,18 +25,18 @@ const JOB = {
   experience: "0–5 Yrs Experience",
   urgent: true,
   about: [
-    "Accountables partners with founders, CFOs, and accounting firms in the UK and US to deliver disciplined financial operations, clean books, and strong reporting foundations. As part of our strategic partner brand RouteOne, this senior role sits at the heart of our client delivery — supporting high-growth global businesses with accounting, reporting, and financial insights.",
+    "Accountables partners with founders, CFOs, and accounting firms in the UK and US to deliver disciplined financial operations, clean books, and strong reporting foundations. As part of our strategic partner brand RouteOne, this senior role sits at the heart of our client delivery - supporting high-growth global businesses with accounting, reporting, and financial insights.",
     "You will own end-to-end accounting delivery for a portfolio of international clients, lead a team of accountants, and directly interface with CFOs, boards, and investors. If you're energised by fast-paced environments and take pride in keeping numbers clean and accurate, this role is for you.",
   ],
   responsibilities: [
-    "Own full accounting delivery for a portfolio of global clients — GL oversight, month-end close, reconciliations, accruals, and workpaper readiness.",
+    "Own full accounting delivery for a portfolio of global clients - GL oversight, month-end close, reconciliations, accruals, and workpaper readiness.",
     "Review and finalise financial statements and management reporting packages suitable for CFOs, boards, and investors.",
     "Strengthen financial controls, accounting policies, and documentation to maintain audit-ready books year-round.",
-    "Lead a team of accountants — allocate work, perform reviews, coach skill development, and ensure high-quality, timely delivery.",
+    "Lead a team of accountants - allocate work, perform reviews, coach skill development, and ensure high-quality, timely delivery.",
     "Evaluate and improve accounting workflows; implement automation, cleaner processes, and scalable systems.",
-    "Support FP&A: budgeting, forecasting, cash flow management, and variance analysis — translate numbers into actionable insights.",
+    "Support FP&A: budgeting, forecasting, cash flow management, and variance analysis - translate numbers into actionable insights.",
     "Partner directly with US/International clients on accounting treatments, operational improvements, and risk mitigation.",
-    "Assist with due diligence/M&A readiness — data room prep, transaction support, financial clean-ups, QoE alignment.",
+    "Assist with due diligence/M&A readiness - data room prep, transaction support, financial clean-ups, QoE alignment.",
     "Work cross-functionally with RouteOne's strategic finance teams on dashboards and financial analytics.",
     "Ensure proper revenue recognition, expense allocation, and compliance with US GAAP / IFRS or client-specific frameworks.",
     "Monitor cash, working capital, and runway to support clients' financial visibility and decision-making.",
@@ -50,7 +50,7 @@ const JOB = {
     "Experience leading delivery teams in accounting / outsourced finance",
     "Excellent written and verbal communication for US client interaction",
     "Ability to multitask and manage priorities in a fast-growth environment",
-    "Ownership mindset — numbers under your watch stay clean",
+    "Ownership mindset - numbers under your watch stay clean",
   ],
   niceToHave: [
     "Experience with QuickBooks Online, Bill.com, Dext/Hubdoc, Gusto",
@@ -59,7 +59,7 @@ const JOB = {
   offer: [
     { Icon: LuRocket,      title: "Rapid Growth",    body: "Fast-track career progression in a high-performance, high-trust environment." },
     { Icon: LuUserCheck,   title: "CFO Exposure",     body: "Direct access to CFOs and accounting leaders from day one." },
-    { Icon: LuBookOpen,    title: "Learning Culture", body: "Built on clarity, accountability, and continuous learning — not just checklists." },
+    { Icon: LuBookOpen,    title: "Learning Culture", body: "Built on clarity, accountability, and continuous learning - not just checklists." },
     { Icon: LuBanknote,    title: "Competitive Pay",  body: "Competitive compensation package with performance-based rewards." },
   ] as { Icon: IconType; title: string; body: string }[],
 };
@@ -70,7 +70,7 @@ const ROLES: { id: string; Icon: IconType; title: string; tags: string[]; about:
     Icon: LuClipboardList,
     title: "Article",
     tags: ["Entry Level", "Pursuing CA Inter", "0 yrs"],
-    about: "This is where your Accountables journey begins. As an Article, you work hands-on across real client accounts — learning the craft of accounting from the ground up. You're not a shadow here; you're part of the delivery team from day one.",
+    about: "This is where your Accountables journey begins. As an Article, you work hands-on across real client accounts - learning the craft of accounting from the ground up. You're not a shadow here; you're part of the delivery team from day one.",
     doList: [
       "Assist in day-to-day bookkeeping and data entry across client accounts",
       "Support month-end close processes under senior guidance",
@@ -102,7 +102,7 @@ const ROLES: { id: string; Icon: IconType; title: string; tags: string[]; about:
     Icon: LuChartBar,
     title: "Senior Accounts Executive",
     tags: ["Mid Level", "Semi-qualified CA / M.Com", "2–4 yrs"],
-    about: "At this level, you're no longer just executing — you're reviewing, improving, and leading sections of client delivery. Senior Accounts Executives are trusted to spot issues before they become problems and to guide junior team members in their work.",
+    about: "At this level, you're no longer just executing - you're reviewing, improving, and leading sections of client delivery. Senior Accounts Executives are trusted to spot issues before they become problems and to guide junior team members in their work.",
     doList: [
       "Manage month-end close independently for assigned client accounts",
       "Review work prepared by Accounts Executives and Articles",
@@ -118,12 +118,12 @@ const ROLES: { id: string; Icon: IconType; title: string; tags: string[]; about:
     Icon: LuTrendingUp,
     title: "Financial Reporting Senior",
     tags: ["Senior Level", "Semi-qualified / Qualified CA", "0–5 yrs"],
-    about: "This is a high-ownership role at the core of our client delivery. Financial Reporting Seniors own the accounting for a portfolio of global clients — from GL oversight to management reporting packages ready for CFOs, boards, and investors.",
+    about: "This is a high-ownership role at the core of our client delivery. Financial Reporting Seniors own the accounting for a portfolio of global clients - from GL oversight to management reporting packages ready for CFOs, boards, and investors.",
     doList: [
       "Own end-to-end accounting delivery for a portfolio of global clients",
       "Review and finalise financial statements and management reporting packages",
       "Lead and coach a team of accountants on quality and timeliness",
-      "Support FP&A — budgeting, forecasting, variance analysis",
+      "Support FP&A - budgeting, forecasting, variance analysis",
       "Partner directly with US/international clients on accounting and financial clarity",
       "Ensure compliance with US GAAP / IFRS or client-specific frameworks",
     ],
@@ -139,12 +139,12 @@ const ROLES: { id: string; Icon: IconType; title: string; tags: string[]; about:
     doList: [
       "Oversee accounting delivery across a portfolio of clients at the highest quality standard",
       "Lead, mentor, and grow a team of senior and junior accountants",
-      "Own client relationships — serve as the primary point of contact for complex queries",
+      "Own client relationships - serve as the primary point of contact for complex queries",
       "Drive process improvements, automation, and workflow scalability",
       "Support M&A readiness, due diligence, and strategic finance projects",
       "Work closely with RouteOne leadership on firm-wide initiatives and growth",
     ],
-    fitList: ["Qualified CA with 5+ years of experience", "Managed teams and client relationships at a senior level", "Think in systems, not just tasks — and build for scale"],
+    fitList: ["Qualified CA with 5+ years of experience", "Managed teams and client relationships at a senior level", "Think in systems, not just tasks - and build for scale"],
     hiring: false,
   },
   {
@@ -152,7 +152,7 @@ const ROLES: { id: string; Icon: IconType; title: string; tags: string[]; about:
     Icon: LuUsers,
     title: "HR & Admin",
     tags: ["Operations", "Any Graduate", "Open"],
-    about: "Behind every great finance team is a strong operations backbone. Our HR & Admin team keeps Accountables running — from hiring the right people to ensuring the team has everything it needs to do its best work.",
+    about: "Behind every great finance team is a strong operations backbone. Our HR & Admin team keeps Accountables running - from hiring the right people to ensuring the team has everything it needs to do its best work.",
     doList: [
       "Support hiring, onboarding, and HR operations",
       "Manage office administration, vendor coordination, and internal processes",
@@ -249,7 +249,7 @@ function CurrentOpenings({ onApply }: { onApply: () => void }) {
       <aside className="p-6 lg:sticky lg:top-[66px] self-start max-h-[calc(100vh-66px)] overflow-y-auto">
         <p className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)] mb-4">1 open position</p>
         <div className="card p-5 border-l-2 border-[var(--brand-blue)] cursor-pointer">
-          <p className="text-[15px] font-semibold text-[var(--text-primary)] mb-1.5">{JOB.title} — {JOB.level}</p>
+          <p className="text-[15px] font-semibold text-[var(--text-primary)] mb-1.5">{JOB.title} - {JOB.level}</p>
           <p className="text-[12px] text-[var(--text-muted)]">{JOB.location} · {JOB.type}</p>
           <div className="flex items-center gap-2 mt-3 flex-wrap">
             <span className="pill text-[11px] !py-0.5 !px-2">Finance & Accounting</span>
@@ -411,7 +411,7 @@ function BeAnAccountables({ onApply }: { onApply: () => void }) {
                 Be an <span className="accent">Accountables</span>.
               </h2>
               <p className="mt-5 text-[15px] md:text-[16px] leading-[1.75] text-[var(--text-secondary)] max-w-lg">
-                We're building a team of sharp, ownership-driven finance professionals who don't just process numbers — they understand them. Whether there's an opening today or not, we'd love to know you.
+                We're building a team of sharp, ownership-driven finance professionals who don't just process numbers - they understand them. Whether there's an opening today or not, we'd love to know you.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -431,7 +431,7 @@ function BeAnAccountables({ onApply }: { onApply: () => void }) {
           </div>
         </RevealBlock>
 
-        {/* Career Path — infographic style */}
+        {/* Career Path - infographic style */}
         <RevealBlock delay={0}>
           {(() => {
             const nodeColors = ["#22c55e", "#0d9488", "#1d4ed8", "#0a84ff", "#6366f1"];
@@ -580,7 +580,7 @@ function BeAnAccountables({ onApply }: { onApply: () => void }) {
                   })}
                 </div>
 
-                <p className="text-[12px] text-[var(--text-muted)] text-center mt-4">Progression is merit-based — not just time-based.</p>
+                <p className="text-[12px] text-[var(--text-muted)] text-center mt-4">Progression is merit-based - not just time-based.</p>
               </div>
             );
           })()}
@@ -748,7 +748,7 @@ function BeAnAccountables({ onApply }: { onApply: () => void }) {
                   Don't See a Current Opening?
                 </h3>
                 <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
-                  Tell us who you are and what role interests you. We maintain a talent pool and reach out when the right opportunity opens up. Great people don't wait — and neither do we.
+                  Tell us who you are and what role interests you. We maintain a talent pool and reach out when the right opportunity opens up. Great people don't wait - and neither do we.
                 </p>
                 <div className="relative flex-1 mt-8 min-h-[180px] rounded-2xl overflow-hidden">
                   <Image
@@ -822,7 +822,7 @@ export default function CareersPage() {
   return (
     <>
       <Navbar />
-      {showModal && <ApplyModal role={`${JOB.title} — ${JOB.level}`} onClose={() => setShowModal(false)} />}
+      {showModal && <ApplyModal role={`${JOB.title} - ${JOB.level}`} onClose={() => setShowModal(false)} />}
 
       <main>
         {/* Page header */}

@@ -20,7 +20,7 @@ const reasons = [
   {
     title: "Availability",
     body:
-      "An eager team that talks numbers like a partner — not a portal. Real humans, fast responses.",
+      "An eager team that talks numbers like a partner - not a portal. Real humans, fast responses.",
     metric: "<24h",
     metricLabel: "Response time",
   },
@@ -59,7 +59,7 @@ const values = [
   {
     title: "Built for growth.",
     body:
-      "From your first invoice to your Series A and beyond — the finance function scales with you.",
+      "From your first invoice to your Series A and beyond - the finance function scales with you.",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function WhyPage() {
         eyebrow="Why Accountables"
         title="A finance partner,"
         highlight="not just a filing service."
-        description="Real-time accounting with a process-based approach and top-notch customer service. Consider us your outsourced finance department — without the overhead."
+        description="Real-time accounting with a process-based approach and top-notch customer service. Consider us your outsourced finance department - without the overhead."
         serif={{ inTitle: "partner", inHighlight: "filing" }}
       />
 
@@ -139,7 +139,7 @@ export default function WhyPage() {
             </h2>
             <p className="mt-5 max-w-2xl mx-auto text-[16px] md:text-[18px] leading-[1.55] text-[var(--text-secondary)]">
               From multi-channel sales to international VAT, we know the messy
-              edges of e-commerce accounting — and we have a quick turnaround on
+              edges of e-commerce accounting - and we have a quick turnaround on
               year-end accounts.
             </p>
           </div>
@@ -165,7 +165,7 @@ export default function WhyPage() {
       <InnerCTA
         eyebrow="Talk to us"
         title="A real finance team is one call away."
-        body="See how we can take month-end, tax, and reporting off your plate — for less than the cost of a junior hire."
+        body="See how we can take month-end, tax, and reporting off your plate - for less than the cost of a junior hire."
       />
     </PageShell>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Animated SVG hero illustrations — one per service slug.
+ * Animated SVG hero illustrations - one per service slug.
  * Each component is self-contained: CSS keyframes live inside a <style>
  * tag within the SVG, with slug-specific class prefixes to avoid conflicts.
  */
@@ -48,7 +48,7 @@ export function IllustrationBookkeeping() {
       <text x="76" y="34" fontSize="6.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1.2" fontFamily="system-ui,sans-serif">DESCRIPTION</text>
       <line x1="12" y1="39" x2="162" y2="39" stroke="#bfdbfe" strokeWidth="0.8"/>
 
-      {/* Ledger rows — left */}
+      {/* Ledger rows - left */}
       {([
         {cls:"bk-r1",ck:"bk-c1",y:54,date:"Apr 01",label:"Rent Expense",done:true},
         {cls:"bk-r2",ck:"bk-c2",y:76,date:"Apr 03",label:"Payroll Run",done:true},
@@ -82,7 +82,7 @@ export function IllustrationBookkeeping() {
       <text x="246" y="34" fontSize="6.5" fontWeight="700" fill="#1d4ed8" letterSpacing="1.2" fontFamily="system-ui,sans-serif">BALANCE</text>
       <line x1="172" y1="39" x2="318" y2="39" stroke="#bfdbfe" strokeWidth="0.8"/>
 
-      {/* Ledger rows — right */}
+      {/* Ledger rows - right */}
       {([
         {cls:"bk-r1",y:54,amt:"$4,200",bal:"$142K"},
         {cls:"bk-r2",y:76,amt:"$18,400",bal:"$124K"},

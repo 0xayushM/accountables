@@ -17,9 +17,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return { title: "Service — Accountables" };
+  if (!s) return { title: "Service - Accountables" };
   return {
-    title: `${s.name} — Accountables`,
+    title: `${s.name} - Accountables`,
     description: s.summary,
   };
 }
@@ -95,7 +95,7 @@ export default async function ServiceDetail({
               </div>
             </div>
 
-            {/* Side card — illustration + tag */}
+            {/* Side card - illustration + tag */}
             <div className="card p-8 md:p-10 relative overflow-hidden">
               <div
                 aria-hidden

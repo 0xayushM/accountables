@@ -3,7 +3,7 @@ const services = [
     eyebrow: "01",
     title: "Bookkeeping",
     body:
-      "Real-time books done right. We automate where possible and handle large volumes with care — setup, migration, payroll, and invoicing included.",
+      "Real-time books done right. We automate where possible and handle large volumes with care - setup, migration, payroll, and invoicing included.",
     bullets: [
       "Accounting setup & migration",
       "Real-time, periodic bookkeeping",
@@ -27,7 +27,7 @@ const services = [
     eyebrow: "03",
     title: "Financial Analysis",
     body:
-      "Decisions, not just data. Live dashboards for cash, burn, runway, and unit economics — answered in seconds.",
+      "Decisions, not just data. Live dashboards for cash, burn, runway, and unit economics - answered in seconds.",
     bullets: [
       "Cash flow & runway models",
       "Management reports",
@@ -39,7 +39,7 @@ const services = [
     eyebrow: "04",
     title: "Year-end Accounts",
     body:
-      "Investor-ready, auditor-friendly. Statutory accounts filed on time with quick turnarounds — especially for e-commerce.",
+      "Investor-ready, auditor-friendly. Statutory accounts filed on time with quick turnarounds - especially for e-commerce.",
     bullets: [
       "Statutory accounts",
       "Companies House filing",
@@ -62,7 +62,7 @@ export function Services() {
           </h2>
           <p className="mt-6 max-w-2xl text-[17px] md:text-[18px] leading-[1.55] text-[var(--text-secondary)]">
             We handle the books, taxes, and reports so you can spend your time
-            on the business itself. Choose what you need — we&apos;ll cover the rest.
+            on the business itself. Choose what you need - we&apos;ll cover the rest.
           </p>
         </div>
 

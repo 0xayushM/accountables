@@ -36,7 +36,7 @@ export const INSIGHTS: Insight[] = [
       "Leadership receiving numbers they hesitate to rely on",
     ],
     structureIntro:
-      "This checklist reflects a system-led approach to closing — designed to create consistency, accountability, and trust as organisations scale.",
+      "This checklist reflects a system-led approach to closing - designed to create consistency, accountability, and trust as organisations scale.",
     structurePoints: [
       "A defined owner",
       "A clear output",
@@ -117,7 +117,7 @@ export const INSIGHTS: Insight[] = [
       "Scales with transaction volume",
     ],
     takeaway:
-      "A strong monthly close isn't about working faster. It's about working in the right order, with clear ownership. When the close is structured correctly, finance becomes a dependable operating function — not a recurring fire drill.",
+      "A strong monthly close isn't about working faster. It's about working in the right order, with clear ownership. When the close is structured correctly, finance becomes a dependable operating function - not a recurring fire drill.",
   },
 ];
 

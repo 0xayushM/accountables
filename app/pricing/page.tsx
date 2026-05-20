@@ -5,7 +5,7 @@ import { InnerCTA } from "../components/InnerCTA";
 import { PricingNav } from "./PricingNav";
 
 export const metadata: Metadata = {
-  title: "Pricing — Accountables",
+  title: "Pricing - Accountables",
   description:
     "Transparent, structured pricing for every stage of business growth. From £100/month.",
 };
@@ -127,7 +127,7 @@ const faqs = [
   },
   {
     q: "Can I switch plans later?",
-    a: "Yes — up or down, any time, no penalty. We'll re-baseline the work and update your next invoice.",
+    a: "Yes - up or down, any time, no penalty. We'll re-baseline the work and update your next invoice.",
   },
   {
     q: "What if my transaction volume changes mid-month?",
@@ -139,7 +139,7 @@ const faqs = [
   },
   {
     q: "What is Accountables One?",
-    a: "Accountables One is our AI-powered finance layer — giving you real-time visibility into your numbers, automated reconciliations, and instant reporting. Included from the Operations plan upwards.",
+    a: "Accountables One is our AI-powered finance layer - giving you real-time visibility into your numbers, automated reconciliations, and instant reporting. Included from the Operations plan upwards.",
   },
 ];
 

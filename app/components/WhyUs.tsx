@@ -9,7 +9,7 @@ const reasons = [
   {
     title: "Availability",
     body:
-      "An eager team that talks numbers like a partner — not a portal. Get your books in shape, faster.",
+      "An eager team that talks numbers like a partner - not a portal. Get your books in shape, faster.",
     metric: "<24h",
     metricLabel: "Response time",
   },
@@ -43,7 +43,7 @@ export function WhyUs() {
             </h2>
             <p className="mt-6 max-w-md text-[16px] md:text-[17px] leading-[1.55] text-[var(--text-secondary)]">
               A process-based approach with top-notch customer service. Consider
-              us your outsourced finance department — without the overhead.
+              us your outsourced finance department - without the overhead.
             </p>
             <a href="#contact" className="btn-ghost mt-8">
               Talk to us today

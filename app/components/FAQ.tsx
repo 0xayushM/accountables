@@ -6,7 +6,7 @@ import { RevealBlock } from "./RevealBlock";
 const faqs = [
   {
     q: "How does bookkeeping work at Accountables?",
-    a: "Your books are reconciled continuously. We connect to your bank, accounting software, and tools — then a real bookkeeper categorises and reviews every transaction so your numbers stay accurate.",
+    a: "Your books are reconciled continuously. We connect to your bank, accounting software, and tools - then a real bookkeeper categorises and reviews every transaction so your numbers stay accurate.",
   },
   {
     q: "Do I need to review transactions every month?",
@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "What accounting software do you support?",
-    a: "Xero, QuickBooks, FreeAgent, and Sage — plus a wide range of integrations for payments, invoicing, and inventory.",
+    a: "Xero, QuickBooks, FreeAgent, and Sage - plus a wide range of integrations for payments, invoicing, and inventory.",
   },
   {
     q: "Can I get year-end accounts and tax returns too?",

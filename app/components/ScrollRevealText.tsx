@@ -5,13 +5,13 @@ import { useEffect, useState, useRef } from 'react';
 interface ScrollRevealTextProps {
   text: string;
   className?: string;
-  /** Not used in animation maths — kept for API compatibility. Optional. */
+  /** Not used in animation maths - kept for API compatibility. Optional. */
   containerRef?: React.RefObject<HTMLDivElement | null>;
-  /** Colour that sweeps through — defaults to brand accent */
+  /** Colour that sweeps through - defaults to brand accent */
   sweepColor?: string;
-  /** Final settled colour — defaults to brand text-primary */
+  /** Final settled colour - defaults to brand text-primary */
   finalColor?: string;
-  /** Colour before the sweep reaches a char — defaults to muted gray */
+  /** Colour before the sweep reaches a char - defaults to muted gray */
   initialColor?: string;
 }
 
@@ -32,7 +32,7 @@ export default function ScrollRevealText({
       const textRect = textRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Outside viewport — reset
+      // Outside viewport - reset
       if (textRect.top > windowHeight * 0.88 || textRect.bottom < windowHeight * 0.12) {
         setProgress(0);
         return;

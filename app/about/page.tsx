@@ -5,8 +5,8 @@ import { PageShell } from "../components/PageShell";
 import { PageHero } from "../components/PageHero";
 
 export const metadata: Metadata = {
-  title: "About — Accountables",
-  description: "Accountables was built around a simple belief — growing businesses deserve a more structured finance function.",
+  title: "About - Accountables",
+  description: "Accountables was built around a simple belief - growing businesses deserve a more structured finance function.",
 };
 
 const STATS = [
@@ -25,7 +25,7 @@ const VALUES = [
   {
     icon: "◐",
     title: "Human-Led, Technology-Enabled",
-    body: "We believe finance works best when experienced finance professionals and intelligent operational systems work together. Accountables One is designed to reduce operational friction, improve visibility and create more connected finance workflows — allowing our team to focus on the areas that require judgment, coordination and business understanding.",
+    body: "We believe finance works best when experienced finance professionals and intelligent operational systems work together. Accountables One is designed to reduce operational friction, improve visibility and create more connected finance workflows - allowing our team to focus on the areas that require judgment, coordination and business understanding.",
   },
   {
     icon: "⊞",
@@ -35,7 +35,7 @@ const VALUES = [
   {
     icon: "△",
     title: "Built Around Growing Businesses",
-    body: "As businesses grow, finance operations become more complex. Our goal is to help businesses build finance structure early — creating systems, reporting visibility and operational coordination designed to scale over time.",
+    body: "As businesses grow, finance operations become more complex. Our goal is to help businesses build finance structure early - creating systems, reporting visibility and operational coordination designed to scale over time.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
         eyebrow="About Accountables"
         title="Finance,"
         highlight="organized."
-        description="Accountables was built around a simple belief — growing businesses deserve a more structured finance function."
+        description="Accountables was built around a simple belief - growing businesses deserve a more structured finance function."
       />
 
       {/* ── Our Approach ─────────────────────────────────────── */}
@@ -178,7 +178,7 @@ export default function AboutPage() {
               <div className="relative rounded-[24px] overflow-hidden border border-[var(--border)] shadow-[0_24px_64px_-16px_rgba(11,30,63,0.12)] aspect-[4/5] max-w-sm mx-auto lg:mx-0">
                 <Image
                   src="/founder.png"
-                  alt="Sidharth Dugar — Founder & CEO of Accountables"
+                  alt="Sidharth Dugar - Founder & CEO of Accountables"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 90vw, 420px"
@@ -205,7 +205,7 @@ export default function AboutPage() {
               <p className="mt-4 text-[16px] leading-[1.75] text-[var(--text-secondary)]">
                 Focused on combining finance expertise, operational systems and technology through{" "}
                 <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1"><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One</span>{" "}
-                — with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
+                - with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-2">

@@ -20,7 +20,7 @@ function BookkeeperIllustration() {
         <div className="flex items-start gap-3">
           <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">JH</div>
           <div className="bg-white/15 backdrop-blur rounded-2xl rounded-tl-sm px-4 py-3 max-w-[200px]">
-            <p className="text-white text-[12px] leading-[1.5]">Alex, I&apos;ve reviewed your March P&L. Looks great — up 18% MoM 📈</p>
+            <p className="text-white text-[12px] leading-[1.5]">Alex, I&apos;ve reviewed your March P&L. Looks great - up 18% MoM 📈</p>
           </div>
         </div>
         {/* Client reply */}
@@ -34,7 +34,7 @@ function BookkeeperIllustration() {
         <div className="flex items-start gap-3">
           <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">JH</div>
           <div className="bg-white/15 backdrop-blur rounded-2xl rounded-tl-sm px-4 py-3 max-w-[200px]">
-            <p className="text-white text-[12px] leading-[1.5]">Your e-commerce channel — up 31%. I&apos;ve flagged it in your report.</p>
+            <p className="text-white text-[12px] leading-[1.5]">Your e-commerce channel - up 31%. I&apos;ve flagged it in your report.</p>
           </div>
         </div>
       </div>
@@ -221,7 +221,7 @@ export function USP() {
             <span className="accent">year-round</span>.
           </h2>
           <p className="mt-5 text-[17px] leading-[1.6] text-[var(--text-secondary)]">
-            Think of it like having a CFO in your corner — someone who can answer any question and spot opportunities you&apos;d never see alone.
+            Think of it like having a CFO in your corner - someone who can answer any question and spot opportunities you&apos;d never see alone.
           </p>
         </div>
 
@@ -233,7 +233,7 @@ export function USP() {
             body="We give you a dedicated bookkeeper who connects to your accounts, keeps your books updated and sends you a summary every month. Get extra help from our extended team of tax and advisory professionals."
             features={[
               "Named, senior ACA-qualified bookkeeper",
-              "Unlimited messaging — ask anything, any time",
+              "Unlimited messaging - ask anything, any time",
               "Monthly close summary delivered automatically",
               "Escalation to tax and CFO advisors when needed",
             ]}
@@ -264,7 +264,7 @@ export function USP() {
               "Live cash position and runway tracking",
               "AI-powered anomaly detection",
               "13-week rolling cashflow forecasts",
-              "Scenario planning — 'what if' in seconds",
+              "Scenario planning - 'what if' in seconds",
             ]}
             cta={{ label: "Learn More", href: "/ai" }}
             illustration={<InsightsIllustration />}

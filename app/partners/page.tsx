@@ -4,8 +4,8 @@ import { PageHero } from "../components/PageHero";
 import { InnerCTA } from "../components/InnerCTA";
 
 export const metadata: Metadata = {
-  title: "Partner Marketplace — Accountables",
-  description: "We partner with businesses that help other small businesses scale — see who's on the list.",
+  title: "Partner Marketplace - Accountables",
+  description: "We partner with businesses that help other small businesses scale - see who's on the list.",
 };
 
 const partnerCategories = [
@@ -29,7 +29,7 @@ const partnerCategories = [
     category: "E-commerce & Retail",
     partners: [
       { name: "Shopify", desc: "The commerce platform built for independent brands.", href: "#" },
-      { name: "Amazon", desc: "The world&apos;s largest marketplace — we reconcile every fee.", href: "#" },
+      { name: "Amazon", desc: "The world&apos;s largest marketplace - we reconcile every fee.", href: "#" },
       { name: "Square", desc: "Point-of-sale and online payment processing.", href: "#" },
     ],
   },
@@ -44,7 +44,7 @@ const partnerCategories = [
   {
     category: "Legal & Compliance",
     partners: [
-      { name: "Companies House", desc: "Official UK register of company filings — we handle all submissions.", href: "#" },
+      { name: "Companies House", desc: "Official UK register of company filings - we handle all submissions.", href: "#" },
       { name: "HMRC Connect", desc: "Seamless HMRC submissions for VAT, PAYE, CT and self-assessment.", href: "#" },
     ],
   },
@@ -57,7 +57,7 @@ export default function PartnersPage() {
         eyebrow="Partner marketplace"
         title="We partner with"
         highlight="the world's best."
-        description="Accountables integrates with the tools your business already uses — so your financial data is always where you need it."
+        description="Accountables integrates with the tools your business already uses - so your financial data is always where you need it."
         serif={{ inHighlight: "world's" }}
       />
 
@@ -121,7 +121,7 @@ export default function PartnersPage() {
       <InnerCTA
         eyebrow="Ready to connect your tools?"
         title="All integrations, set up for you."
-        body="No CSV exports. No manual imports. We connect to your tools and keep your books running — automatically."
+        body="No CSV exports. No manual imports. We connect to your tools and keep your books running - automatically."
       />
     </PageShell>
   );

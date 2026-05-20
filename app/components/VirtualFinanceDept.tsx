@@ -4,7 +4,7 @@ import ScrollRevealText from "./ScrollRevealText";
 
 // ─── Scene Illustrations ──────────────────────────────────────────────────────
 
-/** Operational Accounting — open ledger with entries being reconciled */
+/** Operational Accounting - open ledger with entries being reconciled */
 const SceneAccounting = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
     {/* ── shadow book behind ── */}
@@ -17,12 +17,12 @@ const SceneAccounting = () => (
     {/* right page */}
     <rect x="143" y="26" width="108" height="118" rx="5" fill="white" stroke="#1d4ed8" strokeWidth="1.6"/>
 
-    {/* left page — header bar */}
+    {/* left page - header bar */}
     <rect x="43" y="35" width="90" height="11" rx="2.5" fill="#dbeafe"/>
     <text x="49" y="44" fontSize="7" fill="#1d4ed8" fontWeight="700" fontFamily="ui-monospace,monospace">DATE</text>
     <text x="89" y="44" fontSize="7" fill="#1d4ed8" fontWeight="700" fontFamily="ui-monospace,monospace">DEBIT</text>
 
-    {/* left page — ledger rows */}
+    {/* left page - ledger rows */}
     <line x1="43" y1="58"  x2="130" y2="58"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.35"/>
     <line x1="43" y1="71"  x2="130" y2="71"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.28"/>
     <line x1="43" y1="84"  x2="130" y2="84"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.22"/>
@@ -33,12 +33,12 @@ const SceneAccounting = () => (
     <rect x="102" y="65" width="22" height="8" rx="1.5" fill="#dbeafe" opacity="0.7"/>
     <rect x="102" y="78" width="22" height="8" rx="1.5" fill="#dbeafe" opacity="0.5"/>
 
-    {/* right page — entries */}
+    {/* right page - entries */}
     <line x1="152" y1="58"  x2="240" y2="58"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.35"/>
     <line x1="152" y1="71"  x2="240" y2="71"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.28"/>
     <line x1="152" y1="84"  x2="240" y2="84"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.22"/>
     <line x1="152" y1="97"  x2="230" y2="97"  stroke="#1d4ed8" strokeWidth="0.9" strokeLinecap="round" opacity="0.17"/>
-    {/* check badges — matched entries */}
+    {/* check badges - matched entries */}
     <circle cx="246" cy="58"  r="5.5" fill="#22c55e"/>
     <path d="M243 58l2 2 4.5-4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     <circle cx="246" cy="71"  r="5.5" fill="#22c55e"/>
@@ -61,7 +61,7 @@ const SceneAccounting = () => (
   </svg>
 );
 
-/** Compliance & Reporting — shield + calendar + documents */
+/** Compliance & Reporting - shield + calendar + documents */
 const SceneCompliance = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
     {/* ── calendar left ── */}
@@ -93,7 +93,7 @@ const SceneCompliance = () => (
     })}
     {/* deadline labels */}
     <rect x="20" y="116" width="84" height="7" rx="3.5" fill="#fef3c7"/>
-    <text x="62" y="122" textAnchor="middle" fontSize="6.5" fill="#92400e" fontWeight="600">VAT Filing — Apr 15</text>
+    <text x="62" y="122" textAnchor="middle" fontSize="6.5" fill="#92400e" fontWeight="600">VAT Filing - Apr 15</text>
 
     {/* ── central shield ── */}
     <path d="M180 18 L148 30 v24 c0 26 16 44 32 52 16-8 32-26 32-52 V30 Z" fill="#dbeafe" stroke="#1d4ed8" strokeWidth="1.6"/>
@@ -118,7 +118,7 @@ const SceneCompliance = () => (
   </svg>
 );
 
-/** Planning & Finance Support — bar chart with forecast + KPI pills */
+/** Planning & Finance Support - bar chart with forecast + KPI pills */
 const ScenePlanning = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
     {/* ── dashboard card ── */}
@@ -186,7 +186,7 @@ const ScenePlanning = () => (
   </svg>
 );
 
-/** Fractional Finance Leadership — person + org structure + growth */
+/** Fractional Finance Leadership - person + org structure + growth */
 const SceneLeadership = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
     {/* ── person at desk (left) ── */}

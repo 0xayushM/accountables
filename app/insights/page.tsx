@@ -6,7 +6,7 @@ import { InnerCTA } from "../components/InnerCTA";
 import { INSIGHTS } from "../data/insights";
 
 export const metadata: Metadata = {
-  title: "Insights — Accountables",
+  title: "Insights - Accountables",
   description:
     "Practical frameworks, checklists, and playbooks from the Accountables team.",
 };
@@ -18,7 +18,7 @@ export default function InsightsPage() {
         eyebrow={`Insights · ${String(INSIGHTS.length).padStart(2, "0")} published`}
         title="Finance frameworks that"
         highlight="actually work."
-        description="Practical playbooks, checklists, and thinking from the Accountables team — built from real engagements, not theory."
+        description="Practical playbooks, checklists, and thinking from the Accountables team - built from real engagements, not theory."
       />
 
       <section className="pb-24 md:pb-32">
@@ -56,7 +56,7 @@ export default function InsightsPage() {
       <InnerCTA
         eyebrow="Stay sharp"
         title="Finance thinking, delivered."
-        body="We publish frameworks and playbooks from live client work. No recycled takes — just what's actually working."
+        body="We publish frameworks and playbooks from live client work. No recycled takes - just what's actually working."
       />
     </PageShell>
   );

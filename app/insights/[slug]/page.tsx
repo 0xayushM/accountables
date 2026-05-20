@@ -16,9 +16,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const insight = getInsight(slug);
-  if (!insight) return { title: "Insight — Accountables" };
+  if (!insight) return { title: "Insight - Accountables" };
   return {
-    title: `${insight.title} — Accountables`,
+    title: `${insight.title} - Accountables`,
     description: insight.subtitle,
   };
 }

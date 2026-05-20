@@ -4,7 +4,7 @@ import { PageHero } from "../components/PageHero";
 import { InnerCTA } from "../components/InnerCTA";
 
 export const metadata: Metadata = {
-  title: "Press — Accountables",
+  title: "Press - Accountables",
   description: "The latest news, updates, and happenings from Accountables.",
 };
 
@@ -71,7 +71,7 @@ export default function PressPage() {
             <div>
               <h3 className="text-[16px] font-semibold text-[var(--text-primary)]">Press kit</h3>
               <p className="mt-1 text-[14px] text-[var(--text-secondary)]">
-                Logos, brand assets, executive headshots and fact sheet — all in one download.
+                Logos, brand assets, executive headshots and fact sheet - all in one download.
               </p>
             </div>
             <a

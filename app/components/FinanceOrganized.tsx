@@ -185,7 +185,7 @@ function DashboardMockup() {
           <div className="flex flex-col gap-2.5">
             {[
               { initials: "AC", msg: "Month-end reporting pack shared for review.", time: "2h ago", color: "from-[var(--brand-navy)] to-[var(--brand-blue)]" },
-              { initials: "JH", msg: "VAT submission confirmed — Q1 filing complete.", time: "5h ago", color: "from-[var(--brand-blue)] to-[var(--brand-accent)]" },
+              { initials: "JH", msg: "VAT submission confirmed - Q1 filing complete.", time: "5h ago", color: "from-[var(--brand-blue)] to-[var(--brand-accent)]" },
               { initials: "AC", msg: "Payroll coordination underway for April cycle.", time: "1d ago", color: "from-[var(--brand-navy)] to-[var(--brand-blue)]" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-2.5">
@@ -250,7 +250,7 @@ export function FinanceOrganized() {
               </RevealBlock>
               <RevealBlock delay={80} className="mt-5 max-w-[440px]">
                 <ScrollRevealText
-                  text="A more structured approach to accounting, reporting and finance coordination — designed to bring clarity and consistency to day-to-day finance operations."
+                  text="A more structured approach to accounting, reporting and finance coordination - designed to bring clarity and consistency to day-to-day finance operations."
                   className="text-[16px] md:text-[17px] leading-[1.7]"
                 />
               </RevealBlock>

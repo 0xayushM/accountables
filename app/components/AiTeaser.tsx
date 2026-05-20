@@ -41,7 +41,7 @@ export function AiTeaser() {
               </h2>
               <p className="mt-5 text-[16px] md:text-[18px] leading-[1.55] text-[var(--text-secondary)] max-w-md">
                 Our autonomous month-end engine. Classifies transactions, runs
-                reconciliations, drafts your P&amp;L and flags anomalies — all
+                reconciliations, drafts your P&amp;L and flags anomalies - all
                 before you&apos;ve poured your second coffee.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">

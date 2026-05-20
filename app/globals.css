@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================
-   ACCOUNTABLES — APPLE-MINIMAL DESIGN TOKENS
+   ACCOUNTABLES - APPLE-MINIMAL DESIGN TOKENS
    ============================================ */
 :root {
   /* Surfaces */
@@ -66,7 +66,7 @@ body {
   letter-spacing: -0.011em;
 }
 
-/* Display headings — tight, Apple-style */
+/* Display headings - tight, Apple-style */
 .display {
   font-family: var(--font-display), var(--font-sans), -apple-system, BlinkMacSystemFont,
     "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
@@ -74,7 +74,7 @@ body {
   line-height: 1.02;
 }
 
-/* Serif italic accent — used on a single word inside a display heading
+/* Serif italic accent - used on a single word inside a display heading
    to add warmth and rhythm against the tight sans-serif. */
 .accent {
   font-family: var(--font-serif), "Playfair Display", Georgia, "Times New Roman", serif;
@@ -86,14 +86,14 @@ body {
   padding-right: 0.04em;
 }
 
-/* Mono — used for eyebrows, indices, technical micro-copy. */
+/* Mono - used for eyebrows, indices, technical micro-copy. */
 .mono {
   font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
   font-size: 11.5px;
   letter-spacing: 0.06em;
 }
 
-/* Eyebrow with dot indicator — borrowed from the Anthropic design,
+/* Eyebrow with dot indicator - borrowed from the Anthropic design,
    translated into the Apple-minimal light palette. */
 .eyebrow {
   display: inline-flex;
@@ -114,7 +114,7 @@ body {
   box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
 }
 
-/* Bordered tabular strip — like a data grid header */
+/* Bordered tabular strip - like a data grid header */
 .strip {
   display: grid;
   border-top: 1px solid var(--border);
@@ -147,7 +147,7 @@ body {
 }
 
 /* ============================================
-   FOOTBALL JERSEY STRIPES — HERO BACKGROUND
+   FOOTBALL JERSEY STRIPES - HERO BACKGROUND
    Subtle vertical stripes with a soft fade.
    ============================================ */
 .jersey-stripes {
@@ -180,8 +180,8 @@ body {
 }
 
 /* ============================================
-   DARK / INVERTED VARIANT — for /ai
-   The stripes "revert" — dark on dark with a
+   DARK / INVERTED VARIANT - for /ai
+   The stripes "revert" - dark on dark with a
    smooth horizontal slide-in entrance.
    ============================================ */
 :root {
@@ -217,7 +217,7 @@ body {
     radial-gradient(50% 50% at 0% 100%, rgba(10, 132, 255, 0.18) 0%, rgba(10, 132, 255, 0) 60%);
 }
 
-/* Sliding transition — stripes glide horizontally
+/* Sliding transition - stripes glide horizontally
    into place on mount, and keep gliding slowly. */
 @keyframes stripeSlide {
   from {
@@ -305,7 +305,7 @@ body {
   border-color: var(--text-primary);
 }
 
-/* Navbar in dark theme — translucent dark backdrop, white logo */
+/* Navbar in dark theme - translucent dark backdrop, white logo */
 .theme-dark header.site-nav.unscrolled {
   background: transparent;
   backdrop-filter: blur(10px);
@@ -323,7 +323,7 @@ body {
   filter: none;
 }
 
-/* nav-drop-open: dropdown open on a dark page — keep dark bg + dark-theme variables */
+/* nav-drop-open: dropdown open on a dark page - keep dark bg + dark-theme variables */
 .theme-dark header.site-nav.nav-drop-open {
   background: rgba(5, 8, 20, 0.97) !important;
   border-bottom-color: rgba(255, 255, 255, 0.06) !important;
@@ -351,7 +351,7 @@ body {
   box-shadow: 0 12px 28px -10px rgba(10, 132, 255, 0.5);
 }
 
-/* Mobile drawer in dark theme — dark backdrop so white text is legible */
+/* Mobile drawer in dark theme - dark backdrop so white text is legible */
 .theme-dark header.site-nav .nav-mobile-drawer {
   background: rgba(5, 8, 20, 0.95) !important;
   border-top-color: rgba(255, 255, 255, 0.06) !important;
@@ -360,7 +360,7 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Footer in dark theme — keep contrast clean */
+/* Footer in dark theme - keep contrast clean */
 .theme-dark footer {
   background: #05080f !important;
   border-top-color: rgba(255, 255, 255, 0.06) !important;
@@ -483,7 +483,7 @@ body {
 }
 
 /* ============================================
-   GLOW / SHINE — for the waitlist highlight
+   GLOW / SHINE - for the waitlist highlight
    ============================================ */
 @keyframes shine {
   0% { background-position: -200% 0; }
@@ -517,7 +517,7 @@ body {
   font-size: 13.5px;
   font-weight: 500;
   color: #fff;
-  /* Palindromic gradient — start = end, so the slide loop has no visible seam */
+  /* Palindromic gradient - start = end, so the slide loop has no visible seam */
   background: linear-gradient(
       90deg,
       #0b1e3f 0%,
@@ -577,7 +577,7 @@ body {
 .announce-bar {
   position: relative;
   overflow: hidden;
-  /* Palindromic gradient — start = end so the loop has no visible seam */
+  /* Palindromic gradient - start = end so the loop has no visible seam */
   background: linear-gradient(
     90deg,
     #0b1e3f 0%,

@@ -18,7 +18,7 @@ const items: Item[] = [
     href: "/services/bookkeeping",
     name: "Bookkeeping",
     sub: "Daily transaction classification",
-    body: "Real-time bookkeeping that doesn't lag your business. AI classifies, your accountant verifies, your dashboard always reflects today — not last month.",
+    body: "Real-time bookkeeping that doesn't lag your business. AI classifies, your accountant verifies, your dashboard always reflects today - not last month.",
     feats: [
       "Daily transaction sync",
       "Multi-currency, multi-entity",
@@ -31,7 +31,7 @@ const items: Item[] = [
     href: "/ai",
     name: "AI Close",
     sub: "Autonomous month-end",
-    body: "Our flagship AI engine reconciles, reports and flags — closing your books in hours, not weeks. Currently in private beta with select clients.",
+    body: "Our flagship AI engine reconciles, reports and flags - closing your books in hours, not weeks. Currently in private beta with select clients.",
     feats: [
       "11-minute typical close",
       "99.2% AI accuracy",
@@ -44,7 +44,7 @@ const items: Item[] = [
     href: "/services/cfo-advisory",
     name: "CFO Advisory",
     sub: "Strategic finance",
-    body: "A fractional CFO for the moments that matter — board prep, fundraising, scenario modelling, unit economics. Senior expertise without the senior overhead.",
+    body: "A fractional CFO for the moments that matter - board prep, fundraising, scenario modelling, unit economics. Senior expertise without the senior overhead.",
     feats: [
       "Board pack preparation",
       "Fundraising support",
@@ -57,7 +57,7 @@ const items: Item[] = [
     href: "/services/accounting-tax",
     name: "Accounting & Tax",
     sub: "Year-end, filings, R&D",
-    body: "Corporation tax, VAT, R&D credits, EIS/SEIS — filed correctly, claimed completely. We chase the rebates you didn't know you were owed.",
+    body: "Corporation tax, VAT, R&D credits, EIS/SEIS - filed correctly, claimed completely. We chase the rebates you didn't know you were owed.",
     feats: [
       "Corporation tax",
       "VAT & MTD compliance",

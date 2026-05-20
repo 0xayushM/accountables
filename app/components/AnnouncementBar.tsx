@@ -11,7 +11,7 @@ export function AnnouncementBar() {
         </span>
         <span className="text-white/90">
           <span className="font-medium text-white">Introducing Accountables AI</span>
-          <span className="hidden md:inline"> — the autonomous month-end. </span>
+          <span className="hidden md:inline"> - the autonomous month-end. </span>
         </span>
         <span className="inline-flex items-center gap-1 font-medium text-white group-hover:gap-1.5 transition-all">
           Join the waitlist

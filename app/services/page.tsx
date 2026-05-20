@@ -299,7 +299,7 @@ const faqs = [
   },
   {
     q: "How does communication with the Accountables team work?",
-    a: "All coordination happens through Accountables One — our operating environment. Reporting updates, approvals, finance requests and ongoing communication are centralized in one place.",
+    a: "All coordination happens through Accountables One - our operating environment. Reporting updates, approvals, finance requests and ongoing communication are centralized in one place.",
   },
   {
     q: "What regions does Accountables operate in?",
@@ -403,7 +403,7 @@ export default function ServicesPage() {
               </RevealBlock>
               <RevealBlock delay={160}>
                 <p className="mt-5 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                  Accountables combines structured finance support, operational coordination and ongoing visibility — allowing businesses to operate with a more organized finance function.
+                  Accountables combines structured finance support, operational coordination and ongoing visibility - allowing businesses to operate with a more organized finance function.
                 </p>
               </RevealBlock>
             </div>
@@ -454,7 +454,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            FINANCE OPERATIONS — SERVICE BREAKDOWN
+            FINANCE OPERATIONS - SERVICE BREAKDOWN
         ════════════════════════════════════════════════ */}
         <section className="py-24 md:py-32 bg-[var(--background)] border-t border-[var(--border)]">
           <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -577,7 +577,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            ACCOUNTABLES ONE — dark section
+            ACCOUNTABLES ONE - dark section
         ════════════════════════════════════════════════ */}
         <section
           className="py-24 md:py-32 relative overflow-hidden"
@@ -794,7 +794,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            FAQ — Bench two-column style
+            FAQ - Bench two-column style
         ════════════════════════════════════════════════ */}
         <section className="py-24 md:py-32 bg-[var(--background)] border-t border-[var(--border)]">
           <div className="mx-auto max-w-7xl px-6 md:px-10">

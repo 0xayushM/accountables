@@ -31,7 +31,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Accountables — Your virtual finance department",
+  title: "Accountables - Your virtual finance department",
   description:
     "Real-time bookkeeping, tax, and CFO services for ambitious businesses. A dedicated finance team without the overhead.",
   icons: {

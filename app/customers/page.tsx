@@ -6,14 +6,14 @@ import { InnerCTA } from "../components/InnerCTA";
 import { CASES } from "../data/cases";
 
 export const metadata: Metadata = {
-  title: "Case studies — Accountables",
+  title: "Case studies - Accountables",
   description: "Founders and finance leaders who stopped doing their bookkeeper's job.",
 };
 
 const testimonials = [
   {
     quote:
-      "Their experience and knowledge came in handy when I had to present to Shark Tank. I'd recommend Accountables — without a doubt.",
+      "Their experience and knowledge came in handy when I had to present to Shark Tank. I'd recommend Accountables - without a doubt.",
     name: "Juls Bindi",
     role: "Founder, ZicoPet",
   },
@@ -42,7 +42,7 @@ export default function CustomersPage() {
         serif={{ inHighlight: "real" }}
       />
 
-      {/* Case list — bordered, hover-row pattern from the design */}
+      {/* Case list - bordered, hover-row pattern from the design */}
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="rounded-[24px] border border-[var(--border)] overflow-hidden bg-white">
@@ -132,7 +132,7 @@ export default function CustomersPage() {
       <InnerCTA
         eyebrow="Be next"
         title="Your story, on this page."
-        body="Tell us where the books are stuck. We'll show you what done looks like — and how fast we can get you there."
+        body="Tell us where the books are stuck. We'll show you what done looks like - and how fast we can get you there."
       />
     </PageShell>
   );

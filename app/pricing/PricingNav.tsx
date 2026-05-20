@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 type TierLink = { id: string; name: string; price: string };
 
-const LINE_H = 88; // px — gap between tier dots
+const LINE_H = 88; // px - gap between tier dots
 
 export function PricingNav({ tiers, sectionId }: { tiers: TierLink[]; sectionId: string }) {
   const [active, setActive] = useState(tiers[0]?.id ?? "");
@@ -69,10 +69,10 @@ export function PricingNav({ tiers, sectionId }: { tiers: TierLink[]; sectionId:
 
   return (
     <>
-      {/* Anchor div — holds the 148px layout column */}
+      {/* Anchor div - holds the 148px layout column */}
       <div ref={anchorRef} className="hidden lg:block w-[148px] flex-shrink-0" aria-hidden="true" />
 
-      {/* Fixed overlay — true full-viewport-height sidebar */}
+      {/* Fixed overlay - true full-viewport-height sidebar */}
       <div
         className="hidden lg:flex fixed top-0 h-screen z-30 flex-col transition-opacity duration-300"
         style={{ left: leftPx, width: 148, opacity: inView ? 1 : 0, pointerEvents: inView ? "auto" : "none" }}
@@ -117,7 +117,7 @@ export function PricingNav({ tiers, sectionId }: { tiers: TierLink[]; sectionId:
                     )}
                   </div>
 
-                  {/* Label — pb matches line height to align dots */}
+                  {/* Label - pb matches line height to align dots */}
                   <div style={{ paddingBottom: i < tiers.length - 1 ? LINE_H + 12 : 0 }}>
                     <button
                       onClick={() => scrollTo(tier.id)}

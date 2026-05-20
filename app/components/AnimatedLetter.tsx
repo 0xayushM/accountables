@@ -6,9 +6,9 @@ interface AnimatedLetterProps {
   children: string;
   delay?: number;
   inView?: boolean;
-  /** Flash colour during the sweep — defaults to brand accent */
+  /** Flash colour during the sweep - defaults to brand accent */
   sweepColor?: string;
-  /** Final settled colour — defaults to brand text-primary */
+  /** Final settled colour - defaults to brand text-primary */
   finalColor?: string;
 }
 
