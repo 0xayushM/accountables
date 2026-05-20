@@ -54,6 +54,13 @@ const logoItems: LogoItem[] = brands.map((b) => ({
   title: b.industry ?? "",
 }));
 
+// Rotate by half the array length so row 2 never aligns with row 1
+const offset = Math.floor(brands.length / 2);
+const logoItemsRow2: LogoItem[] = [
+  ...logoItems.slice(offset),
+  ...logoItems.slice(0, offset),
+];
+
 const renderBrand = (item: LogoItem, key: Key) => {
   const src = "src" in item ? item.src : "";
   const alt = "alt" in item ? item.alt ?? "" : "";
@@ -115,7 +122,7 @@ export function TrustedBy() {
             ariaLabel="Trusted by"
           />
           <LogoLoop
-            logos={logoItems}
+            logos={logoItemsRow2}
             speed={40}
             direction="right"
             gap={80}

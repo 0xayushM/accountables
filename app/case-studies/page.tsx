@@ -49,7 +49,7 @@ export default function CustomersPage() {
             {CASES.map((c, i) => (
               <Link
                 key={c.slug}
-                href={`/customers/${c.slug}`}
+                href={`/case-studies/${c.slug}`}
                 className="grid grid-cols-[44px_1.2fr_1fr_auto_28px] md:grid-cols-[60px_1.2fr_1fr_120px_28px] gap-4 md:gap-6 items-center px-6 md:px-8 py-5 md:py-6 border-b border-[var(--border)] last:border-b-0 hover:bg-[var(--surface-soft)] transition-colors group"
               >
                 <span className="mono text-[var(--text-muted)] hidden sm:block">
@@ -113,7 +113,7 @@ export default function CustomersPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 md:py-32 bg-[var(--surface-soft)]">
+      {/* <section className="py-24 md:py-32 bg-[var(--surface-soft)]">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="max-w-3xl mb-14 md:mb-16">
             <span className="pill">In their words</span>
@@ -156,7 +156,7 @@ export default function CustomersPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <InnerCTA
         eyebrow="Be next"

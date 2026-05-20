@@ -43,7 +43,7 @@ export default async function CaseDetail({
 
         <div className="relative mx-auto max-w-7xl px-6 md:px-10">
           <Link
-            href="/customers"
+            href="/case-studies"
             className="mono inline-flex items-center gap-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors mb-8 normal-case tracking-normal"
           >
             ← All case studies
@@ -191,7 +191,7 @@ export default async function CaseDetail({
       <section className="py-14 md:py-20 border-t border-[var(--border)]">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <Link
-            href={`/customers/${next.slug}`}
+            href={`/case-studies/${next.slug}`}
             className="group flex items-center justify-between gap-6 py-2"
           >
             <div>
@@ -215,7 +215,7 @@ export default async function CaseDetail({
       <InnerCTA
         eyebrow="Could be you"
         title="Pages like this start with a call."
-        body="Tell us what's hard. We'll come back within 24 hours with a plan and a price."
+        body="Tell us what's hard. We'll come back as soon as possible. with a plan and a price."
       />
     </PageShell>
   );

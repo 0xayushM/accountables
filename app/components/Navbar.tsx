@@ -24,7 +24,7 @@ const AI_FEATURES: DropItem[] = [
 
 const ABOUT_ITEMS: DropItem[] = [
   { label: "About Accountables", desc: "Our mission and the team behind it", href: "/about" },
-  { label: "Customer Stories", desc: "Hear from 100+ businesses we've served", href: "/customers" },
+  { label: "Customer Stories", desc: "Hear from 100+ businesses we've served", href: "/case-studies" },
   { label: "Insights", desc: "Frameworks, checklists and playbooks from the Accountables team", href: "/insights" },
   // { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },
   // { label: "Press", desc: "Latest news and updates", href: "/press" },
@@ -259,7 +259,7 @@ function AboutPanel({ close, dark }: { close: () => void; dark?: boolean }) {
               </div>
             )}
             <Link
-              href={`/customers/${c.slug}`}
+              href={`/case-studies/${c.slug}`}
               onClick={close}
               className="mt-4 text-[12.5px] text-[var(--brand-blue)] font-medium hover:underline"
             >

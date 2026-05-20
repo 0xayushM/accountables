@@ -136,9 +136,9 @@ export function Hero() {
             <Link href="/ai" className="rise rise-1 waitlist-chip mb-7 group inline-flex">
               <span className="inline-flex items-center gap-2">
                 <span className="dot-pulse" />
-                <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">Introducing</span>
+                {/* <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">Introducing</span> */}
               </span>
-              <span className="hidden sm:inline text-white/30">·</span>
+              {/* <span className="hidden sm:inline text-white/30">·</span> */}
               <span>Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} /> · <span className="font-semibold ml-1">Join the waitlist</span></span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
                 className="transition-transform duration-300 group-hover:translate-x-0.5">

@@ -1,7 +1,7 @@
 export function InnerCTA({
   eyebrow = "Get started",
   title = "Talk to us today.",
-  body = "We'll get back to you within 24 hours. No long contracts - just clarity over your numbers.",
+  body = "We'll get back to you as soon as possible.. No long contracts - just clarity over your numbers.",
 }: {
   eyebrow?: string;
   title?: string;

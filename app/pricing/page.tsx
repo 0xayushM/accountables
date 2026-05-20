@@ -358,7 +358,7 @@ export default function PricingPage() {
       <InnerCTA
         eyebrow="Not sure where to start?"
         title="We'll recommend the right plan."
-        body="Tell us about your business, your volume, and where it hurts. We'll come back within 24 hours with a plan and a price."
+        body="Tell us about your business, your volume, and where it hurts. We'll come back as soon as possible. with a plan and a price."
       />
     </PageShell>
   );

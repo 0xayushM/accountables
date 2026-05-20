@@ -1,14 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { submitForm } from "../lib/submitForm";
 
 export function WaitlistForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
-    setTimeout(() => setStatus("done"), 700);
+    const fd = new FormData(e.currentTarget);
+    const data = Object.fromEntries(
+      Array.from(fd.entries()).map(([k, v]) => [k, String(v)])
+    );
+    try {
+      await submitForm("waitlist", data);
+    } finally {
+      setStatus("done");
+    }
   };
 
   return (
@@ -76,11 +85,13 @@ export function WaitlistForm() {
             <div className="grid grid-cols-2 gap-3">
               <input
                 required
+                name="first_name"
                 placeholder="First name"
                 className="h-11 px-4 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-white/45 outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14px]"
               />
               <input
                 required
+                name="last_name"
                 placeholder="Last name"
                 className="h-11 px-4 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-white/45 outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14px]"
               />
@@ -88,14 +99,17 @@ export function WaitlistForm() {
             <input
               required
               type="email"
+              name="email"
               placeholder="Work email"
               className="w-full h-11 px-4 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-white/45 outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14px]"
             />
             <input
+              name="company"
               placeholder="Company"
               className="w-full h-11 px-4 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-white/45 outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14px]"
             />
             <select
+              name="company_size"
               defaultValue=""
               className="w-full h-11 px-4 rounded-xl bg-white/10 border border-white/15 text-white outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14px] appearance-none"
               style={{

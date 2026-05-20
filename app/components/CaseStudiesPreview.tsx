@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CASES } from "../data/cases";
 import { RevealBlock } from "./RevealBlock";
+import { TestimonialCarousel } from "./TestimonialCarousel";
 
 export function CaseStudiesPreview() {
   const featured = CASES.slice(0, 3);
@@ -28,7 +29,7 @@ export function CaseStudiesPreview() {
           </div>
           <RevealBlock delay={160}>
             <Link
-              href="/customers"
+              href="/case-studies"
               className="self-start md:self-end inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--brand-blue)] hover:underline underline-offset-4 flex-shrink-0"
             >
               All case studies
@@ -45,7 +46,7 @@ export function CaseStudiesPreview() {
           {featured.map((c, i) => (
             <RevealBlock key={c.slug} delay={i * 80}>
             <Link
-              href={`/customers/${c.slug}`}
+              href={`/case-studies/${c.slug}`}
               className={`card p-8 md:p-9 flex flex-col gap-5 group hover:-translate-y-0.5 transition-transform duration-200 h-full ${
                 i === 0 ? "md:col-span-1" : ""
               }`}
@@ -87,7 +88,7 @@ export function CaseStudiesPreview() {
         </div>
 
         {/* Coming soon */}
-        <RevealBlock delay={280}>
+        {/* <RevealBlock delay={280}>
           <div className="mt-5 md:mt-6 rounded-2xl border border-dashed border-[var(--border)] px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 bg-[var(--surface-soft)]">
             <div className="flex items-center gap-4">
               <div className="h-11 w-11 rounded-xl border border-dashed border-[var(--border)] flex items-center justify-center flex-shrink-0 text-[var(--text-muted)] text-[18px]">
@@ -103,41 +104,11 @@ export function CaseStudiesPreview() {
               Publishing soon
             </span>
           </div>
-        </RevealBlock>
+        </RevealBlock> */}
 
-        {/* Pull quote */}
+        {/* Pull quote carousel */}
         <RevealBlock delay={0}>
-        <div className="mt-12 md:mt-16 relative overflow-hidden rounded-2xl md:rounded-3xl p-8 md:p-12"
-          style={{ background: "linear-gradient(135deg, var(--brand-navy) 0%, #14305f 60%, #1d4ed8 100%)" }}
-        >
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage: "repeating-linear-gradient(90deg, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 60px, transparent 60px, transparent 120px)",
-            }}
-          />
-          <div className="relative max-w-2xl">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-white/30 mb-4">
-              <path d="M7 11H4l3-7h3l-3 7zm10 0h-3l3-7h3l-3 7zM4 13h6v7H4v-7zm10 0h6v7h-6v-7z" fill="currentColor" />
-            </svg>
-            <blockquote className="text-[20px] md:text-[24px] font-medium text-white leading-[1.45]">
-              &ldquo;Their experience and knowledge came in handy when I had to present to Shark Tank. I would, without a doubt, recommend Accountables.&rdquo;
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div
-                className="h-9 w-9 rounded-full flex items-center justify-center text-white text-[11px] font-bold"
-                style={{ background: "rgba(255,255,255,0.2)" }}
-              >
-                JB
-              </div>
-              <div>
-                <div className="text-[14px] font-semibold text-white">Juls Bindi</div>
-                <div className="text-[12px] text-white/55">Founder, ZicoPet</div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <TestimonialCarousel />
         </RevealBlock>
       </div>
     </section>

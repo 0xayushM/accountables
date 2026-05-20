@@ -265,7 +265,7 @@ export default async function ServiceDetail({
       <InnerCTA
         eyebrow="Get started"
         title="Ready to hand this off?"
-        body="Tell us what you need. We'll quote a plan and price within 24 hours."
+        body="Tell us what you need. We'll quote a plan and price as soon as possible.."
       />
     </PageShell>
   );
