@@ -9,23 +9,23 @@ const brands: Brand[] = [
   { file: "A & Co Accountants Ltd.png", name: "A & Co Accountants", industry: "Accounting Firm" },
   { file: "Aberrant Gene Films Ltd.png", name: "Aberrant Gene Films", industry: "Film Production" },
   { file: "actor door studio.png", name: "Actors Door Studio", industry: "Acting School" },
-  { file: "Alexandra Boutique (Lexi).png", name: "Alexandra Boutique", industry: "Retail / Boutique" },
+  { file: "Alexandra Boutique (Lexi).png", name: "Alexandra Boutique", industry: "Retail/Boutique" },
   { file: "Aqwire Pte Ltd.png", name: "Aqwire", industry: "Payment Gateway" },
   { file: "Baseify LLC.png", name: "Baseify", industry: "Tech Product" },
   { file: "battle golf.png", name: "Battle Royale Golf", industry: "Ecommerce" },
   { file: "beds co uk.png", name: "Beds.co.uk", industry: "Ecommerce" },
   { file: "beekin.png", name: "Beekin", industry: "Tech" },
-  { file: "Careerhigher Ltd.png", name: "Careerhigher", industry: "Tech / Service" },
-  { file: "Chargewheel.png", name: "Chargewheel", industry: "EV Charging" },
-  { file: "dominoes.png", name: "Domino's", industry: "F&B / Retail" },
+  { file: "Careerhigher Ltd.png", name: "Careerhigher", industry: "Tech/Service" },
+  { file: "Chargewheel.png", name: "Chargewheel", industry: "EV Industry" },
+  { file: "dominoes.png", name: "Domino's", industry: "F&B/Retail" },
   { file: "dracup and patterson.png", name: "Dracup & Patterson", industry: "Law Firm" },
   { file: "ducis group.png", name: "Ducis Group", industry: "Service" },
-  { file: "Earcandy Enterainment Ltd.png", name: "Earcandy Entertainment", industry: "Entertainment" },
+  { file: "Earcandy Enterainment Ltd.png", name: "Earcandy", industry: "Entertainment" },
   { file: "Faad Network Pvt Ltd.png", name: "Faad Network", industry: "Venture Capital" },
   { file: "Fifth Start Logo.png", name: "Fifth Start", industry: "Ecommerce" },
   { file: "flutterwave.png", name: "Flutterwave", industry: "Payment Gateway" },
-  { file: "Giomani Designs Ltd.png", name: "Giomani Designs", industry: "Retail / Manufacturing" },
-  { file: "ikari.png", name: "Ikari", industry: "Service / Pest Control" },
+  // { file: "Giomani Designs Ltd.png", name: "Giomani Designs", industry: "Retail/Manufacturing" },
+  { file: "ikari.png", name: "Ikari", industry: "Service/Pest Control" },
   { file: "Inclusion Scotland.png", name: "Inclusion Scotland", industry: "Charity" },
   { file: "Maker&Son Private Limited.png", name: "Maker & Son", industry: "Ecommerce" },
   { file: "Myhealth Specialist Ltd.png", name: "Myhealth Specialist", industry: "Tech Product" },
@@ -37,7 +37,7 @@ const brands: Brand[] = [
   { file: "rainforest collective.png", name: "Rainforest Collective", industry: "Ecommerce" },
   { file: "ROUTE ONE LLC.png", name: "Route One", industry: "Fractional CFO" },
   { file: "Trevisan Social Media Marketing.png", name: "Trevisan", industry: "Digital Marketing" },
-  { file: "Trollbeads Australia New Zealand Pty Ltd.png", name: "Trollbeads ANZ", industry: "Ecommerce / Retail" },
+  { file: "Trollbeads Australia New Zealand Pty Ltd.png", name: "Trollbeads ANZ", industry: "Ecommerce/Retail" },
   { file: "Vistabee Limited.png", name: "Vistabee", industry: "Tech Product" },
   { file: "Ward Divecha Limited.png", name: "Ward Divecha", industry: "Audit Firm" },
   { file: "west coast harley davidson.png", name: "West Coast Harley Davidson", industry: "Retail" },
@@ -77,11 +77,11 @@ const renderBrand = (item: LogoItem, key: Key) => {
         />
       </div>
       <div className="flex flex-col items-center justify-center gap-1">
-        <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--text-primary)] text-center leading-tight max-w-[160px]">
+        {/* <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--text-primary)] text-center leading-tight max-w-[160px]">
         {alt}
-      </span>
+      </span> */}
       <span
-        className="text-[10.5px] italic uppercase tracking-wide text-center leading-tight max-w-[160px] min-h-[14px]"
+        className="text-[10.5px] tracking-wide text-center leading-tight max-w-[160px] min-h-[14px]"
         style={{
           background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 55%, var(--brand-accent) 100%)",
           WebkitBackgroundClip: "text",

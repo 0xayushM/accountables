@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { PageShell } from "../components/PageShell";
 import { PageHero } from "../components/PageHero";
@@ -148,23 +149,31 @@ function SubPanel({
   items,
   note,
   dark,
+  highlight,
 }: {
-  label: string;
+  label: React.ReactNode;
   items: string[];
   note?: string | null;
   dark?: boolean;
+  highlight?: boolean;
 }) {
   return (
     <div
       className={`rounded-2xl p-5 flex flex-col gap-3 ${
-        dark
+        highlight
+          ? dark
+            ? "bg-white/[0.12] border border-[var(--brand-accent)]/40 shadow-[0_0_0_1px_rgba(10,132,255,0.25)]"
+            : "bg-[#eff6ff] border border-[var(--brand-blue)]/25 shadow-[0_0_0_1px_rgba(29,77,216,0.12)]"
+          : dark
           ? "bg-white/[0.08] border border-white/[0.10]"
           : "bg-[var(--surface-soft)] border border-[var(--border)]"
       }`}
     >
       <p
         className={`text-[9.5px] tracking-[0.15em] uppercase font-semibold ${
-          dark ? "text-white/40" : "text-[var(--text-muted)]"
+          highlight
+            ? dark ? "text-[var(--brand-accent)]" : "text-[var(--brand-blue)]"
+            : dark ? "text-white/40" : "text-[var(--text-muted)]"
         }`}
       >
         {label}
@@ -296,9 +305,15 @@ export default function PricingPage() {
                           dark={t.featured}
                         />
                         <SubPanel
-                          label="Accountables One"
+                          label={
+                            <span className="inline-flex items-center gap-1">
+                              Accountables
+                              <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', filter: t.featured ? 'brightness(0) saturate(100%) invert(58%) sepia(99%) saturate(400%) hue-rotate(175deg) brightness(105%)' : 'none' }} />
+                            </span>
+                          }
                           items={t.accountablesOne}
                           dark={t.featured}
+                          highlight
                         />
                         <SubPanel
                           label={t.suitedFor ? "Best Suited For" : "Operational Scope"}

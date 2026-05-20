@@ -35,29 +35,17 @@ function DashboardMockup() {
 
       {/* ── Top bar ── */}
       <div className="relative flex items-center justify-between px-5 py-3.5 border-b border-white/10">
-        {/* Left: logo + welcome */}
-        <div className="flex items-center gap-2.5">
-          <div
-            className="h-7 w-7 rounded-lg flex items-center justify-center flex-shrink-0"
-            style={{ background: "rgba(255,255,255,0.12)" }}
-          >
-            <img src="/icon.svg" alt="" style={{ display: "block", height: "14px", width: "auto", filter: "brightness(0) invert(1)" }} />
-          </div>
-          <div>
-            <p className="text-[10px] tracking-[0.12em] uppercase font-semibold text-white/35 leading-none mb-0.5">accountables.com</p>
-            <p className="text-[13px] font-semibold text-white leading-none">Welcome to Accountables</p>
-          </div>
-        </div>
-        {/* Right: sign-in button */}
-        <button
-          className="flex items-center gap-1.5 rounded-full text-[11px] font-semibold text-white px-3.5 py-1.5 border border-white/20"
-          style={{ background: "rgba(255,255,255,0.10)" }}
+        {/* Left: icon only */}
+        <div
+          className="h-8 w-12 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: "rgba(255,255,255,0.12)" }}
         >
-          Sign in
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+          <img src="/prod_icon.svg" alt="Accountables" style={{ display: "block", height: "18px", width: "32px", filter: "brightness(0) invert(1)" }} />
+        </div>
+        {/* Right: signed-in avatar */}
+        <div className="h-7 w-7 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
+          <img src="/avatar2.png" alt="User" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </div>
       </div>
 
       {/* ── Body ── */}
@@ -247,8 +235,8 @@ export function FinanceOrganized() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
-                  >
-                    <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One
+                  >Accountables
+                    <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />
                   </a>
                   .
                 </p>

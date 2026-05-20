@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { CASES } from "../data/cases";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -231,29 +232,42 @@ function AboutPanel({ close, dark }: { close: () => void; dark?: boolean }) {
         ))}
       </div>
 
-      {/* Right: featured story */}
-      <div className={`p-6 ${rightBg} flex flex-col`}>
-        <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-3">Featured story</div>
-        <div className="flex items-center gap-3 mb-3">
-          <div
-            className="h-9 w-9 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
-            style={{ background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue))" }}
-          >
-            JB
+      {/* Right: featured case study */}
+      {(() => {
+        const c = CASES[0];
+        const initials = c.name.split(" ").map((w: string) => w[0]).slice(0, 2).join("");
+        return (
+          <div className={`p-6 ${rightBg} flex flex-col`}>
+            <div className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-3">Featured case study</div>
+            <div className="flex items-center gap-3 mb-3">
+              <div
+                className="h-9 w-9 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue))" }}
+              >
+                {initials}
+              </div>
+              <div>
+                <div className="text-[13px] font-semibold text-[var(--text-primary)] leading-snug">{c.name}</div>
+                <div className="text-[11px] text-[var(--text-muted)]">{c.industry.split("·")[0].trim()}</div>
+              </div>
+            </div>
+            <p className="text-[12px] leading-[1.6] text-[var(--text-secondary)] flex-1">{c.summary}</p>
+            {c.stats?.[0] && (
+              <div className="mt-3 flex items-center gap-2">
+                <span className="display text-[20px] font-semibold text-[var(--brand-blue)] leading-none">{c.stats[0][0]}</span>
+                <span className="text-[11px] text-[var(--text-muted)] leading-tight">{c.stats[0][1]}</span>
+              </div>
+            )}
+            <Link
+              href={`/customers/${c.slug}`}
+              onClick={close}
+              className="mt-4 text-[12.5px] text-[var(--brand-blue)] font-medium hover:underline"
+            >
+              Read case study →
+            </Link>
           </div>
-          <div className="text-[13px] font-semibold text-[var(--text-primary)]">Juls Bindi</div>
-        </div>
-        <p className="text-[12px] leading-[1.6] text-[var(--text-secondary)] italic flex-1">
-          &ldquo;Working with Accountables has saved me so many times. I could have made decisions for my business that would not have turned out well, had they not been made based on the numbers.&rdquo;
-        </p>
-        <Link
-          href="/customers/furniture-manufacturing-group"
-          onClick={close}
-          className="mt-4 text-[12.5px] text-[var(--brand-blue)] font-medium hover:underline"
-        >
-          Read story →
-        </Link>
-      </div>
+        );
+      })()}
     </div>
   );
 }
@@ -330,7 +344,8 @@ export function Navbar() {
               Services <Chevron open={activeDrop === "services"} />
             </Link>
             <Link href="/ai" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("ai")}>
-              AI <Chevron open={activeDrop === "ai"} />
+              <img src="/prod_icon.svg" alt="AI" style={{ height: '1.1em', width: 'auto', verticalAlign: '-0.15em', filter: pageDark ? 'brightness(0) invert(1)' : 'none', opacity: 0.75 }} />
+              <Chevron open={activeDrop === "ai"} />
             </Link>
             <Link
               href="/pricing"

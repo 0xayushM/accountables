@@ -86,6 +86,25 @@ export function CaseStudiesPreview() {
           ))}
         </div>
 
+        {/* Coming soon */}
+        <RevealBlock delay={280}>
+          <div className="mt-5 md:mt-6 rounded-2xl border border-dashed border-[var(--border)] px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 bg-[var(--surface-soft)]">
+            <div className="flex items-center gap-4">
+              <div className="h-11 w-11 rounded-xl border border-dashed border-[var(--border)] flex items-center justify-center flex-shrink-0 text-[var(--text-muted)] text-[18px]">
+                ✎
+              </div>
+              <div>
+                <p className="text-[15px] font-semibold text-[var(--text-primary)]">More case studies in progress</p>
+                <p className="text-[13px] text-[var(--text-secondary)] mt-0.5">Additional client stories being documented — check back soon.</p>
+              </div>
+            </div>
+            <span className="pill flex-shrink-0 inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: 'var(--brand-accent)' }} />
+              Publishing soon
+            </span>
+          </div>
+        </RevealBlock>
+
         {/* Pull quote */}
         <RevealBlock delay={0}>
         <div className="mt-12 md:mt-16 relative overflow-hidden rounded-2xl md:rounded-3xl p-8 md:p-12"

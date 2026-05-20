@@ -6,7 +6,7 @@ import ScrollRevealText from "./ScrollRevealText";
 
 /** Operational Accounting — bank reconciliation transaction list */
 const SceneAccounting = () => (
-  <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
     {/* Header */}
@@ -51,7 +51,7 @@ const SceneAccounting = () => (
 
 /** Compliance & Reporting — filing status tracker */
 const SceneCompliance = () => (
-  <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
     {/* Header — dark blue */}
@@ -102,7 +102,7 @@ const SceneCompliance = () => (
 
 /** Planning & Finance Support — financial dashboard with KPIs + trend chart */
 const ScenePlanning = () => (
-  <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
     {/* Header */}
@@ -158,7 +158,7 @@ const ScenePlanning = () => (
 
 /** Fractional Finance Leadership — executive KPI dashboard + strategic roadmap */
 const SceneLeadership = () => (
-  <svg viewBox="0 0 300 168" fill="none" width="100%" height="168" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
     {/* Header — dark navy */}
@@ -204,28 +204,48 @@ const pillars = [
     number: "01",
     Scene: SceneAccounting,
     title: "Operational Accounting",
-    body: "Bookkeeping, reconciliations, accounts payable and receivable management, reporting workflows and month-end close.",
+    bullets: [
+      "Bookkeeping & bank reconciliation",
+      "Accounts payable & receivable",
+      "Month-end close workflow",
+      "Management reporting",
+    ],
     href: "/services",
   },
   {
     number: "02",
     Scene: SceneCompliance,
     title: "Compliance & Reporting",
-    body: "Payroll, tax coordination, year-end support, management reporting and regulatory compliance workflows.",
+    bullets: [
+      "Payroll & RTI submissions",
+      "VAT returns & tax filing",
+      "Year-end accounts & audit support",
+      "Regulatory compliance tracking",
+    ],
     href: "/services",
   },
   {
     number: "03",
     Scene: ScenePlanning,
     title: "Planning & Finance Support",
-    body: "Forecasting, cash flow visibility, KPI reporting and strategic finance support.",
+    bullets: [
+      "Cash flow forecasting",
+      "KPI & management dashboards",
+      "Budget vs actual reporting",
+      "Strategic finance advisory",
+    ],
     href: "/services",
   },
   {
     number: "04",
     Scene: SceneLeadership,
     title: "Fractional Finance Leadership",
-    body: "Structured finance oversight designed to evolve alongside growing businesses.",
+    bullets: [
+      "Virtual CFO oversight",
+      "Board & investor reporting",
+      "Finance function structuring",
+      "Growth-stage finance strategy",
+    ],
     href: "/services",
   },
 ];
@@ -260,27 +280,34 @@ export function VirtualFinanceDept() {
                 href={p.href}
                 className="group flex flex-col h-full rounded-2xl overflow-hidden border border-[var(--border)] bg-white hover:shadow-[0_8px_32px_rgba(11,30,63,0.10)] transition-shadow duration-300"
               >
-                {/* Illustration panel */}
+                {/* Illustration panel — 30% of card */}
                 <div
                   className="relative flex-shrink-0 overflow-hidden"
-                  style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", height: 168 }}
+                  style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", height: 110 }}
                 >
                   <p.Scene />
                   <span
-                    className="absolute top-3.5 right-4 text-[10.5px] tracking-[0.18em] font-semibold"
-                    style={{ fontFamily: "var(--font-mono), ui-monospace, monospace", color: "var(--brand-blue)", opacity: 0.5 }}
+                    className="absolute top-3 right-3.5 text-[10px] tracking-[0.18em] font-semibold"
+                    style={{ fontFamily: "var(--font-mono), ui-monospace, monospace", color: "var(--brand-blue)", opacity: 0.45 }}
                   >
                     {p.number}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col gap-2.5 flex-1 p-6">
+                <div className="flex flex-col gap-3 flex-1 p-6">
                   <h3 className="text-[15.5px] font-semibold text-[var(--text-primary)] leading-snug">
                     {p.title}
                   </h3>
-                  <p className="text-[13px] leading-[1.65] text-[var(--text-secondary)] flex-1">{p.body}</p>
-                  <div className="flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-blue)] opacity-0 group-hover:opacity-100 transition-opacity mt-1">
+                  <ul className="flex flex-col gap-1.5 flex-1">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-[13px] leading-[1.55] text-[var(--text-secondary)]">
+                        <span className="mt-[5px] h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: "var(--brand-blue)", opacity: 0.5 }} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center gap-1.5 text-[12px] font-medium text-[var(--brand-blue)] opacity-0 group-hover:opacity-100 transition-opacity">
                     Learn more
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>

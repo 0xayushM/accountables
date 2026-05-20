@@ -82,7 +82,7 @@ export default function AboutPage() {
                 From bookkeeping and reporting to compliance, management accounting and strategic finance support, we help businesses build a more structured finance function without building large internal teams.
               </p>
               <p className="mt-3 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                Through <span className="font-semibold text-[var(--brand-blue)] inline-flex items-center gap-1"><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One</span>, our connected operational environment, clients gain visibility across finance workflows, communication, reporting and ongoing operational coordination.
+                Through <span className="font-semibold text-[var(--brand-blue)] inline-flex items-center gap-1"><img src="/prod_prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} /></span>, our connected operational environment, clients gain visibility across finance workflows, communication, reporting and ongoing operational coordination.
               </p>
             </div>
 
@@ -205,9 +205,8 @@ export default function AboutPage() {
                 </p>
                 <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
                   Focused on combining finance expertise, operational systems and technology through{" "}
-                  <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1">
-                    <img src="/icon.svg" alt="" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.1em" }} />
-                    Accountables One
+                  <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1"> 
+                    <img src="/prod_icon.svg" alt="" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.0em" }} />
                   </span>
                   {" "}- with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
                 </p>
@@ -229,7 +228,7 @@ export default function AboutPage() {
                 style={{ background: "white", boxShadow: "0 1px 4px rgba(11,30,63,0.08)" }}
                 aria-hidden
               >
-                <img src="/icon.svg" alt="" style={{ width: 22, height: 22 }} />
+                <img src="/prod_icon.svg" alt="" style={{ width: 22, height: 22 }} />
               </span>
               <p className="text-[13.5px] leading-[1.7] text-[var(--brand-navy)] font-medium">
                 "Growing businesses deserve a finance function built for the way they actually operate."
@@ -261,15 +260,15 @@ export default function AboutPage() {
 
             {/* Left */}
             <div>
-              <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase font-semibold text-white/50 border border-white/20 rounded-full px-3 py-1 mb-6">
-                <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', filter: 'brightness(0) invert(1)', opacity: 0.5 }} />Accountables One
+              <span className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.2em] uppercase font-semibold text-white border border-white/20 rounded-full px-3 py-2 mb-6">Accountables
+                <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1.5em', width: 'auto', verticalAlign: '0em', filter: 'brightness(0) invert(1)', opacity: 1 }} />
               </span>
               <h2 className="display text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-white leading-[1.04]">
                 Connected{" "}
                 <span className="accent">finance operations</span>.
               </h2>
               <p className="mt-5 text-[16px] leading-[1.7] text-white/65 max-w-md">
-                Accountables One is our connected operational environment designed around finance visibility, workflow coordination and ongoing communication.
+                <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', filter: 'brightness(0) invert(1)', opacity: 1 }} /> is our connected operational environment designed around finance visibility, workflow coordination and ongoing communication.
               </p>
               <p className="mt-3 text-[15px] leading-[1.65] text-white/50">
                 Expanded platform capabilities coming soon.

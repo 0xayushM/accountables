@@ -7,9 +7,9 @@ import { Terminal } from "../components/Terminal";
 import { WaitlistForm } from "../components/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "AI Close - Join the waitlist · Accountables",
+  title: "AI Close — Join the waitlist · Accountables",
   description:
-    "The first autonomous month-end. AI Close ingests, classifies, reconciles and reports - closing your books in minutes, not weeks. Join the private beta.",
+    "The first autonomous month-end. AI Close ingests, classifies, reconciles and reports — closing your books in minutes, not weeks. Join the private beta.",
 };
 
 const terminalLines = [
@@ -34,19 +34,19 @@ const metrics = [
 ];
 
 const pipeline = [
-  { n: "01", title: "Ingest", body: "Two-way sync with QuickBooks, Xero, NetSuite, Stripe, Brex, Mercury, Plaid and 40+ more. Transactions flow in continuously - not in monthly dumps." },
+  { n: "01", title: "Ingest", body: "Two-way sync with QuickBooks, Xero, NetSuite, Stripe, Brex, Mercury, Plaid and 40+ more. Transactions flow in continuously — not in monthly dumps." },
   { n: "02", title: "Classify", body: "Our finance-tuned model categorizes every line with a confidence score. Anything below 95% gets routed to a human; everything else posts automatically." },
   { n: "03", title: "Reconcile", body: "Six accounts, twelve currencies, parallel reconciliation. Discrepancies surface with the matching evidence already attached." },
-  { n: "04", title: "Report", body: "P&L, Balance Sheet, Cashflow, KPI pack, board appendix - all drafted automatically, all version-controlled, all traceable to source." },
-  { n: "05", title: "Flag", body: "Anomaly detection runs against your own historical baselines. Unusual spend, missing revenue, drift in unit economics - all surfaced the day it happens." },
+  { n: "04", title: "Report", body: "P&L, Balance Sheet, Cashflow, KPI pack, board appendix — all drafted automatically, all version-controlled, all traceable to source." },
+  { n: "05", title: "Flag", body: "Anomaly detection runs against your own historical baselines. Unusual spend, missing revenue, drift in unit economics — all surfaced the day it happens." },
   { n: "06", title: "Review", body: "Your senior accountant gets a clean queue of judgment calls. They sign off in hours instead of hunting through entries for days." },
 ];
 
 const faqs: [string, string][] = [
   ["Is my data secure?", "Yes. SOC 2 Type II certified, AES-256 at rest, TLS 1.3 in transit, single-tenant logical isolation, and we never use client data to train shared models. Period."],
-  ["What happens when the AI is uncertain?", "Anything below a 95% confidence threshold is routed to your dedicated senior accountant. The AI never auto-posts entries it isn't sure about - and every decision is fully auditable."],
+  ["What happens when the AI is uncertain?", "Anything below a 95% confidence threshold is routed to your dedicated senior accountant. The AI never auto-posts entries it isn't sure about — and every decision is fully auditable."],
   ["How does pricing work in beta?", "AI Close is free during beta for existing Accountables clients. Standalone pricing kicks in at GA (Q4 2026) at £499/mo or bundled with full-service plans."],
-  ["Will this replace my accountant?", "No - and we wouldn't want it to. AI Close handles the mechanical 80% so your accountant can spend their hours on judgment, advice and edge cases."],
+  ["Will this replace my accountant?", "No — and we wouldn't want it to. AI Close handles the mechanical 80% so your accountant can spend their hours on judgment, advice and edge cases."],
   ["What systems do you integrate with?", "Native: QuickBooks, Xero, NetSuite, Sage, Stripe, Brex, Mercury, Ramp, Plaid, Shopify, Square, Gusto. Plus a public API and webhooks for everything else."],
   ["When does the beta open?", "Rolling onboarding through 2026. We're bringing on roughly 8 new teams per week, prioritising Series A–C startups and e-commerce brands on our integration list."],
 ];
@@ -84,9 +84,9 @@ export default function AiPage() {
             <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-end">
               <div>
                 <span className="waitlist-chip mb-6">
-                  <span className="dot-pulse" />
-                  <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/85">
-                    AI Close · Private beta · Q3 2026
+                  {/* <span className="dot-pulse" /> */}
+                  <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/85 flex items-center gap-2">
+                     <img src="/prod_icon.svg" alt="Accountables" style={{ display: "block", height: "18px", width: "32px", filter: "brightness(0) invert(1)", marginBottom: "2px" }} /> · Private beta · Q3 2026
                   </span>
                 </span>
                 <h1 className="display text-[44px] sm:text-[64px] md:text-[84px] font-semibold leading-[1.02] text-white">
@@ -160,7 +160,7 @@ export default function AiPage() {
           </div>
         </section>
 
-        {/* Metrics strip - dark */}
+        {/* Metrics strip — dark */}
         <section className="py-14 md:py-20 border-t border-white/[0.06]">
           <div className="mx-auto max-w-7xl px-6 md:px-10">
             <div className="strip grid-cols-2 md:grid-cols-4 !border-white/[0.08]">
@@ -215,7 +215,7 @@ export default function AiPage() {
                 <p className="mt-6 text-[16px] md:text-[18px] leading-[1.55] text-white/70 max-w-md">
                   Beta cohorts onboard weekly. We&apos;re prioritising Series A–C
                   startups and e-commerce brands on our integration list. No
-                  credit card, no commitment - just early access to the future
+                  credit card, no commitment — just early access to the future
                   of month-end.
                 </p>
                 <ul className="mt-8 space-y-3.5">
@@ -370,7 +370,7 @@ export default function AiPage() {
             </h2>
             <p className="mt-5 text-[16px] md:text-[18px] leading-[1.55] text-white/65">
               We&apos;re onboarding a small group of finance teams every month.
-              Reserve your seat - no credit card required.
+              Reserve your seat — no credit card required.
             </p>
             <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
               <a

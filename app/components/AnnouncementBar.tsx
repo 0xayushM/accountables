@@ -10,7 +10,7 @@ export function AnnouncementBar() {
           New
         </span>
         <span className="text-white/90">
-          <span className="font-medium text-white">Introducing Accountables AI</span>
+          <span className="font-medium text-white">Introducing Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', filter: "brightness(0) invert(1)"}} /></span>
           <span className="hidden md:inline"> - the autonomous month-end. </span>
         </span>
         <span className="inline-flex items-center gap-1 font-medium text-white group-hover:gap-1.5 transition-all">

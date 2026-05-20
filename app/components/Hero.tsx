@@ -28,11 +28,11 @@ function DashboardMockup() {
     <div className="relative select-none" aria-hidden>
 
       {/* ── Chat bubble - Jess (top-left) ── */}
-      <div className="absolute -top-24 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[350px]">
+      <div className="absolute -top-26 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[350px]">
         <div className="flex items-center gap-3">
           <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
           <div>
-            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Jess · Accountables</p>
+            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountables</p>
             <p className="text-[12px] leading-[1.55] text-gray-800">
               Your account has a £125 difference, want me to reconcile the 21 items now?
             </p>
@@ -46,17 +46,20 @@ function DashboardMockup() {
         {/* Header */}
         <div className="flex items-start justify-between mb-1">
           <div>
+            <img src="/prod_icon.svg" alt="" style={{ height: 18, width: 'auto', marginBottom: 6 }} />
             <p className="text-[14.5px] font-bold text-gray-900 leading-snug">Business account</p>
-            <p className="text-[12px] text-gray-400 mt-0.5">123456</p>
+            <p className="text-[12px] text-gray-400 mt-0.5" style={{ filter: 'blur(2px)', userSelect: 'none' }}>123456</p>
           </div>
-          <Image src="/light_logo.png" alt="Accountables" width={120} height={30} className="h-6 w-auto opacity-60" />
+          <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0 mt-0.5">
+            <img src="/avatar2.png" alt="User" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
         </div>
 
         {/* Divider */}
         <div className="border-t border-gray-100 my-4" />
 
         {/* Balance columns */}
-        <div className="grid grid-cols-2 gap-5 mb-4">
+        <div className="grid grid-cols-2 gap-5 mb-4" >
           <div>
             <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">EUR</p>
             <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">-125.00</p>
@@ -65,7 +68,7 @@ function DashboardMockup() {
           <div className="border-l border-gray-100 pl-5">
             <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">EUR</p>
             <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">0.00</p>
-            <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug">Balance in Accountables</p>
+            <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug flex items-center gap-1">Balance in <img src="/prod_icon.svg" alt="" style={{ height: 12, width: 'auto', marginBottom: 0 }} /></p>
           </div>
         </div>
 
@@ -133,10 +136,10 @@ export function Hero() {
             <Link href="/ai" className="rise rise-1 waitlist-chip mb-7 group inline-flex">
               <span className="inline-flex items-center gap-2">
                 <span className="dot-pulse" />
-                <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">New</span>
+                <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">Introducing</span>
               </span>
               <span className="hidden sm:inline text-white/30">·</span>
-              <span><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} />Accountables One · <span className="font-semibold">Join the waitlist</span></span>
+              <span>Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} /> · <span className="font-semibold ml-1">Join the waitlist</span></span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
                 className="transition-transform duration-300 group-hover:translate-x-0.5">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"
@@ -176,7 +179,8 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
               >
-                <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One
+                Accountables
+                <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />
               </a>
               .
             </p>
