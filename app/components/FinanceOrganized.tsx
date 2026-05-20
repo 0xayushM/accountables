@@ -31,8 +31,8 @@ function DashboardMockup() {
       {/* Window chrome */}
       <div className="relative flex items-center justify-between px-6 py-4 border-b border-white/10">
         <div>
-          <p className="text-[9px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-0.5">
-            Accountables One
+          <p className="text-[9px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-0.5 flex items-center gap-1">
+            <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.4 }} />Accountables One
           </p>
           <p className="text-[15px] font-semibold text-white leading-none">
             Finance Operations Environment
@@ -261,9 +261,9 @@ export function FinanceOrganized() {
                     href="https://one.accountables.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2"
+                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
                   >
-                    Accountables One
+                    <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One
                   </a>
                   .
                 </p>

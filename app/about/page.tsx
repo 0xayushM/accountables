@@ -82,7 +82,7 @@ export default function AboutPage() {
                 From bookkeeping and reporting to compliance, management accounting and strategic finance support, we help businesses build a more structured finance function without building large internal teams.
               </p>
               <p className="mt-3 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                Through <span className="font-semibold text-[var(--brand-blue)]">Accountables One</span>, our connected operational environment, clients gain visibility across finance workflows, communication, reporting and ongoing operational coordination.
+                Through <span className="font-semibold text-[var(--brand-blue)] inline-flex items-center gap-1"><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One</span>, our connected operational environment, clients gain visibility across finance workflows, communication, reporting and ongoing operational coordination.
               </p>
             </div>
 
@@ -197,13 +197,15 @@ export default function AboutPage() {
               <p className="mt-1 text-[15px] font-medium text-[var(--brand-blue)]">Founder & CEO</p>
 
               <p className="mt-6 text-[16px] leading-[1.75] text-[var(--text-secondary)]">
-                A Chartered Accountant and MBA focused on building a more structured and modern approach to finance support for growing businesses.
+                Building the future of modern finance operations for growing businesses.
               </p>
               <p className="mt-4 text-[16px] leading-[1.75] text-[var(--text-secondary)]">
-                Background across outsourced finance operations, management accounting, compliance coordination and operational finance support across businesses operating in the United Kingdom, United States and India.
+                Chartered Accountant and MBA with experience across finance operations, reporting and compliance environments supporting businesses across the UK, US and India.
               </p>
               <p className="mt-4 text-[16px] leading-[1.75] text-[var(--text-secondary)]">
-                Focused on combining finance expertise, operational structure and connected systems into a more integrated finance environment for founder-led businesses.
+                Focused on combining finance expertise, operational systems and technology through{" "}
+                <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1"><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One</span>{" "}
+                — with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-2">
@@ -238,8 +240,8 @@ export default function AboutPage() {
 
             {/* Left */}
             <div>
-              <span className="inline-block text-[10px] tracking-[0.2em] uppercase font-semibold text-white/50 border border-white/20 rounded-full px-3 py-1 mb-6">
-                Accountables One
+              <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase font-semibold text-white/50 border border-white/20 rounded-full px-3 py-1 mb-6">
+                <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', filter: 'brightness(0) invert(1)', opacity: 0.5 }} />Accountables One
               </span>
               <h2 className="display text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-white leading-[1.04]">
                 Connected{" "}

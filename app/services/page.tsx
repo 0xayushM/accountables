@@ -30,8 +30,8 @@ function HeroDashboard() {
               <div key={i} className={`h-2.5 w-2.5 rounded-full ${c}`} />
             ))}
           </div>
-          <span className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)]">
-            Accountables One
+          <span className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)] flex items-center gap-1">
+            <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.05em' }} />Accountables One
           </span>
         </div>
         <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-green-600">
@@ -368,9 +368,9 @@ export default function ServicesPage() {
                     href="https://one.accountables.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2"
+                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
                   >
-                    Accountables One
+                    <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One
                   </a>
                   .
                 </p>
@@ -604,8 +604,8 @@ export default function ServicesPage() {
               {/* Left */}
               <div>
                 <RevealBlock delay={0}>
-                  <span className="inline-block text-[10px] tracking-[0.2em] uppercase font-semibold text-white/50 border border-white/20 rounded-full px-3 py-1 mb-6">
-                    Accountables One
+                  <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase font-semibold text-white/50 border border-white/20 rounded-full px-3 py-1 mb-6">
+                    <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.5 }} />Accountables One
                   </span>
                 </RevealBlock>
                 <RevealBlock delay={80}>

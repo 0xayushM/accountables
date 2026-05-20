@@ -49,7 +49,7 @@ function DashboardMockup() {
             <p className="text-[14.5px] font-bold text-gray-900 leading-snug">Business account</p>
             <p className="text-[12px] text-gray-400 mt-0.5">123456</p>
           </div>
-          <span className="text-[20px] text-gray-400 leading-none mt-0.5">⋮</span>
+          <Image src="/light_logo.png" alt="Accountables" width={120} height={30} className="h-6 w-auto opacity-60" />
         </div>
 
         {/* Divider */}
@@ -136,7 +136,7 @@ export function Hero() {
                 <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">New</span>
               </span>
               <span className="hidden sm:inline text-white/30">·</span>
-              <span>Accountables One · <span className="font-semibold">Join the waitlist</span></span>
+              <span><img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} />Accountables One · <span className="font-semibold">Join the waitlist</span></span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
                 className="transition-transform duration-300 group-hover:translate-x-0.5">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"
@@ -174,9 +174,9 @@ export function Hero() {
                 href="https://one.accountables.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2"
+                className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
               >
-                Accountables One
+                <img src="/icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />Accountables One
               </a>
               .
             </p>
