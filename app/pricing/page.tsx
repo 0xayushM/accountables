@@ -222,6 +222,7 @@ export default function PricingPage() {
                 id: t.id,
                 name: t.name,
                 price: t.price === "Custom" ? "Custom" : `${t.price}/mo`,
+                featured: t.featured,
               }))}
             />
 
@@ -328,7 +329,7 @@ export default function PricingPage() {
               ))}
 
               <p className="mt-4 text-center text-[12.5px] text-[var(--text-muted)]">
-                All prices in GBP, exclusive of VAT · No long-term contracts · Billed monthly
+                All prices in GBP, exclusive of VAT
               </p>
             </div>
           </div>

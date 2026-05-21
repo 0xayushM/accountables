@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { RevealBlock } from "../components/RevealBlock";
 import ScrollRevealText from "../components/ScrollRevealText";
+import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import {
@@ -291,6 +292,14 @@ function SceneExecution() {
 
 const regions = {
   "United Kingdom": {
+    flag: "🇬🇧",
+    code: "UK",
+    short: "UK",
+    capital: "London",
+    currency: "GBP £",
+    timezone: "GMT / BST",
+    regulators: ["HMRC", "Companies House", "FCA"],
+    accent: "#1d4ed8",
     items: [
       "VAT workflows",
       "HMRC reporting",
@@ -301,6 +310,14 @@ const regions = {
     ],
   },
   "United States": {
+    flag: "🇺🇸",
+    code: "US",
+    short: "USA",
+    capital: "New York",
+    currency: "USD $",
+    timezone: "ET / PT",
+    regulators: ["IRS", "SEC", "State Boards"],
+    accent: "#dc2626",
     items: [
       "Sales tax workflows",
       "QuickBooks environments",
@@ -310,6 +327,14 @@ const regions = {
     ],
   },
   India: {
+    flag: "🇮🇳",
+    code: "IN",
+    short: "IND",
+    capital: "Bengaluru",
+    currency: "INR ₹",
+    timezone: "IST",
+    regulators: ["GST Council", "MCA", "Income Tax Dept"],
+    accent: "#ea580c",
     items: [
       "GST workflows",
       "TDS compliance",
@@ -320,6 +345,15 @@ const regions = {
     ],
   },
 };
+
+function Spec({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="text-[9px] tracking-[0.18em] uppercase font-semibold text-white/40 mb-1">{label}</p>
+      <p className="text-[12.5px] font-semibold text-white/95 leading-tight">{value}</p>
+    </div>
+  );
+}
 
 // ─── FAQ Accordion (Bench two-column style) ────────────────────────────────────
 
@@ -358,6 +392,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      <AnnouncementBar />
       <Navbar />
       <main>
 
@@ -755,42 +790,130 @@ export default function ServicesPage() {
               </RevealBlock>
             </div>
 
-            {/* Region toggle */}
+            {/* Region toggle - flag pill tabs */}
             <RevealBlock delay={200}>
-              <div className="flex gap-2 mb-10">
-                {(Object.keys(regions) as (keyof typeof regions)[]).map((region) => (
-                  <button
-                    key={region}
-                    onClick={() => setActiveRegion(region)}
-                    className={`text-[13px] font-medium px-4 py-2 rounded-full transition-all ${
-                      activeRegion === region
-                        ? "bg-[var(--brand-navy)] text-white"
-                        : "bg-[var(--surface-soft)] text-[var(--text-secondary)] hover:bg-[var(--border)]"
-                    }`}
-                  >
-                    {region}
-                  </button>
-                ))}
-              </div>
-
-              {/* Region content */}
-              <div className="card p-8 md:p-10">
-                <h3 className="text-[11px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)] mb-6">
-                  {activeRegion} · Finance Operations
-                </h3>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  {regions[activeRegion].items.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)]"
+              <div className="inline-flex flex-wrap gap-2 p-1.5 rounded-full bg-[var(--surface-soft)] border border-[var(--border)] mb-10">
+                {(Object.keys(regions) as (keyof typeof regions)[]).map((region) => {
+                  const r = regions[region];
+                  const isActive = activeRegion === region;
+                  return (
+                    <button
+                      key={region}
+                      onClick={() => setActiveRegion(region)}
+                      className={`group relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
+                        isActive
+                          ? "bg-[var(--brand-navy)] text-white shadow-[0_4px_18px_-6px_rgba(11,30,63,0.45)]"
+                          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                      }`}
                     >
                       <span
-                        className="h-1.5 w-1.5 rounded-full flex-shrink-0"
-                        style={{ background: "var(--brand-accent)" }}
-                      />
-                      <span className="text-[13.5px] text-[var(--text-secondary)]">{item}</span>
+                        className={`h-6 w-6 rounded-full flex items-center justify-center text-[14px] leading-none border transition-colors ${
+                          isActive ? "bg-white/15 border-white/20" : "bg-white border-[var(--border)]"
+                        }`}
+                        aria-hidden
+                      >
+                        {r.flag}
+                      </span>
+                      <span>{region}</span>
+                      <span
+                        className={`text-[10px] font-semibold tracking-[0.12em] px-1.5 py-0.5 rounded ${
+                          isActive ? "bg-white/15 text-white/80" : "bg-[var(--border)]/60 text-[var(--text-muted)]"
+                        }`}
+                      >
+                        {r.code}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Region content - sidebar + capability grid */}
+              <div
+                key={activeRegion}
+                className="rounded-[24px] border border-[var(--border)] bg-white overflow-hidden grid md:grid-cols-[280px_1fr] shadow-[0_24px_60px_-30px_rgba(11,30,63,0.18)] animate-[fadeIn_0.35s_ease-out]"
+              >
+                {/* Sidebar: region ID card */}
+                <div
+                  className="p-7 md:p-8 flex flex-col gap-5 relative overflow-hidden border-b md:border-b-0 md:border-r border-[var(--border)]"
+                  style={{ background: "linear-gradient(165deg, #0b1e3f 0%, #14305f 100%)" }}
+                >
+                  {/* Decorative accent stripe */}
+                  <div
+                    aria-hidden
+                    className="absolute -top-10 -right-10 h-32 w-32 rounded-full blur-3xl opacity-50"
+                    style={{ background: regions[activeRegion].accent }}
+                  />
+
+                  {/* Flag + code badge */}
+                  <div className="relative flex items-start justify-between">
+                    <div className="h-14 w-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[28px] leading-none backdrop-blur-sm">
+                      {regions[activeRegion].flag}
                     </div>
-                  ))}
+                    <span
+                      className="text-[10px] font-semibold tracking-[0.18em] px-2 py-1 rounded-md border border-white/15 text-white/70"
+                      style={{ background: "rgba(255,255,255,0.06)" }}
+                    >
+                      {regions[activeRegion].short}
+                    </span>
+                  </div>
+
+                  <div className="relative">
+                    <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-1.5">Region</p>
+                    <h3 className="text-[22px] font-semibold text-white leading-tight">{activeRegion}</h3>
+                  </div>
+
+                  <div className="relative grid grid-cols-2 gap-x-4 gap-y-4 pt-1">
+                    <Spec label="Hub"      value={regions[activeRegion].capital} />
+                    <Spec label="Currency" value={regions[activeRegion].currency} />
+                    <Spec label="Timezone" value={regions[activeRegion].timezone} />
+                    <Spec label="Items"    value={`${regions[activeRegion].items.length} workflows`} />
+                  </div>
+
+                  <div className="relative pt-2 border-t border-white/10">
+                    <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-2.5">Regulators</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {regions[activeRegion].regulators.map((reg) => (
+                        <span
+                          key={reg}
+                          className="text-[10.5px] font-medium px-2 py-1 rounded-md text-white/85 border border-white/15"
+                          style={{ background: "rgba(255,255,255,0.06)" }}
+                        >
+                          {reg}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Capability grid */}
+                <div className="p-7 md:p-9">
+                  <div className="flex items-center justify-between mb-6">
+                    <h4 className="text-[11px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)]">
+                      Finance Operations
+                    </h4>
+                    <span className="text-[10.5px] font-medium text-[var(--text-muted)]">
+                      {regions[activeRegion].items.length} capabilities
+                    </span>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {regions[activeRegion].items.map((item, i) => (
+                      <div
+                        key={item}
+                        className="group flex items-center gap-3 px-4 py-3.5 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] hover:border-[var(--brand-blue)]/30 hover:bg-white transition-all"
+                        style={{ animation: `fadeIn 0.4s ease-out ${i * 60}ms both` }}
+                      >
+                        <span
+                          className="h-7 w-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
+                          style={{ background: `${regions[activeRegion].accent}15`, color: regions[activeRegion].accent }}
+                        >
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                        <span className="text-[13.5px] font-medium text-[var(--text-primary)]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </RevealBlock>

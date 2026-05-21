@@ -6,6 +6,7 @@ import {
   LuAward, LuUsers,
 } from "react-icons/lu";
 import type { IconType } from "react-icons";
+import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { RevealBlock } from "../components/RevealBlock";
@@ -239,6 +240,7 @@ export default function CareersPage() {
 
   return (
     <>
+      <AnnouncementBar />
       <Navbar />
       {showModal && <ApplyModal role="Financial Reporting Senior" onClose={() => setShowModal(false)} />}
 

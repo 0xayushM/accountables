@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-type TierLink = { id: string; name: string; price: string };
+type TierLink = { id: string; name: string; price: string; featured?: boolean };
 
 const LINE_H = 88; // px - gap between tier dots
 
@@ -127,7 +127,20 @@ export function PricingNav({ tiers, sectionId }: { tiers: TierLink[]; sectionId:
                           : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                       }`}
                     >
-                      <span className="block text-[12px] font-semibold">{tier.name}</span>
+                      <span className="flex items-center gap-1.5">
+                        <span className="text-[12px] font-semibold">{tier.name}</span>
+                        {tier.featured && (
+                          <span
+                            className={`text-[8.5px] font-bold uppercase tracking-[0.12em] px-1.5 py-[2px] rounded-full border transition-colors ${
+                              isActive
+                                ? "bg-[var(--brand-navy)] text-white border-[var(--brand-navy)]"
+                                : "bg-[var(--brand-navy)]/[0.06] text-[var(--brand-navy)] border-[var(--brand-navy)]/15"
+                            }`}
+                          >
+                            Popular
+                          </span>
+                        )}
+                      </span>
                       <span className="block text-[10.5px] mt-0.5 text-[var(--text-muted)]">{tier.price}</span>
                     </button>
                   </div>
