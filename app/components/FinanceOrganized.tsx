@@ -102,8 +102,11 @@ function DashboardMockup() {
             <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-lg bg-red-500 text-white text-[6px] font-bold flex items-center justify-center">3</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-lg overflow-hidden border-2 border-[var(--border)] flex-shrink-0">
-              <img src="/avatar2.png" alt="Charlie" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div className="relative flex-shrink-0">
+              <div className="h-7 w-7 rounded-lg overflow-hidden border-2 border-[var(--border)]">
+                <img src="/avatar2.png" alt="Charlie" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-green-400 border-[1.5px] border-white" />
             </div>
             <div>
               <p className="text-[10px] font-semibold text-[var(--text-primary)] leading-tight">Charlie <span style={{ filter: 'blur(2px)', userSelect: 'none' }}>Centa</span></p>
@@ -263,9 +266,12 @@ function DashboardMockup() {
             <div>
               <p className="text-[8.5px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2.5">Your Accountable Manager</p>
               <div className="flex items-center gap-2 mb-2.5">
-                <div className="h-9 w-9 rounded-lg overflow-hidden border-2 border-white shadow-md flex-shrink-0">
+                <div className="relative flex-shrink-0">
+                <div className="h-9 w-9 rounded-lg overflow-hidden border-2 border-white shadow-md">
                   <img src="/avatar1.png" alt="Swati" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
+                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-green-400 border-2 border-white" />
+              </div>
                 <div>
                   <p className="text-[10.5px] font-semibold text-[var(--text-primary)] leading-tight">Swati</p>
                   <p className="text-[8.5px] text-[var(--text-muted)] leading-tight">Accountable Manager</p>

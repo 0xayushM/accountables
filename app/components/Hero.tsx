@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ScaledFit } from "./ScaledFit";
 
 // ─── Person avatar (SVG silhouette) ──────────────────────────────────────────
 
@@ -29,114 +30,98 @@ function DashboardMockup() {
   return (
     <div className="relative select-none" aria-hidden>
 
-      {/* ── Chat bubble - Jess (top-left) ── */}
-      <div className="absolute -top-28 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[400px]">
-        <div className="flex items-center gap-3">
-          <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
-          <div>
-            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountable Manager</p>
-            <p className="text-[12px] leading-[1.55] text-gray-800">
-              Your Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} /> dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* ── Main card - window with header + content ── */}
+      <div className="relative bg-white rounded-2xl shadow-2xl border border-black/[0.06] overflow-hidden">
 
-      {/* ── Main card - two-column layout ── */}
-      <div className="relative mt-10 bg-white rounded-2xl shadow-2xl border border-black/[0.06] overflow-hidden flex">
-
-        {/* Left: balance content */}
-        <div className="flex-1 px-6 pt-5 pb-6">
-          <div className="mb-1">
-            <img src="/prod_icon.svg" alt="" style={{ height: 18, width: 'auto', marginBottom: 10 }} />
-            <p className="text-[14.5px] font-bold text-gray-900 leading-snug mt-2">Business account</p>
-            <p className="text-[12px] text-gray-400 mt-0.5" style={{ filter: 'blur(2px)', userSelect: 'none' }}>123456</p>
+        {/* Window header — always visible across breakpoints */}
+        <div className="flex items-center justify-between border-b border-gray-100 px-3.5 py-2.5 bg-gray-50/50">
+          {/* macOS window dots (close, minimize, fullscreen) */}
+          <div className="flex items-center gap-1.5">
+            <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+            <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+            <span className="h-3 w-3 rounded-full bg-[#28c840]" />
           </div>
 
-          <div className="border-t border-gray-100 my-4" />
-
-          <div className="grid grid-cols-2 gap-5 mb-4">
-            <div>
-              <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
-              <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
-              <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug">Statement balance (Apr 30)</p>
-            </div>
-            <div className="border-l border-gray-100 pl-5">
-              <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
-              <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
-              <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug flex items-center gap-1">Balance in <img src="/prod_icon.svg" alt="" style={{ height: 12, width: 'auto', marginBottom: 0 }} /></p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-100 mb-4" />
-
-          <div className="flex items-center gap-2.5">
-            <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px] flex-shrink-0">✓</span>
-            <p className="text-[13px] font-medium text-green-700">Your bank is fully reconciled</p>
-          </div>
-        </div>
-
-        {/* Right: permanent notification panel */}
-        <div className="w-[220px] flex-shrink-0 px-4 pt-4 pb-4 flex flex-col gap-3">
-
-          {/* Bell + user header */}
-          <div className="flex items-center gap-4 justify-end">
+          {/* Bell + avatar with online dot */}
+          <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="h-8 w-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <div className="h-7 w-7 rounded-full bg-white border border-gray-200 flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
-              <span className="absolute -top-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-red-500 text-white text-[7px] font-bold flex items-center justify-center">3</span>
+              <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-red-500 text-white text-[6px] font-bold flex items-center justify-center">3</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
+            <div className="relative flex-shrink-0">
+              <div className="h-7 w-7 rounded-full overflow-hidden border-2 border-gray-100">
                 <img src="/avatar2.png" alt="User" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
+              <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-green-400 border-[1.5px] border-white" />
+            </div>
+          </div>
+        </div>
+
+        {/* Body: two-column layout */}
+        <div className="flex">
+          {/* Left: balance content */}
+          <div className="flex-1 px-5 sm:px-6 pt-4 pb-5">
+            <div className="mb-1">
+              <img src="/prod_icon.svg" alt="" style={{ height: 18, width: 'auto', marginBottom: 10 }} />
+              <p className="text-[14.5px] font-bold text-gray-900 leading-snug mt-2">Business account</p>
+              <p className="text-[12px] text-gray-400 mt-0.5" style={{ filter: 'blur(2px)', userSelect: 'none' }}>123456</p>
+            </div>
+
+            <div className="border-t border-gray-100 my-4" />
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 mb-4">
+              <div>
+                <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
+                <p className="text-[22px] sm:text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
+                <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug">Statement balance (Apr 30)</p>
+              </div>
+              <div className="border-l border-gray-100 pl-3 sm:pl-5">
+                <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
+                <p className="text-[22px] sm:text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
+                <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug flex items-center gap-1">Balance in <img src="/prod_icon.svg" alt="" style={{ height: 12, width: 'auto', marginBottom: 0 }} /></p>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-100 mb-4" />
+
+            <div className="flex items-center gap-2.5">
+              <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px] flex-shrink-0">✓</span>
+              <p className="text-[13px] font-medium text-green-700">Your bank is fully reconciled</p>
             </div>
           </div>
 
-          {/* Permanent notification card */}
-          <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-3">
-            <div className="flex items-center justify-between mb-2.5">
-              <div className="flex items-center gap-1.5">
-                <div className="h-5 w-5 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          {/* Right: permanent notification panel — hidden on mobile */}
+          <div className="hidden md:flex w-[210px] flex-shrink-0 border-l border-gray-100 px-3.5 pt-3 pb-3.5 flex-col gap-2.5">
+            {/* Permanent notification card */}
+            <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-2.5">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-4 w-4 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <p className="text-[9.5px] font-semibold text-gray-900">New Update</p>
                 </div>
-                <p className="text-[10px] font-semibold text-gray-900">New Update</p>
+                <span className="text-[8px] text-gray-400">2m ago</span>
               </div>
-              <span className="text-[8.5px] text-gray-400">2m ago</span>
-            </div>
-            <div className="flex items-start gap-2 mb-2.5">
-              <div className="h-9 w-9 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <div className="flex items-start gap-2 mb-2">
+                <div className="h-8 w-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <p className="text-[8.5px] leading-[1.55] text-gray-500">
+                  Reporting files updated and ready in your dashboard.
+                </p>
               </div>
-              <p className="text-[9.5px] leading-[1.6] text-gray-500">
-                Your Accountable Manager uploaded updated reporting files to your Accountables One dashboard.
-              </p>
+              <a href="/ai" className="inline-flex items-center gap-1 text-[9.5px] font-semibold text-[#1d4ed8]">
+                Open Dashboard
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </a>
             </div>
-            <a href="/ai" className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#1d4ed8]">
-              Open Dashboard
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </a>
           </div>
         </div>
       </div>
 
-      {/* ── Chat bubble - client (bottom-right) ── */}
-      <div className="absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
-        <p className="text-[12px] leading-[1.55] text-gray-800">
-          Perfect. Thanks for the quick turnaround.
-        </p>
-        <div className="flex items-center justify-end gap-2">
-          <Avatar bg="linear-gradient(150deg, #14305f 0%, #1d4ed8 100%)" src="/avatar2.png" size={80} />
-        </div>
-      </div>
-
-      {/* ── Floating pill - bottom-left ── */}
-      <div className="absolute -bottom-6 left-4 z-20 bg-white rounded-full shadow-lg border border-black/[0.06] px-4 py-2 flex items-center gap-2">
-        <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px]">✓</span>
-        <span className="text-[11.5px] font-semibold text-gray-700">Books up-to-date</span>
-        <span className="text-[11px] text-gray-400">· Apr 2026</span>
-      </div>
     </div>
   );
 }
@@ -145,7 +130,7 @@ function DashboardMockup() {
 
 export function Hero() {
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden py-12 lg:py-0">
       {/* Background */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <div className="jersey-stripes stripe-slide-in opacity-[0.85]" />
@@ -156,12 +141,12 @@ export function Hero() {
         className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 bg-gradient-to-r from-transparent via-black/10 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+      <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 md:px-10">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-12 lg:gap-20 items-center">
           {/* ── Left: copy ── */}
           <div>
             {/* Headline */}
-            <h1 className="rise rise-2 display text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.02]">
+            <h1 className="rise rise-2 display text-[40px] xs:text-[44px] sm:text-[56px] md:text-[68px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.04] sm:leading-[1.02]">
               Modern<br/>
               <span style={{ background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-accent) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} className="accent">Finance</span>
               <br />
@@ -169,15 +154,15 @@ export function Hero() {
             </h1>
 
             {/* Sub-copy */}
-            <p className="rise rise-3 mt-6 text-[16px] md:text-[18px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
+            <p className="rise rise-3 mt-5 sm:mt-6 text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
               Designed around connected finance operations.
             </p>
 
             {/* CTAs */}
-            <div className="rise rise-4 mt-8 flex flex-wrap items-center gap-3">
+            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/#contact"
-                className="btn-primary !px-7 !py-3 !text-[14.5px]"
+                className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px]"
               >
                 Book a Consultation
               </Link>
@@ -211,14 +196,55 @@ export function Hero() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="rise rise-4 hidden lg:block relative">
+          <div className="rise rise-4 block mt-6 lg:mt-0 relative">
             <div
               className="absolute -inset-8 -z-10 rounded-[40px] blur-3xl opacity-40"
               style={{
                 background: "radial-gradient(60% 60% at 50% 50%, rgba(29,78,216,0.22) 0%, transparent 70%)",
               }}
             />
-            <DashboardMockup />
+
+            {/* ── Chat bubble - Swati (top-left) ── */}
+            <div className="hidden lg:block absolute -top-28 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[400px]">
+              <div className="flex items-center gap-3">
+                <div className="relative flex-shrink-0">
+                  <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
+                  <span className="absolute bottom-1 right-1 h-3.5 w-3.5 rounded-full bg-green-400 border-2 border-white" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountable Manager</p>
+                  <p className="text-[12px] leading-[1.55] text-gray-800">
+                    Your Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} /> dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <ScaledFit naturalWidth={560} naturalHeight={300}>
+              <div style={{ width: 560, height: 300 }}>
+                <DashboardMockup />
+              </div>
+            </ScaledFit>
+
+            {/* ── Chat bubble - client (bottom-right) ── */}
+            <div className="hidden lg:block absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
+              <p className="text-[12px] leading-[1.55] text-gray-800">
+                Perfect. Thanks for the quick turnaround.
+              </p>
+              <div className="flex items-center justify-end gap-2">
+                <div className="relative flex-shrink-0">
+                  <Avatar bg="linear-gradient(150deg, #14305f 0%, #1d4ed8 100%)" src="/avatar2.png" size={80} />
+                  <span className="absolute bottom-1 right-1 h-3.5 w-3.5 rounded-full bg-green-400 border-2 border-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* ── Floating pill - bottom-left ── */}
+            <div className="hidden lg:flex absolute -bottom-6 left-4 z-20 bg-white rounded-full shadow-lg border border-black/[0.06] px-4 py-2 items-center gap-2">
+              <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px]">✓</span>
+              <span className="text-[11.5px] font-semibold text-gray-700">Books up-to-date</span>
+              <span className="text-[11px] text-gray-400">· Apr 2026</span>
+            </div>
           </div>
         </div>
       </div>

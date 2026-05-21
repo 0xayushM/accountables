@@ -434,7 +434,7 @@ export default function ServicesPage() {
                 </p>
 
                 <p className="rise rise-3 mt-3 text-[16px] md:text-[17px] leading-[1.7] text-[var(--text-secondary)] max-w-[460px]">
-                  Accountables combines accounting, reporting, compliance and finance coordination within a connected operating environment designed around ongoing visibility, organized execution and embedded support.
+                  Accountables combines accounting, reporting, compliance and finance coordination within a connected operating environment designed around ongoing visibility, organised execution and embedded support.
                 </p>
 
                 <div className="rise rise-4 mt-8 flex flex-col sm:flex-row items-start gap-3">
@@ -495,7 +495,7 @@ export default function ServicesPage() {
               </RevealBlock>
               <RevealBlock delay={160}>
                 <p className="mt-5 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                  Accountables combines structured finance support, operational coordination and ongoing visibility - allowing businesses to operate with a more organized finance function.
+                  Accountables combines structured finance support, operational coordination and ongoing visibility - allowing businesses to operate with a more organised finance function.
                 </p>
               </RevealBlock>
             </div>
@@ -520,7 +520,7 @@ export default function ServicesPage() {
                 },
                 {
                   Scene: SceneExecution,
-                  title: "Organized Execution",
+                  title: "Organised Execution",
                   body: "Defined processes, coordinated timelines and ongoing operational support designed around consistency and clarity.",
                 },
               ].map((item, idx) => (
@@ -576,7 +576,7 @@ export default function ServicesPage() {
                   number: "01",
                   Scene: SceneSvcBookkeeping,
                   title: "Bookkeeping & Reporting",
-                  body: "Monthly bookkeeping, reconciliations, reporting workflows and structured month-end close designed to maintain organized and up-to-date financial records.",
+                  body: "Monthly bookkeeping, reconciliations, reporting workflows and structured month-end close designed to maintain organised and up-to-date financial records.",
                   tags: ["Bookkeeping", "Reconciliations", "Ledger maintenance", "Reporting workflows", "Month-end close"],
                   href: "/services/bookkeeping",
                 },

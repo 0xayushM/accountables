@@ -80,9 +80,6 @@ export function Footer() {
                   <div>810, Arunachal Building,</div>
                   <div>19 Barakhamba Road,</div>
                   <div>New Delhi – 110001</div>
-                  <div><br/></div>
-                  <div>W10-C/1, Sainik Farms,</div>
-                  <div>New Delhi – 110062</div>
                 </div>
               </div>
             </div>

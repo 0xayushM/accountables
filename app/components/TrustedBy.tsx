@@ -104,7 +104,7 @@ export function TrustedBy() {
     <section className="py-14 md:py-20 border-y border-black/[0.06] bg-[var(--surface-soft)]/40">
       <div className="mx-auto max-w-8xl px-6 md:px-10">
         <p className="text-center text-[12px] tracking-[0.18em] uppercase text-[var(--text-muted)] mb-12">
-          Trusted by 100+ businesses worldwide
+          Trusted by 500+ businesses worldwide
         </p>
         <div className="flex flex-col gap-12">
           <LogoLoop

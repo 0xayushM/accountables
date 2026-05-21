@@ -54,7 +54,7 @@ export function ScaledFit({
     <div
       ref={wrapperRef}
       className={className}
-      style={{ width: '100%', height: naturalHeight * scale }}
+      style={{ width: '100%', height: naturalHeight * scale, overflow: 'hidden' }}
     >
       <div
         style={{

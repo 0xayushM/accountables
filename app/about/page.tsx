@@ -30,7 +30,7 @@ const VALUES = [
   {
     icon: "⊞",
     title: "Structured Communication",
-    body: "Finance support should not feel fragmented. We believe businesses deserve organized communication, workflow visibility and coordinated execution across ongoing finance activities.",
+    body: "Finance support should not feel fragmented. We believe businesses deserve organised communication, workflow visibility and coordinated execution across ongoing finance activities.",
   },
   {
     icon: "△",
