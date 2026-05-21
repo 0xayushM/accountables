@@ -34,7 +34,7 @@ function DashboardMockup() {
           <div>
             <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountables</p>
             <p className="text-[12px] leading-[1.55] text-gray-800">
-              Your Accountables One dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
+              Your Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} /> dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
             </p>
           </div>
         </div>
