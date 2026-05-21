@@ -188,9 +188,9 @@ export function Hero() {
           {/* ── Left: copy ── */}
           <div>
             {/* Headline */}
-            <h1 className="rise rise-2 display text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-              Modern{" "}
-              <span className="accent">Finance</span>
+            <h1 className="rise rise-2 display text-[52px] sm:text-[64px] md:text-[76px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.02]">
+              Modern<br/>
+              <span style={{ background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-accent) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} className="accent">Finance</span>
               <br />
               Function.
             </h1>

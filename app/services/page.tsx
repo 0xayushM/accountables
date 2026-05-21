@@ -417,7 +417,7 @@ export default function ServicesPage() {
 
                 <h1 className="rise rise-2 display text-[40px] sm:text-[52px] md:text-[60px] font-semibold text-[var(--text-primary)] leading-[1.02]">
                   Your Virtual<br />
-                  <span className="accent">Finance</span> Department.
+                  <span style={{ background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-accent) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} className="accent">Finance</span> Department.
                 </h1>
 
                 <p className="rise rise-3 mt-5 text-[16px] md:text-[17px] leading-[1.7] text-[var(--text-secondary)] max-w-[460px]">

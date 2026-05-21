@@ -254,7 +254,7 @@ export default function CareersPage() {
           <div className="relative mx-auto max-w-7xl px-6 md:px-10">
             <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[var(--brand-blue)] mb-3">Join Us</p>
             <h1 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-              Be an <span className="accent">Accountable!</span>
+              Be an <span style={{ background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-accent) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} className="accent">Accountable!</span>
             </h1>
           </div>
         </div>
