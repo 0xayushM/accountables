@@ -187,23 +187,6 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
           {/* ── Left: copy ── */}
           <div>
-            {/* AI chip */}
-            <Link href="/ai" className="rise rise-1 waitlist-chip mb-2 group inline-flex">
-              <span className="inline-flex items-center gap-2">
-                <span className="dot-pulse" />
-                {/* <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">Introducing</span> */}
-              </span>
-              {/* <span className="hidden sm:inline text-white/30">·</span> */}
-              <span>Go to Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} /> </span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                className="transition-transform duration-300 group-hover:translate-x-0.5">
-                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"
-                  strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <p className="rise rise-5 ml-1 text-[12.5px] text-[var(--text-muted)]">
-              Limited dashboard access available.
-            </p>
             {/* Headline */}
             <h1 className="rise rise-2 display text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold text-[var(--text-primary)] leading-[1.02]">
               Modern{" "}
@@ -217,13 +200,24 @@ export function Hero() {
               Designed around connected finance operations.
             </p>
 
-            {/* CTA */}
-            <div className="rise rise-4 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            {/* CTAs */}
+            <div className="rise rise-4 mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/#contact"
                 className="btn-primary !px-7 !py-3 !text-[14.5px]"
               >
                 Book a Consultation
+              </Link>
+              <Link href="/ai" className="waitlist-chip group inline-flex">
+                <span className="inline-flex items-center gap-2">
+                  <span className="dot-pulse" />
+                </span>
+                <span>Go to Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.15em', filter: 'brightness(0) invert(1)' }} /></span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  className="transition-transform duration-300 group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"
+                    strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
 
