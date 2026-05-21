@@ -180,7 +180,7 @@ export function Hero() {
             </div>
 
             {/* Powered by */}
-            <p className="rise rise-5 mt-2 ml-1 text-[12.5px] text-[var(--text-muted)]">
+            {/* <p className="rise rise-5 mt-2 ml-1 text-[12.5px] text-[var(--text-muted)]">
               Powered by{" "}
               <a
                 href="https://one.accountables.com"
@@ -192,7 +192,7 @@ export function Hero() {
                 <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />
               </a>
               .
-            </p>
+            </p> */}
           </div>
 
           {/* ── Right: dashboard mockup ── */}
