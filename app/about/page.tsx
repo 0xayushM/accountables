@@ -172,7 +172,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[280px_1fr_192px] gap-3 md:gap-4">
 
             {/* ① Photo — spans 2 rows on lg, full width on sm */}
-            <div className="sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] relative min-h-[320px] lg:min-h-0">
+            <div className="sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] relative min-h-[420px] lg:min-h-0">
               <Image
                 src="/founder.png"
                 alt="Sidharth Dugar - Founder & CEO of Accountables"

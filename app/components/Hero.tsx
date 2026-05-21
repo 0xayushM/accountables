@@ -146,7 +146,7 @@ export function Hero() {
           {/* ── Left: copy ── */}
           <div className="min-w-0">
             {/* Headline */}
-            <h1 className="rise rise-2 display text-[40px] xs:text-[44px] sm:text-[56px] md:text-[68px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.04] sm:leading-[1.02]">
+            <h1 className="rise rise-2 display text-[52px] sm:text-[60px] md:text-[72px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.02]">
               Modern<br/>
               <span style={{ background: "linear-gradient(90deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-accent) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} className="accent">Finance</span>
               <br />
@@ -159,14 +159,14 @@ export function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
+            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/#contact"
-                className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px] justify-center text-center"
+                className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px]"
               >
                 Book a Consultation
               </Link>
-              <Link href="/ai" className="waitlist-chip group inline-flex justify-center text-center">
+              <Link href="/ai" className="waitlist-chip group inline-flex">
                 <span className="inline-flex items-center gap-2">
                   <span className="dot-pulse" />
                 </span>
@@ -220,7 +220,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="mx-auto max-w-[340px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-none">
+            <div className="hidden lg:block mx-auto max-w-[340px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-none">
               <ScaledFit naturalWidth={560} naturalHeight={300}>
                 <div style={{ width: 560, height: 300 }}>
                   <DashboardMockup />
