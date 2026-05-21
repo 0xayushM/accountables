@@ -44,7 +44,7 @@ const tiers = [
     name: "Operations",
     price: "£300",
     tagline: "Ongoing finance operations support designed for growing businesses requiring more active coordination and reporting visibility.",
-    featured: true,
+    featured: false,
     cta: "Book a Consultation",
     href: "/#contact",
     includes: [
@@ -72,7 +72,7 @@ const tiers = [
     name: "Finance Partner",
     price: "£600",
     tagline: "A more integrated finance support environment designed for businesses with increasing operational and reporting complexity.",
-    featured: false,
+    featured: true,
     cta: "Speak With Our Team",
     href: "/#contact",
     includes: [
@@ -239,7 +239,7 @@ export default function PricingPage() {
                   }
                 >
                   {t.featured && (
-                    <div className="absolute top-6 left-6 z-10">
+                    <div className="absolute top-6 left-12 z-10">
                       <span className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-white/80 border border-white/20 bg-white/10 rounded-full px-3 py-1">
                         Most Popular
                       </span>
