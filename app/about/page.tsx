@@ -56,7 +56,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Accountables"
         title="Finance,"
-        highlight="organized."
+        highlight="organised ."
         description="Accountables was built around a simple belief - growing businesses deserve a more structured finance function."
       />
 
@@ -330,7 +330,7 @@ export default function AboutPage() {
             />
             <div className="relative max-w-2xl mx-auto">
               <h2 className="display text-[32px] sm:text-[44px] md:text-[56px] font-semibold text-white leading-[1.04]">
-                A More <span className="accent">Organized</span> Finance Function.
+                A More <span className="accent">Organised </span> Finance Function.
               </h2>
               <p className="mt-5 text-[16px] md:text-[17px] leading-[1.65] text-white/65 max-w-lg mx-auto">
                 Accountables helps businesses build structured finance operations designed around visibility, coordination and scalable growth.

@@ -144,7 +144,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 md:px-10">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-12 lg:gap-20 items-center">
           {/* ── Left: copy ── */}
-          <div>
+          <div className="min-w-0">
             {/* Headline */}
             <h1 className="rise rise-2 display text-[40px] xs:text-[44px] sm:text-[56px] md:text-[68px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.04] sm:leading-[1.02]">
               Modern<br/>
@@ -159,14 +159,14 @@ export function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
+            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
               <Link
                 href="/#contact"
-                className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px]"
+                className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px] justify-center text-center"
               >
                 Book a Consultation
               </Link>
-              <Link href="/ai" className="waitlist-chip group inline-flex">
+              <Link href="/ai" className="waitlist-chip group inline-flex justify-center text-center">
                 <span className="inline-flex items-center gap-2">
                   <span className="dot-pulse" />
                 </span>
@@ -196,7 +196,7 @@ export function Hero() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="rise rise-4 block mt-6 lg:mt-0 relative">
+          <div className="rise rise-4 block mt-6 lg:mt-0 relative w-full min-w-0 max-w-full overflow-hidden lg:overflow-visible">
             <div
               className="absolute -inset-8 -z-10 rounded-[40px] blur-3xl opacity-40"
               style={{
@@ -220,11 +220,13 @@ export function Hero() {
               </div>
             </div>
 
-            <ScaledFit naturalWidth={560} naturalHeight={300}>
-              <div style={{ width: 560, height: 300 }}>
-                <DashboardMockup />
-              </div>
-            </ScaledFit>
+            <div className="mx-auto max-w-[340px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-none">
+              <ScaledFit naturalWidth={560} naturalHeight={300}>
+                <div style={{ width: 560, height: 300 }}>
+                  <DashboardMockup />
+                </div>
+              </ScaledFit>
+            </div>
 
             {/* ── Chat bubble - client (bottom-right) ── */}
             <div className="hidden lg:block absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">

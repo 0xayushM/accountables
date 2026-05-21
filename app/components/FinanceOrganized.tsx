@@ -391,7 +391,7 @@ export function FinanceOrganized() {
 
           <RevealBlock delay={60}>
             <h2 className="display text-[40px] sm:text-[52px] md:text-[60px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-              Finance, <span className="accent">Organized</span>.
+              Finance, <span className="accent">Organised </span>.
             </h2>
           </RevealBlock>
 

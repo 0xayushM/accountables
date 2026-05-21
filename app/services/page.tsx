@@ -1042,7 +1042,7 @@ export default function ServicesPage() {
               <div className="relative text-center max-w-2xl mx-auto">
                 <RevealBlock delay={0}>
                   <h2 className="display text-[32px] sm:text-[44px] md:text-[56px] font-semibold text-white leading-[1.04]">
-                    A More <span className="accent">Organized</span> Finance Function.
+                    A More <span className="accent">Organised </span> Finance Function.
                   </h2>
                 </RevealBlock>
                 <RevealBlock delay={80}>
