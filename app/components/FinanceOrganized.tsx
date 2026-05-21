@@ -106,8 +106,8 @@ function DashboardMockup() {
               <img src="/avatar2.png" alt="Charlie" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div>
-              <p className="text-[10px] font-semibold text-[var(--text-primary)] leading-tight">Charlie Centa</p>
-              <p className="text-[8.5px] text-[var(--text-muted)] leading-tight">Rainforest Collective Ltd</p>
+              <p className="text-[10px] font-semibold text-[var(--text-primary)] leading-tight">Charlie <span style={{ filter: 'blur(2px)', userSelect: 'none' }}>Centa</span></p>
+              <p className="text-[8.5px] text-[var(--text-muted)] leading-tight" style={{ filter: 'blur(2px)', userSelect: 'none' }}>Rainforest Collective Ltd</p>
             </div>
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </div>
@@ -237,8 +237,8 @@ function DashboardMockup() {
               </div>
               <div className="flex flex-col gap-2.5">
                 {[
-                  { avatar: "/avatar1.png", title: "Swati uploaded",          sub: "Management Report – May 2025", time: "2m ago" },
-                  { avatar: "/avatar1.png", title: "Payroll for May 2025",    sub: "processed",                   time: "1h ago" },
+                  { avatar: "/avatar1.png", title: "Swati uploaded",          sub: "Management Report – May 2026", time: "2m ago" },
+                  { avatar: "/avatar1.png", title: "Payroll for May 2026",    sub: "processed",                   time: "1h ago" },
                   { avatar: "/avatar1.png", title: "VAT return scheduled",    sub: "for review",                  time: "3h ago" },
                   { avatar: "/avatar2.png", title: "Invoice INV-0421",        sub: "reconciled",                  time: "Yesterday" },
                   { avatar: "/avatar1.png", title: "Bank transaction £1,250", sub: "from Stripe",                 time: "Yesterday" },

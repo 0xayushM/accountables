@@ -14,7 +14,7 @@ export function AnnouncementBar() {
           <span className="hidden md:inline"> - the autonomous month-end. </span>
         </span>
         <span className="inline-flex items-center gap-1 font-medium text-white group-hover:gap-1.5 transition-all">
-          Join the waitlist
+          Schedule a Demo
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
             <path
               d="M5 12h14M13 5l7 7-7 7"

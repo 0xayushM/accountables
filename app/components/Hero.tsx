@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,6 +27,7 @@ function Avatar({ bg, src, size = 36 }: { bg: string; src?: string; size?: numbe
 // ─── Dashboard Mockup ────────────────────────────────────────────────────────
 
 function DashboardMockup() {
+  const [notifOpen, setNotifOpen] = useState(false);
   return (
     <div className="relative select-none" aria-hidden>
 
@@ -32,7 +36,7 @@ function DashboardMockup() {
         <div className="flex items-center gap-3">
           <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
           <div>
-            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountables</p>
+            <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountable Manager</p>
             <p className="text-[12px] leading-[1.55] text-gray-800">
               Your Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} /> dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
             </p>
@@ -53,12 +57,62 @@ function DashboardMockup() {
           <div className="relative flex items-center gap-2">
             {/* Notification bell */}
             <div className="relative">
-              <div className="h-8 w-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
-              <span className="absolute -top-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-red-500 text-white text-[7px] font-bold flex items-center justify-center">1</span>
-              {/* Notification dropdown */}
-             
+              <button
+                onClick={(e) => { e.stopPropagation(); setNotifOpen(v => !v); }}
+                className="relative block"
+                aria-label="Toggle notifications"
+              >
+                <div className="h-8 w-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <span className="absolute -top-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-red-500 text-white text-[7px] font-bold flex items-center justify-center">1</span>
+              </button>
+
+              {/* Notification popup */}
+              {notifOpen && (
+                <div
+                  className="absolute bottom-full left-0 mb-2 z-40 bg-white rounded-2xl shadow-2xl border border-black/[0.07] p-4"
+                  style={{ width: 280 }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Header row */}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="h-9 w-9 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><polyline points="16 16 12 12 8 16" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><line x1="12" y1="12" x2="12" y2="21" stroke="#16a34a" strokeWidth="2" strokeLinecap="round"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </div>
+                      <div>
+                        <p className="text-[11px] font-semibold text-gray-900 leading-snug">Month-End Reporting Ready</p>
+                        <p className="text-[9.5px] text-gray-400 mt-0.5">2m ago</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => setNotifOpen(false)}
+                      className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0 mt-0.5"
+                    >
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/></svg>
+                    </button>
+                  </div>
+
+                  {/* Body */}
+                  <p className="text-[10.5px] text-gray-600 leading-snug mb-3">
+                    Your Accountable Manager uploaded updated reporting files to your Accountable{" "}
+                    <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '0.9em', width: 'auto', verticalAlign: '-0.05em' }} />{" "}
+                    dashboard.
+                  </p>
+
+                  {/* CTA link */}
+                  <a
+                    href="/ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1d4ed8] hover:underline underline-offset-2"
+                  >
+                    Open Dashboard
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </a>
+                </div>
+              )}
             </div>
             {/* Avatar */}
             <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
@@ -134,20 +188,22 @@ export function Hero() {
           {/* ── Left: copy ── */}
           <div>
             {/* AI chip */}
-            <Link href="/ai" className="rise rise-1 waitlist-chip mb-7 group inline-flex">
+            <Link href="/ai" className="rise rise-1 waitlist-chip mb-2 group inline-flex">
               <span className="inline-flex items-center gap-2">
                 <span className="dot-pulse" />
                 {/* <span className="text-[10.5px] tracking-[0.16em] uppercase font-semibold text-white/80">Introducing</span> */}
               </span>
               {/* <span className="hidden sm:inline text-white/30">·</span> */}
-              <span>Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} /> · <span className="font-semibold ml-1">Join the waitlist</span></span>
+              <span>Go to Accountables <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em', marginRight: '0.25em', filter: 'brightness(0) invert(1)' }} /> </span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
                 className="transition-transform duration-300 group-hover:translate-x-0.5">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2"
                   strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-
+            <p className="rise rise-5 ml-1 text-[12.5px] text-[var(--text-muted)]">
+              Limited dashboard access available.
+            </p>
             {/* Headline */}
             <h1 className="rise rise-2 display text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-semibold text-[var(--text-primary)] leading-[1.02]">
               Modern{" "}
@@ -172,7 +228,7 @@ export function Hero() {
             </div>
 
             {/* Powered by */}
-            <p className="rise rise-5 mt-5 text-[12.5px] text-[var(--text-muted)]">
+            <p className="rise rise-5 mt-2 ml-1 text-[12.5px] text-[var(--text-muted)]">
               Powered by{" "}
               <a
                 href="https://one.accountables.com"
