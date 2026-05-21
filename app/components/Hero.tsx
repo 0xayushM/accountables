@@ -28,13 +28,13 @@ function DashboardMockup() {
     <div className="relative select-none" aria-hidden>
 
       {/* ── Chat bubble - Jess (top-left) ── */}
-      <div className="absolute -top-26 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[350px]">
+      <div className="absolute -top-28 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[400px]">
         <div className="flex items-center gap-3">
           <Avatar bg="linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)" src="/avatar1.png" size={80} />
           <div>
             <p className="text-[11px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountables</p>
             <p className="text-[12px] leading-[1.55] text-gray-800">
-              Your account has a £125 difference, want me to reconcile the 21 items now?
+              Your Accountables One dashboard has been updated with this month's numbers. Happy to connect whenever you're ready.
             </p>
           </div>
         </div>
@@ -46,12 +46,24 @@ function DashboardMockup() {
         {/* Header */}
         <div className="flex items-start justify-between mb-1">
           <div>
-            <img src="/prod_icon.svg" alt="" style={{ height: 18, width: 'auto', marginBottom: 6 }} />
-            <p className="text-[14.5px] font-bold text-gray-900 leading-snug">Business account</p>
+            <img src="/prod_icon.svg" alt="" style={{ height: 18, width: 'auto', marginBottom: 10 }} />
+            <p className="text-[14.5px] font-bold text-gray-900 leading-snug mt-2">Business account</p>
             <p className="text-[12px] text-gray-400 mt-0.5" style={{ filter: 'blur(2px)', userSelect: 'none' }}>123456</p>
           </div>
-          <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0 mt-0.5">
-            <img src="/avatar2.png" alt="User" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div className="relative flex items-center gap-2">
+            {/* Notification bell */}
+            <div className="relative">
+              <div className="h-8 w-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              <span className="absolute -top-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-red-500 text-white text-[7px] font-bold flex items-center justify-center">1</span>
+              {/* Notification dropdown */}
+             
+            </div>
+            {/* Avatar */}
+            <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
+              <img src="/avatar2.png" alt="User" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           </div>
         </div>
 
@@ -61,13 +73,13 @@ function DashboardMockup() {
         {/* Balance columns */}
         <div className="grid grid-cols-2 gap-5 mb-4" >
           <div>
-            <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">EUR</p>
-            <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">-125.00</p>
-            <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug">Statement balance (Dec 20)</p>
+            <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
+            <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
+            <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug">Statement balance (Apr 30)</p>
           </div>
           <div className="border-l border-gray-100 pl-5">
-            <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">EUR</p>
-            <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">0.00</p>
+            <p className="text-[10px] font-medium text-gray-400 mb-1 tracking-wide">GBP</p>
+            <p className="text-[28px] font-semibold text-gray-900 leading-none tabular-nums">360,000</p>
             <p className="text-[11.5px] text-[#1d4ed8] mt-2 leading-snug flex items-center gap-1">Balance in <img src="/prod_icon.svg" alt="" style={{ height: 12, width: 'auto', marginBottom: 0 }} /></p>
           </div>
         </div>
@@ -75,30 +87,17 @@ function DashboardMockup() {
         {/* Divider */}
         <div className="border-t border-gray-100 mb-4" />
 
-        {/* Balance difference row */}
-        <div className="flex items-center justify-between mb-5">
-          <p className="text-[13px] text-gray-600">Balance difference</p>
-          <p className="text-[13px] font-medium text-gray-900 tabular-nums">EUR 125.00</p>
-        </div>
-
-        {/* Action buttons */}
-        <div className="flex items-center gap-3">
-          <button
-            className="flex-1 text-white text-[12.5px] font-semibold rounded-full py-2.5 px-4 transition-colors"
-            style={{ background: "#1d4ed8" }}
-          >
-            Reconcile 21 items
-          </button>
-          <button className="flex-1 border border-gray-300 text-gray-700 text-[12.5px] font-medium rounded-full py-2.5 px-4 hover:bg-gray-50 transition-colors">
-            Import bank statement
-          </button>
+        {/* Fully reconciled row */}
+        <div className="flex items-center gap-2.5">
+          <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px] flex-shrink-0">✓</span>
+          <p className="text-[13px] font-medium text-green-700">Your bank is fully reconciled</p>
         </div>
       </div>
 
       {/* ── Chat bubble - client (bottom-right) ── */}
       <div className="absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
         <p className="text-[12px] leading-[1.55] text-gray-800">
-          Yes please, go ahead and get it sorted!
+          Perfect. Thanks for the quick turnaround.
         </p>
         <div className="flex items-center justify-end gap-2">
           <Avatar bg="linear-gradient(150deg, #14305f 0%, #1d4ed8 100%)" src="/avatar2.png" size={80} />

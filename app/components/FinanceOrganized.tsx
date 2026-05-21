@@ -1,201 +1,352 @@
 import Link from "next/link";
 import { RevealBlock } from "./RevealBlock";
 import ScrollRevealText from "./ScrollRevealText";
+import { ScaledFit } from "./ScaledFit";
 
-// ─── Finance Operations Environment dashboard mockup ─────────────────────────
-// Layout mirrors the screenshot; colours use the site's brand tokens.
+// ─── Accountables One full dashboard mockup ──────────────────────────────────
+// Matches the product screenshot: dark sidebar + main content area.
+
+const checklistItems = [
+  { label: "Reconcile all bank and credit card accounts", done: true,  due: null,     assignee: "/avatar1.png", name: "Swati" },
+  { label: "Review and categorize all transactions",      done: true,  due: null,     assignee: "/avatar1.png", name: "Swati" },
+  { label: "Payroll processing for the year",             done: true,  due: null,     assignee: "/avatar1.png", name: "Swati" },
+  { label: "Process year-end adjustments",               done: true,  due: null,     assignee: "/avatar1.png", name: "Swati" },
+  { label: "Review and approve year-end adjustments",    done: false, due: "30 May", assignee: "/avatar2.png", name: "Charlie" },
+  { label: "Prepare financial statements",               done: false, due: "10 Jun", assignee: "/avatar1.png", name: "Swati" },
+  { label: "Corporation tax computation",                done: false, due: "15 Jun", assignee: "/avatar1.png", name: "Swati" },
+  { label: "Submit year-end reports",                    done: false, due: "30 Jun", assignee: "/avatar1.png", name: "Swati" },
+];
+
+function NavIcon({ id }: { id: string }) {
+  if (id === "dashboard") return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="2"/></svg>;
+  if (id === "reports")   return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>;
+  if (id === "documents") return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  if (id === "tasks")     return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><polyline points="9 11 12 14 22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  if (id === "team")      return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  if (id === "settings")  return <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" strokeWidth="2"/></svg>;
+  return null;
+}
 
 function DashboardMockup() {
-  const cashBars = [
-    { month: "Oct", income: 52, expenses: 38 },
-    { month: "Nov", income: 61, expenses: 42 },
-    { month: "Dec", income: 48, expenses: 36 },
-    { month: "Jan", income: 70, expenses: 50 },
-    { month: "Feb", income: 65, expenses: 44 },
-    { month: "Mar", income: 78, expenses: 51 },
-  ];
-  const maxBar = 78;
-
   return (
     <div
-      className="relative rounded-[28px] overflow-hidden border border-white/10 shadow-[0_32px_80px_-20px_rgba(11,30,63,0.55)]"
-      style={{ background: "linear-gradient(160deg, var(--brand-navy) 0%, #14305f 55%, #1d4ed8 100%)" }}
+      className="relative rounded-[20px] overflow-hidden border border-[var(--border)] shadow-[0_32px_80px_-16px_rgba(11,30,63,0.18)] flex bg-white"
+      style={{ minHeight: 560 }}
       aria-hidden
     >
-      {/* Subtle stripe overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{ backgroundImage: "repeating-linear-gradient(90deg, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 48px, transparent 48px, transparent 96px)" }}
-      />
-      {/* Glow orb */}
-      <div
-        className="absolute -top-1/4 -right-1/4 h-[60%] w-[60%] rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, var(--brand-accent) 0%, transparent 70%)" }}
-      />
+      {/* ════════════ SIDEBAR ════════════ */}
+      <div className="w-[148px] flex-shrink-0 flex flex-col" style={{ background: "var(--brand-navy)" }}>
 
-      {/* ── Top bar ── */}
-      <div className="relative flex items-center justify-between px-5 py-3.5 border-b border-white/10">
-        {/* Left: icon only */}
-        <div
-          className="h-8 w-12 rounded-xl flex items-center justify-center flex-shrink-0"
-          style={{ background: "rgba(255,255,255,0.12)" }}
-        >
-          <img src="/prod_icon.svg" alt="Accountables" style={{ display: "block", height: "18px", width: "32px", filter: "brightness(0) invert(1)" }} />
+        {/* Brand */}
+        <div className="px-4 py-3.5 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(255,255,255,0.18)" }}>
+              <img src="/prod_icon.svg" alt="" style={{ height: 12, width: "auto", filter: "brightness(0) invert(1)" }} />
+            </div>
+            {/* <span className="text-[11px] font-semibold text-white leading-tight">
+              Accountables <span className="text-blue-300">One</span>
+            </span> */}
+          </div>
         </div>
-        {/* Right: signed-in avatar */}
-        <div className="h-7 w-7 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
-          <img src="/avatar2.png" alt="User" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+
+        {/* Nav */}
+        <nav className="flex-1 px-2.5 py-3 space-y-0.5">
+          {[
+            { id: "dashboard", label: "Dashboard", active: true },
+            { id: "reports",   label: "Reports" },
+            { id: "documents", label: "Documents" },
+            { id: "tasks",     label: "Tasks" },
+            { id: "team",      label: "Team" },
+          ].map((item) => (
+            <div
+              key={item.id}
+              className={`flex items-center gap-2 px-2.5 py-2 rounded-md text-[11px] font-medium cursor-default ${
+                item.active ? "bg-white/15 text-white" : "text-white/45"
+              }`}
+            >
+              <NavIcon id={item.id} />
+              {item.label}
+            </div>
+          ))}
+
+          <div className="pt-2 mt-1 border-t border-white/10">
+            <div className="flex items-center gap-2 px-2.5 py-2 rounded-md text-[11px] font-medium text-white/45 cursor-default">
+              <NavIcon id="settings" />
+              Settings
+            </div>
+          </div>
+        </nav>
+
+        {/* Need help */}
+        <div className="px-2.5 py-3 border-t border-white/10">
+          <div className="bg-white/[0.06] rounded-md p-2.5">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round"/><path d="M12 17h.01" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round"/></svg>
+              <p className="text-[9.5px] font-semibold text-white/60">Need help?</p>
+            </div>
+            <p className="text-[8.5px] text-white/35 mb-1.5">We&apos;re here to help</p>
+            <p className="text-[8.5px] font-medium text-blue-400 cursor-pointer">Contact support →</p>
+          </div>
         </div>
       </div>
 
-      {/* ── Body ── */}
-      <div className="relative p-4 space-y-3">
+      {/* ════════════ MAIN CONTENT ════════════ */}
+      <div className="flex-1 flex flex-col min-w-0 bg-white">
 
-        {/* Row 1: 3 KPI snapshot cards */}
-        <div className="grid grid-cols-3 gap-2.5">
-          {/* Cash in bank */}
-          <div className="col-span-1 bg-white/[0.08] border border-white/10 rounded-2xl p-3.5">
-            <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35 mb-2">Cash in bank</p>
-            <p className="text-[18px] font-semibold text-white leading-none tabular-nums">£48,230</p>
-            <div className="flex items-center gap-1 mt-1.5">
-              <span className="text-green-400 text-[9px] font-semibold">↑ 12%</span>
-              <span className="text-white/30 text-[9px]">vs last month</span>
+        {/* Top header */}
+        <div className="flex items-center justify-end px-4 py-2.5 border-b border-[var(--border)] bg-white gap-3">
+          <div className="relative">
+            <div className="h-6 w-6 rounded-lg bg-[var(--surface-soft)] border border-[var(--border)] flex items-center justify-center">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
+            <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-lg bg-red-500 text-white text-[6px] font-bold flex items-center justify-center">3</span>
           </div>
-          {/* Invoices owed */}
-          <div className="col-span-1 bg-white/[0.08] border border-white/10 rounded-2xl p-3.5">
-            <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35 mb-2">Invoices owed</p>
-            <p className="text-[18px] font-semibold text-white leading-none tabular-nums">£18,450</p>
-            <div className="flex items-center gap-1 mt-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-400 flex-shrink-0" />
-              <span className="text-red-400 text-[9px] font-medium">£3,200 overdue</span>
+          <div className="flex items-center gap-2">
+            <div className="h-7 w-7 rounded-lg overflow-hidden border-2 border-[var(--border)] flex-shrink-0">
+              <img src="/avatar2.png" alt="Charlie" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
+            <div>
+              <p className="text-[10px] font-semibold text-[var(--text-primary)] leading-tight">Charlie Centa</p>
+              <p className="text-[8.5px] text-[var(--text-muted)] leading-tight">Rainforest Collective Ltd</p>
+            </div>
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </div>
-          {/* Bills to pay */}
-          <div className="col-span-1 bg-white/[0.08] border border-white/10 rounded-2xl p-3.5">
-            <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35 mb-2">Bills to pay</p>
-            <p className="text-[18px] font-semibold text-white leading-none tabular-nums">£6,340</p>
-            <div className="flex items-center gap-1 mt-1.5">
-              <span className="text-amber-400 text-[9px] font-semibold">2 due this week</span>
+        </div>
+
+        {/* Greeting + KPIs + New Update */}
+        <div className="px-4 pt-3.5 pb-3.5 border-b border-[var(--border)]">
+          <div className="flex items-start gap-3">
+
+            {/* Left: greeting + KPI cards */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-[14px] font-semibold text-[var(--text-primary)]">Good morning, Charlie 👋</h3>
+              <p className="text-[9.5px] text-[var(--text-muted)] mt-0.5 mb-3">Here&apos;s what&apos;s happening with your business today.</p>
+              <div className="grid grid-cols-4 gap-2">
+                {[
+                  { label: "Cash in Bank",     value: "£48,230", note: "↑ 12% vs last month", nc: "text-green-600", icon: "🏛" },
+                  { label: "Invoices Owed",    value: "£18,450", note: "£3,200 overdue",       nc: "text-red-500",  icon: "📋", dot: true },
+                  { label: "Bills to Pay",     value: "£6,340",  note: "2 due this week",      nc: "text-amber-600",icon: "💳" },
+                  { label: "Net Profit (MTD)", value: "£12,980", note: "↑ 8% vs last month",  nc: "text-green-600",icon: "📈" },
+                ].map((k) => (
+                  <div key={k.label} className="bg-[var(--surface-soft)] rounded-md p-2.5 border border-[var(--border)]">
+                    <div className="flex items-center gap-1 mb-1.5">
+                      <span className="text-[12px]">{k.icon}</span>
+                      <p className="text-[7.5px] text-[var(--text-muted)] leading-tight">{k.label}</p>
+                    </div>
+                    <p className="text-[13px] font-semibold text-[var(--text-primary)] tabular-nums leading-none">{k.value}</p>
+                    <p className={`text-[8px] mt-1.5 leading-tight ${k.nc}`}>
+                      {k.dot && <span className="inline-block h-1.5 w-1.5 rounded-lg bg-red-400 mr-0.5 translate-y-px" />}
+                      {k.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* New Update card */}
+            <div className="w-[175px] flex-shrink-0 bg-white border border-[var(--border)] rounded-2xl p-2.5 shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-5 w-5 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                  <p className="text-[9.5px] font-semibold text-[var(--text-primary)]">New Update</p>
+                </div>
+                <span className="text-[8px] text-[var(--text-muted)]">2m ago</span>
+              </div>
+              <div className="flex items-start gap-2 mb-2">
+                <div className="h-8 w-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+                <p className="text-[8.5px] leading-[1.55] text-[var(--text-secondary)]">Your Accountable Manager uploaded updated reporting files to your Accountables One dashboard.</p>
+              </div>
+              <p className="text-[8.5px] font-medium text-[var(--brand-blue)] flex items-center gap-1 cursor-pointer">
+                Open Dashboard
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Row 2: Cash flow chart + Invoice breakdown */}
-        <div className="grid grid-cols-[1.4fr_1fr] gap-2.5">
+        {/* Body: Checklist + Activity/Manager */}
+        <div className="grid grid-cols-[1fr_220px] divide-x divide-[var(--border)] flex-1">
 
-          {/* Cash flow mini chart */}
-          <div className="bg-white/[0.08] border border-white/10 rounded-2xl p-4">
-            <div className="flex items-center justify-between mb-3">
-              <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35">Cash flow</p>
-              <span className="text-[8.5px] text-white/30">Last 6 months</span>
-            </div>
-            {/* Legend */}
-            <div className="flex gap-3 mb-3">
-              <span className="flex items-center gap-1 text-[8.5px] text-white/50">
-                <span className="h-1.5 w-3 rounded-full inline-block" style={{ background: "rgba(99,179,237,0.8)" }} />
-                Income
-              </span>
-              <span className="flex items-center gap-1 text-[8.5px] text-white/50">
-                <span className="h-1.5 w-3 rounded-full inline-block bg-white/20" />
-                Expenses
-              </span>
-            </div>
-            {/* Bar chart */}
-            <div className="flex items-end gap-1.5" style={{ height: 56 }}>
-              {cashBars.map((b) => (
-                <div key={b.month} className="flex-1 flex flex-col items-center gap-px">
-                  <div className="w-full flex items-end gap-0.5" style={{ height: 48 }}>
-                    <div
-                      className="flex-1 rounded-t-sm"
-                      style={{ height: `${(b.income / maxBar) * 48}px`, background: "rgba(99,179,237,0.7)" }}
-                    />
-                    <div
-                      className="flex-1 rounded-t-sm"
-                      style={{ height: `${(b.expenses / maxBar) * 48}px`, background: "rgba(255,255,255,0.18)" }}
-                    />
-                  </div>
-                  <span className="text-[7.5px] text-white/30">{b.month}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Year-End Checklist */}
+          <div className="p-3.5">
+            <div className="border border-[var(--border)] rounded-2xl overflow-hidden h-full flex flex-col">
 
-          {/* Invoice status */}
-          <div className="bg-white/[0.08] border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
-            <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35 mb-3">Invoice status</p>
-            <div className="flex flex-col gap-2.5 flex-1 justify-center">
-              {[
-                { label: "Draft", amount: "£2,100", pct: 11, color: "rgba(255,255,255,0.25)" },
-                { label: "Awaiting", amount: "£13,150", pct: 71, color: "rgba(99,179,237,0.8)" },
-                { label: "Overdue", amount: "£3,200", pct: 18, color: "rgba(252,129,74,0.9)" },
-              ].map((row) => (
-                <div key={row.label}>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-[10px] text-white/60">{row.label}</span>
-                    <span className="text-[10px] font-semibold text-white tabular-nums">{row.amount}</span>
-                  </div>
-                  <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.10)" }}>
-                    <div className="h-full rounded-full" style={{ width: `${row.pct}%`, background: row.color }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Row 3: Recent Transactions */}
-        <div className="bg-white/[0.08] border border-white/10 rounded-2xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-[8.5px] tracking-[0.15em] uppercase font-semibold text-white/35">Recent transactions</p>
-            <span className="text-[8.5px] text-[var(--brand-accent)] font-medium cursor-pointer">View all</span>
-          </div>
-          <div className="flex flex-col divide-y divide-white/[0.07]">
-            {[
-              { name: "HMRC VAT Q1",     ref: "VAT-2026-Q1", amount: "-£3,800", status: "Reconciled", statusColor: "text-green-400",  icon: "🏛" },
-              { name: "Client Invoice",  ref: "INV-0142",    amount: "+£2,400", status: "Awaiting",   statusColor: "text-amber-400",  icon: "📄" },
-              { name: "Payroll - April", ref: "PAY-APR-26",  amount: "-£8,240", status: "Processed",  statusColor: "text-green-400",  icon: "👥" },
-              { name: "Office Supplies", ref: "EXP-0087",    amount: "-£245",   status: "Unreconciled", statusColor: "text-red-400", icon: "🧾" },
-            ].map((tx, i) => (
-              <div key={i} className="flex items-center gap-3 py-2">
-                <div
-                  className="h-6 w-6 rounded-lg flex-shrink-0 flex items-center justify-center text-[11px]"
-                  style={{ background: "rgba(255,255,255,0.08)" }}
-                >
-                  {tx.icon}
+              {/* Checklist header */}
+              <div className="flex items-center gap-2.5 px-3.5 py-2.5 bg-[var(--surface-soft)] border-b border-[var(--border)] flex-shrink-0">
+                <div className="h-7 w-7 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#1d4ed8" strokeWidth="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round"/></svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10.5px] font-medium text-white/80 truncate">{tx.name}</p>
-                  <p className="text-[8.5px] text-white/30">{tx.ref}</p>
+                  <p className="text-[11px] font-semibold text-[var(--text-primary)] leading-tight">Year-End Checklist</p>
+                  <p className="text-[8.5px] text-[var(--text-muted)]">Track your year-end tasks and stay on top of what&apos;s next.</p>
                 </div>
-                <div className="text-right flex-shrink-0">
-                  <p className={`text-[10.5px] font-semibold tabular-nums ${tx.amount.startsWith("+") ? "text-green-400" : "text-white/80"}`}>{tx.amount}</p>
-                  <p className={`text-[8.5px] ${tx.statusColor}`}>{tx.status}</p>
+                <div className="flex items-center gap-1 bg-[var(--brand-blue)]/10 text-[var(--brand-blue)] rounded-lg px-2 py-1 flex-shrink-0">
+                  <span className="text-[9px] font-semibold whitespace-nowrap">4 of 8 completed</span>
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               </div>
-            ))}
+
+              {/* Task rows */}
+              <div className="divide-y divide-[var(--border)] flex-1">
+                {checklistItems.map((t, i) => (
+                  <div key={i} className="flex items-center gap-2.5 px-3.5 py-2">
+                    <div
+                      className="flex items-center justify-center flex-shrink-0 rounded-lg border-2"
+                      style={{ width: 16, height: 16, borderColor: t.done ? "#22c55e" : "#e5e7eb", background: t.done ? "#22c55e" : "white" }}
+                    >
+                      {t.done && <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                    </div>
+                    <p className={`flex-1 text-[10px] leading-tight ${t.done ? "line-through text-[var(--text-muted)]" : "text-[var(--text-primary)]"}`}>{t.label}</p>
+                    {t.done ? (
+                      <span className="text-[8.5px] font-medium text-green-600 bg-green-50 rounded-lg px-2 py-0.5 flex-shrink-0">Completed</span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-[8.5px] text-[var(--text-muted)] flex-shrink-0">
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                        Due {t.due}
+                      </span>
+                    )}
+                    <div className="h-5 w-5 rounded-lg overflow-hidden border border-[var(--border)] flex-shrink-0">
+                      <img src={t.assignee} alt={t.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* View all tasks footer */}
+              <div className="px-3.5 py-2 border-t border-[var(--border)] bg-[var(--surface-soft)] flex-shrink-0">
+                <span className="text-[9px] font-medium text-[var(--brand-blue)] cursor-pointer flex items-center gap-1">
+                  View all tasks
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Recent Activity + Manager */}
+          <div className="p-3.5 flex flex-col gap-4 overflow-hidden">
+
+            {/* Recent Activity */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-[8.5px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Recent Activity</p>
+                <span className="text-[8px] font-medium text-[var(--brand-blue)] cursor-pointer">View all</span>
+              </div>
+              <div className="flex flex-col gap-2.5">
+                {[
+                  { avatar: "/avatar1.png", title: "Swati uploaded",          sub: "Management Report – May 2025", time: "2m ago" },
+                  { avatar: "/avatar1.png", title: "Payroll for May 2025",    sub: "processed",                   time: "1h ago" },
+                  { avatar: "/avatar1.png", title: "VAT return scheduled",    sub: "for review",                  time: "3h ago" },
+                  { avatar: "/avatar2.png", title: "Invoice INV-0421",        sub: "reconciled",                  time: "Yesterday" },
+                  { avatar: "/avatar1.png", title: "Bank transaction £1,250", sub: "from Stripe",                 time: "Yesterday" },
+                ].map((a, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <div className="h-5 w-5 rounded-lg overflow-hidden border border-[var(--border)] flex-shrink-0 mt-0.5">
+                      <img src={a.avatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[9px] font-medium text-[var(--text-primary)] leading-tight truncate">{a.title}</p>
+                      <p className="text-[8px] text-[var(--text-muted)] leading-tight">{a.sub}</p>
+                    </div>
+                    <span className="text-[7.5px] text-[var(--text-muted)] flex-shrink-0 whitespace-nowrap">{a.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-[var(--border)]" />
+
+            {/* Accountable Manager */}
+            <div>
+              <p className="text-[8.5px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-2.5">Your Accountable Manager</p>
+              <div className="flex items-center gap-2 mb-2.5">
+                <div className="h-9 w-9 rounded-lg overflow-hidden border-2 border-white shadow-md flex-shrink-0">
+                  <img src="/avatar1.png" alt="Swati" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </div>
+                <div>
+                  <p className="text-[10.5px] font-semibold text-[var(--text-primary)] leading-tight">Swati</p>
+                  <p className="text-[8.5px] text-[var(--text-muted)] leading-tight">Accountable Manager</p>
+                </div>
+              </div>
+              <div className="bg-[var(--surface-soft)] rounded-md p-2.5 border border-[var(--border)] mb-2.5">
+                <p className="text-[8.5px] leading-[1.6] text-[var(--text-secondary)]">We&apos;ve updated your reporting files and reconciled your accounts for May.</p>
+                <p className="text-[8.5px] leading-[1.6] text-[var(--text-secondary)] mt-0.5">Happy to connect whenever you&apos;re ready.</p>
+              </div>
+              <div className="flex gap-1.5">
+                <button className="flex-1 flex items-center justify-center gap-1 text-[8.5px] font-semibold text-white rounded-lg py-1.5 leading-none" style={{ background: "var(--brand-blue)" }}>
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Message
+                </button>
+                <button className="flex-1 flex items-center justify-center gap-1 text-[8.5px] font-medium text-[var(--text-primary)] rounded-lg py-1.5 border border-[var(--border)] bg-white leading-none">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                  Schedule Call
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
-
       </div>
     </div>
   );
 }
 
-// ─── Feature rows ─────────────────────────────────────────────────────────────
+// ─── Feature Icons ────────────────────────────────────────────────────────────
+
+const FeatureIcon = ({ id }: { id: string }) => {
+  const stroke = "var(--brand-blue)";
+  if (id === "visibility") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 3v18h18" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M7 15l4-6 4 3 5-7" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="20" cy="5" r="1.6" fill={stroke}/>
+      </svg>
+    );
+  }
+  if (id === "execution") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="16" rx="3" stroke={stroke} strokeWidth="2"/>
+        <path d="M7 10l3 3 7-7" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M7 16h10" stroke={stroke} strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    );
+  }
+  if (id === "support") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M21 12a8 8 0 1 1-3.2-6.4L21 4v5h-5" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="2.4" fill={stroke}/>
+      </svg>
+    );
+  }
+  return null;
+};
+
+// ─── Feature data ─────────────────────────────────────────────────────────────
 
 const features = [
   {
+    number: "01",
+    icon: "visibility",
     title: "Reporting Visibility",
     body: "Access reporting environments designed around financial clarity, operational visibility and ongoing business performance tracking.",
     tags: ["KPI dashboards", "Reporting visibility", "Financial snapshots"],
   },
   {
+    number: "02",
+    icon: "execution",
     title: "Coordinated Execution",
     body: "Accounting, compliance and reporting workflows managed within one connected operating environment.",
     tags: ["Task tracking", "Compliance timelines", "Workflow status visibility"],
   },
   {
+    number: "03",
+    icon: "support",
     title: "Ongoing Finance Support",
     body: "Communicate, coordinate and manage ongoing finance activities with the Accountables team through a centralized operational environment.",
     tags: ["Team communication", "Approvals", "Queries and ongoing coordination"],
@@ -206,85 +357,196 @@ const features = [
 
 export function FinanceOrganized() {
   return (
-    <section className="py-24 md:py-32 bg-[var(--surface-soft)] border-t border-[var(--border)]">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+    <section className="py-24 md:py-32 bg-[var(--surface-soft)] border-t border-[var(--border)] relative overflow-hidden">
 
-          {/* ── Left: text ── */}
-          <div className="flex flex-col gap-8">
+      {/* Subtle decorative gradient */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 40% at 50% 0%, rgba(29, 78, 216, 0.06) 0%, rgba(29, 78, 216, 0) 70%), radial-gradient(40% 30% at 100% 100%, rgba(10, 132, 255, 0.05) 0%, rgba(10, 132, 255, 0) 60%)",
+        }}
+      />
 
-            {/* Headline */}
-            <div>
-              <RevealBlock delay={0}>
-                <h2 className="display text-[36px] sm:text-[48px] md:text-[56px] font-semibold text-[var(--text-primary)] leading-[1.02]">
-                  Finance,{" "}
-                  <span className="accent">Organized</span>.
-                </h2>
-              </RevealBlock>
-              <RevealBlock delay={80} className="mt-5 max-w-[440px]">
-                <ScrollRevealText
-                  text="A more structured approach to accounting, reporting and finance coordination - designed to bring clarity and consistency to day-to-day finance operations."
-                  className="text-[16px] md:text-[17px] leading-[1.7]"
-                />
-              </RevealBlock>
-              <RevealBlock delay={140}>
-                <p className="mt-3 text-[12.5px] text-[var(--text-muted)]">
-                  Powered by{" "}
-                  <a
-                    href="https://one.accountables.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
-                  >Accountables
-                    <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />
-                  </a>
-                  .
-                </p>
-              </RevealBlock>
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+
+        {/* ── HEADER : centered, immediately clear ── */}
+        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
+
+          <RevealBlock delay={0}>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-[var(--border)] shadow-sm mb-6">
+              <img src="/prod_icon.svg" alt="" style={{ height: 12, width: "auto" }} />
+              <span className="mono text-[var(--text-secondary)]" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                The Operating Environment
+              </span>
             </div>
+          </RevealBlock>
 
-            {/* Feature rows */}
-            <div className="flex flex-col divide-y divide-[var(--border)]">
-              {features.map((f, i) => (
-                <RevealBlock key={f.title} delay={200 + i * 80}>
-                  <div className={`flex flex-col gap-3 ${i === 0 ? "pb-7" : "py-7"}`}>
-                    <h3 className="text-[16px] md:text-[17px] font-semibold text-[var(--text-primary)]">
-                      {f.title}
-                    </h3>
-                    <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">{f.body}</p>
-                    <div className="flex flex-wrap gap-1.5 mt-0.5">
-                      {f.tags.map((tag) => (
-                        <span key={tag} className="pill text-[11px] !py-1 !px-2.5">
-                          {tag}
-                        </span>
-                      ))}
+          <RevealBlock delay={60}>
+            <h2 className="display text-[40px] sm:text-[52px] md:text-[60px] font-semibold text-[var(--text-primary)] leading-[1.02]">
+              Finance, <span className="accent">Organized</span>.
+            </h2>
+          </RevealBlock>
+
+          <RevealBlock delay={120} className="mt-5 max-w-2xl mx-auto">
+            <ScrollRevealText
+              text="A more structured approach to accounting, reporting and finance coordination - designed to bring clarity and consistency to day-to-day finance operations."
+              className="text-[16px] md:text-[18px] leading-[1.7]"
+            />
+          </RevealBlock>
+
+          <RevealBlock delay={180}>
+            <p className="mt-4 text-[12.5px] text-[var(--text-muted)]">
+              Powered by{" "}
+              <a
+                href="https://one.accountables.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
+              >
+                Accountables
+                <img src="/prod_icon.svg" alt="" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.1em" }} />
+              </a>
+              .
+            </p>
+          </RevealBlock>
+        </div>
+
+        {/* ── DASHBOARD : centerpiece ── */}
+        <RevealBlock delay={220} className="relative">
+          {/* Browser chrome frame around the mockup */}
+          <div className="relative mx-auto max-w-[1180px]">
+
+            {/* Soft floating shadow / glow */}
+            <div
+              aria-hidden
+              className="absolute -inset-x-6 -bottom-10 h-24 rounded-lg blur-3xl"
+              style={{ background: "rgba(11, 30, 63, 0.18)" }}
+            />
+
+            <ScaledFit naturalWidth={1100} naturalHeight={600}>
+              <div className="relative rounded-[24px] border border-[var(--border)] bg-white overflow-hidden shadow-[0_40px_90px_-30px_rgba(11,30,63,0.28)]" style={{ width: 1100, height: 600 }}>
+                {/* Browser top bar */}
+                {/* <div className="flex items-center gap-2 px-4 py-2.5 bg-[var(--surface-soft)] border-b border-[var(--border)]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-lg bg-[#ff5f57]" />
+                    <span className="h-2.5 w-2.5 rounded-lg bg-[#febc2e]" />
+                    <span className="h-2.5 w-2.5 rounded-lg bg-[#28c840]" />
+                  </div>
+                  <div className="flex-1 flex justify-center">
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-[var(--border)] text-[10.5px] text-[var(--text-muted)]">
+                      <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                      one.accountables.com
                     </div>
                   </div>
-                </RevealBlock>
-              ))}
-            </div>
+                  <div className="w-[60px]" />
+                </div> */}
 
-            {/* CTA → Services */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Link href="/services" className="btn-primary">
-                Explore services
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2"
-                    strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-              <Link href="/#contact" className="btn-ghost">
-                Book a consultation
-              </Link>
-            </div>
+                {/* Live indicator */}
+                {/* <div className="absolute top-3 right-4 flex items-center gap-1.5 px-2 py-1 rounded-lg bg-white border border-[var(--border)] shadow-sm z-10">
+                  <span className="dot-pulse" style={{ height: 6, width: 6 }} />
+                  <span className="text-[9px] font-semibold text-[var(--text-secondary)] tracking-wide">LIVE PREVIEW</span>
+                </div> */}
+
+                <DashboardMockup />
+              </div>
+            </ScaledFit>
           </div>
+        </RevealBlock>
 
-          {/* ── Right: dashboard ── */}
-          <div className="lg:pt-4 lg:sticky lg:top-24 self-start">
-            <DashboardMockup />
+        {/* ── FEATURE CARDS : 3-column grid ── */}
+        <div className="mt-20 md:mt-24">
+
+          <RevealBlock delay={0} className="text-center mb-10">
+            <span className="eyebrow">What you get</span>
+            <h3 className="display text-[24px] md:text-[28px] font-semibold text-[var(--text-primary)] mt-3 leading-tight">
+              Three operating principles, one connected workspace.
+            </h3>
+          </RevealBlock>
+
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+            {features.map((f, i) => (
+              <RevealBlock key={f.title} delay={i * 90}>
+                <div className="group relative h-full flex flex-col gap-4 p-7 rounded-2xl bg-white border border-[var(--border)] hover:border-[var(--border-strong)] hover:shadow-[0_18px_50px_-22px_rgba(11,30,63,0.22)] hover:-translate-y-0.5 transition-all duration-300">
+
+                  {/* Top row: icon + number */}
+                  <div className="flex items-start justify-between">
+                    <div
+                      className="h-12 w-12 rounded-md flex items-center justify-center border border-[var(--border)]"
+                      style={{
+                        background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)",
+                      }}
+                    >
+                      <FeatureIcon id={f.icon} />
+                    </div>
+                    <span
+                      className="text-[11px] font-semibold tracking-[0.18em]"
+                      style={{
+                        fontFamily: "var(--font-mono), ui-monospace, monospace",
+                        color: "var(--brand-blue)",
+                        opacity: 0.45,
+                      }}
+                    >
+                      {f.number}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h4 className="text-[18px] md:text-[19px] font-semibold text-[var(--text-primary)] leading-snug">
+                    {f.title}
+                  </h4>
+
+                  {/* Body */}
+                  <p className="text-[14px] leading-[1.65] text-[var(--text-secondary)]">
+                    {f.body}
+                  </p>
+
+                  {/* Divider */}
+                  <div className="h-px bg-[var(--border)] my-1" />
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {f.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--surface-soft)] border border-[var(--border)] text-[11.5px] font-medium text-[var(--text-secondary)]"
+                      >
+                        <span
+                          className="h-1.5 w-1.5 rounded-lg"
+                          style={{ background: "var(--brand-blue)", opacity: 0.6 }}
+                        />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </RevealBlock>
+            ))}
           </div>
-
         </div>
+
+        {/* ── CTA : centered ── */}
+        <RevealBlock delay={120} className="mt-14 md:mt-16">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Link href="/services" className="btn-primary">
+              Explore services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h14M13 5l7 7-7 7"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+            <Link href="/#contact" className="btn-ghost">
+              Book a consultation
+            </Link>
+          </div>
+        </RevealBlock>
+
       </div>
     </section>
   );

@@ -46,20 +46,16 @@ const brands: Brand[] = [
   { file: "Your Airhost Ltd.png", name: "Your Airhost", industry: "Tech Product" },
 ];
 
-// Convert brand list to LogoLoop items, embedding the brand metadata in `title`
-// so we can recover it inside renderItem.
-const logoItems: LogoItem[] = brands.map((b) => ({
+const toLogoItem = (b: Brand): LogoItem => ({
   src: `/logos/${b.file}`,
   alt: b.name,
   title: b.industry ?? "",
-}));
+});
 
-// Rotate by half the array length so row 2 never aligns with row 1
-const offset = Math.floor(brands.length / 2);
-const logoItemsRow2: LogoItem[] = [
-  ...logoItems.slice(offset),
-  ...logoItems.slice(0, offset),
-];
+// Split into two non-overlapping halves so the rows always show different logos
+const half = Math.ceil(brands.length / 2);
+const logoItems: LogoItem[] = brands.slice(0, half).map(toLogoItem);
+const logoItemsRow2: LogoItem[] = brands.slice(half).map(toLogoItem);
 
 const renderBrand = (item: LogoItem, key: Key) => {
   const src = "src" in item ? item.src : "";

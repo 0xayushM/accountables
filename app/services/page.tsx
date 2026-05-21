@@ -19,7 +19,7 @@ import {
 function HeroDashboard() {
   return (
     <div
-      className="relative rounded-[24px] overflow-hidden border border-[var(--border)] shadow-[0_24px_64px_-16px_rgba(11,30,63,0.12)] bg-white"
+      className="relative rounded-[24px] overflow-hidden border border-[var(--border)] shadow-[0_24px_64px_-16px_rgba(11,30,63,0.14)] bg-white"
       aria-hidden
     >
       {/* Window chrome */}
@@ -30,8 +30,8 @@ function HeroDashboard() {
               <div key={i} className={`h-2.5 w-2.5 rounded-full ${c}`} />
             ))}
           </div>
-          <span className="text-[10px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)] flex items-center gap-1"> 
-            <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1.5em', width: 'auto', verticalAlign: '-0.05em' }} />
+          <span className="flex items-center gap-1">
+            <img src="/prod_icon.svg" alt="" style={{ display: "inline-block", height: "1.5em", width: "auto", verticalAlign: "-0.05em" }} />
           </span>
         </div>
         <span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-green-600">
@@ -42,34 +42,43 @@ function HeroDashboard() {
 
       {/* Header row */}
       <div className="px-5 pt-4 pb-3 border-b border-[var(--border)]">
-        <p className="text-[11px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-1">
+        <p className="text-[10px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)] mb-1">
           Finance Coordination
         </p>
         <div className="flex items-center justify-between">
-          <p className="text-[17px] font-semibold text-[var(--text-primary)]">Reporting in Review</p>
-          <span className="text-[11px] font-medium text-[var(--brand-blue)] bg-blue-50 px-2.5 py-1 rounded-full">
+          <div>
+            <p className="text-[16px] font-semibold text-[var(--text-primary)]">Month-End Reporting in Review</p>
+            <p className="text-[11px] text-[var(--text-muted)] mt-0.5">April 2026 Reporting Cycle</p>
+          </div>
+          <span className="text-[10.5px] font-medium text-[var(--brand-blue)] bg-blue-50 px-2.5 py-1 rounded-full flex-shrink-0">
             82% Complete
           </span>
         </div>
-        <p className="text-[11.5px] text-[var(--text-muted)] mt-1">Month-End Close · April 2026</p>
       </div>
 
       {/* Two-column body */}
       <div className="grid grid-cols-2 gap-0 divide-x divide-[var(--border)]">
+
         {/* Compliance Timeline */}
         <div className="p-4">
           <p className="text-[9px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)] mb-3">
             Compliance Timeline
           </p>
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-3">
             {[
-              { label: "VAT Filing", status: "Upcoming", color: "text-amber-600 bg-amber-50" },
-              { label: "Payroll Review", status: "Active", color: "text-green-600 bg-green-50" },
-              { label: "Year-End Prep", status: "Scheduled", color: "text-[var(--text-muted)] bg-[var(--surface-soft)]" },
+              { icon: "📋", label: "VAT Return",        sub: "Quarter 1 FY26",       status: "Upcoming",   color: "text-amber-600 bg-amber-50" },
+              { icon: "👥", label: "Payroll Summary",   sub: "April 2026",           status: "In Review",  color: "text-green-600 bg-green-50" },
+              { icon: "📅", label: "Year-End Checklist",sub: "FY26 Preparation",     status: "Scheduled",  color: "text-[var(--text-muted)] bg-[var(--surface-soft)]" },
             ].map((item) => (
-              <div key={item.label} className="flex items-center justify-between">
-                <span className="text-[11.5px] text-[var(--text-secondary)]">{item.label}</span>
-                <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${item.color}`}>
+              <div key={item.label} className="flex items-center gap-2.5">
+                <div className="h-7 w-7 rounded-lg bg-[var(--surface-soft)] border border-[var(--border)] flex items-center justify-center text-[13px] flex-shrink-0">
+                  {item.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-medium text-[var(--text-primary)] leading-tight">{item.label}</p>
+                  <p className="text-[9.5px] text-[var(--text-muted)] leading-tight">{item.sub}</p>
+                </div>
+                <span className={`text-[9.5px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 ${item.color}`}>
                   {item.status}
                 </span>
               </div>
@@ -83,31 +92,57 @@ function HeroDashboard() {
             Team Communication
           </p>
           <div className="flex flex-col gap-2.5">
-            <div className="bg-[var(--surface-soft)] rounded-xl p-2.5">
-              <p className="text-[11px] leading-[1.5] text-[var(--text-secondary)]">
-                Updated reporting shared for review.
-              </p>
-              <p className="text-[9.5px] text-[var(--text-muted)] mt-1">Accountables · 2h ago</p>
-            </div>
-            <div className="bg-[var(--surface-soft)] rounded-xl p-2.5">
-              <p className="text-[11px] leading-[1.5] text-[var(--text-secondary)]">
-                Vendor payment approvals pending.
-              </p>
-              <p className="text-[9.5px] text-[var(--text-muted)] mt-1">Finance Team · 4h ago</p>
-            </div>
+            {[
+              { avatar: "/avatar1.png", name: "Swati",        role: "Accountable Manager", msg: "Month-end reporting has been updated and shared for review.", time: "2h ago" },
+              { avatar: "/avatar1.png", name: "Finance Team", role: "",                    msg: "Payroll summaries and reconciliations are ready for review.",  time: "4h ago" },
+              { avatar: "/avatar1.png", name: "Finance Team", role: "",                    msg: "VAT working files prepared for this quarter's filing.",         time: "Yesterday" },
+            ].map((m, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <div className="h-6 w-6 rounded-full overflow-hidden border border-[var(--border)] flex-shrink-0 mt-0.5">
+                  <img src={m.avatar} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <p className="text-[9.5px] font-semibold text-[var(--text-primary)]">{m.name}</p>
+                    {m.role && <p className="text-[8.5px] text-[var(--text-muted)]">· {m.role}</p>}
+                  </div>
+                  <p className="text-[10.5px] leading-[1.45] text-[var(--text-secondary)]">{m.msg}</p>
+                  <p className="text-[8.5px] text-[var(--text-muted)] mt-0.5">{m.time}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Finance Support row */}
-      <div className="px-5 py-3.5 border-t border-[var(--border)] flex items-center justify-between">
-        <div>
-          <p className="text-[9px] tracking-[0.14em] uppercase font-semibold text-[var(--text-muted)]">Finance Support</p>
-          <p className="text-[12px] font-medium text-[var(--text-primary)] mt-0.5">Structured Around Ongoing Visibility</p>
+      <div className="px-5 py-3.5 border-t border-[var(--border)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-[var(--border)] flex-shrink-0">
+              <img src="/avatar1.png" alt="Swati" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div>
+              <p className="text-[10.5px] tracking-[0.04em] font-semibold text-[var(--text-muted)] uppercase text-[9px]">Finance Support</p>
+              <p className="text-[12px] font-semibold text-[var(--text-primary)] leading-tight">Your finance team is here to help.</p>
+              <p className="text-[10px] text-[var(--text-muted)]">Reach out to your Accountable Manager anytime.</p>
+            </div>
+          </div>
+          <button className="flex-shrink-0 text-[10.5px] font-semibold text-[var(--brand-blue)] border border-[var(--border)] bg-white rounded-full px-3 py-1.5 hover:bg-[var(--surface-soft)] transition-colors">
+            Message Team
+          </button>
         </div>
-        <span className="text-[10px] font-semibold text-[var(--brand-accent)] bg-blue-50 px-2.5 py-1 rounded-full">
-          Active Support
-        </span>
+        {/* Feature tags */}
+        <div className="flex items-center gap-2 mt-3 flex-wrap">
+          {["Reporting", "Compliance", "Payroll", "Coordination"].map((tag) => (
+            <span key={tag} className="inline-flex items-center gap-1 text-[9px] font-medium text-[var(--text-muted)]">
+              <span className="h-3.5 w-3.5 rounded-full bg-[var(--brand-blue)]/10 flex items-center justify-center">
+                <svg width="7" height="7" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--brand-blue)]"/></svg>
+              </span>
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -360,22 +395,33 @@ export default function ServicesPage() {
 
                 <div className="rise rise-4 mt-8 flex flex-col sm:flex-row items-start gap-3">
                   <Link href="/#contact" className="btn-primary !px-7 !py-3 !text-[14.5px]">
-                    Book a Consultation
+                    Schedule a Consultation
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </Link>
+                  <div className="flex flex-col gap-1.5">
+                    <a
+                      href="https://one.accountables.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost inline-flex items-center gap-1.5 !px-6 !py-3 !text-[14.5px]"
+                    >
+                      Go to Accountables{" "}
+                      <img src="/prod_icon.svg" alt="One" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.1em" }} />
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                    <p className="text-[11.5px] text-[var(--text-muted)] flex items-center gap-1.5 px-1">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M12 8v4M12 16h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                      Limited dashboard access available.
+                    </p>
+                  </div>
                 </div>
-
-                <p className="rise rise-5 mt-5 text-[12.5px] text-[var(--text-muted)]">
-                  Powered by{" "}
-                  <a
-                    href="https://one.accountables.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
-                  >Accountables 
-                    <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />
-                  </a>
-                  .
-                </p>
               </div>
 
               {/* Right: dashboard */}
