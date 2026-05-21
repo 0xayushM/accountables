@@ -449,7 +449,8 @@ export function Navbar() {
             className="flex items-center justify-between w-full py-3 text-[15px] text-[var(--text-primary)] font-medium"
             onClick={() => setMobileExpanded(mobileExpanded === "ai" ? null : "ai")}
           >
-            AI <Chevron open={mobileExpanded === "ai"} />
+            <img src="/prod_icon.svg" alt="AI" style={{ height: '1.1em', width: 'auto', verticalAlign: '-0.15em', filter: pageDark ? 'brightness(0) invert(1)' : 'none', opacity: 0.75 }} />
+              <Chevron open={mobileExpanded === "ai"} />
           </button>
           {mobileExpanded === "ai" && (
             <div className="pl-3 pb-2 flex flex-col">
@@ -492,7 +493,6 @@ export function Navbar() {
           )}
 
           <div className="mt-4 pt-4 border-t border-[var(--border)] flex flex-col gap-2.5">
-            <Link href="/#contact" onClick={closeAll} className="text-[14px] text-[var(--text-secondary)] py-1">Log in</Link>
             <Link href="/ai" onClick={closeAll}
               className="inline-flex items-center justify-center w-full h-11 rounded-full bg-[var(--brand-navy)] text-white text-[13px] font-semibold">
               Free Trial

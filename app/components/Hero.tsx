@@ -159,7 +159,7 @@ export function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
+            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-2">
               <Link
                 href="/#contact"
                 className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px]"
@@ -196,7 +196,8 @@ export function Hero() {
           </div>
 
           {/* ── Right: dashboard mockup ── */}
-          <div className="rise rise-4 block mt-6 lg:mt-0 relative w-full min-w-0 max-w-full overflow-hidden lg:overflow-visible">
+          <div className="rise rise-4 mt-6 lg:mt-0 relative w-full min-w-0 max-w-full lg:overflow-visible">
+            {/* Ambient glow */}
             <div
               className="absolute -inset-8 -z-10 rounded-[40px] blur-3xl opacity-40"
               style={{
@@ -204,7 +205,57 @@ export function Hero() {
               }}
             />
 
-            {/* ── Chat bubble - Swati (top-left) ── */}
+            {/* ── Mobile / tablet stacked layout (hidden on lg+) ── */}
+            <div className="flex flex-col gap-3 lg:hidden">
+
+              {/* Swati bubble — compact */}
+              <div className="self-start bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-3 max-w-[92%]">
+                <div className="flex items-center gap-2.5">
+                  <div className="relative flex-shrink-0">
+                    <div className="h-11 w-11 rounded-full overflow-hidden border border-black/[0.06]" style={{ background: 'linear-gradient(150deg, #3b82f6 0%, #1d4ed8 100%)' }}>
+                      <img src="/avatar1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-400 border-[1.5px] border-white" />
+                  </div>
+                  <div>
+                    <p className="text-[10.5px] font-semibold text-[#1d4ed8] mb-0.5">Swati · Accountable Manager</p>
+                    <p className="text-[11.5px] leading-[1.5] text-gray-800">
+                      Your Accountables{' '}
+                      <img src="/prod_icon.svg" alt="" style={{ display: 'inline-block', height: '1em', width: 'auto', verticalAlign: '-0.1em' }} />{' '}
+                      dashboard has been updated with this month's numbers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dashboard */}
+              <ScaledFit naturalWidth={560} naturalHeight={300}>
+                <div style={{ width: 560, height: 300 }} className="">
+                  <DashboardMockup />
+                </div>
+              </ScaledFit>
+
+              {/* Bottom row: pill + client reply */}
+              <div className="flex items-center justify-end gap-2">
+                {/* Client reply bubble */}
+                <div className="bg-white rounded-2xl rounded-br-sm shadow-xl border border-black/[0.06] p-3 flex items-center gap-2 shrink-0">
+                  <p className="text-[11px] leading-[1.45] text-gray-800 max-w-[120px]">
+                    Perfect. Thanks for the quick turnaround.
+                  </p>
+                  <div className="relative flex-shrink-0">
+                    <div className="h-10 w-10 rounded-full overflow-hidden border border-black/[0.06]" style={{ background: 'linear-gradient(150deg, #14305f 0%, #1d4ed8 100%)' }}>
+                      <img src="/avatar2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-400 border-[1.5px] border-white" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* ── Desktop floating layout (lg+) ── */}
+
+            {/* Chat bubble - Swati (top-left, absolute) */}
             <div className="hidden lg:block absolute -top-28 -left-12 z-10 bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-4 max-w-[400px]">
               <div className="flex items-center gap-3">
                 <div className="relative flex-shrink-0">
@@ -220,7 +271,8 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="hidden lg:block mx-auto max-w-[340px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-none">
+            {/* Dashboard (lg+) */}
+            <div className="hidden lg:block">
               <ScaledFit naturalWidth={560} naturalHeight={300}>
                 <div style={{ width: 560, height: 300 }}>
                   <DashboardMockup />
@@ -228,8 +280,8 @@ export function Hero() {
               </ScaledFit>
             </div>
 
-            {/* ── Chat bubble - client (bottom-right) ── */}
-            <div className="hidden lg:block absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
+            {/* Chat bubble - client (bottom-right, absolute) */}
+            <div className="hidden lg:grid absolute -bottom-24 -right-24 z-10 bg-white rounded-2xl rounded-br-sm shadow-xl border grid-cols-2 items-center border-black/[0.06] p-4 w-full max-w-[250px]">
               <p className="text-[12px] leading-[1.55] text-gray-800">
                 Perfect. Thanks for the quick turnaround.
               </p>
@@ -241,12 +293,13 @@ export function Hero() {
               </div>
             </div>
 
-            {/* ── Floating pill - bottom-left ── */}
+            {/* Floating pill - bottom-left (absolute) */}
             <div className="hidden lg:flex absolute -bottom-6 left-4 z-20 bg-white rounded-full shadow-lg border border-black/[0.06] px-4 py-2 items-center gap-2">
               <span className="h-5 w-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px]">✓</span>
               <span className="text-[11.5px] font-semibold text-gray-700">Books up-to-date</span>
               <span className="text-[11px] text-gray-400">· Apr 2026</span>
             </div>
+
           </div>
         </div>
       </div>
