@@ -93,7 +93,7 @@ function DashboardMockup() {
           </div>
 
           {/* Right: permanent notification panel — hidden on mobile */}
-          <div className="hidden md:flex w-[210px] flex-shrink-0 border-l border-gray-100 px-3.5 pt-3 pb-3.5 flex-col gap-2.5">
+          <div className="flex w-[210px] flex-shrink-0 border-l border-gray-100 px-3.5 pt-3 pb-3.5 flex-col gap-2.5">
             {/* Permanent notification card */}
             <div className="bg-white rounded-md border border-gray-100 shadow-sm p-2.5">
               <div className="flex items-center justify-between mb-2">
