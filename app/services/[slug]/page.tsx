@@ -141,6 +141,22 @@ export default async function ServiceDetail({
         </div>
       </section>
 
+      {/* Requirements pills - only shown if service defines them */}
+      {s.requirements && (
+        <section className="py-10 md:py-12 border-b border-[var(--border)]">
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-[var(--text-muted)] mb-5">
+              Built for businesses requiring
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {s.requirements.map((r) => (
+                <span key={r} className="pill">{r}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Deliverables grid */}
       <section className="py-24 md:py-28">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -204,6 +220,69 @@ export default async function ServiceDetail({
         </div>
       </section>
 
+      {/* Accountables One + Ideal For - only shown if service defines them */}
+      {(s.oneFeatures || s.idealFor) && (
+        <section
+          className="py-24 md:py-28 border-t border-[var(--border)]"
+          style={{ background: "linear-gradient(135deg, #0b1e3f 0%, #14305f 100%)" }}
+        >
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <div className="grid md:grid-cols-2 gap-14 md:gap-20">
+              {s.oneFeatures && (
+                <div>
+                  <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">
+                    Connected with
+                  </p>
+                  <h2 className="display text-[28px] sm:text-[36px] md:text-[44px] font-semibold text-white leading-tight mb-4">
+                    Accountables{" "}
+                    <span
+                      style={{
+                        background: "linear-gradient(90deg, #60a5fa 0%, #0a84ff 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      One
+                    </span>
+                    .
+                  </h2>
+                  <p className="text-[15px] leading-[1.7] text-white/60 mb-8">
+                    Accountables One centralizes reporting visibility, finance coordination, workflow tracking and operational communication within one connected finance environment.
+                  </p>
+                  <ul className="grid grid-cols-2 gap-2.5">
+                    {s.oneFeatures.map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-[13px] text-white/70">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-accent)] flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {s.idealFor && (
+                <div>
+                  <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-3">
+                    Ideal for
+                  </p>
+                  <ul className="flex flex-col gap-3 mt-8">
+                    {s.idealFor.map((item) => (
+                      <li key={item} className="flex items-center gap-3 text-[15px] text-white/75">
+                        <span className="h-5 w-5 rounded-full bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0">
+                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQs */}
       <section className="py-24 md:py-28">
         <div className="mx-auto max-w-4xl px-6 md:px-10">
@@ -236,6 +315,17 @@ export default async function ServiceDetail({
           </div>
         </div>
       </section>
+
+      {/* Closing statement - only shown if service defines one */}
+      {s.closingStatement && (
+        <section className="py-16 md:py-20 bg-[var(--surface-soft)] border-t border-[var(--border)]">
+          <div className="mx-auto max-w-3xl px-6 md:px-10 text-center">
+            <p className="text-[18px] md:text-[22px] leading-[1.6] text-[var(--text-primary)] font-medium">
+              {s.closingStatement}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Next service */}
       <section className="py-14 md:py-20 border-t border-[var(--border)]">

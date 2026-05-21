@@ -182,10 +182,15 @@ function SubPanel({
         {items.map((item) => (
           <li
             key={item}
-            className={`text-[12px] leading-[1.5] ${
+            className={`text-[12px] leading-[1.5] flex items-start gap-2 ${
               dark ? "text-white/70" : "text-[var(--text-secondary)]"
             }`}
           >
+            <span className={`mt-[5px] shrink-0 w-[4px] h-[4px] rounded-full ${
+              highlight
+                ? dark ? "bg-[var(--brand-accent)]" : "bg-[var(--brand-blue)]"
+                : dark ? "bg-white/40" : "bg-[var(--text-muted)]"
+            }`} />
             {item}
           </li>
         ))}

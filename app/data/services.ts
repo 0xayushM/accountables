@@ -11,6 +11,10 @@ export type Service = {
   deliverables: { title: string; body: string }[];
   process: { day: string; title: string; body: string }[];
   faqs: [string, string][];
+  requirements?: string[];
+  oneFeatures?: string[];
+  idealFor?: string[];
+  closingStatement?: string;
 };
 
 export const SERVICES: Service[] = [
@@ -41,10 +45,11 @@ export const SERVICES: Service[] = [
       { day: "Week 2+", title: "Run", body: "You meet your senior accountant. They review weekly. The AI runs daily. You get on with the business." },
     ],
     faqs: [
-      ["Will you migrate me from my current bookkeeper?", "Yes - and we won't charge extra for it. Most migrations take 5–10 working days. We handle the data transfer, chart-of-accounts cleanup and historical reconciliation."],
-      ["Do I need to switch accounting software?", "No. We work natively inside QuickBooks, Xero, NetSuite or Sage. You keep your existing software; we add the operations layer on top."],
-      ["What if I have messy books today?", "That's normal - about 60% of new clients arrive with some level of catch-up needed. We quote that separately and clean it up before going live."],
-      ["Who actually does the work?", "A named, ACA-qualified senior accountant leads your account. They're backed by our AI engine for the mechanical work, freeing them up for the judgment work."],
+      ["Will you migrate me from my current bookkeeper?", "Yes. Accountables supports onboarding and migration from existing bookkeeping or accounting environments, including historical reconciliation reviews, reporting transitions and operational handovers where required."],
+      ["Do I need to switch accounting software?", "No. Accountables works alongside existing accounting environments including Xero and QuickBooks, while integrating workflow coordination, reporting visibility and AI-assisted operational workflows through Accountables One."],
+      ["What if my books need cleanup or catch-up work?", "Many businesses begin with some level of cleanup, reconciliation or reporting reorganization. Accountables reviews the existing finance environment during onboarding and structures catch-up work based on operational requirements and reporting timelines."],
+      ["How does communication and coordination work?", "Clients communicate directly with their Accountable Manager through structured workflows designed around reporting visibility, operational coordination and ongoing finance support. Accountables One centralizes communication, task tracking, reporting updates and workflow coordination within one connected operational environment."],
+      ["Who manages our finance operations?", "Each business works with an Accountable Manager supported by a broader finance operations team across reporting, compliance and coordination workflows. Accountables One supports the environment through connected workflows, centralized visibility and AI-assisted transaction categorization designed to reduce manual friction across ongoing finance operations."],
     ],
   },
   {
@@ -74,10 +79,11 @@ export const SERVICES: Service[] = [
       { day: "Monthly", title: "Review", body: "AP/AR summary reviewed with your accountant; overdue items escalated and resolved." },
     ],
     faqs: [
-      ["Do you handle supplier disputes?", "Yes - we manage correspondence with vendors, chase credits and resolve discrepancies so you don't have to get involved."],
-      ["How do you handle overdue invoices?", "We run structured follow-up cadences at 7, 14 and 30 days past due, escalating to your team only when needed."],
-      ["Can you integrate with our existing invoicing tool?", "Yes. We connect natively with Xero, QuickBooks, Sage, Stripe Billing and most invoice automation tools."],
-      ["What reporting do we get?", "Weekly AP/AR summary, monthly aged debtors and creditors report, and a cash flow bridge showing expected inflows and outflows."],
+      ["How does Accountables manage AR/AP workflows?", "Accountables supports receivables, payables and finance coordination workflows through structured operational processes designed around visibility, approvals and ongoing cash flow coordination."],
+      ["Will we have visibility into outstanding receivables and payables?", "Yes. Accountables One centralizes receivables visibility, payable tracking, workflow updates and finance coordination to support ongoing operational visibility across finance activities."],
+      ["Can Accountables work alongside our existing invoicing and accounting setup?", "Yes. Accountables works alongside existing accounting and invoicing environments including Xero and QuickBooks while supporting finance coordination workflows through Accountables One."],
+      ["How are approvals and finance coordination managed?", "Approval workflows, finance communication and operational coordination are managed through centralized workflows designed around ongoing visibility and execution tracking."],
+      ["What reporting and visibility do we receive?", "Depending on operational requirements, reporting may include receivables visibility, payable tracking, cash flow coordination, aged balances and ongoing operational finance reporting."],
     ],
   },
   {
@@ -90,7 +96,7 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Compliance,",
       highlight: "without the scramble.",
-      body: "Corporation tax, VAT, PAYE, R&D credits, EIS/SEIS - handled end-to-end with HMRC liaison and audit-ready records.",
+      body: "UK compliance including corporation tax, VAT, PAYE, R&D credits and EIS/SEIS — handled end-to-end with HMRC liaison and audit-ready records. This service is structured specifically for businesses operating within the United Kingdom.",
     },
     deliverables: [
       { title: "Corporation tax", body: "CT600 prepared, reviewed and filed - with reliefs and credits claimed in full." },
@@ -107,76 +113,85 @@ export const SERVICES: Service[] = [
       { day: "On demand", title: "Tax advice", body: "Same-day answers on transactions, share schemes and structuring decisions." },
     ],
     faqs: [
-      ["Do you handle R&D claims in-house?", "Yes. Senior accountants draft technical narratives and costings. No third-party agents, no contingent fees."],
-      ["What if I'm under HMRC enquiry?", "We've handled hundreds. We respond on your behalf, prepare the documentation, and represent you in correspondence."],
-      ["Can you backdate VAT registration?", "Sometimes - depends on turnover and timing. Talk to us; we'll look at your situation and advise."],
-      ["Is iXBRL filing included?", "Yes. Statutory accounts are tagged and filed to Companies House and HMRC in iXBRL format as part of year-end."],
+      ["How does Accountables manage payroll and compliance workflows?", "Accountables supports payroll, VAT, reporting and compliance coordination through structured workflows designed around visibility, timelines and ongoing operational support."],
+      ["How are deadlines and filings tracked?", "Accountables One centralizes compliance timelines, reporting tasks and workflow coordination within one connected operational environment designed around ongoing visibility and execution tracking."],
+      ["Can Accountables support businesses operating across multiple regions?", "Yes. Accountables supports businesses operating across the United Kingdom, United States and India, including businesses managing international finance and compliance environments."],
+      ["Will we have visibility into ongoing compliance activities?", "Yes. Reporting updates, workflow progress, communication and finance coordination are centralized through Accountables One to provide ongoing operational visibility."],
+      ["Who coordinates ongoing finance and compliance activities?", "Each business works with an Accountable Manager supported by a broader finance operations team across payroll, reporting, compliance and coordination workflows."],
     ],
   },
   {
     slug: "financial-analysis",
+    externalHref: "/services/cfo-advisory",
     name: "Financial Analysis",
     tag: "Reporting",
     icon: "╱",
     summary: "Management accounts and KPI packs that actually drive decisions.",
-    hero: {
-      title: "Decisions,",
-      highlight: "not just data.",
-      body: "Live dashboards for cash, burn, runway and unit economics - so the answer to \"can we afford this?\" comes in seconds, not weeks.",
-    },
-    deliverables: [
-      { title: "Monthly management accounts", body: "P&L, balance sheet, cashflow and commentary delivered by day 3 of every month." },
-      { title: "KPI pack", body: "MRR, ARR, churn, CAC, LTV, gross margin - every number a board would ask for." },
-      { title: "Cash flow forecasts", body: "Rolling 13-week and annual cashflow models, refreshed weekly." },
-      { title: "Scenario planning", body: "What if we hire 3 more? What if revenue dips 20%? Plug-and-play scenarios on demand." },
-      { title: "Board appendix", body: "Variance analysis, unit economics, cohort retention - investor-grade detail." },
-      { title: "Custom dashboards", body: "Live views built around the metrics you care about, embedded in your portal." },
-    ],
-    process: [
-      { day: "Week 1", title: "Map", body: "We map your KPI tree, define metric ownership, and agree the reporting cadence." },
-      { day: "Week 2", title: "Wire", body: "We connect the source data - accounting, billing, CRM - and stand up dashboards." },
-      { day: "Monthly", title: "Pack", body: "Management pack delivered by day 3; we review the commentary with you live." },
-      { day: "Quarterly", title: "Plan", body: "Forecast refresh, scenario sessions and a board prep working call." },
-    ],
-    faqs: [
-      ["What tools do you use for reporting?", "We work in your stack: QuickBooks/Xero data, surfaced through Looker, Pigment or a custom React portal - whatever fits."],
-      ["Can you run our investor updates?", "Yes. We draft the financial section every month; you add the narrative."],
-      ["How do you handle multi-entity?", "Each entity reports separately and consolidates monthly. We handle inter-company, FX and eliminations."],
-      ["Do you replace our FP&A team?", "We complement it. For Seed–B we often are it; for Series C+ we partner with your in-house team."],
-    ],
+    hero: { title: "", highlight: ".", body: "" },
+    deliverables: [],
+    process: [],
+    faqs: [],
   },
   {
     slug: "cfo-advisory",
-    name: "CFO Advisory",
-    tag: "Strategic",
+    name: "CFO & FP&A",
+    tag: "Leadership",
     icon: "◇",
-    summary:
-      "A fractional CFO for board meetings, fundraising and unit economics.",
+    summary: "Structured finance leadership across reporting, forecasting and operational visibility for growing businesses.",
     hero: {
-      title: "Senior finance,",
-      highlight: "on demand.",
-      body: "Fractional CFO support for the moments that matter - board prep, fundraising, scenario modelling, unit economics. Senior expertise without the senior overhead.",
+      title: "Finance leadership,",
+      highlight: "without building a full in-house team.",
+      body: "Structured finance leadership across reporting, forecasting, operational visibility and financial decision-making — designed for growing businesses that need more than bookkeeping, but do not yet require a full internal finance department.",
     },
+    requirements: [
+      "Financial visibility",
+      "Operational finance coordination",
+      "Budgeting & forecasting",
+      "Management reporting",
+      "Cash flow planning",
+      "Controller oversight",
+      "Strategic finance support",
+    ],
     deliverables: [
-      { title: "Board pack", body: "Quarterly board packs prepared, reviewed and presented alongside your founders." },
-      { title: "Fundraising support", body: "Forecasts, cap-table modelling, data-room curation and investor diligence." },
-      { title: "Unit economics", body: "Cohort analysis, contribution margin, payback periods and pricing strategy." },
-      { title: "Strategic forecasts", body: "Annual budget, quarterly reforecasts and scenario decks." },
-      { title: "Capital strategy", body: "Debt vs equity, runway extension and treasury planning." },
-      { title: "Operating reviews", body: "Monthly operating reviews with founders to drive the business off the numbers." },
+      { title: "Management reporting", body: "Structured monthly reporting covering P&L, balance sheet, cash flow visibility and operational finance insights." },
+      { title: "Forecasting & planning", body: "Rolling forecasts, budgeting support and forward-looking financial visibility aligned with business growth requirements." },
+      { title: "KPI & performance visibility", body: "Operational and financial KPI visibility designed around management reporting, decision-making and ongoing business performance tracking." },
+      { title: "Cash flow coordination", body: "Cash flow monitoring, working capital visibility and finance coordination across ongoing operational activities." },
+      { title: "Controller oversight", body: "Support across reporting structures, reconciliations, finance controls, operational coordination and ongoing finance execution workflows." },
+      { title: "Reporting dashboards & visibility", body: "Centralized finance visibility through Accountables One, including reporting environments, workflow tracking and operational coordination." },
     ],
     process: [
-      { day: "Onboarding", title: "Diagnostic", body: "We audit the financial setup, identify gaps, and prioritise the first 90 days." },
-      { day: "Monthly", title: "Operating review", body: "A 90-minute working session with founders on the numbers and the next moves." },
-      { day: "Quarterly", title: "Board", body: "Pack drafted, rehearsed and presented alongside you." },
-      { day: "Ad hoc", title: "On call", body: "Same-day support during raises, M&A or critical decisions." },
+      { day: "Onboarding", title: "Finance diagnostic", body: "We review the existing finance environment, reporting structures and operational workflows to identify visibility gaps, coordination requirements and ongoing finance priorities." },
+      { day: "Monthly", title: "Reporting & operational reviews", body: "Structured monthly reviews covering management reporting, cash flow visibility, forecasting, finance operations and ongoing business performance discussions." },
+      { day: "Ongoing", title: "CFO & controller coordination", body: "Ongoing finance leadership and controller oversight across reporting workflows, operational finance coordination, approvals, compliance timelines and execution visibility." },
+      { day: "As required", title: "Strategic finance support", body: "Support across budgeting, forecasting, financial modeling, operational planning and business-critical finance decisions as requirements evolve." },
+    ],
+    oneFeatures: [
+      "Reporting dashboards",
+      "Forecast visibility",
+      "Workflow coordination",
+      "Finance communication",
+      "Task tracking",
+      "Approval visibility",
+      "KPI monitoring",
+      "AI-assisted transaction categorization",
+    ],
+    idealFor: [
+      "Founder-led businesses",
+      "Growth-stage companies",
+      "Ecommerce & Shopify brands",
+      "Agencies & service businesses",
+      "International businesses",
+      "Businesses scaling beyond owner-managed finance",
     ],
     faqs: [
-      ["Is this a real CFO or an analyst?", "Real. Each CFO is ACA / ACCA / CFA qualified with 10+ years of operating finance experience."],
-      ["How many hours per month?", "Tiers from 8 to 40 hours/month. Series A–B typically take 16; Series C+ takes 32 or more."],
-      ["Can we use you just for a raise?", "Yes - we run discrete fundraising engagements (8–14 weeks) with a separate scope and price."],
-      ["Do you replace our existing FD?", "We work alongside in-house finance leads, augmenting capacity. Or we operate solo if you don't have one yet."],
+      ["Who supports Fractional CFO engagements?", "Fractional CFO engagements are supported by ACA, ACCA and CA qualified finance professionals with experience across operating finance environments, reporting structures, finance operations and business decision-making support."],
+      ["What areas does finance leadership support typically cover?", "Support may include financial planning & analysis, budgeting, forecasting, management reporting, controller oversight, cash flow visibility, operational finance coordination and strategic finance support aligned with business growth requirements."],
+      ["Can Accountables work alongside our existing finance team?", "Yes. Accountables can operate alongside internal finance teams by supporting finance leadership, controller functions, reporting structures, operational coordination and ongoing financial visibility."],
+      ["How involved is the finance leadership team in day-to-day operations?", "The level of involvement depends on operational requirements, reporting complexity and the stage of the business. Support structures are designed around ongoing coordination, visibility and finance decision-making requirements."],
+      ["How does communication and reporting coordination work?", "Clients communicate directly with their Accountable Manager and finance leadership team through structured workflows designed around reporting visibility, operational coordination and ongoing finance support. Accountables One centralizes communication, reporting updates and workflow coordination within one connected operational environment."],
     ],
+    closingStatement: "Structured finance support for businesses that need more clarity, stronger reporting and better operational visibility — without building a large in-house finance department.",
   },
 ];
 

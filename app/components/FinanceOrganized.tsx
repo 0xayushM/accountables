@@ -378,7 +378,7 @@ export function FinanceOrganized() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-[var(--border)] shadow-sm mb-6">
               <img src="/prod_icon.svg" alt="" style={{ height: 12, width: "auto" }} />
               <span className="mono text-[var(--text-secondary)]" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                The Operating Environment
+                Operating Environment
               </span>
             </div>
           </RevealBlock>

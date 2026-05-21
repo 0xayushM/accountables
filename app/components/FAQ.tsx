@@ -5,24 +5,28 @@ import { RevealBlock } from "./RevealBlock";
 
 const faqs = [
   {
-    q: "How does bookkeeping work at Accountables?",
-    a: "Your books are reconciled continuously. We connect to your bank, accounting software, and tools - then a real bookkeeper categorises and reviews every transaction so your numbers stay accurate.",
+    q: "What is Accountables One?",
+    a: "Accountables One is our connected operational environment designed around finance visibility, workflow coordination and ongoing communication. It brings reporting, tasks, finance updates and operational support into one connected environment.",
   },
   {
-    q: "Do I need to review transactions every month?",
-    a: "Only if you want to. We send a monthly close summary, and you can ask questions any time. No more digging through spreadsheets.",
+    q: "How does Accountables work with growing businesses?",
+    a: "Accountables operates as an extension of your business — supporting bookkeeping, reporting, compliance and ongoing finance coordination through a structured operating environment designed around visibility and embedded support.",
   },
   {
-    q: "What accounting software do you support?",
-    a: "Xero, QuickBooks, FreeAgent, and Sage - plus a wide range of integrations for payments, invoicing, and inventory.",
+    q: "Do I need to change my accounting software?",
+    a: "No. Accountables works alongside existing accounting environments including Xero and QuickBooks, while integrating operational coordination through Accountables One.",
   },
   {
-    q: "Can I get year-end accounts and tax returns too?",
-    a: "Yes. We file statutory accounts with Companies House, corporation tax with HMRC, and handle VAT, PAYE, and self-assessment.",
+    q: "Can Accountables work alongside my existing finance team?",
+    a: "Yes. Accountables can operate as a fully outsourced finance function or work alongside internal finance teams by supporting reporting, coordination, operational workflows and ongoing finance activities.",
   },
   {
-    q: "What does it cost?",
-    a: "Pricing starts at £20/hour. For ongoing support we offer fixed monthly plans tailored to your transaction volume and reporting needs.",
+    q: "Does Accountables support businesses operating internationally?",
+    a: "Yes. Accountables supports businesses operating across the United Kingdom, United States and India, including businesses managing cross-border operations and multi-region finance environments.",
+  },
+  {
+    q: "How is pricing structured?",
+    a: "Pricing is structured around operational complexity, transaction volume and reporting requirements — with support environments designed for businesses at different stages of growth.",
   },
 ];
 

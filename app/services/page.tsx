@@ -293,94 +293,103 @@ function SceneExecution() {
 const regions = {
   "United Kingdom": {
     flag: "🇬🇧",
-    code: "UK",
-    short: "UK",
-    capital: "London",
-    currency: "GBP £",
-    timezone: "GMT / BST",
-    regulators: ["HMRC", "Companies House", "FCA"],
     accent: "#1d4ed8",
+    bg: "#eff6ff",
+    label: "Finance Operations",
+    description: undefined as string | undefined,
+    logo: undefined as string | undefined,
+    contact: undefined as string | undefined,
     items: [
-      "VAT workflows",
-      "HMRC reporting",
-      "Payroll & pensions",
-      "Management accounts",
-      "Year-end coordination",
-      "Xero environments",
+      "Year-end accounts",
+      "Monthly management accounting",
+      "VAT support & filing workflows",
+      "Payroll management & pension coordination",
+      "Financial planning & analysis",
+      "Budgeting & forecasting",
+      "Accounts receivable & payable support",
+      "Financial modeling",
+      "Self-assessment support",
+      "Cross-border transaction coordination",
+      "Corporation tax workflows",
     ],
+    footer: "Designed around ongoing finance visibility, reporting coordination and embedded operational support.",
+    footerIcon: "people" as const,
   },
   "United States": {
     flag: "🇺🇸",
-    code: "US",
-    short: "USA",
-    capital: "New York",
-    currency: "USD $",
-    timezone: "ET / PT",
-    regulators: ["IRS", "SEC", "State Boards"],
-    accent: "#dc2626",
+    accent: "#AABDB5",
+    bg: "#f0f4f3",
+    label: "Finance Operations",
+    description: "Accountables supports businesses in the United States under the aegis of Route One Advisory." as string | undefined,
+    logo: "/logos/ROUTE ONE LLC.png" as string | undefined,
+    contact: "sidharth@routeone.com" as string | undefined,
     items: [
-      "Sales tax workflows",
-      "QuickBooks environments",
+      "Bookkeeping & financial reporting",
+      "Management accounting",
+      "Sales tax filing support",
       "Payroll coordination",
-      "Multi-state support",
-      "Financial reporting workflows",
+      "Accounts payable & receivable support",
+      "Financial planning & analysis",
+      "Budgeting & forecasting",
+      "Cash flow reporting",
+      "Multi-state finance support",
+      "Financial modeling & reporting workflows",
+      "Business finance coordination",
     ],
+    footer: "Connected finance operations designed around reporting visibility and operational coordination.",
+    footerIcon: "chart" as const,
   },
   India: {
     flag: "🇮🇳",
-    code: "IN",
-    short: "IND",
-    capital: "Bengaluru",
-    currency: "INR ₹",
-    timezone: "IST",
-    regulators: ["GST Council", "MCA", "Income Tax Dept"],
-    accent: "#ea580c",
+    accent: "#16a34a",
+    bg: "#f0fdf4",
+    label: "Strategic Finance & Advisory",
+    description: undefined as string | undefined,
+    logo: undefined as string | undefined,
+    contact: undefined as string | undefined,
     items: [
-      "GST workflows",
-      "TDS compliance",
-      "ROC coordination",
-      "Payroll support",
-      "MIS reporting",
-      "Accounting operations",
+      "Fundraising support",
+      "Startup consulting",
+      "Virtual CFO services",
+      "Financial modeling & investor reporting",
+      "Transaction advisory",
+      "Mergers & acquisitions support",
+      "Indian auditing & assurance",
+      "Management accounting",
+      "Business structuring support",
+      "Forecasting & strategic planning",
     ],
+    footer: "Strategic finance support designed for founder-led and growth-stage businesses.",
+    footerIcon: "rocket" as const,
   },
 };
-
-function Spec({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-[9px] tracking-[0.18em] uppercase font-semibold text-white/40 mb-1">{label}</p>
-      <p className="text-[12.5px] font-semibold text-white/95 leading-tight">{value}</p>
-    </div>
-  );
-}
 
 // ─── FAQ Accordion (Bench two-column style) ────────────────────────────────────
 
 const faqs = [
   {
     q: "How does Accountables function as a virtual finance department?",
-    a: "We combine bookkeeping, compliance, reporting and finance coordination into one connected operating environment. Rather than managing separate vendors, you work with one team across all finance functions.",
+    a: "Accountables operates as an extension of your business — supporting bookkeeping, reporting, compliance, finance coordination and operational visibility through a connected finance environment designed around ongoing support and structured execution.",
   },
   {
-    q: "What accounting software does Accountables support?",
-    a: "We work across Xero, QuickBooks, FreeAgent and Sage, with integrations for payments, invoicing and inventory tools across UK, US and India.",
+    q: "Do I need to change my existing accounting setup?",
+    a: "No. Accountables works alongside existing accounting environments including Xero and QuickBooks, while integrating workflow coordination and communication through Accountables One.",
   },
   {
     q: "How does communication with the Accountables team work?",
-    a: "All coordination happens through Accountables One - our operating environment. Reporting updates, approvals, finance requests and ongoing communication are centralized in one place.",
+    a: "Clients communicate directly with their Accountable Manager through structured communication workflows designed around visibility, coordination and ongoing operational support.",
   },
   {
-    q: "What regions does Accountables operate in?",
-    a: "We support businesses operating in the United Kingdom, United States and India, with experience across regional compliance, tax and reporting requirements specific to each market.",
+    q: "Can Accountables work alongside our internal finance team?",
+    a: "Yes. Accountables can operate as a fully outsourced finance function or work alongside internal finance teams by supporting reporting, operational coordination, compliance workflows and finance execution.",
   },
   {
-    q: "Do I need to sign a long-term contract?",
-    a: "No long-term contracts. We work on ongoing monthly arrangements designed around your business needs, with flexibility to adjust as your requirements change.",
+    q: "What regions does Accountables support?",
+    a: "Accountables supports businesses operating across the United Kingdom, United States and India — including businesses managing international and cross-border finance operations.",
   },
   {
-    q: "How quickly can Accountables get started?",
-    a: "Most clients are onboarded within one to two weeks. We begin with a structured onboarding to understand your current finance setup, tools and reporting requirements before transitioning operations.",
+    q: "What services are included within ongoing finance support?",
+    a: "Depending on operational requirements, support may include bookkeeping, management accounting, payroll coordination, VAT workflows, reporting visibility, AR/AP support, financial planning & analysis, budgeting, forecasting and ongoing finance coordination.",
   },
 ];
 
@@ -590,17 +599,9 @@ export default function ServicesPage() {
                 {
                   number: "04",
                   Scene: SceneSvcPlanning,
-                  title: "Planning & Finance Support",
-                  body: "Cash flow visibility, KPI reporting, forecasting support and finance coordination designed around business decision-making.",
-                  tags: ["Forecasting", "KPI visibility", "Management reporting", "Financial planning support", "Operational finance coordination"],
-                  href: "/services/financial-analysis",
-                },
-                {
-                  number: "05",
-                  Scene: SceneSvcCFO,
-                  title: "Fractional CFO Support",
-                  body: "Strategic finance oversight and structured financial leadership for growing businesses requiring ongoing finance support without a full in-house CFO structure.",
-                  tags: ["Financial oversight", "Founder support", "Reporting reviews", "Strategic finance discussions", "Business performance visibility"],
+                  title: "CFO & FP&A",
+                  body: "Finance leadership, reporting visibility, forecasting and operational coordination for growing businesses that need structured finance support without a full in-house finance department.",
+                  tags: ["CFO support", "FP&A", "Management reporting", "Forecasting", "Controller oversight", "Finance leadership"],
                   href: "/services/cfo-advisory",
                 },
               ].map((s, idx) => (
@@ -773,148 +774,131 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-7xl px-6 md:px-10">
 
             {/* Header */}
-            <div className="max-w-2xl mb-12 md:mb-14">
+            <div className="max-w-3xl mb-10">
               <RevealBlock delay={0}>
-                <span className="pill">Regional Experience</span>
-              </RevealBlock>
-              <RevealBlock delay={80}>
-                <h2 className="display mt-5 text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[var(--text-primary)] leading-[1.04]">
-                  Operational Experience Across{" "}
-                  <span className="accent">Key Markets</span>.
+                <h2 className="display text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[var(--text-primary)] leading-[1.04]">
+                  Multi-region finance support.
                 </h2>
               </RevealBlock>
-              <RevealBlock delay={160}>
-                <p className="mt-5 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                  Accountables supports businesses operating across the United Kingdom, United States and India, with experience across regional finance operations, reporting and compliance requirements.
+              <RevealBlock delay={80}>
+                <p className="mt-4 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
+                  Accountables supports businesses operating across the United Kingdom, United States and India — with experience across regional finance operations, reporting environments and compliance coordination.
                 </p>
+              </RevealBlock>
+              <RevealBlock delay={120}>
+                <div className="mt-4 inline-flex items-center gap-2 text-[13px] text-[var(--text-secondary)]">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[var(--brand-blue)] flex-shrink-0">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8"/>
+                    <path d="M8 12l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Structured around connected finance operations and ongoing operational visibility.
+                </div>
               </RevealBlock>
             </div>
 
-            {/* Region toggle - flag pill tabs */}
+            {/* 3-column region cards */}
             <RevealBlock delay={200}>
-              <div className="inline-flex flex-wrap gap-2 p-1.5 rounded-full bg-[var(--surface-soft)] border border-[var(--border)] mb-10">
+              <div className="grid md:grid-cols-3 gap-5">
                 {(Object.keys(regions) as (keyof typeof regions)[]).map((region) => {
                   const r = regions[region];
                   const isActive = activeRegion === region;
                   return (
-                    <button
+                    <div
                       key={region}
                       onClick={() => setActiveRegion(region)}
-                      className={`group relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
+                      className={`rounded-2xl border bg-white flex flex-col cursor-pointer transition-all ${
                         isActive
-                          ? "bg-[var(--brand-navy)] text-white shadow-[0_4px_18px_-6px_rgba(11,30,63,0.45)]"
-                          : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                          ? "border-[var(--brand-blue)]/30 shadow-[0_12px_40px_-12px_rgba(11,30,63,0.18)]"
+                          : "border-[var(--border)] hover:border-[var(--border)] hover:shadow-sm"
                       }`}
                     >
-                      <span
-                        className={`h-6 w-6 rounded-full flex items-center justify-center text-[14px] leading-none border transition-colors ${
-                          isActive ? "bg-white/15 border-white/20" : "bg-white border-[var(--border)]"
-                        }`}
-                        aria-hidden
+                      {/* Card header */}
+                      <div className="p-6 pb-0">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="h-11 w-11 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)] flex items-center justify-center text-[24px] leading-none">
+                            {r.flag}
+                          </span>
+                          <h3 className="text-[17px] font-semibold text-[var(--text-primary)]">{region}</h3>
+                        </div>
+                        <p className="text-[13px] font-semibold mb-3" style={{ color: r.accent }}>
+                          {r.label}
+                        </p>
+                        {r.description && (
+                          <div className="mb-4">
+                            {r.logo && (
+                              <div className="flex items-center gap-2 mb-2">
+                                <img
+                                  src={r.logo}
+                                  alt="Route One"
+                                  className="h-5 w-auto object-contain"
+                                />
+                              </div>
+                            )}
+                            <p className="text-[12.5px] leading-[1.65] text-[var(--text-secondary)]">
+                              Accountables supports businesses in the United States under the aegis of{" "}
+                              <span className="font-semibold" style={{ color: r.accent }}>Route One Advisory</span>.
+                            </p>
+                            {r.contact && (
+                              <a
+                                href={`mailto:${r.contact}`}
+                                className="inline-flex items-center gap-1.5 mt-2 text-[11.5px] font-medium"
+                                style={{ color: r.accent }}
+                              >
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+                                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="1.8"/>
+                                  <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                                </svg>
+                                {r.contact}
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Items list */}
+                      <ul className="px-6 pb-6 flex flex-col gap-2.5 mt-3 flex-1">
+                        {r.items.map((item) => (
+                          <li key={item} className="flex items-center gap-2.5">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0" style={{ color: r.accent }}>
+                              <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.293a1 1 0 00-1.414 0L10 14.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l6-6a1 1 0 000-1.414z"/>
+                            </svg>
+                            <span className="text-[13px] text-[var(--text-secondary)] leading-[1.5]">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Footer */}
+                      <div
+                        className="mx-4 mb-4 rounded-xl p-4 flex items-start gap-3"
+                        style={{ background: r.bg }}
                       >
-                        {r.flag}
-                      </span>
-                      <span>{region}</span>
-                      <span
-                        className={`text-[10px] font-semibold tracking-[0.12em] px-1.5 py-0.5 rounded ${
-                          isActive ? "bg-white/15 text-white/80" : "bg-[var(--border)]/60 text-[var(--text-muted)]"
-                        }`}
-                      >
-                        {r.code}
-                      </span>
-                    </button>
+                        <span className="flex-shrink-0 mt-0.5" style={{ color: r.accent }}>
+                          {r.footerIcon === "people" && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                              <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="1.8"/>
+                              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          )}
+                          {r.footerIcon === "chart" && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                              <line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                              <line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                              <line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          )}
+                          {r.footerIcon === "rocket" && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                              <path d="M12 2C12 2 7 6 7 12v1l-2 3h14l-2-3v-1c0-6-5-10-5-10z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+                              <path d="M9 21h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          )}
+                        </span>
+                        <p className="text-[12px] leading-[1.65] text-[var(--text-secondary)]">{r.footer}</p>
+                      </div>
+                    </div>
                   );
                 })}
-              </div>
-
-              {/* Region content - sidebar + capability grid */}
-              <div
-                key={activeRegion}
-                className="rounded-[24px] border border-[var(--border)] bg-white overflow-hidden grid md:grid-cols-[280px_1fr] shadow-[0_24px_60px_-30px_rgba(11,30,63,0.18)] animate-[fadeIn_0.35s_ease-out]"
-              >
-                {/* Sidebar: region ID card */}
-                <div
-                  className="p-7 md:p-8 flex flex-col gap-5 relative overflow-hidden border-b md:border-b-0 md:border-r border-[var(--border)]"
-                  style={{ background: "linear-gradient(165deg, #0b1e3f 0%, #14305f 100%)" }}
-                >
-                  {/* Decorative accent stripe */}
-                  <div
-                    aria-hidden
-                    className="absolute -top-10 -right-10 h-32 w-32 rounded-full blur-3xl opacity-50"
-                    style={{ background: regions[activeRegion].accent }}
-                  />
-
-                  {/* Flag + code badge */}
-                  <div className="relative flex items-start justify-between">
-                    <div className="h-14 w-14 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[28px] leading-none backdrop-blur-sm">
-                      {regions[activeRegion].flag}
-                    </div>
-                    <span
-                      className="text-[10px] font-semibold tracking-[0.18em] px-2 py-1 rounded-md border border-white/15 text-white/70"
-                      style={{ background: "rgba(255,255,255,0.06)" }}
-                    >
-                      {regions[activeRegion].short}
-                    </span>
-                  </div>
-
-                  <div className="relative">
-                    <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-1.5">Region</p>
-                    <h3 className="text-[22px] font-semibold text-white leading-tight">{activeRegion}</h3>
-                  </div>
-
-                  <div className="relative grid grid-cols-2 gap-x-4 gap-y-4 pt-1">
-                    <Spec label="Hub"      value={regions[activeRegion].capital} />
-                    <Spec label="Currency" value={regions[activeRegion].currency} />
-                    <Spec label="Timezone" value={regions[activeRegion].timezone} />
-                    <Spec label="Items"    value={`${regions[activeRegion].items.length} workflows`} />
-                  </div>
-
-                  <div className="relative pt-2 border-t border-white/10">
-                    <p className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/40 mb-2.5">Regulators</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {regions[activeRegion].regulators.map((reg) => (
-                        <span
-                          key={reg}
-                          className="text-[10.5px] font-medium px-2 py-1 rounded-md text-white/85 border border-white/15"
-                          style={{ background: "rgba(255,255,255,0.06)" }}
-                        >
-                          {reg}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Capability grid */}
-                <div className="p-7 md:p-9">
-                  <div className="flex items-center justify-between mb-6">
-                    <h4 className="text-[11px] tracking-[0.18em] uppercase font-semibold text-[var(--text-muted)]">
-                      Finance Operations
-                    </h4>
-                    <span className="text-[10.5px] font-medium text-[var(--text-muted)]">
-                      {regions[activeRegion].items.length} capabilities
-                    </span>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {regions[activeRegion].items.map((item, i) => (
-                      <div
-                        key={item}
-                        className="group flex items-center gap-3 px-4 py-3.5 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] hover:border-[var(--brand-blue)]/30 hover:bg-white transition-all"
-                        style={{ animation: `fadeIn 0.4s ease-out ${i * 60}ms both` }}
-                      >
-                        <span
-                          className="h-7 w-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
-                          style={{ background: `${regions[activeRegion].accent}15`, color: regions[activeRegion].accent }}
-                        >
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </span>
-                        <span className="text-[13.5px] font-medium text-[var(--text-primary)]">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </RevealBlock>
           </div>
@@ -946,11 +930,15 @@ export default function ServicesPage() {
               <div className="flex flex-wrap justify-center gap-3">
                 {[
                   "Ecommerce & Shopify Brands",
-                  "Consumer Businesses",
+                  "Consumer Brands",
                   "Agencies & Service Businesses",
-                  "Startups & Growth Companies",
-                  "International Businesses",
+                  "Technology & SaaS Companies",
                   "Founder-Led SMEs",
+                  "Cross-Border Businesses",
+                  "Multi-Entity Businesses",
+                  "DTC & Online Retail",
+                  "Subscription-Based Businesses",
+                  "Operationally Growing Companies",
                 ].map((industry) => (
                   <div
                     key={industry}
