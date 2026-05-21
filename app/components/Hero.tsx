@@ -95,7 +95,7 @@ function DashboardMockup() {
           {/* Right: permanent notification panel — hidden on mobile */}
           <div className="hidden md:flex w-[210px] flex-shrink-0 border-l border-gray-100 px-3.5 pt-3 pb-3.5 flex-col gap-2.5">
             {/* Permanent notification card */}
-            <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-2.5">
+            <div className="bg-white rounded-md border border-gray-100 shadow-sm p-2.5">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-1.5">
                   <div className="h-4 w-4 rounded-md bg-blue-100 flex items-center justify-center flex-shrink-0">
@@ -110,7 +110,7 @@ function DashboardMockup() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <p className="text-[8.5px] leading-[1.55] text-gray-500">
-                  Reporting files updated and ready in your dashboard.
+                  Your accountable manager uploaded new files to your Accountables One dashboard.
                 </p>
               </div>
               <a href="/ai" className="inline-flex items-center gap-1 text-[9.5px] font-semibold text-[#1d4ed8]">
