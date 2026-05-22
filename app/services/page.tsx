@@ -322,7 +322,7 @@ const regions = {
     label: "Finance Operations",
     description: "Accountables supports businesses in the United States under the aegis of Route One Advisory." as string | undefined,
     logo: "/logos/ROUTE ONE LLC.png" as string | undefined,
-    contact: "sidharth@routeone.com" as string | undefined,
+    contact: "sid@routeoneadvisory.com" as string | undefined,
     items: [
       "Bookkeeping & financial reporting",
       "Management accounting",

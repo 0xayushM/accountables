@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -54,6 +57,18 @@ export default function RootLayout({
       className={`${inter.variable} ${manrope.variable} ${playfair.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         {children}
         <a
           href="https://wa.me/447467348253"
