@@ -805,12 +805,7 @@ export default function ServicesPage() {
                   return (
                     <div
                       key={region}
-                      onClick={() => setActiveRegion(region)}
-                      className={`rounded-2xl border bg-white flex flex-col cursor-pointer transition-all ${
-                        isActive
-                          ? "border-[var(--brand-blue)]/30 shadow-[0_12px_40px_-12px_rgba(11,30,63,0.18)]"
-                          : "border-[var(--border)] hover:border-[var(--border)] hover:shadow-sm"
-                      }`}
+                      className="rounded-2xl border border-[var(--border)] bg-white flex flex-col transition-all"
                     >
                       {/* Card header */}
                       <div className="p-6 pb-0">
@@ -827,11 +822,17 @@ export default function ServicesPage() {
                           <div className="mb-4">
                             {r.logo && (
                               <div className="flex items-center gap-2 mb-2">
-                                <img
-                                  src={r.logo}
-                                  alt="Route One"
-                                  className="h-5 w-auto object-contain"
-                                />
+                                <a
+                                  href="https://routeoneconsultancy.com/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <img
+                                    src={r.logo}
+                                    alt="Route One"
+                                    className="h-5 w-auto object-contain"
+                                  />
+                                </a>
                               </div>
                             )}
                             <p className="text-[12.5px] leading-[1.65] text-[var(--text-secondary)]">

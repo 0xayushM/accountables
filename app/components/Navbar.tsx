@@ -25,7 +25,7 @@ const AI_FEATURES: DropItem[] = [
 
 const ABOUT_ITEMS: DropItem[] = [
   { label: "About Accountables", desc: "Our mission and the team behind it", href: "/about" },
-  { label: "Customer Stories", desc: "Hear from 100s  businesses we've served", href: "/case-studies" },
+  { label: "Customer Stories", desc: "Hear from 100s of businesses we've served", href: "/case-studies" },
   { label: "Insights", desc: "Frameworks, checklists and playbooks from the Accountables team", href: "/insights" },
   // { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },
   // { label: "Press", desc: "Latest news and updates", href: "/press" },
@@ -160,20 +160,18 @@ function AiPanel({ close, dark }: { close: () => void; dark?: boolean }) {
       {/* Middle: 2-col features */}
       <div className="p-3 grid grid-cols-2 content-start gap-0.5">
         {AI_FEATURES.map((item) => (
-          <Link
+          <div
             key={item.label}
-            href={item.href}
-            onClick={close}
-            className={`flex gap-2.5 p-3 rounded-xl ${itemHover} transition-colors group`}
+            className="flex gap-2.5 p-3 rounded-xl"
           >
             <span className="text-[14px] text-[var(--text-muted)] mt-px leading-none flex-shrink-0 w-4 text-center">{item.icon}</span>
             <div>
-              <div className="text-[13px] font-medium text-[var(--text-primary)] group-hover:text-[var(--brand-blue)] transition-colors leading-snug">
+              <div className="text-[13px] font-medium text-[var(--text-primary)] leading-snug">
                 {item.label}
               </div>
               <div className="text-[11px] text-[var(--text-muted)] mt-0.5 leading-[1.3]">{item.desc}</div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
 
