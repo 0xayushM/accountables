@@ -169,37 +169,36 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <span className="pill mb-8 block w-fit">Founder</span>
 
-          {/* Mobile: stacked, iPad: image+name row, Desktop: original layout */}
+          {/* Mobile: stacked, iPad: all rows, Desktop: original layout */}
           <div className="flex flex-col gap-3 md:gap-4 lg:hidden">
-            {/* iPad row: image + name card */}
-            <div className="flex flex-col md:flex-row gap-3 md:gap-4">
-              <div className="rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] md:flex-shrink-0 md:w-[280px]">
-                <Image
-                  src="/founder.png"
-                  alt="Sidharth Dugar - Founder & CEO of Accountables"
-                  width={400}
-                  height={533}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-              </div>
-
-              <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
-                <div>
-                  <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
-                    Sidharth <span className="accent">Dugar</span>
-                  </h2>
-                  <p className="mt-1.5 text-[13.5px] font-medium text-[var(--brand-blue)] tracking-wide uppercase" style={{ letterSpacing: "0.06em" }}>
-                    Founder & CEO
-                  </p>
-                </div>
-                <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
-                  Building the future of modern finance operations for growing businesses.
-                </p>
-              </div>
+            {/* iPad: image row */}
+            <div className="rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)]">
+              <Image
+                src="/founder.png"
+                alt="Sidharth Dugar - Founder & CEO of Accountables"
+                width={400}
+                height={533}
+                className="w-full h-auto object-cover"
+                priority
+              />
             </div>
 
-            {/* iPad: bio card in separate row */}
+            {/* iPad: name card row */}
+            <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
+              <div>
+                <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
+                  Sidharth <span className="accent">Dugar</span>
+                </h2>
+                <p className="mt-1.5 text-[13.5px] font-medium text-[var(--brand-blue)] tracking-wide uppercase" style={{ letterSpacing: "0.06em" }}>
+                  Founder & CEO
+                </p>
+              </div>
+              <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
+                Building the future of modern finance operations for growing businesses.
+              </p>
+            </div>
+
+            {/* iPad: bio card row */}
             <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-5">
               <div className="flex flex-col gap-3">
                 <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">

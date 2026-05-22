@@ -253,8 +253,8 @@ export default function PricingPage() {
                   )}
 
                   <div className="p-10 md:p-14">
-                    {/* Inner grid: left info + right panels */}
-                    <div className="grid md:grid-cols-[1fr_1.8fr] gap-8 md:gap-10 items-start">
+                    {/* Inner layout: rows on mobile/tablet, columns on desktop */}
+                    <div className="grid lg:grid-cols-[1fr_1.8fr] gap-8 lg:gap-10 items-start">
 
                       {/* Left */}
                       <div className={t.featured ? "pt-8 md:pt-0" : ""}>
