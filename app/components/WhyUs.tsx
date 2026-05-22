@@ -45,7 +45,7 @@ export function WhyUs() {
               A process-based approach with top-notch customer service. Consider
               us your outsourced finance department - without the overhead.
             </p>
-            <a href="#contact" className="btn-ghost mt-8">
+            <a href="/#contact" className="btn-ghost mt-8">
               Talk to us today
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path

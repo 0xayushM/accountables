@@ -4,7 +4,7 @@ import ScrollRevealText from "./ScrollRevealText";
 
 // ─── Scene Illustrations ──────────────────────────────────────────────────────
 
-/** Operational Accounting — bank reconciliation transaction list */
+/** Operational Accounting - bank reconciliation transaction list */
 const SceneAccounting = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
@@ -20,28 +20,28 @@ const SceneAccounting = () => (
     <text x="20" y="48" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">DESCRIPTION</text>
     <text x="280" y="48" textAnchor="end" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">AMOUNT</text>
     <line x1="12" y1="52" x2="288" y2="52" stroke="#f1f5f9" strokeWidth="1"/>
-    {/* Row 1 — matched */}
+    {/* Row 1 - matched */}
     <circle cx="24" cy="66" r="5" fill="#22c55e"/>
     <path d="M21.2 66l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
     <text x="34" y="63" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Stripe Payment</text>
     <text x="34" y="73" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">INV-0142 · Client receipt · 15 Apr</text>
     <text x="280" y="67" textAnchor="end" fontSize="9" fill="#16a34a" fontWeight="700" fontFamily="ui-monospace,monospace">+£2,400</text>
     <line x1="16" y1="83" x2="284" y2="83" stroke="#f8fafc" strokeWidth="1"/>
-    {/* Row 2 — matched */}
+    {/* Row 2 - matched */}
     <circle cx="24" cy="97" r="5" fill="#22c55e"/>
     <path d="M21.2 97l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
     <text x="34" y="94" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">HMRC VAT Q1</text>
     <text x="34" y="104" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">Direct debit · 19 Apr 2026</text>
     <text x="280" y="98" textAnchor="end" fontSize="9" fill="#dc2626" fontWeight="700" fontFamily="ui-monospace,monospace">−£3,800</text>
     <line x1="16" y1="114" x2="284" y2="114" stroke="#f8fafc" strokeWidth="1"/>
-    {/* Row 3 — needs review */}
+    {/* Row 3 - needs review */}
     <circle cx="24" cy="128" r="5" fill="#f59e0b"/>
     <text x="24" y="132" textAnchor="middle" fontSize="9" fill="white" fontWeight="800" fontFamily="system-ui,sans-serif">!</text>
     <text x="34" y="125" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Supplier Invoice</text>
     <text x="34" y="135" fontSize="7" fill="#94a3b8" fontFamily="system-ui,sans-serif">Unmatched · needs categorisation</text>
     <text x="280" y="129" textAnchor="end" fontSize="9" fill="#64748b" fontWeight="700" fontFamily="ui-monospace,monospace">−£560</text>
     <line x1="16" y1="145" x2="284" y2="145" stroke="#f1f5f9" strokeWidth="1"/>
-    {/* Row 4 — pending */}
+    {/* Row 4 - pending */}
     <circle cx="24" cy="157" r="5" fill="#e2e8f0"/>
     <text x="34" y="154" fontSize="8.5" fill="#94a3b8" fontFamily="system-ui,sans-serif">Office Expenses</text>
     <text x="34" y="162" fontSize="7" fill="#cbd5e1" fontFamily="system-ui,sans-serif">Pending import</text>
@@ -49,12 +49,12 @@ const SceneAccounting = () => (
   </svg>
 );
 
-/** Compliance & Reporting — filing status tracker */
+/** Compliance & Reporting - filing status tracker */
 const SceneCompliance = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
-    {/* Header — dark blue */}
+    {/* Header - dark blue */}
     <rect x="12" y="8" width="276" height="26" rx="8" fill="#1d4ed8"/>
     <rect x="12" y="22" width="276" height="12" fill="#1d4ed8"/>
     <text x="20" y="25" fontSize="9" fill="white" fontWeight="700" fontFamily="system-ui,sans-serif">Compliance Tracker · FY 2026</text>
@@ -67,7 +67,7 @@ const SceneCompliance = () => (
     <text x="200" y="52" textAnchor="middle" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">DUE DATE</text>
     <text x="280" y="52" textAnchor="end" fontSize="6.5" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">STATUS</text>
     <line x1="12" y1="56" x2="288" y2="56" stroke="#e2e8f0" strokeWidth="1"/>
-    {/* Row 1 — Filed */}
+    {/* Row 1 - Filed */}
     <circle cx="24" cy="70" r="5" fill="#22c55e"/>
     <path d="M21.2 70l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
     <text x="34" y="67" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">VAT Return Q1</text>
@@ -76,7 +76,7 @@ const SceneCompliance = () => (
     <rect x="242" y="63" width="40" height="14" rx="7" fill="#dcfce7"/>
     <text x="262" y="73" textAnchor="middle" fontSize="7" fill="#16a34a" fontWeight="600" fontFamily="system-ui,sans-serif">Filed ✓</text>
     <line x1="16" y1="88" x2="284" y2="88" stroke="#f1f5f9" strokeWidth="1"/>
-    {/* Row 2 — Filed */}
+    {/* Row 2 - Filed */}
     <circle cx="24" cy="102" r="5" fill="#22c55e"/>
     <path d="M21.2 102l2.3 2.3 4.5-4.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
     <text x="34" y="99" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Payroll RTI Submission</text>
@@ -85,7 +85,7 @@ const SceneCompliance = () => (
     <rect x="242" y="95" width="40" height="14" rx="7" fill="#dcfce7"/>
     <text x="262" y="105" textAnchor="middle" fontSize="7" fill="#16a34a" fontWeight="600" fontFamily="system-ui,sans-serif">Filed ✓</text>
     <line x1="16" y1="120" x2="284" y2="120" stroke="#f1f5f9" strokeWidth="1"/>
-    {/* Row 3 — Due Soon */}
+    {/* Row 3 - Due Soon */}
     <circle cx="24" cy="134" r="5" fill="#f59e0b"/>
     <text x="24" y="138" textAnchor="middle" fontSize="9" fill="white" fontWeight="800" fontFamily="system-ui,sans-serif">!</text>
     <text x="34" y="131" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Corporation Tax</text>
@@ -100,7 +100,7 @@ const SceneCompliance = () => (
   </svg>
 );
 
-/** Planning & Finance Support — financial dashboard with KPIs + trend chart */
+/** Planning & Finance Support - financial dashboard with KPIs + trend chart */
 const ScenePlanning = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
@@ -156,12 +156,12 @@ const ScenePlanning = () => (
   </svg>
 );
 
-/** Fractional Finance Leadership — executive KPI dashboard + strategic roadmap */
+/** Fractional Finance Leadership - executive KPI dashboard + strategic roadmap */
 const SceneLeadership = () => (
   <svg viewBox="0 0 300 168" fill="none" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     {/* Card */}
     <rect x="12" y="8" width="276" height="152" rx="8" fill="white" stroke="#e2e8f0" strokeWidth="1.5"/>
-    {/* Header — dark navy */}
+    {/* Header - dark navy */}
     <rect x="12" y="8" width="276" height="26" rx="8" fill="#0b1e3f"/>
     <rect x="12" y="22" width="276" height="12" fill="#0b1e3f"/>
     <text x="20" y="25" fontSize="9" fill="white" fontWeight="700" fontFamily="system-ui,sans-serif">Finance Leadership · FY 2026</text>
@@ -179,17 +179,17 @@ const SceneLeadership = () => (
     <text x="234" y="65" textAnchor="middle" fontSize="15" fill="#0a84ff" fontWeight="700" fontFamily="system-ui,sans-serif">34.5%</text>
     {/* Section label */}
     <text x="20" y="90" fontSize="7" fill="#94a3b8" fontWeight="600" fontFamily="system-ui,sans-serif">STRATEGIC ROADMAP · Q2 2026</text>
-    {/* Milestone 1 — 100% */}
+    {/* Milestone 1 - 100% */}
     <text x="20" y="105" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Financial Model Review</text>
     <text x="280" y="105" textAnchor="end" fontSize="7.5" fill="#22c55e" fontWeight="600" fontFamily="system-ui,sans-serif">Complete</text>
     <rect x="20" y="109" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
     <rect x="20" y="109" width="260" height="5" rx="2.5" fill="#22c55e"/>
-    {/* Milestone 2 — 75% */}
+    {/* Milestone 2 - 75% */}
     <text x="20" y="127" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Board Reporting Pack</text>
     <text x="280" y="127" textAnchor="end" fontSize="7.5" fill="#1d4ed8" fontWeight="600" fontFamily="system-ui,sans-serif">In Progress</text>
     <rect x="20" y="131" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
     <rect x="20" y="131" width="195" height="5" rx="2.5" fill="#1d4ed8"/>
-    {/* Milestone 3 — 40% */}
+    {/* Milestone 3 - 40% */}
     <text x="20" y="149" fontSize="8.5" fill="#0f172a" fontWeight="600" fontFamily="system-ui,sans-serif">Cash Flow Forecast Model</text>
     <text x="280" y="149" textAnchor="end" fontSize="7.5" fill="#f59e0b" fontWeight="600" fontFamily="system-ui,sans-serif">In Progress</text>
     <rect x="20" y="153" width="260" height="5" rx="2.5" fill="#e2e8f0"/>
@@ -280,7 +280,7 @@ export function VirtualFinanceDept() {
                 href={p.href}
                 className="group flex flex-col h-full rounded-2xl overflow-hidden border border-[var(--border)] bg-white hover:shadow-[0_8px_32px_rgba(11,30,63,0.10)] transition-shadow duration-300"
               >
-                {/* Illustration panel — 30% of card */}
+                {/* Illustration panel - 30% of card */}
                 <div
                   className="relative flex-shrink-0 overflow-hidden"
                   style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", height: 110 }}

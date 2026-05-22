@@ -96,7 +96,7 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Compliance,",
       highlight: "without the scramble.",
-      body: "UK compliance including corporation tax, VAT, PAYE, R&D credits and EIS/SEIS — handled end-to-end with HMRC liaison and audit-ready records. This service is structured specifically for businesses operating within the United Kingdom.",
+      body: "UK compliance including corporation tax, VAT, PAYE, R&D credits and EIS/SEIS - handled end-to-end with HMRC liaison and audit-ready records. This service is structured specifically for businesses operating within the United Kingdom.",
     },
     deliverables: [
       { title: "Corporation tax", body: "CT600 prepared, reviewed and filed - with reliefs and credits claimed in full." },
@@ -141,7 +141,7 @@ export const SERVICES: Service[] = [
     hero: {
       title: "Finance leadership,",
       highlight: "without building a full in-house team.",
-      body: "Structured finance leadership across reporting, forecasting, operational visibility and financial decision-making — designed for growing businesses that need more than bookkeeping, but do not yet require a full internal finance department.",
+      body: "Structured finance leadership across reporting, forecasting, operational visibility and financial decision-making - designed for growing businesses that need more than bookkeeping, but do not yet require a full internal finance department.",
     },
     requirements: [
       "Financial visibility",
@@ -191,7 +191,7 @@ export const SERVICES: Service[] = [
       ["How involved is the finance leadership team in day-to-day operations?", "The level of involvement depends on operational requirements, reporting complexity and the stage of the business. Support structures are designed around ongoing coordination, visibility and finance decision-making requirements."],
       ["How does communication and reporting coordination work?", "Clients communicate directly with their Accountable Manager and finance leadership team through structured workflows designed around reporting visibility, operational coordination and ongoing finance support. Accountables One centralizes communication, reporting updates and workflow coordination within one connected operational environment."],
     ],
-    closingStatement: "Structured finance support for businesses that need more clarity, stronger reporting and better operational visibility — without building a large in-house finance department.",
+    closingStatement: "Structured finance support for businesses that need more clarity, stronger reporting and better operational visibility - without building a large in-house finance department.",
   },
 ];
 

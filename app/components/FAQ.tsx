@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "How does Accountables work with growing businesses?",
-    a: "Accountables operates as an extension of your business — supporting bookkeeping, reporting, compliance and ongoing finance coordination through a structured operating environment designed around visibility and embedded support.",
+    a: "Accountables operates as an extension of your business - supporting bookkeeping, reporting, compliance and ongoing finance coordination through a structured operating environment designed around visibility and embedded support.",
   },
   {
     q: "Do I need to change my accounting software?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "How is pricing structured?",
-    a: "Pricing is structured around operational complexity, transaction volume and reporting requirements — with support environments designed for businesses at different stages of growth.",
+    a: "Pricing is structured around operational complexity, transaction volume and reporting requirements - with support environments designed for businesses at different stages of growth.",
   },
 ];
 

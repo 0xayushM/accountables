@@ -369,7 +369,7 @@ const regions = {
 const faqs = [
   {
     q: "How does Accountables function as a virtual finance department?",
-    a: "Accountables operates as an extension of your business — supporting bookkeeping, reporting, compliance, finance coordination and operational visibility through a connected finance environment designed around ongoing support and structured execution.",
+    a: "Accountables operates as an extension of your business - supporting bookkeeping, reporting, compliance, finance coordination and operational visibility through a connected finance environment designed around ongoing support and structured execution.",
   },
   {
     q: "Do I need to change my existing accounting setup?",
@@ -385,7 +385,7 @@ const faqs = [
   },
   {
     q: "What regions does Accountables support?",
-    a: "Accountables supports businesses operating across the United Kingdom, United States and India — including businesses managing international and cross-border finance operations.",
+    a: "Accountables supports businesses operating across the United Kingdom, United States and India - including businesses managing international and cross-border finance operations.",
   },
   {
     q: "What services are included within ongoing finance support?",
@@ -446,7 +446,7 @@ export default function ServicesPage() {
                   </Link>
                   <div className="flex flex-col gap-1.5">
                     <a
-                      href="https://one.accountables.com"
+                      href="/ai"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-ghost inline-flex items-center gap-1.5 !px-6 !py-3 !text-[14.5px]"
@@ -782,7 +782,7 @@ export default function ServicesPage() {
               </RevealBlock>
               <RevealBlock delay={80}>
                 <p className="mt-4 text-[16px] leading-[1.7] text-[var(--text-secondary)]">
-                  Accountables supports businesses operating across the United Kingdom, United States and India — with experience across regional finance operations, reporting environments and compliance coordination.
+                  Accountables supports businesses operating across the United Kingdom, United States and India - with experience across regional finance operations, reporting environments and compliance coordination.
                 </p>
               </RevealBlock>
               <RevealBlock delay={120}>

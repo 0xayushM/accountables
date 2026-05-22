@@ -1,7 +1,9 @@
 export function AnnouncementBar() {
   return (
     <a
-      href="/waitlist"
+      href="https://calendly.com/accountables"
+      target="_blank"
+      rel="noopener noreferrer"
       className="announce-bar block group"
     >
       <div className="relative mx-auto max-w-7xl px-6 md:px-10 py-2.5 flex items-center justify-center gap-3 text-[12.5px] md:text-[13px]">

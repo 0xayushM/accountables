@@ -120,7 +120,7 @@ export function Services() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href="/#contact"
                 className="mt-7 inline-flex items-center gap-1.5 text-[14px] font-medium text-[var(--brand-blue)] hover:gap-2.5 transition-all"
               >
                 Learn more

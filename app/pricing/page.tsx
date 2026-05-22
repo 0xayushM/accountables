@@ -361,11 +361,13 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <InnerCTA
-        eyebrow="Not sure where to start?"
-        title="We'll recommend the right plan."
-        body="Tell us about your business, your volume, and where it hurts. We'll come back as soon as possible. with a plan and a price."
-      />
+      <section id="contact">
+        <InnerCTA
+          eyebrow="Not sure where to start?"
+          title="We'll recommend the right plan."
+          body="Tell us about your business, your volume, and where it hurts. We'll come back as soon as possible. with a plan and a price."
+        />
+      </section>
     </PageShell>
   );
 }

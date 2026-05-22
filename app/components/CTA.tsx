@@ -1,26 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import { RevealBlock } from "./RevealBlock";
-import { submitForm } from "../lib/submitForm";
 
 export function CTA() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    const fd = new FormData(e.currentTarget);
-    const data = Object.fromEntries(
-      Array.from(fd.entries()).map(([k, v]) => [k, String(v)])
-    );
-    try {
-      await submitForm("contact", data);
-    } finally {
-      setStatus("done");
-      e.currentTarget?.reset();
-    }
-  };
 
   return (
     <section id="contact" className="py-20 md:py-28">
@@ -58,36 +38,21 @@ export function CTA() {
             </RevealBlock>
             <RevealBlock delay={80}>
               <p className="mt-5 text-[16px] md:text-[18px] leading-[1.55] text-white/70 max-w-lg">
-                We&apos;ll get back to you as soon as possible.. No long contracts —
+                We&apos;ll get back to you as soon as possible.. No long contracts -
                 just clarity over your numbers.
               </p>
             </RevealBlock>
 
-            {status === "done" ? (
-              <div className="mt-8 rounded-2xl bg-white/10 border border-white/15 p-5 text-white/90 text-[14.5px]">
-                ✓ Thanks! We&apos;ll be in touch as soon as possible..
-              </div>
-            ) : (
-              <form
-                onSubmit={onSubmit}
-                className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md"
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md">
+              <a
+                href="https://calendly.com/accountables"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center px-6 rounded-full bg-white text-[var(--brand-navy)] text-[14px] font-medium hover:bg-white/90 transition-colors"
               >
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  placeholder="Your work email"
-                  className="flex-1 h-12 px-5 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/50 outline-none focus:bg-white/15 focus:border-white/40 transition-colors text-[14.5px]"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="inline-flex h-12 items-center justify-center px-6 rounded-full bg-white text-[var(--brand-navy)] text-[14px] font-medium hover:bg-white/90 transition-colors disabled:opacity-70"
-                >
-                  {status === "submitting" ? "Sending…" : "Schedule a call"}
-                </button>
-              </form>
-            )}
+                Schedule a call
+              </a>
+            </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-white/60">
               <a

@@ -140,7 +140,7 @@ export default async function CaseDetail({
                               className="flex gap-2.5 text-[14px] md:text-[15px] leading-[1.6] text-[var(--text-secondary)]"
                             >
                               <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">
-                                —
+                                -
                               </span>
                               {b}
                             </li>

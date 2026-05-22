@@ -17,7 +17,7 @@ interface ScaledFitProps {
  * Renders children at a fixed natural size, then proportionally scales them
  * down (using transform: scale) so the whole layout fits the available width.
  * Use for content that should keep its intrinsic proportions on every screen
- * — e.g. a dashboard mockup that would otherwise break or overflow on mobile.
+ * - e.g. a dashboard mockup that would otherwise break or overflow on mobile.
  */
 export function ScaledFit({
   children,

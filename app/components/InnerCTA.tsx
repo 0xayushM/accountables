@@ -45,14 +45,10 @@ export function InnerCTA({
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="/ai"
+                href="https://calendly.com/accountables"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center px-6 rounded-full bg-white text-[var(--brand-navy)] text-[14px] font-semibold hover:bg-white/90 transition-colors"
-              >
-                Join the waitlist
-              </a>
-              <a
-                href="/#contact"
-                className="inline-flex h-12 items-center justify-center px-6 rounded-full border border-white/25 text-white text-[14px] font-medium hover:bg-white/10 transition-colors"
               >
                 Schedule a call
               </a>

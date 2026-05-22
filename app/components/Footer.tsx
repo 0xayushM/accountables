@@ -64,9 +64,9 @@ export function Footer() {
               </div>
               <div className="text-[var(--text-secondary)]">
                 Call us:{" "}
-                <a href="tel:00447467348253" className="hover:text-[var(--text-primary)] transition-colors">00447467348253</a>
+                <a href="tel:+44 74673 48253" className="hover:text-[var(--text-primary)] transition-colors">+44 74673 48253</a>
                 ,{" "}
-                <a href="tel:00918882384958" className="hover:text-[var(--text-primary)] transition-colors">00918882384958</a>
+                <a href="tel:+91 88823 84958" className="hover:text-[var(--text-primary)] transition-colors">+91 88823 84958</a>
               </div>
               <div className="pt-1 space-y-2.5 flex flex-wrap gap-4">
                 <div className="min-w-[150px]">
@@ -125,12 +125,9 @@ export function Footer() {
             >
               LinkedIn
             </a>
-            <a
-              href="mailto:support@accountables.com"
-              className="hover:text-[var(--text-primary)] transition-colors"
-            >
-              Email
-            </a>
+            <p className="hover:text-[var(--text-primary)] transition-colors">
+              support@accountables.com
+            </p>
           </div>
         </div>
       </div>

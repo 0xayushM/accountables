@@ -87,7 +87,7 @@ export default async function InsightDetail({
                     key={p}
                     className="flex gap-2.5 text-[15px] md:text-[16px] leading-[1.6] text-[var(--text-secondary)]"
                   >
-                    <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">—</span>
+                    <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">-</span>
                     {p}
                   </li>
                 ))}
@@ -104,7 +104,7 @@ export default async function InsightDetail({
                     key={s}
                     className="flex gap-2.5 text-[14px] md:text-[15px] text-[var(--text-secondary)]"
                   >
-                    <span className="text-[var(--brand-blue)] shrink-0">—</span>
+                    <span className="text-[var(--brand-blue)] shrink-0">-</span>
                     {s}
                   </li>
                 ))}
@@ -194,7 +194,7 @@ export default async function InsightDetail({
                     key={p}
                     className="flex gap-3 text-[15px] md:text-[16px] leading-[1.6] text-[var(--text-secondary)]"
                   >
-                    <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">—</span>
+                    <span className="text-[var(--brand-blue)] shrink-0 mt-0.5">-</span>
                     {p}
                   </li>
                 ))}

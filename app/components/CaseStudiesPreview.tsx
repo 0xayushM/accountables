@@ -96,7 +96,7 @@ export function CaseStudiesPreview() {
               </div>
               <div>
                 <p className="text-[15px] font-semibold text-[var(--text-primary)]">More case studies in progress</p>
-                <p className="text-[13px] text-[var(--text-secondary)] mt-0.5">Additional client stories being documented — check back soon.</p>
+                <p className="text-[13px] text-[var(--text-secondary)] mt-0.5">Additional client stories being documented - check back soon.</p>
               </div>
             </div>
             <span className="pill flex-shrink-0 inline-flex items-center gap-1.5">

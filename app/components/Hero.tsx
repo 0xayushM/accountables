@@ -33,7 +33,7 @@ function DashboardMockup() {
       {/* ── Main card - window with header + content ── */}
       <div className="relative bg-white rounded-2xl shadow-2xl border border-black/[0.06] overflow-hidden">
 
-        {/* Window header — always visible across breakpoints */}
+        {/* Window header - always visible across breakpoints */}
         <div className="flex items-center justify-between border-b border-gray-100 px-3.5 py-2.5 bg-gray-50/50">
           {/* macOS window dots (close, minimize, fullscreen) */}
           <div className="flex items-center gap-1.5">
@@ -92,7 +92,7 @@ function DashboardMockup() {
             </div>
           </div>
 
-          {/* Right: permanent notification panel — hidden on mobile */}
+          {/* Right: permanent notification panel - hidden on mobile */}
           <div className="flex w-[210px] flex-shrink-0 border-l border-gray-100 px-3.5 pt-3 pb-3.5 flex-col gap-2.5">
             {/* Permanent notification card */}
             <div className="bg-white rounded-md border border-gray-100 shadow-sm p-2.5">
@@ -183,7 +183,7 @@ export function Hero() {
             {/* <p className="rise rise-5 mt-2 ml-1 text-[12.5px] text-[var(--text-muted)]">
               Powered by{" "}
               <a
-                href="https://one.accountables.com"
+                href="/ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
@@ -208,7 +208,7 @@ export function Hero() {
             {/* ── Mobile / tablet stacked layout (hidden on lg+) ── */}
             <div className="flex flex-col gap-3 lg:hidden">
 
-              {/* Swati bubble — compact */}
+              {/* Swati bubble - compact */}
               <div className="self-start bg-white rounded-2xl rounded-tl-sm shadow-xl border border-black/[0.06] p-3 max-w-[92%]">
                 <div className="flex items-center gap-2.5">
                   <div className="relative flex-shrink-0">

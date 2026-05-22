@@ -406,7 +406,7 @@ export function FinanceOrganized() {
             <p className="mt-4 text-[12.5px] text-[var(--text-muted)]">
               Powered by{" "}
               <a
-                href="https://one.accountables.com"
+                href="/ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[var(--brand-blue)] hover:underline underline-offset-2 inline-flex items-center gap-1"
