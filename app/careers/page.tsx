@@ -278,7 +278,7 @@ export default function CareersPage() {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { num: "2",    label: "Global Offices",    sub: "Glasgow & New Delhi" },
-                    { num: "UK+US", label: "Client Markets",   sub: "We Serve" },
+                    { num: "UK+US+IND", label: "Client Markets",   sub: "We Serve" },
                     { num: "5",    label: "Career Tracks",     sub: "in Finance" },
                     { num: "↑",    label: "Rapidly Growing",   sub: "Team" },
                   ].map((s) => (
@@ -303,7 +303,7 @@ export default function CareersPage() {
                     <p className="text-[14px] text-[var(--text-secondary)] mb-10 max-w-xl">Every great finance professional starts somewhere. Here&apos;s how careers typically progress within our team.</p>
 
                     {/* Desktop infographic */}
-                    <div className="hidden md:block overflow-x-auto pb-4">
+                    <div className="hidden lg:block overflow-x-auto pb-4">
                       <div className="flex items-end justify-center min-w-[680px] px-4">
                         {CAREER_PATH.map((node, i) => {
                           const col = nodeColors[i];
@@ -359,7 +359,7 @@ export default function CareersPage() {
                     </div>
 
                     {/* Mobile timeline */}
-                    <div className="flex md:hidden flex-col gap-0">
+                    <div className="flex lg:hidden flex-col gap-0">
                       {CAREER_PATH.map((node, i) => {
                         const col = nodeColors[i];
                         const isActive = node.title === "Financial Reporting Senior";

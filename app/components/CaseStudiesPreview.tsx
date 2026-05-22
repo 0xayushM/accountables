@@ -42,7 +42,7 @@ export function CaseStudiesPreview() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid lg:grid-cols-3 gap-5 lg:gap-6">
           {featured.map((c, i) => (
             <RevealBlock key={c.slug} delay={i * 80}>
             <Link

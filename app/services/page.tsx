@@ -607,10 +607,10 @@ export default function ServicesPage() {
               ].map((s, idx) => (
                 <RevealBlock key={s.number} delay={idx * 50}>
                   <div className="group rounded-2xl overflow-hidden border border-[var(--border)] bg-white hover:shadow-[0_8px_32px_rgba(11,30,63,0.09)] transition-shadow duration-300">
-                    <div className="flex flex-col md:flex-row">
+                    <div className="flex flex-col lg:flex-row">
                       {/* Illustration panel */}
                       <div
-                        className="relative flex-shrink-0 md:w-[240px] overflow-hidden"
+                        className="relative flex-shrink-0 lg:w-[240px] overflow-hidden"
                         style={{ background: "linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%)", minHeight: 160 }}
                       >
                         <s.Scene />
@@ -623,7 +623,7 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Content */}
-                      <div className="flex flex-col md:flex-row md:flex-1 gap-6 md:gap-10 p-6 md:p-8 items-start">
+                      <div className="flex flex-col lg:flex-row lg:flex-1 gap-6 lg:gap-10 p-6 lg:p-8 items-start">
                         {/* Title + body */}
                         <div className="flex-1 min-w-0">
                           <h3 className="text-[18px] md:text-[20px] font-semibold text-[var(--text-primary)] leading-snug">
@@ -635,7 +635,7 @@ export default function ServicesPage() {
                         </div>
 
                         {/* Tags + link */}
-                        <div className="flex flex-col gap-4 md:w-64 flex-shrink-0">
+                        <div className="flex flex-col gap-4 lg:w-64 flex-shrink-0">
                           <div className="flex flex-wrap gap-1.5">
                             {s.tags.map((tag) => (
                               <span key={tag} className="pill text-[11px] !py-1 !px-2.5">{tag}</span>
@@ -798,7 +798,7 @@ export default function ServicesPage() {
 
             {/* 3-column region cards */}
             <RevealBlock delay={200}>
-              <div className="grid md:grid-cols-3 gap-5">
+              <div className="grid lg:grid-cols-3 gap-5">
                 {(Object.keys(regions) as (keyof typeof regions)[]).map((region) => {
                   const r = regions[region];
                   const isActive = activeRegion === region;

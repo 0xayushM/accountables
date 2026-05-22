@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const STATS = [
-  { val: "100+",        label: "Businesses supported" },
+  { val: "100s ", label: "Businesses supported" },
   { val: "Multi-region", label: "Operational experience across the UK, US & India" },
-  { val: "End-to-end",  label: "Finance operations support" },
-  { val: "Ongoing",     label: "Reporting, compliance & finance coordination" },
+  { val: "End-to-end", label: "Finance operations support" },
+  { val: "Ongoing", label: "Reporting, compliance & finance coordination" },
 ];
 
 const VALUES = [
@@ -165,39 +165,41 @@ export default function AboutPage() {
 
       {/* ── Founder ──────────────────────────────────────────── */}
       <section className="py-24 md:py-32 bg-[var(--surface-soft)] border-b border-[var(--border)]">
+        
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <span className="pill mb-8 block w-fit">Founder</span>
 
-          {/* Bento grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[280px_1fr_192px] gap-3 md:gap-4">
+          {/* Mobile: stacked, iPad: image+name row, Desktop: original layout */}
+          <div className="flex flex-col gap-3 md:gap-4 lg:hidden">
+            {/* iPad row: image + name card */}
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+              <div className="rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] md:flex-shrink-0 md:w-[280px]">
+                <Image
+                  src="/founder.png"
+                  alt="Sidharth Dugar - Founder & CEO of Accountables"
+                  width={400}
+                  height={533}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
 
-            {/* ① Photo — spans 2 rows on lg, full width on sm */}
-            <div className="sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] relative min-h-[420px] lg:min-h-0">
-              <Image
-                src="/founder.png"
-                alt="Sidharth Dugar - Founder & CEO of Accountables"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-
-            {/* ② Name + headline */}
-            <div className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
-              <div>
-                <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
-                  Sidharth <span className="accent">Dugar</span>
-                </h2>
-                <p className="mt-1.5 text-[13.5px] font-medium text-[var(--brand-blue)] tracking-wide uppercase" style={{ letterSpacing: "0.06em" }}>
-                  Founder & CEO
+              <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-4">
+                <div>
+                  <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
+                    Sidharth <span className="accent">Dugar</span>
+                  </h2>
+                  <p className="mt-1.5 text-[13.5px] font-medium text-[var(--brand-blue)] tracking-wide uppercase" style={{ letterSpacing: "0.06em" }}>
+                    Founder & CEO
+                  </p>
+                </div>
+                <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
+                  Building the future of modern finance operations for growing businesses.
                 </p>
               </div>
-              <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
-                Building the future of modern finance operations for growing businesses.
-              </p>
             </div>
 
-            {/* ④ Bio + tags */}
+            {/* iPad: bio card in separate row */}
             <div className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-7 flex flex-col justify-between gap-5">
               <div className="flex flex-col gap-3">
                 <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
@@ -205,7 +207,7 @@ export default function AboutPage() {
                 </p>
                 <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
                   Focused on combining finance expertise, operational systems and technology through{" "}
-                  <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1"> 
+                  <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1">
                     <img src="/prod_icon.svg" alt="" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.0em" }} />
                   </span>
                   {" "}- with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
@@ -217,22 +219,59 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
+          </div>
 
-            {/* ⑤ Mission tile */}
-            <div
-              className="rounded-2xl p-6 flex flex-col justify-between gap-4"
-              style={{ background: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)" }}
-            >
-              <span
-                className="h-9 w-9 rounded-xl flex items-center justify-center"
-                style={{ background: "white", boxShadow: "0 1px 4px rgba(11,30,63,0.08)" }}
-                aria-hidden
-              >
-                <img src="/prod_icon.svg" alt="" style={{ width: 22, height: 22 }} />
-              </span>
-              <p className="text-[13.5px] leading-[1.7] text-[var(--brand-navy)] font-medium">
-                "Growing businesses deserve a finance function built for the way they actually operate."
-              </p>
+          {/* Desktop: original bento layout */}
+          <div className="hidden lg:flex lg:gap-4">
+
+            {/* ① Photo */}
+            <div className="rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_8px_32px_rgba(11,30,63,0.08)] lg:w-[320px]">
+              <Image
+                src="/founder.png"
+                alt="Sidharth Dugar - Founder & CEO of Accountables"
+                width={400}
+                height={550}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+
+            {/* ② Name + headline + bio */}
+            <div className="flex flex-col gap-4 flex-1">
+              <div className="rounded-2xl border border-[var(--border)] bg-white p-6 lg:p-7 flex flex-col justify-between gap-4">
+                <div>
+                  <h2 className="display text-[26px] sm:text-[30px] md:text-[34px] font-semibold text-[var(--text-primary)] leading-[1.04]">
+                    Sidharth <span className="accent">Dugar</span>
+                  </h2>
+                  <p className="mt-1.5 text-[13.5px] font-medium text-[var(--brand-blue)] tracking-wide uppercase" style={{ letterSpacing: "0.06em" }}>
+                    Founder & CEO
+                  </p>
+                </div>
+                <p className="text-[14px] leading-[1.7] text-[var(--text-secondary)]">
+                  Building the future of modern finance operations for growing businesses.
+                </p>
+              </div>
+
+              {/* ④ Bio + tags */}
+              <div className="rounded-2xl border border-[var(--border)] bg-white p-6 lg:p-7 flex flex-col justify-between gap-5">
+                <div className="flex flex-col gap-3">
+                  <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
+                    Chartered Accountant and MBA with experience across finance operations, reporting and compliance environments supporting businesses across the UK, US and India.
+                  </p>
+                  <p className="text-[14px] leading-[1.75] text-[var(--text-secondary)]">
+                    Focused on combining finance expertise, operational systems and technology through{" "}
+                    <span className="font-semibold text-[var(--text-primary)] inline-flex items-center gap-1">
+                      <img src="/prod_icon.svg" alt="" style={{ display: "inline-block", height: "1em", width: "auto", verticalAlign: "-0.0em" }} />
+                    </span>
+                    {" "}- with the belief that modern finance functions need to evolve alongside connected workflows and AI-enabled operations.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Chartered Accountant", "MBA", "UK · US · India", "Outsourced Finance"].map((tag) => (
+                    <span key={tag} className="pill text-[12px]">{tag}</span>
+                  ))}
+                </div>
+              </div>
             </div>
 
           </div>

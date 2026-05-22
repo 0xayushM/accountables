@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -24,7 +25,7 @@ const AI_FEATURES: DropItem[] = [
 
 const ABOUT_ITEMS: DropItem[] = [
   { label: "About Accountables", desc: "Our mission and the team behind it", href: "/about" },
-  { label: "Customer Stories", desc: "Hear from 100+ businesses we've served", href: "/case-studies" },
+  { label: "Customer Stories", desc: "Hear from 100s  businesses we've served", href: "/case-studies" },
   { label: "Insights", desc: "Frameworks, checklists and playbooks from the Accountables team", href: "/insights" },
   // { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },
   // { label: "Press", desc: "Latest news and updates", href: "/press" },
@@ -51,13 +52,7 @@ const SERVICE_ITEMS: DropItem[] = [
     icon: "⊞",
   },
   {
-    label: "Planning & Finance Support",
-    desc: "Forecasting, KPI reporting and cash flow visibility",
-    href: "/services/financial-analysis",
-    icon: "╱",
-  },
-  {
-    label: "Fractional CFO Support",
+    label: "CFO & FP&A",
     desc: "Strategic finance oversight for growing businesses",
     href: "/services/cfo-advisory",
     icon: "◇",
@@ -309,6 +304,14 @@ export function Navbar() {
   const pageDark = ["/ai"].some((r) => pathname.startsWith(r));
   const logoSrc = pageDark ? "/dark_logo.png" : "/light_logo.png";
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      closeAll();
+    }
+  };
+
   const headerStateClass = scrolled
     ? "scrolled bg-white border-b border-black/[0.07] shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
     : activeDrop || mobileOpen
@@ -324,10 +327,10 @@ export function Navbar() {
     <header
       className={`site-nav sticky top-0 left-0 right-0 z-50 transition-all duration-200 ${headerStateClass}`}
     >
-      <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <div className="flex h-16 md:h-[66px] items-center justify-between">
+      <div className="mx-auto max-w-7xl px-5 lg:px-10">
+        <div className="flex h-16 lg:h-[66px] items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0" aria-label="Accountables home">
+          <Link href="/" className="flex items-center flex-shrink-0" aria-label="Accountables home" onClick={handleLogoClick}>
             <Image
               src={logoSrc}
               alt="Accountables"
@@ -339,11 +342,11 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-0.5" onMouseLeave={scheduleHide}>
-            <Link href="/services" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("services")}>
+          <nav className="hidden lg:flex items-center gap-0.5" onMouseLeave={scheduleHide}>
+            <Link href="/services" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("services")} onClick={closeAll}>
               Services <Chevron open={activeDrop === "services"} />
             </Link>
-            <Link href="/ai" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("ai")}>
+            <Link href="/ai" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("ai")} onClick={closeAll}>
               <img src="/prod_icon.svg" alt="AI" style={{ height: '1.1em', width: 'auto', verticalAlign: '-0.15em', filter: pageDark ? 'brightness(0) invert(1)' : 'none', opacity: 0.75 }} />
               <Chevron open={activeDrop === "ai"} />
             </Link>
@@ -361,13 +364,13 @@ export function Navbar() {
             >
               Careers
             </Link>
-            <Link href="/about" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("about")}>
+            <Link href="/about" className={`${linkBase} ${linkColor}`} onMouseEnter={() => show("about")} onClick={closeAll}>
               About <Chevron open={activeDrop === "about"} />
             </Link>
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             <Link
               href="/ai"
               className="h-9 px-4 rounded-full text-[12.5px] font-semibold transition-colors inline-flex items-center bg-[var(--nav-cta-bg)] text-[var(--nav-cta-text)] hover:bg-[var(--nav-cta-bg-hover)]"
@@ -386,7 +389,7 @@ export function Navbar() {
           <button
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((o) => !o)}
-            className={`md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+            className={`lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
               bgIsWhite ? "border-black/10 text-[#0a0e1a]" : "border-[var(--border-strong)] text-[var(--text-primary)]"
             }`}
           >
@@ -410,7 +413,7 @@ export function Navbar() {
           onMouseEnter={clearHide}
           onMouseLeave={scheduleHide}
         >
-          <div className="mx-auto max-w-7xl px-5 md:px-10 py-3">
+          <div className="mx-auto max-w-7xl px-5 lg:px-10 py-3">
             {activeDrop === "services" && <ServicesPanel close={closeAll} dark={pageDark} />}
             {activeDrop === "ai" && <AiPanel close={closeAll} dark={pageDark} />}
             {activeDrop === "about" && <AboutPanel close={closeAll} dark={pageDark} />}
@@ -420,18 +423,24 @@ export function Navbar() {
 
       {/* ── Mobile drawer ── */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 bg-white border-t border-black/[0.06] ${
-          mobileOpen ? "max-h-[640px] opacity-100" : "max-h-0 opacity-0"
+        className={`nav-mobile-drawer lg:hidden transition-[max-height,opacity] duration-300 bg-[var(--surface)] border-t border-[var(--border)] overflow-y-auto ${
+          mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         <nav className="px-6 py-4 flex flex-col gap-0.5">
           {/* Services */}
-          <button
-            className="flex items-center justify-between w-full py-3 text-[15px] text-[var(--text-primary)] font-medium"
-            onClick={() => setMobileExpanded(mobileExpanded === "services" ? null : "services")}
-          >
-            Services <Chevron open={mobileExpanded === "services"} />
-          </button>
+          <div className="flex items-center justify-between w-full py-1">
+            <Link href="/services" onClick={closeAll}
+              className="flex-1 py-2 text-[15px] text-[var(--text-primary)] font-medium">
+              Services
+            </Link>
+            <button
+              onClick={() => setMobileExpanded(mobileExpanded === "services" ? null : "services")}
+              className="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[var(--surface-soft)] text-[var(--text-secondary)]"
+            >
+              <Chevron open={mobileExpanded === "services"} />
+            </button>
+          </div>
           {mobileExpanded === "services" && (
             <div className="pl-3 pb-2 flex flex-col">
               {SERVICE_ITEMS.map((item) => (
@@ -445,13 +454,18 @@ export function Navbar() {
           )}
 
           {/* AI */}
-          <button
-            className="flex items-center justify-between w-full py-3 text-[15px] text-[var(--text-primary)] font-medium"
-            onClick={() => setMobileExpanded(mobileExpanded === "ai" ? null : "ai")}
-          >
-            <img src="/prod_icon.svg" alt="AI" style={{ height: '1.1em', width: 'auto', verticalAlign: '-0.15em', filter: pageDark ? 'brightness(0) invert(1)' : 'none', opacity: 0.75 }} />
+          <div className="flex items-center justify-between w-full py-1">
+            <Link href="/ai" onClick={closeAll}
+              className="flex-1 py-2 text-[15px] text-[var(--text-primary)] font-medium flex items-center gap-1.5">
+              <img src="/prod_icon.svg" alt="AI" style={{ height: '1.1em', width: 'auto', verticalAlign: '-0.15em', filter: pageDark ? 'brightness(0) invert(1)' : 'none', opacity: 0.75 }} />
+            </Link>
+            <button
+              onClick={() => setMobileExpanded(mobileExpanded === "ai" ? null : "ai")}
+              className="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[var(--surface-soft)] text-[var(--text-secondary)]"
+            >
               <Chevron open={mobileExpanded === "ai"} />
-          </button>
+            </button>
+          </div>
           {mobileExpanded === "ai" && (
             <div className="pl-3 pb-2 flex flex-col">
               {AI_FEATURES.map((item) => (
@@ -475,12 +489,18 @@ export function Navbar() {
           </Link>
 
           {/* About */}
-          <button
-            className="flex items-center justify-between w-full py-3 text-[15px] text-[var(--text-primary)] font-medium"
-            onClick={() => setMobileExpanded(mobileExpanded === "about" ? null : "about")}
-          >
-            About <Chevron open={mobileExpanded === "about"} />
-          </button>
+          <div className="flex items-center justify-between w-full py-1">
+            <Link href="/about" onClick={closeAll}
+              className="flex-1 py-2 text-[15px] text-[var(--text-primary)] font-medium">
+              About
+            </Link>
+            <button
+              onClick={() => setMobileExpanded(mobileExpanded === "about" ? null : "about")}
+              className="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[var(--surface-soft)] text-[var(--text-secondary)]"
+            >
+              <Chevron open={mobileExpanded === "about"} />
+            </button>
+          </div>
           {mobileExpanded === "about" && (
             <div className="pl-3 pb-2 flex flex-col">
               {ABOUT_ITEMS.map((item) => (
@@ -494,11 +514,11 @@ export function Navbar() {
 
           <div className="mt-4 pt-4 border-t border-[var(--border)] flex flex-col gap-2.5">
             <Link href="/ai" onClick={closeAll}
-              className="inline-flex items-center justify-center w-full h-11 rounded-full bg-[var(--brand-navy)] text-white text-[13px] font-semibold">
+              className="inline-flex items-center justify-center w-full h-11 rounded-full bg-[var(--nav-cta-bg)] text-[var(--nav-cta-text)] text-[13px] font-semibold">
               Free Trial
             </Link>
             <Link href="/#contact" onClick={closeAll}
-              className="inline-flex items-center justify-center w-full h-11 rounded-full border border-[var(--border-strong)] text-[var(--text-primary)] text-[13px] font-semibold hover:bg-[var(--surface-soft)] transition-colors">
+              className="inline-flex items-center justify-center w-full h-11 rounded-full border border-[var(--nav-ghost-border)] text-[var(--nav-ghost-text)] text-[13px] font-semibold hover:bg-[var(--nav-ghost-hover-bg)] transition-colors">
               Schedule Call
             </Link>
           </div>

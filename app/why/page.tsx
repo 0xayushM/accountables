@@ -145,7 +145,7 @@ export default function WhyPage() {
           </div>
           <div className="mt-12 grid sm:grid-cols-3 gap-5 md:gap-6">
             {[
-              { k: "100+", v: "Businesses served" },
+              { k: "100s ", v: "Businesses served" },
               { k: "20+", v: "Countries supported" },
               { k: "98%", v: "Client retention" },
             ].map((s) => (

@@ -144,7 +144,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 md:px-10">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-12 lg:gap-20 items-center">
           {/* ── Left: copy ── */}
-          <div className="min-w-0">
+          <div className="min-w-0 max-lg:text-center">
             {/* Headline */}
             <h1 className="rise rise-2 display text-[52px] sm:text-[60px] md:text-[72px] lg:text-[84px] font-semibold text-[var(--text-primary)] leading-[1.02]">
               Modern<br/>
@@ -154,12 +154,12 @@ export function Hero() {
             </h1>
 
             {/* Sub-copy */}
-            <p className="rise rise-3 mt-5 sm:mt-6 text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-[var(--text-secondary)] max-w-md">
+            <p className="rise rise-3 mt-5 sm:mt-6 text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-[var(--text-secondary)] max-w-md max-lg:mx-auto">
               Designed around connected finance operations.
             </p>
 
             {/* CTAs */}
-            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-2">
+            <div className="rise rise-4 mt-7 sm:mt-8 flex flex-wrap items-center gap-2 max-lg:justify-center">
               <Link
                 href="/#contact"
                 className="btn-primary !px-6 sm:!px-7 !py-3 !text-[14px] sm:!text-[14.5px]"
@@ -236,7 +236,7 @@ export function Hero() {
               </ScaledFit>
 
               {/* Bottom row: pill + client reply */}
-              <div className="flex items-center justify-end gap-2">
+              <div className="flex items-center justify-center gap-2">
                 {/* Client reply bubble */}
                 <div className="bg-white rounded-2xl rounded-br-sm shadow-xl border border-black/[0.06] p-3 flex items-center gap-2 shrink-0">
                   <p className="text-[11px] leading-[1.45] text-gray-800 max-w-[120px]">
