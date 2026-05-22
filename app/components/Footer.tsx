@@ -17,7 +17,7 @@ export function Footer() {
       title: "Company",
       links: [
         { label: "About us", href: "/about" },
-        { label: "Why us", href: "/why" },
+        // { label: "Why us", href: "/why" },
         { label: "Careers", href: "/careers" },
         { label: "Pricing", href: "/pricing" },
       ],

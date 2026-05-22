@@ -89,7 +89,7 @@ const tiers = [
       "Operational dashboards",
     ],
     scope: [
-      "Designed for businesses above £1m annual turnover.",
+      "Designed for businesses above £2mn annual turnover.",
     ],
     addon: null as string | null,
     suitedFor: null as string | null,
@@ -117,7 +117,7 @@ const tiers = [
     ],
     scope: [] as string[],
     addon: null as string | null,
-    suitedFor: "Businesses above £2m annual turnover or requiring a more embedded finance function." as string | null,
+    suitedFor: "Businesses above £2mn annual turnover or requiring a more embedded finance function." as string | null,
   },
 ];
 
