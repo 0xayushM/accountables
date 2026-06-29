@@ -3,15 +3,18 @@
 import { useState } from "react";
 import {
   LuClipboardList, LuBriefcase, LuChartBar, LuTrendingUp,
-  LuAward, LuUsers,
+  LuAward, LuUsers, LuMapPin, LuClock, LuGraduationCap, LuGlobe, LuArrowRight,
 } from "react-icons/lu";
 import type { IconType } from "react-icons";
+import Link from "next/link";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { RevealBlock } from "../components/RevealBlock";
+import { JobApplyForm } from "../components/JobApplyForm";
 import Image from "next/image";
 import { submitForm } from "../lib/submitForm";
+import { OPENINGS } from "../data/openings";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -109,28 +112,7 @@ const CAREER_PATH: { Icon: IconType; title: string; exp: string }[] = [
 
 // ─── Apply Modal ──────────────────────────────────────────────────────────────
 
-function ApplyModal({ role, onClose }: { role: string; onClose: () => void }) {
-  const [resumeFile, setResumeFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    const fd = new FormData(e.currentTarget);
-    const data = Object.fromEntries(
-      Array.from(fd.entries())
-        .filter(([k]) => k !== "resume")
-        .map(([k, v]) => [k, String(v)])
-    );
-    data.role = role;
-    try {
-      await submitForm("careers-apply", data, resumeFile ?? undefined);
-      setStatus("done");
-    } catch {
-      setStatus("idle");
-    }
-  };
-
+function ApplyModal({ role, location = "New Delhi", onClose }: { role: string; location?: string; onClose: () => void }) {
   return (
     <div
       className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm"
@@ -139,58 +121,8 @@ function ApplyModal({ role, onClose }: { role: string; onClose: () => void }) {
       <div className="bg-white rounded-[20px] p-10 w-full max-w-[520px] mx-4 relative max-h-[90vh] overflow-y-auto shadow-2xl">
         <button onClick={onClose} className="absolute top-5 right-5 text-[var(--text-muted)] hover:text-[var(--text-primary)] text-xl leading-none">✕</button>
         <h2 className="display text-[26px] font-semibold text-[var(--text-primary)] mb-1">Apply Now</h2>
-        <p className="text-[13px] text-[var(--text-muted)] mb-7">{role} · New Delhi</p>
-        {status === "done" ? (
-          <div className="flex flex-col items-center gap-4 py-8">
-            <div className="h-12 w-12 rounded-full bg-emerald-500 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </div>
-            <p className="text-[15px] font-semibold text-[var(--text-primary)]">Application submitted!</p>
-            <p className="text-[13px] text-[var(--text-muted)] text-center">Our team will review and reach out within 3 business days.</p>
-            <button onClick={onClose} className="btn-ghost !h-10 !text-[13px]">Close</button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="grid grid-cols-2 gap-3">
-              <FormField label="Full Name *" name="full_name" type="text" placeholder="Your full name" />
-              <FormField label="Email Address *" name="email" type="email" placeholder="you@example.com" />
-            </div>
-            <FormField label="Phone Number" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" />
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-semibold text-[var(--text-primary)]">CA Status *</label>
-              <select name="ca_status" className="w-full h-10 px-3 border border-[var(--border)] rounded-xl text-[13.5px] text-[var(--text-primary)] bg-[var(--surface-soft)] outline-none focus:border-[var(--brand-blue)] transition-colors">
-                <option value="">Select your qualification</option>
-                <option>Qualified CA</option>
-                <option>Semi-qualified CA (Inter / IPCC cleared)</option>
-                <option>CA Final Appearing</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-semibold text-[var(--text-primary)]">Resume / CV *</label>
-              <label className="border-2 border-dashed border-[var(--border)] rounded-xl p-4 text-center cursor-pointer hover:border-[var(--brand-blue)] transition-colors">
-                <input type="file" accept=".pdf,.doc,.docx" className="hidden"
-                  onChange={(e) => { const f = e.target.files?.[0]; if (f) setResumeFile(f); }} />
-                {resumeFile
-                  ? <p className="text-[13px] text-[var(--brand-blue)] font-medium">✓ {resumeFile.name}</p>
-                  : <p className="text-[12.5px] text-[var(--text-muted)]"><span className="font-semibold text-[var(--brand-blue)]">Click to upload</span> or drag & drop<br />PDF or DOCX, max 5 MB</p>
-                }
-              </label>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-semibold text-[var(--text-primary)]">Why Accountables? (optional)</label>
-              <textarea name="why_accountables" rows={3} placeholder="Tell us what excites you about this role..."
-                className="w-full px-3 py-2.5 border border-[var(--border)] rounded-xl text-[13.5px] text-[var(--text-primary)] bg-[var(--surface-soft)] outline-none focus:border-[var(--brand-blue)] transition-colors resize-none" />
-            </div>
-            <button
-              type="submit"
-              disabled={status === "submitting"}
-              className="btn-primary w-full justify-center !h-11"
-            >
-              {status === "submitting" ? "Submitting…" : "Submit Application"}
-            </button>
-          </form>
-        )}
+        <p className="text-[13px] text-[var(--text-muted)] mb-7">{role} · {location}</p>
+        <JobApplyForm role={role} location={location} />
       </div>
     </div>
   );
@@ -212,7 +144,7 @@ export default function CareersPage() {
   const [openRole, setOpenRole] = useState<string | null>(null);
   const [expressResumeFile, setExpressResumeFile] = useState<File | null>(null);
   const [expressRole, setExpressRole] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [modalJob, setModalJob] = useState<{ role: string; location: string } | null>(null);
   const [expressStatus, setExpressStatus] = useState<"idle" | "submitting" | "done">("idle");
 
   const handleExpressSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -242,7 +174,7 @@ export default function CareersPage() {
     <>
       <AnnouncementBar />
       <Navbar />
-      {showModal && <ApplyModal role="Financial Reporting Senior" onClose={() => setShowModal(false)} />}
+      {modalJob && <ApplyModal role={modalJob.role} location={modalJob.location} onClose={() => setModalJob(null)} />}
 
       <main>
         {/* Page header */}
@@ -286,6 +218,82 @@ export default function CareersPage() {
                       <p className="display text-[28px] font-semibold text-[var(--brand-blue)] leading-none mb-2">{s.num}</p>
                       <p className="text-[12.5px] font-semibold text-[var(--text-primary)]">{s.label}</p>
                       <p className="text-[11px] text-[var(--text-muted)] mt-0.5">{s.sub}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </RevealBlock>
+
+            {/* Current openings */}
+            <RevealBlock delay={0}>
+              <div className="mb-16">
+                <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+                  <div>
+                    <span className="pill mb-4 block w-fit">Current Openings</span>
+                    <h3 className="display text-[26px] md:text-[32px] font-semibold text-[var(--text-primary)] mb-2">Current Openings at Accountables</h3>
+                    <p className="text-[14px] text-[var(--text-secondary)] max-w-xl">
+                      Join a team that partners with founders, CFOs and high-growth businesses across the UK, US and India.
+                    </p>
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.12em] rounded-full px-3 py-1.5 whitespace-nowrap" style={{ color: "#065f46", background: "#d1fae5", border: "1.5px solid #34d399" }}>
+                    {OPENINGS.length} Open Position{OPENINGS.length === 1 ? "" : "s"} Available
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {OPENINGS.map((job) => (
+                    <div key={job.slug} className="card overflow-hidden">
+                      <div className="grid lg:grid-cols-[1.4fr_1fr] gap-0">
+                        {/* Left: title + meta + responsibilities */}
+                        <div className="p-7 md:p-8">
+                          <div className="flex items-start gap-4">
+                            <div className="h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-[#0b1e3f] to-[#1d4ed8]">
+                              <LuTrendingUp size={22} color="#fff" />
+                            </div>
+                            <div>
+                              <h4 className="text-[18px] font-semibold text-[var(--text-primary)] leading-snug">{job.title}</h4>
+                              <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-2.5">
+                                <span className="flex items-center gap-1.5 text-[12.5px] text-[var(--text-secondary)]"><LuMapPin size={13} className="text-[var(--brand-blue)]" />{job.location}</span>
+                                <span className="flex items-center gap-1.5 text-[12.5px] text-[var(--text-secondary)]"><LuClock size={13} className="text-[var(--brand-blue)]" />{job.type}</span>
+                                <span className="flex items-center gap-1.5 text-[12.5px] text-[var(--text-secondary)]"><LuGraduationCap size={13} className="text-[var(--brand-blue)]" />{job.qualification}</span>
+                                <span className="flex items-center gap-1.5 text-[12.5px] text-[var(--text-secondary)]"><LuGlobe size={13} className="text-[var(--brand-blue)]" />{job.exposure}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="mt-6">
+                            <p className="text-[11px] tracking-[0.14em] uppercase font-bold text-[var(--brand-navy)] mb-3">You&apos;ll Be Responsible For</p>
+                            <ul className="grid sm:grid-cols-2 gap-x-5 gap-y-2">
+                              {job.responsibilities.map((item) => (
+                                <li key={item} className="flex gap-2.5 items-start">
+                                  <span className="flex-shrink-0 h-4 w-4 rounded-full bg-[var(--brand-blue)] flex items-center justify-center text-white mt-0.5">
+                                    <svg width="8" height="8" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                  </span>
+                                  <span className="text-[12.5px] leading-[1.5] text-[var(--text-primary)]">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Right: skills + actions */}
+                        <div className="p-7 md:p-8 border-t lg:border-t-0 lg:border-l border-[var(--border)] bg-[var(--surface-soft)]/40 flex flex-col">
+                          <p className="text-[11px] tracking-[0.14em] uppercase font-bold text-[var(--brand-navy)] mb-3">Skills Required</p>
+                          <div className="flex flex-wrap gap-2">
+                            {job.skills.map((s) => (
+                              <span key={s} className="text-[11.5px] font-medium text-[var(--text-secondary)] bg-white border border-[var(--border)] rounded-full px-3 py-1 leading-none">{s}</span>
+                            ))}
+                          </div>
+                          <div className="flex flex-wrap gap-2.5 mt-auto pt-7">
+                            <a href={job.applyUrl || undefined} target="_blank" rel="noopener noreferrer" className="btn-primary !h-10 !text-[13px] inline-flex items-center">
+                              Apply Now →
+                            </a>
+                            <Link href={`/careers/${job.slug}`} className="btn-ghost !h-10 !text-[13px] inline-flex items-center gap-1.5">
+                              View Full Job Description <LuArrowRight size={14} />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -505,7 +513,7 @@ export default function CareersPage() {
                             </div>
                             <div className="flex flex-wrap gap-2.5 px-6 pb-6 pt-0">
                               {role.hiring && (
-                                <button onClick={() => setShowModal(true)} className="btn-primary !h-10 !text-[13px]">
+                                <button onClick={() => setModalJob({ role: role.title, location: "New Delhi" })} className="btn-primary !h-10 !text-[13px]">
                                   Apply Now →
                                 </button>
                               )}
