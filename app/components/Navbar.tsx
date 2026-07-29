@@ -25,6 +25,7 @@ const AI_FEATURES: DropItem[] = [
 
 const ABOUT_ITEMS: DropItem[] = [
   { label: "About Accountables", desc: "Our mission and the team behind it", href: "/about" },
+  { label: "QMS & ISMS", desc: "Our ISO-certified quality and information security standards", href: "/about/quality-security" },
   { label: "Customer Stories", desc: "Hear from 100s of businesses we've served", href: "/case-studies" },
   { label: "Insights", desc: "Frameworks, checklists and playbooks from the Accountables team", href: "/insights" },
   // { label: "Frequently Asked Questions", desc: "Answers to common questions", href: "/#faqs" },

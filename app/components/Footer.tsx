@@ -17,6 +17,7 @@ export function Footer() {
       title: "Company",
       links: [
         { label: "About us", href: "/about" },
+        { label: "QMS & ISMS", href: "/about/quality-security" },
         // { label: "Why us", href: "/why" },
         { label: "Careers", href: "/careers" },
         { label: "Pricing", href: "/pricing" },
